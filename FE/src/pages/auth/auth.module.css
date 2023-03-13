@@ -1,0 +1,12 @@
+.authBox {
+  text-align: center;
+  width: 70%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.authItems {
+  text-align: inherit;
+  width: 100%;
+  max-width: 1440px;
+}
