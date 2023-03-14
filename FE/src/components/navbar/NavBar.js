@@ -1,32 +1,29 @@
-import NavBottom from "./navbottom/NavBottom";
-import NavTop from "./navtop/NavTop";
-// import NavAuth from "./NavAuth";
-
+import { useNavigate } from "react-router-dom";
+// import components
+import NavLeft from "./navleft/NavLeft";
+import NavRight from "./navright/NavRight";
+import NavDropDown from "./navDropDown/NavDropDown";
+// import img
 import logo from "../../assets/logo.png";
-
+// import css style
 import classes from "./NavBar.module.css";
-// import { useLocation } from "react-router-dom";
-// import { useEffect, useState } from "react";
 
 const NavBar = () => {
-  // const locate = useLocation();
+  const navigate = useNavigate();
 
-  // const [isAuth, setIsAuth] = useState(false);
+  const toHome = () => {
+    navigate("/");
+  };
 
-  // useEffect(()=>{
-  //   if(locate.pathname.slice(0,5) === "/auth"){
-  //     setIsAuth(true)
-  //   }else{
-  //     setIsAuth(false)
-  //   }
-  //   console.log(isAuth);
-  // })
   return (
     <div className={classes.navBar}>
-      <img src={logo} alt="logo" />
+      <div className={classes.navDropDown}>
+        <NavDropDown />
+      </div>
+      <img src={logo} alt="logo" onClick={toHome} />
       <div className={classes.navBarItems}>
-        <NavTop />
-        <NavBottom />
+        <NavLeft />
+        <NavRight />
       </div>
     </div>
   );

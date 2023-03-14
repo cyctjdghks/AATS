@@ -12,8 +12,7 @@ import {
 } from "redux-persist";
 
 import authReducer from "./auth";
-import commuteReducer from "./commute"
-
+import commuteReducer from "./commute";
 
 const persistConfig = {
   key: "root",

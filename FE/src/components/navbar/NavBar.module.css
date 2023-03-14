@@ -15,7 +15,31 @@
 }
 
 .navBarItems {
-  width: 70%;
-  max-width: 1344px;
+  display: flex;
+  width: 90%;
   margin-right: 70px;
+  align-items: center;
+}
+.navDropDown {
+  display: none;
+}
+/* 모바일 환경 */
+@media screen and (max-width: 768px) {
+  .navBar {
+    justify-content: center;
+  }
+  .navBar img {
+    margin-left: 0;
+  }
+  .navBarItems {
+    display: none;
+  }
+  .navDropDown {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+  }
 }

@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+// import css style
 import "./index.css";
-// router
+// import router
 import { BrowserRouter } from "react-router-dom";
-// redux
+// import redux
 import { Provider } from "react-redux";
-// redux-persiste
+// import redux-persiste
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
-// store
+// import store
 import store from "./store/index";
 
 export let persistor = persistStore(store);

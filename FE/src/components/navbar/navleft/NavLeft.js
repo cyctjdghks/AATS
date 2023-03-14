@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
+// import css style
+import classes from "./NavLeft.module.css";
 
-import classes from "./NavBottom.module.css";
-
-const NavBottom = () => {
+const NavLeft = () => {
   const navigate = useNavigate();
 
   const toHome = () => {
@@ -14,14 +14,18 @@ const NavBottom = () => {
   const toContact = () => {
     navigate("/contact");
   };
+  const toAboutUs = () => {
+    navigate("/aboutus");
+  };
 
   return (
-    <div className={classes.navBottom}>
+    <div className={classes.navLeft}>
       <p onClick={toHome}>Home</p>
       <p onClick={toSolutions}>Solutions</p>
       <p onClick={toContact}>Contact</p>
+      <p onClick={toAboutUs}>About Us</p>
     </div>
   );
 };
 
-export default NavBottom;
+export default NavLeft;
