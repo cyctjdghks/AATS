@@ -1,5 +1,3 @@
-#server.port=
-
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
@@ -18,3 +16,21 @@ spring:
 server:
   ssl:
     enabled: false
+  port: 80
+
+  # swaggerdoc
+  spring-doc:
+    version: v1.0.0
+    packages-to-scan: com.example.swagger3test
+    swagger-ui:
+      path: /api-docs
+      tags-sorter: alpha
+      operations-sorter: alpha
+    api-docs:
+        path: /api-docs/json
+        groups:
+          enabled: true
+    cache:
+      disabled: true
+    default-consumes-media-type: application/json;charset=UTF-8
+    default-produces-media-type: application/json;charset=UTF-8
