@@ -1,14 +1,13 @@
-.navTop {
+.navRight {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   height: 30px;
-  width: 100%;
-  max-width: 1,344px;
+  width: 20%;
 }
 
-.navTop p{
-  padding-top: 20px;
-  margin: 0 20px 0 0;
+.navRight p {
+  margin: 0 0 0 20px;
   font-size: 15px;
+  cursor: pointer;
 }

@@ -1,0 +1,14 @@
+.navLeft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 70px;
+  width: 80%;
+  margin-left: 10px;
+}
+
+.navLeft p {
+  margin: 0 0 0 15px;
+  font-size: 24px;
+  cursor: pointer;
+}

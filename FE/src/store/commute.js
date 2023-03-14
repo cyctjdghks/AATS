@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  userDatas : null,
-}
+  userDatas: null,
+};
 
 const commuteSlice = createSlice({
-  name: 'commute',
+  name: "commute",
   initialState,
-  reducers :{
-    getData(state, action){
-      state.userDatas = action.payload
-    }
-  }
-})
+  reducers: {
+    getData(state, action) {
+      state.userDatas = action.payload;
+    },
+  },
+});
 
-export const commuteActions = commuteSlice.actions
+export const commuteActions = commuteSlice.actions;
 
-export default commuteSlice.reducer
+export default commuteSlice.reducer;
