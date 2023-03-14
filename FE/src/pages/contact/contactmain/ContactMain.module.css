@@ -1,0 +1,84 @@
+.pagebox{
+    text-align: left;  
+    width: calc(100% - 250px);
+    height: 100%;
+    margin-left: 60px;
+    margin-top: 10px;
+}
+
+.hr{
+    float: left;
+    width: 90%;
+    height: 3px;
+    background-color: lightgrey;
+    border: none;
+}
+
+.mainbox{
+    display: flex;
+    width: 90%;
+}
+.contentbox{
+    width: 40%;
+}
+
+.contentboxone label p{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.contentboxone label input{
+    width: 100%;
+    max-width: 500px;
+    border: none;
+    outline: none;
+    border-bottom: 1.5px solid lightgray;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    
+}
+
+.contentboxtwo p {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.contentboxtwo input {
+    width: 100%;
+    max-width: 500px;
+    outline: none;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-bottom: 80px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.imgbox{
+    width: 50%;
+}
+
+.imgbox h3{
+    text-align: center;
+    font-size: 23px;
+    color: #FF5732;
+}
+
+.imgemail{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #656565;
+
+}
+
+.imgcontetnt{
+    text-align: center;
+    font-size: 15px;
+    color: #656565;
+    
+    
+}
+
+
+
