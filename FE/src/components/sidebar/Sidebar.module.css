@@ -1,0 +1,16 @@
+.sidebar{
+    width: 250px;
+    height: auto;
+    background-color: rgb(233, 233, 233);
+    text-align: left;
+    
+}
+
+.sidebar h1{
+    margin-left: 70px;
+    margin-top: 30px;
+}
+
+.sidebar h3 {
+    margin-left: 85px;
+}
