@@ -1,6 +1,6 @@
 import classes from "./SideBar.module.css";
 
-const Sidebar = (props) => {
+const SideBar = (props) => {
   return (
     <div className={classes.sidebar}>
       <h1>{props.pagename}</h1>
@@ -19,4 +19,4 @@ const Sidebar = (props) => {
   );
 };
 
-export default Sidebar;
+export default SideBar;
