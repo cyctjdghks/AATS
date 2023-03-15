@@ -1,84 +1,183 @@
-.pagebox{
-    text-align: left;  
-    width: calc(100% - 250px);
-    height: 100%;
-    margin-left: 60px;
-    margin-top: 10px;
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
 }
 
-.hr{
-    float: left;
-    width: 90%;
-    height: 3px;
-    background-color: lightgrey;
-    border: none;
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
 }
 
-.mainbox{
-    display: flex;
-    width: 90%;
-}
-.contentbox{
-    width: 40%;
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
 }
 
-.contentboxone label p{
-    font-weight: bolder;
-    font-size: 20px;
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../fonts/AppleSDGothicNeoEB.ttf");
 }
 
-.contentboxone label input{
-    width: 100%;
-    max-width: 500px;
-    border: none;
-    outline: none;
-    border-bottom: 1.5px solid lightgray;
-    margin-bottom: 15px;
-    padding-bottom: 8px;
-    
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+@font-face {
+  font-family: "SF-Pro-Display-Bold";
+  src: url("../../../fonts/SF-Pro-Display-Bold.otf");
+}
+
+
+
+.pagebox {
+  text-align: left;
+  width: calc(100% - 250px);
+  height: 100%;
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+.titlebox h1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  margin-top: 40px;
+}
+
+.titlebox h3 {
+  font-family: "Apple_Gothic_Neo_Light";
+}
+
+.hr {
+  float: left;
+  width: 90%;
+  height: 3px;
+  background-color: #c0c0c0;
+  border: none;
+  margin-top: -5px;
+}
+
+.mainbox {
+  display: flex;
+  width: 90%;
+}
+.contentbox {
+  width: 50%;
+}
+
+.contentboxone label p {
+  font-family: "Apple_Gothic_Neo_EBold";
+  font-size: 21px;
+}
+
+.contentboxone label input {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 16px;
+  width: 100%;
+  max-width: 600px;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid lightgray;
+  border-radius: 3px;
+  margin-bottom: 13px;
+  padding-bottom: 8px;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+.contentboxone label input:hover{
+  font-weight: bold;
 }
 
 .contentboxtwo p {
-    font-weight: bolder;
-    font-size: 20px;
+  font-family: "Apple_Gothic_Neo_EBold";
+  font-size: 20px;
 }
 
 .contentboxtwo input {
-    width: 100%;
-    max-width: 500px;
-    outline: none;
-    padding-top: 15px;
-    padding-left: 10px;
-    padding-bottom: 80px;
-    border-radius: 5px;
-    margin-bottom: 30px;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 16px;
+  width: 100%;
+  max-width: 600px;
+  outline: none;
+  border-color: lightgray;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-bottom: 80px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
-.imgbox{
-    width: 50%;
+.contentboxtwo input:hover{
+  font-weight: bold;
 }
 
-.imgbox h3{
-    text-align: center;
-    font-size: 23px;
-    color: #FF5732;
+
+.contactbtn{
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
+  background-color: #4786FF;
+  color: white;
+  float: right;
+  border: none;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  
 }
 
-.imgemail{
-    text-align: center;
-    font-weight: bolder;
-    font-size: 20px;
-    color: #656565;
-
+.contactbtn:hover{
+  background-color: #3d78e6;
+  
 }
 
-.imgcontetnt{
-    text-align: center;
-    font-size: 15px;
-    color: #656565;
-    
-    
+/* 두 번째 칸 이미지 부분 */
+
+.imgbox {
+  width: 70%;
+  margin-left: 70px;
 }
 
+.imgbox h3 {
+  font-family: "Apple_Gothic_Neo_R";
+  text-align: center;
+  font-size: 23px;
+  color: #ff5732;
+  margin-top: 60px;
+}
+
+.imgemail {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: -10px;
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 25px;
+  color: #919090;
+}
+
+.imgcontetnt {
+  text-align: center;
+  font-size: 15px;
+}
+
+.imgcontetnt p{
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: -13px;
+  color: #3a3a3a;
+}
+
+.contactimg{
+  margin: auto;
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 80px;
+  
+}
 
 

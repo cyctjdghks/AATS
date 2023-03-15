@@ -1,12 +1,22 @@
-import classes from "./Sidebar.module.css";
+import classes from "./SideBar.module.css";
 
 const Sidebar = (props) => {
-    return <div className={classes.sidebar}>
-        <h1>{props.pagename}</h1>
-        <h3>{props.subname1}</h3>
-        <h3>{props.subname2}</h3>
-        <h3>{props.subname3}</h3>
+  return (
+    <div className={classes.sidebar}>
+      <h1>{props.pagename}</h1>
+      <div className={classes.subAllBox}>
+        <div className={classes.subBox}>
+          <p>{props.subname1.icon}</p><p className={classes.subName}>{props.subname1.name}</p>
+        </div>
+        <div className={classes.subBox}>
+          <p>{props.subname2.icon}</p><p className={classes.subName}>{props.subname2.name}</p>
+        </div>
+        <div className={classes.subBox}>
+          <p>{props.subname3.icon}</p><p className={classes.subName}>{props.subname3.name}</p>
+        </div>
+      </div>
     </div>
+  );
 };
 
 export default Sidebar;
