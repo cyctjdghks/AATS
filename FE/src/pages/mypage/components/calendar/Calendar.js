@@ -1,6 +1,8 @@
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 
+import ToolBar from "./toolbar/ToolBar";
+
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import classes from "./Calendar.module.css";
 
@@ -16,19 +18,9 @@ const Test = () => {
       {
         start: new Date("2023-03-07T16:54:46"),
         end: new Date("2023-03-07T17:54:46"),
-        title: "16:54"
+        title: "16:54",
       },
-      {
-        start: new Date("2023-03-08T15:54:46"),
-        end: new Date("2023-03-08T16:54:46"),
-        title: "출근"
-      },
-      {
-        start: new Date("2023-03-08T16:54:46"),
-        end: new Date("2023-03-08T17:54:46"),
-        title: "퇴근"
-      },
-    ]
+    ],
   };
 
   return (
@@ -43,7 +35,10 @@ const Test = () => {
           views={{
             month: true,
           }}
-          style={{ height: 500 }}
+          style={{ height: 700 }}
+          components={{
+            toolbar: ToolBar,
+          }}
         />
       </div>
     </div>

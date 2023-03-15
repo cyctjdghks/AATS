@@ -1,0 +1,27 @@
+.info{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #acacac;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  height: 300px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.info img{
+  width: 20%;
+  margin: 0 20px 0 20px;
+}
+
+.verticalHr{
+  height: 250px;
+  margin: 0;
+}
+
+.infoContent{
+  width: 70%;
+  margin: 0 20px 0 20px;
+}
