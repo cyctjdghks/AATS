@@ -1,52 +1,69 @@
 import classes from "./ContactMain.module.css";
+
+import contactimg from '../../../assets/contact/도표이미지.png'
+
+import InputLabel from "../component/InputLabel";
+
 const ContactMain = () => {
-    return (
-        <div className={classes.pagebox}>
-            <div className={classes.titlebox}>
-                <h1>1:1 문의하기</h1>
-                <h3>문의사항이 있으시면 다음을 기재해주시거나 전화 주시면 빠르게 상담 가능합니다.</h3>
-            </div>
-            <hr className={classes.hr}/>
-            <br /><br />
-            <div className={classes.mainbox}>
-                <div className={classes.contentbox}>
-                    <div className={classes.contentboxone}>
-                        <label>
-                            <p>이름</p>
-                            <input type="text" placeholder="Your Name(required)" />
-                        </label>
-                        <label>
-                            <p>휴대폰 번호</p>
-                            <input type="text" placeholder="Your Number(required)" />
-                        </label>
-                        <label>
-                            <p>이메일</p>
-                            <input type="text" placeholder="Your Email(required)" />
-                        </label>
-                        <label >
-                            <p>제목</p>
-                            <input type="text" placeholder="Subject" />
-                        </label>
-                    </div>
-                    <div className={classes.contentboxtwo}>
-                        <label>
-                            <p>내용</p>
-                            <input type="content" placeholder="Your Message" />
-                        </label>
-                    </div>
-                </div>
-                <div className={classes.imgbox}>
-                    <h3>CONTACT US</h3>
-                    <p className={classes.imgemail}>SSAFY.D102@ssafy.com</p>
-                    <p className={classes.imgcontetnt}>D102조는 모두의 일상을 더 나은 방향으로 바꾸기위해
-                        많이 많이 엄청 노력합니다. </p>
-                    
-                </div>
-              
-            </div>
+  return (
+    <div className={classes.pagebox}>
+      <div className={classes.titlebox}>
+        <h1>1:1 문의하기</h1>
+        <h3>
+          문의사항이 있으시면 다음을 기재해주시거나 전화 주시면 빠르게 상담
+          가능합니다.
+        </h3>
+      </div>
+      <hr className={classes.hr} />
+      <br />
+      <br />
+      <div className={classes.mainbox}>
+        <div className={classes.contentbox}>
+          <div className={classes.contentboxone}>
+            <InputLabel
+              label="이름"
+              type="text"
+              placeholder="Your Name(required)"
+            />
+            <InputLabel
+              label="휴대폰 번호"
+              type="text"
+              placeholder="Your Number(required)"
+            />
+            <InputLabel
+              label="이메일"
+              type="text"
+              placeholder="Your Email(required)"
+            />
+            <InputLabel
+              label="제목"
+              type="text"
+              placeholder="Subject"
+            />
+          </div>
+          <div className={classes.contentboxtwo}>
+            <InputLabel
+              label="내용"
+              type="content"
+              placeholder="Your Message"
+            />
+          </div>
+          <button className={classes.contactbtn}>
+            제출하기
+          </button>
         </div>
-        
-    );
+        <div className={classes.imgbox}>
+          <h3>CONTACT US</h3>
+          <p className={classes.imgemail}>SSAFY.D102@ssafy.com</p>
+          <p className={classes.imgcontetnt}>
+            <p>D 102조는 AI기반의 출결 관리 시스템을 적용하며 </p>
+            <p>모두의 일상을 더 나은 방향으로 바꾸기위해 앞장서고 있습니다.</p>
+          </p>
+          <img src={contactimg} alt="도표이미지" className={classes.contactimg}/>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ContactMain;
