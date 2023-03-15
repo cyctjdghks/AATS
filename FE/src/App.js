@@ -4,14 +4,12 @@ import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
 // import pages
 import Auth from "./pages/auth/Auth";
-import Cctv from "./pages/cctv/Cctv";
 import Contact from "./pages/contact/Contact";
-import DashBoard from "./pages/dashboard/DashBoard";
 import Solutions from "./pages/solutions/Solutions";
 import NotFound from "./pages/notfound/NotFound";
 import Home from "./pages/home/Home";
-import Calendar from "./pages/calendar/Calendar";
 import AboutUs from "./pages/aboutus/AboutUs";
+import MyPage from "./pages/mypage/MyPage"
 // import css style 
 import classes from "./App.module.css";
 
@@ -22,12 +20,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/auth/*" element={<Auth />} />
-        <Route path="/cctv" element={<Cctv />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/solutions" element={<Solutions />} />
-        <Route path="/calendar" element={<Calendar />} />
         <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/mypage/*" element={<MyPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />

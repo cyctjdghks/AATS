@@ -25,6 +25,7 @@ const NavBar = () => {
         <NavLeft />
         <NavRight />
       </div>
+      <div className={classes.navDropDown}></div>
     </div>
   );
 };

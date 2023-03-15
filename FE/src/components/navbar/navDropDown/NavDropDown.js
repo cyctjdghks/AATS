@@ -77,7 +77,7 @@ const NavDropDown = () => {
     <div>
       <Button onClick={() => setOpen(true)}>
         <ListItemIcon>
-          <TocIcon sx={{ fontSize: 80 }} />
+          <TocIcon sx={{ fontSize: 75 }} />
         </ListItemIcon>
       </Button>
       <Drawer open={open} anchor={"top"} onClose={() => setOpen(false)}>

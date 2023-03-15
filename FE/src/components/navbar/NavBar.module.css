@@ -26,7 +26,8 @@
 /* 모바일 환경 */
 @media screen and (max-width: 768px) {
   .navBar {
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
   }
   .navBar img {
     margin-left: 0;
@@ -36,9 +37,10 @@
   }
   .navDropDown {
     display: block;
+    width: 91px;
     margin-top: auto;
     margin-bottom: auto;
-    position: fixed;
+    position: relative;
     top: 0px;
     left: 0px;
   }
