@@ -1,9 +1,9 @@
 import classes from "./ContactMain.module.css";
 
 // import contactimg from '../../../assets/contact/도표이미지.png'
-import tmpContact from '../../../assets/contact/tmpContact.png'
+import tmpContact from "../../../assets/contact/tmpContact.png"
 
-import InputLabel from "../component/InputLabel";
+import InputLabel from "./component/InputLabel";
 
 const ContactMain = () => {
   return (

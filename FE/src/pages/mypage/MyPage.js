@@ -3,7 +3,7 @@ import MyInfo from "./myinfo/MyInfo";
 import { Routes, Route } from "react-router-dom";
 
 import classes from "./MyPage.module.css";
-import Contact from "../contact/Contact";
+import Contact from "./contact/ContactMain";
 
 const MyPage = () => {
   return (
