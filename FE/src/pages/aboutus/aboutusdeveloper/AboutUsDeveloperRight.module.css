@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Apple_Gothic_Neo_Mid";
-  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
 }
 
 @font-face {
@@ -28,12 +28,34 @@
   src: url("../../../fonts/SF-Pro-Display-Bold.otf");
 }
 
-.input {
-  font-family: "Apple_Gothic_Neo_Mid";
-  font-size: 17px;
-  padding-top: 7px;
-  padding-bottom: 5px;
-  padding-left: 15px;
-  outline: 0.1px solid rgb(235, 235, 235);
-  
+.developerBox{
+  display: flex;
+  margin-top: 280px;
+}
+
+.developer {
+  text-align: left;
+  margin-left: 30px;
+  width: 150px;
+}
+
+.developerName{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+}
+
+.developerRole{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+  margin-top: -10px;
+}
+
+.developertext{
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
+  margin-top: -10px;
+}
+
+.developerBox img{
+  border-radius: 10px;
 }

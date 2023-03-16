@@ -4,7 +4,8 @@ const InputLabel = ({label, errorMessage, ...rest}) => {
   return(
     <div>
       <label>
-        <input {...rest} className={classes.input}/>
+        <p>{label}</p>
+        <input {...rest}/>
       </label>
     </div>
   )

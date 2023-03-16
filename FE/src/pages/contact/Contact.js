@@ -1,29 +1,27 @@
-import SideBar from "../../components/sidebar/SideBar";
-import ContactMain from "../../pages/contact/contactmain/ContactMain";
 import classes from "./Contact.module.css";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import EventAvailableIcon from "@mui/icons-material/EventAvailable";
-import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
+// import background from "../../assets/MainContact/background.png";
+import position from "../../assets/MainContact/position.png";
+import InputLabel from "../contact/component/InputLabel";
 
 const Contact = () => {
   return (
-    <div className={classes.pagebox}>
-      <SideBar
-        pagename="My Page"
-        subname1={{
-          name: "My Info",
-          icon: <AccountCircleIcon />,
-        }}
-        subname2={{
-          name: "Calender",
-          icon: <EventAvailableIcon />,
-        }}
-        subname3={{
-          name: "Contact",
-          icon: <HeadsetMicIcon />,
-        }}
-      />
-      <ContactMain />
+    <div>
+      <div className={classes.topbox}>
+        <div className={classes.contactBox}>
+          <h3>Contact us</h3>
+          <div className={classes.line}></div>
+          <p>궁금하신 모든 질문들은 저희 a-IVE에게 남겨 주세요.</p>
+
+          <InputLabel
+            type="text"
+            placeholder="Your Name(required)"
+          />
+          
+        </div>
+        <div>
+          <img src={position} alt="" className={classes.position}/>
+        </div>
+      </div>
     </div>
   );
 };
