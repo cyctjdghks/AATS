@@ -11,13 +11,17 @@ import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import InfoIcon from "@mui/icons-material/Info";
-import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import LoginIcon from "@mui/icons-material/Login";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import TocIcon from "@mui/icons-material/Toc";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
+import { useSelector } from "react-redux";
 
 const NavDropDown = () => {
   const navigate = useNavigate();
+  const isLogin = useSelector((state)=> state.auth.isLogin)
 
   const toHome = () => {
     navigate("/");
@@ -37,20 +41,42 @@ const NavDropDown = () => {
   const toSignUp = () => {
     navigate("/auth/signup");
   };
+  const toMypage = () => {
+    navigate("/mypage");
+  };
+  const toMypageContact = () => {
+    navigate("/mypage/contact");
+  };
 
-  const firstdata = [
+  const firstLogoutdata = [
     { name: "Home", icon: <HomeIcon color="primary" />, link: toHome },
     { name: "Solutions", icon: <LightbulbIcon />, link: toSolutions },
     { name: "About Us", icon: <InfoIcon />, link: toAboutUs },
-    { name: "Contact", icon: <ContactSupportIcon />, link: toContact },
+    { name: "Contact", icon: <HeadsetMicIcon />, link: toContact },
   ];
 
-  const secondData = [
+  const secondLogoutData = [
     { name: "Login", icon: <LoginIcon />, link: toLogin },
     { name: "Sign Up", icon: <AssignmentIndIcon />, link: toSignUp },
   ];
 
+  const firstLoginData = [
+    {
+      name: "My Info",
+      icon: <AccountCircleIcon color="primary" />,
+      link: toMypage,
+    },
+    { name: "Calendar", icon: <EventAvailableIcon />, link: toMypage },
+    { name: "Contact", icon: <HeadsetMicIcon />, link: toMypageContact },
+  ];
+  const secondLoginData = [
+    { name: "Logout", icon: <LoginIcon />, link: toLogin },
+  ];
+
   const [open, setOpen] = useState(false);
+
+  const firstdata = isLogin ? firstLoginData : firstLogoutdata
+  const secondData = isLogin ? secondLoginData : secondLogoutData
 
   const firstList = () => (
     <div style={{ width: "auto" }} onClick={() => setOpen(false)}>
