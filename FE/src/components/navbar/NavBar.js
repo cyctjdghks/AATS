@@ -4,13 +4,12 @@ import NavLeft from "./navleft/NavLeft";
 import NavRight from "./navright/NavRight";
 import NavDropDown from "./navDropDown/NavDropDown";
 // import img
-import logo from "../../assets/logo.png";
+import aive from "../../assets/aive2.png"
 // import css style
 import classes from "./NavBar.module.css";
 
 const NavBar = () => {
   const navigate = useNavigate();
-
   const toHome = () => {
     navigate("/");
   };
@@ -20,7 +19,7 @@ const NavBar = () => {
       <div className={classes.navDropDown}>
         <NavDropDown />
       </div>
-      <img src={logo} alt="logo" onClick={toHome} />
+      <img src={aive} alt="logo" onClick={toHome} />
       <div className={classes.navBarItems}>
         <NavLeft />
         <NavRight />

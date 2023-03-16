@@ -28,8 +28,6 @@
   src: url("../../../fonts/SF-Pro-Display-Bold.otf");
 }
 
-
-
 .pagebox {
   text-align: left;
   width: calc(100% - 250px);
@@ -38,6 +36,7 @@
   margin-top: 10px;
 }
 
+
 .titlebox h1 {
   font-family: "Apple_Gothic_Neo_Bold";
   margin-top: 40px;
@@ -45,6 +44,8 @@
 
 .titlebox h3 {
   font-family: "Apple_Gothic_Neo_Light";
+  font-size: auto;
+  width: 90%;
 }
 
 .hr {
@@ -81,10 +82,10 @@
   margin-bottom: 13px;
   padding-bottom: 8px;
   margin-top: -5px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
-.contentboxone label input:hover{
+.contentboxone label input:hover {
   font-weight: bold;
 }
 
@@ -99,24 +100,23 @@
   width: 100%;
   max-width: 600px;
   outline: none;
-  border-color: lightgray;
+  border: solid 1px lightgray;
   padding-top: 15px;
   padding-left: 10px;
   padding-bottom: 80px;
   border-radius: 5px;
   margin-bottom: 10px;
-  cursor: pointer;
+  /* cursor: ; */
 }
 
-.contentboxtwo input:hover{
+.contentboxtwo input:hover {
   font-weight: bold;
 }
 
-
-.contactbtn{
+.contactbtn {
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 18px;
-  background-color: #4786FF;
+  background-color: #4786ff;
   color: white;
   float: right;
   border: none;
@@ -128,12 +128,10 @@
   margin-top: 10px;
   margin-bottom: 30px;
   cursor: pointer;
-  
 }
 
-.contactbtn:hover{
+.contactbtn:hover {
   background-color: #396fd3;
-  
 }
 
 /* 두 번째 칸 이미지 부분 */
@@ -163,22 +161,30 @@
 .imgcontetnt {
   text-align: center;
   font-size: 15px;
-}
-
-.imgcontetnt p{
   font-family: "Apple_Gothic_Neo_R";
   margin-top: -13px;
   color: #3a3a3a;
 }
 
-.contactimg{
+.contactimg {
   margin: auto;
   display: block;
   border-radius: 10px;
   width: 100%;
   max-width: 600px;
   margin-top: 80px;
-  
 }
 
 
+@media screen and (max-width: 768px) {
+  .pagebox{
+    width: 100%;
+    margin-left: 10%;
+  }
+  .imgbox{
+    display: none;
+  }
+  .contentbox{
+    width: 100%;
+  }
+}

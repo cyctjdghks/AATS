@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 // import css style
 import classes from "./NavRight.module.css";
 
 const NavRight = () => {
   const navigate = useNavigate();
+  const isLogin = useSelector((state) => state.auth.isLogin);
 
   const toLogin = () => {
     navigate("/auth/login");
@@ -13,6 +15,11 @@ const NavRight = () => {
   };
 
   return (
+    isLogin ?
+    <div className={classes.navRight}>
+      <p onClick={toLogin}>logout</p>
+    </div>
+    :
     <div className={classes.navRight}>
       <p onClick={toLogin}>login</p>
       <p>|</p>

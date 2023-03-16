@@ -8,14 +8,16 @@
 }
 
 .navBar img {
-  width: 80px;
-  height: 80px;
-  margin-top: 10px;
+  display: inline-block;
+  height: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
   margin-left: 70px;
 }
 
 .navBarItems {
   display: flex;
+  justify-content: right;
   width: 90%;
   margin-right: 70px;
   align-items: center;
@@ -36,7 +38,7 @@
     display: none;
   }
   .navDropDown {
-    display: block;
+    display: inline-block;
     width: 91px;
     margin-top: auto;
     margin-bottom: auto;

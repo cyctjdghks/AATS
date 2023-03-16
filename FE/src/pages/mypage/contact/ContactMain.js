@@ -1,9 +1,9 @@
 import classes from "./ContactMain.module.css";
 
 // import contactimg from '../../../assets/contact/도표이미지.png'
-import tmpContact from "../../../assets/contact/tmpContact.png"
+import tmpContact from "../../../assets/contact/tmpContact.png";
 
-import InputLabel from "./component/InputLabel";
+import InputLabel from "./components/InputLabel";
 
 const ContactMain = () => {
   return (
@@ -36,11 +36,7 @@ const ContactMain = () => {
               type="text"
               placeholder="Your Email(required)"
             />
-            <InputLabel
-              label="제목"
-              type="text"
-              placeholder="Subject"
-            />
+            <InputLabel label="제목" type="text" placeholder="Subject" />
           </div>
           <div className={classes.contentboxtwo}>
             <InputLabel
@@ -49,19 +45,23 @@ const ContactMain = () => {
               placeholder="Your Message"
             />
           </div>
-          <button className={classes.contactbtn}>
-            제출하기
-          </button>
+          <button className={classes.contactbtn}>제출하기</button>
         </div>
         <div className={classes.imgbox}>
           <h3>CONTACT US</h3>
           <p className={classes.imgemail}>SSAFY.D102@ssafy.com</p>
           <p className={classes.imgcontetnt}>
-            <p>D 102조는 자동 출결 및 추적 시스템을 통해</p>
-            <p>모두의 일상을 더 나은 방향으로 바꾸기위해 앞장서고 있습니다.</p>
-            <p>문의사항은 연락 바랍니다. </p>
+            D 102조는 자동 출결 및 추적 시스템을 통해
           </p>
-          <img src={tmpContact} alt="도표이미지" className={classes.contactimg}/>
+          <p className={classes.imgcontetnt}>
+            모두의 일상을 더 나은 방향으로 바꾸기위해 앞장서고 있습니다.
+          </p>
+          <p className={classes.imgcontetnt}>문의사항은 연락 바랍니다. </p>
+          <img
+            src={tmpContact}
+            alt="도표이미지"
+            className={classes.contactimg}
+          />
         </div>
       </div>
     </div>

@@ -12,3 +12,8 @@
   font-size: 24px;
   cursor: pointer;
 }
+
+.navLeftHidden {
+  visibility: hidden;
+  display: inline-block;
+}
