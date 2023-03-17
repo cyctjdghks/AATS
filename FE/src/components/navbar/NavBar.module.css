@@ -4,12 +4,12 @@
   height: 100px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .navBar img {
   display: inline-block;
-  height: 50px;
+  height: 40px;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 70px;
@@ -26,7 +26,7 @@
   display: none;
 }
 /* 모바일 환경 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .navBar {
     justify-content: space-between;
     align-items: center;

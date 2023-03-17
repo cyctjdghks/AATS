@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.navdropdown{
+  font-family: "Apple_Gothic_Neo_Light";
+}

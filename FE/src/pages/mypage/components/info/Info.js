@@ -1,22 +1,57 @@
-import logo from "../../../../assets/logo.png";
+import { useSelector } from "react-redux";
+import logo from "../../../../assets/profileTest.jpg";
 
 import classes from "./Info.module.css";
 
 const Info = () => {
+  const userData = useSelector((state) => state.auth.userData);
+
   return (
     <div className={classes.info}>
       <img src={logo} alt="logo" />
-      <hr className={classes.verticalHr}/>
-      <div className={classes.infoContent}>
-        <div>
-          <p>이름 | 나이</p>
-          <p> 기관 </p>
-          <p> 유형</p>
+      <hr className={classes.verticalHr} />
+      <div className={classes.infoBox}>
+        <div className={classes.topBox}>
+          <div className={classes.contentBox}>
+            <p className={classes.name}>
+              {userData.name}({userData.gender ? "남" : "여"}) | {userData.age}세
+            </p>
+          </div>
+          <div className={classes.contentBox}>
+            <p className={classes.content}>
+              <span className={classes.tag}> 기관 : </span>
+              {userData.organization_id}
+            </p>
+          </div>
+          <div className={classes.contentBox}>
+            <p className={classes.content}>
+              <span className={classes.tag}> 유형 : </span>
+              {userData.organization_id}
+            </p>
+          </div>
         </div>
-        <hr />
-        <div>
-          <p>국적 | 이메일</p>
-          <p>생년월일 | 연락처</p>
+        <hr className={classes.horizonHr} />
+        <div className={classes.bottoBox}>
+          <div className={classes.contentBox}>
+            <p className={classes.content}>
+              <span className={classes.tag}> 국적 : </span>
+              {userData.nationality}
+            </p>
+            <p className={classes.content}>
+              <span className={classes.tag}> 생년월일 : </span>
+              {userData.birth}
+            </p>
+          </div>
+          <div className={classes.contentBox}>
+            <p className={classes.content}>
+              <span className={classes.tag}> 이메일 : </span>
+              {userData.email}
+            </p>
+            <p className={classes.content}>
+              <span className={classes.tag}> 연락처 : </span>
+              {userData.phoneNumber}
+            </p>
+          </div>
         </div>
       </div>
     </div>
