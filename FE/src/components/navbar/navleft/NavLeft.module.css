@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
 .navLeft {
   display: flex;
   align-items: center;
@@ -5,6 +10,7 @@
   height: 70px;
   width: 80%;
   margin-left: 10px;
+  font-family: "Apple_Gothic_Neo_Light";
 }
 
 .navLeft p {

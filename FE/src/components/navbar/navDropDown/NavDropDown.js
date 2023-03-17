@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 // import mui components
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
@@ -17,7 +18,8 @@ import TocIcon from "@mui/icons-material/Toc";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
-import { useSelector } from "react-redux";
+//import css style
+import classes from "./NavDropDown.module.css"
 
 const NavDropDown = () => {
   const navigate = useNavigate();
@@ -100,7 +102,7 @@ const NavDropDown = () => {
   );
 
   return (
-    <div>
+    <div className={classes.navdropdown}>
       <Button onClick={() => setOpen(true)}>
         <ListItemIcon>
           <TocIcon sx={{ fontSize: 75 }} />

@@ -1,4 +1,16 @@
-.info{
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+
+.info {
+  font-family: "Apple_Gothic_Neo_Light";
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -6,22 +18,79 @@
   border-radius: 20px;
   margin-bottom: 20px;
   display: flex;
-  height: 300px;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  height: 300px;
 }
 
-.info img{
-  width: 20%;
-  margin: 0 20px 0 20px;
+.info img {
+  width: 180px;
+  margin: 0px 20px 0px 20px;
+  border-radius: 10px;
 }
 
-.verticalHr{
-  height: 250px;
+.verticalHr {
+  height: 90%;
   margin: 0;
 }
+.horizonHr {
+  width: 100%;
+}
 
-.infoContent{
+.infoBox {
+  display: flex;
+  flex-direction: column;
   width: 70%;
+
   margin: 0 20px 0 20px;
+  justify-content: flex-start;
+  align-items: left;
+}
+
+.topBox {
+  width: 100%;
+  display: inline-block;
+}
+
+.bottoBox {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.contentBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 5px;
+  margin-right: 20px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 5px 3px;
+}
+.content {
+  font-size: 18px;
+  margin: 0 0 5px 3px;
+}
+.tag {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1024px) {
+  .info {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .infoBox {
+    width: 90%;
+  }
+  .info img {
+    width: 180px;
+  }
+  .bottoBox {
+    flex-direction: column;
+  }
 }
