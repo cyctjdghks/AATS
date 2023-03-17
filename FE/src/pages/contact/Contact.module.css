@@ -9,6 +9,11 @@
 }
 
 @font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
   font-family: "Apple_Gothic_Neo_Bold";
   src: url("../../fonts/AppleSDGothicNeoB.ttf");
 }
@@ -29,67 +34,96 @@
 }
 
 .pagebox {
-  display: flex;
+  text-align: left;
+  /* width: calc(100% - 250px); */
+  height: 100%;
+  background-color: rgb(235, 235, 235);
 }
 
-.topbox{
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-}
-
-.contactBox{
-    text-align: left;
-}
-
-.contactBox h3{
-    font-family: "Apple_Gothic_Neo_Mid";
-    font-size: 25px;
-
-}
-
-.contactBox p{
-    font-family: "Apple_Gothic_Neo_Light";
-    font-size: 17px;
-}
-
-.line{
-    width: 100px;
-    background-color: #4786FF;
-    height: 7px;
-    margin-top: -15px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 사선 디자인
-
-.background {
-  background: linear-gradient(170deg, white 50%, #DADBDF 50%);
-}
-
-.subBackground {
-  display: inline-block;
-  width: 80%;
-  max-width: 50px;
-  height: 500px;
+.topBox {
+  width: 70%;
+  height: 260px;
+  border-radius: 8px;
   background-color: white;
-  box-shadow: 0px -5px 5px grey inset;
-  border-radius: 10px;
-  margin-top: 80px;
+  margin: auto;
+}
+
+.pageName {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 30px;
+  color: #b02626;
+  text-align: center;
+  margin-top: 0px;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.phoneDap{
+  font-family: "Apple_Gothic_Neo_Mid";
+  margin-top: 0px;
+}
+
+.inputBox {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btn{
+  font-family: "Apple_Gothic_Neo_Light";
+  border: none;
+  background-color: #b02626;;
+  color: white;
+  border-radius: 2px;
+  width: 60px;
+  padding-top: 4px;
+  float: right;
+  cursor: pointer;
+
+}
+
+
+.bottomBox {
+  width: 70%;
+  margin: auto;
+}
+
+.bottomBox p {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+}
+
+.subBottomBox {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.quoteBox {
+  width: 480px;
+}
+
+.aatsName {
+  font-family: "Apple_Gothic_Neo_EBold";
+  font-weight: bold;
   
-} */
+  
+}
+
+.quote2{
+  float: right;
+}
+
+.ceo {
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .ceoBox {
+    display: none;
+  }
+  
+  
+}
+
+
+

@@ -11,3 +11,4 @@ const InputLabel = ({label, errorMessage, ...rest}) => {
 }
 
 export default InputLabel
+
