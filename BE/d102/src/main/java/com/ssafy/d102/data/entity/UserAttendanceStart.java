@@ -1,10 +1,13 @@
 package com.ssafy.d102.data.entity;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "user_attendance_start")
+@Getter
 public class UserAttendanceStart {
 
     @Id

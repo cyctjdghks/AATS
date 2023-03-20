@@ -1,10 +1,13 @@
 package com.ssafy.d102.data.entity;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "worker")
+@Getter
 public class Worker extends BaseEntity {
 
     @Id
