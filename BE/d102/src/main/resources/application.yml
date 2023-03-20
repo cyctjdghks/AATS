@@ -1,3 +1,4 @@
+## 이거 ignore 추가하고
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver

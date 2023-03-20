@@ -46,5 +46,8 @@ public class User extends BaseEntity{
 
     // getters and setters
 
+    // TODO : 생각해 볼 것
+    // setter를 쓰는거보단 method를 만들어서 해당 메소드에서만 변경이 이루어지는 것이 좋음
+    //매개변수가 많으면 builder를 사용하는 것을 고려
 }
 
