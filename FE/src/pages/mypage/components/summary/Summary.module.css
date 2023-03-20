@@ -5,4 +5,39 @@
   border: 1px solid #acacac;
   border-radius: 20px;
   margin-bottom: 20px;
+  display: flex;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+.verticalHr {
+  height: 90%;
+  margin: 0;
+}
+.firstBox{
+  width: calc(45% - 125px);
+  text-align: left;
+}
+.timeBox{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.commuteBox{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.attendanceBox{
+  text-align: left;
+}
+.leaveBox{
+  text-align: left;
+}
+.secondBox{
+  width: 250px;
+}
+.thirdBox{
+  width: calc(45% - 125px)
 }

@@ -30,7 +30,7 @@
 }
 
 .verticalHr {
-  height: 90%;
+  height: auto;
   margin: 0;
 }
 .horizonHr {

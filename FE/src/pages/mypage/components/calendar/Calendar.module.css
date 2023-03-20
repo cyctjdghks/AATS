@@ -1,11 +1,21 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
 .box {
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 10%;
   width: 80%;
   display: flex;
+  font-family: "Apple_Gothic_Neo_Light";
 }
 
 .test {
   width: 100%;
+}
+
+.rbc-calendar {
+  font-family: "Apple_Gothic_Neo_Light";
 }
