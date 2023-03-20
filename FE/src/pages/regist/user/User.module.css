@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+@font-face {
+  font-family: "SF-Pro-Display-Bold";
+  src: url("../../../fonts/SF-Pro-Display-Bold.otf");
+}
+
+.pageBox {
+  display: flex;
+}
+
+.sideBox {
+  background-color: rgb(235, 235, 235);
+  height: 820px;
+}
+
+.quote1 {
+  float: left;
+}
+
+.sideBoxText h3 {
+  padding-top: 35px;
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 25px;
+  margin-right: 30px;
+}
+
+.quote2 {
+  float: right;
+  margin-top: -15px;
+  margin-right: 20px;
+}
+
+.ceoMent{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+  margin-top: 40px;
+  margin-right: 100px;
+}
+
+.ceo{
+  padding-top: 50px;
+}
+
+.mainBox {
+  margin: auto;
+}
+
+.mainName {
+  font-family: "Apple_Gothic_Neo_R";
+}
+
+.mainSubName {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+  margin-top: -20px;
+  color: rgb(49, 49, 49);
+}
+
+.hline {
+  height: 2px;
+  background-color: rgb(223, 221, 221);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.companyIdBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.IdTextBox {
+  text-align: left;
+}
+
+.IdName {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+}
+
+.IdSubName {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 15px;
+  margin-top: -17px;
+}
+
+.inputBoxOne {
+  display: flex;
+}
+
+.inputBoxTwo {
+  display: flex;
+}
+
+.inputBoxThree {
+  display: flex;
+}
+
+.genderBox {
+  display: flex;
+}
+
+.genderName {
+  font-family: "Apple_Gothic_Neo_Mid";
+  margin-left: 5px;
+}
+
+.gender{
+  font-family: "Apple_Gothic_Neo_Light";
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 30px;
+}
+
