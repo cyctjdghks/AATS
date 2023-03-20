@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebMvc
+//TODO : filter가 아니고 config임
 public class CorsFilter implements WebMvcConfigurer {
 
     @Override
