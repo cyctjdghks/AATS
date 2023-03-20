@@ -2,9 +2,11 @@
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/d102
+#    url: jdbc:mariadb://localhost:3306/d102
+    url: jdbc:mariadb://http://j8d102.p.ssafy.io:3306/d102
     username: root
-    password: root
+#    password: root
+    password: wjdtlsdjqtwh102
 
   jpa:
     hibernate:
@@ -17,7 +19,7 @@ spring:
 server:
   ssl:
     enabled: false
-  port: 80
+  port: 8082
 
   # swaggerdoc
   spring-doc:
