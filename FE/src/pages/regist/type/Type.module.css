@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+@font-face {
+  font-family: "SF-Pro-Display-Bold";
+  src: url("../../../fonts/SF-Pro-Display-Bold.otf");
+}
+
+.pageBox {
+  margin-top: 130px;
+}
+
+.pageBox h3 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 25px;
+}
+
+.pageText {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 21px;
+  margin-top: -15px;
+}
+
+.typeBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 320px;
+}
+
+.typeOne {
+  margin-right: 15px;
+}
+
+.typeOne img {
+  border-radius: 8px;
+  height: 160px;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.typeOne img:hover {
+  border-radius: 8px;
+  border: 2px solid rgb(95, 95, 95);
+}
+
+.typeOne p {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+}
+
+.typeTwo {
+  margin-left: 15px;
+}
+
+.typeTwo img {
+  border-radius: 8px;
+  height: 160px;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.typeTwo img:hover {
+  border-radius: 8px;
+  border: 2px solid rgb(95, 95, 95);
+  
+}
+
+.typeTwo p {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+}

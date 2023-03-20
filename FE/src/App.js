@@ -4,6 +4,7 @@ import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
 // import pages
 import Auth from "./pages/auth/Auth";
+import Regist from "./pages/regist/Regist";
 import Contact from "./pages/contact/Contact";
 import Solutions from "./pages/solutions/Solutions";
 import NotFound from "./pages/notfound/NotFound";
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/auth/*" element={<Auth />} />
+        <Route path="/regist/*" element={<Regist/>}/>
         <Route path="/contact" element={<Contact />} />
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/aboutus" element={<AboutUs />} />
