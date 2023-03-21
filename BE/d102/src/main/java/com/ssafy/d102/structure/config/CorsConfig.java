@@ -1,4 +1,4 @@
-package com.ssafy.d102.structure.filter;
+package com.ssafy.d102.structure.config;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableWebMvc
 //TODO : filter가 아니고 config임
-public class CorsFilter implements WebMvcConfigurer {
+public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
