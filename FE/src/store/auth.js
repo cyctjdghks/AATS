@@ -15,7 +15,7 @@ const initialState = {
     nationality: "대한민국",
     profile: "aaaaa",
   },
-  isLogin: true,
+  isLogin: false,
 };
 
 const authSlice = createSlice({

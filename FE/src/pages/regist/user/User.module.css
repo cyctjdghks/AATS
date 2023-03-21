@@ -40,6 +40,26 @@
 .sideBox {
   background-color: rgb(235, 235, 235);
   height: 820px;
+  width: 40%;
+}
+
+.sideBoxText {
+  margin-top: 100px;
+  width: 60%;
+  margin: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .sideBox {
+    width: 50%;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sideBox {
+    display: none;
+  }
 }
 
 .quote1 {
@@ -53,21 +73,55 @@
   margin-right: 30px;
 }
 
+.sideBoxText p {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+  width: 70%;
+  margin: auto;
+  margin-top: -20px;
+}
+
 .quote2 {
   float: right;
   margin-top: -15px;
   margin-right: 20px;
 }
 
-.ceoMent{
+.hLine {
+  border: 1px solid #b02626;
+  width: 50%;
+  margin: auto;
+}
+
+.ceoMent {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 20px;
   margin-top: 40px;
   margin-right: 100px;
 }
 
-.ceo{
-  padding-top: 50px;
+.phoneBox {
+  display: flex;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.phoneText {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.phoneOne {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+}
+
+.phoneTwo {
+  font-family: "Apple_Gothic_Neo_Bold";
+  margin-top: -10px;
+}
+
+.ceo {
 }
 
 .mainBox {
@@ -116,6 +170,39 @@
   display: flex;
 }
 
+.selectbox{
+  margin-top: 12px;
+}
+
+select {
+  /* -webkit-appearance: none; 네이티브 외형 감추기 */
+  /* -moz-appearance: none; */
+  /* appearance: none; */
+  width: 100%; /* 원하는 너비설정 */
+  border: 1px solid #999;
+  border-radius: 0px; /* iOS 둥근모서리 제거 */
+
+}
+
+.selectbox label{
+  font-family: "Apple_Gothic_Neo_Mid";
+  float: left;
+  margin-top: 3px;
+}
+
+.selectIdBox{
+  font-family: "Apple_Gothic_Neo_Light";
+  width: 100%;
+  font-size: 17px;
+  padding-top: 8px;
+  padding-bottom: 9.5px;
+  padding-left: 10px;
+  padding-right: 25px;
+  border: solid 1px lightgrey;
+  margin-top: 7px;
+
+}
+
 .inputBoxTwo {
   display: flex;
 }
@@ -133,10 +220,35 @@
   margin-left: 5px;
 }
 
-.gender{
+.gender {
   font-family: "Apple_Gothic_Neo_Light";
   margin-top: 15px;
   margin-left: 10px;
   margin-right: 30px;
 }
 
+.submitBtn {
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 20px;
+  background-color: #b02626;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  border: none;
+  margin-top: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.submitBtn:hover{
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 20px;
+  background-color: #8f1f1f;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  border: none;
+  margin-top: 10px;
+  width: 100%;
+  cursor: pointer;
+}
