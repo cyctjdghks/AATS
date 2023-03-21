@@ -4,9 +4,9 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
 #    url: jdbc:mariadb://localhost:3306/d102
     url: jdbc:mariadb://j8d102.p.ssafy.io:3306/d102
-    username: ${DB_USERNAME}
+    username: root
 #    password: root
-    password: ${DB_USERPW}
+    password: wjdtlsdjqtwh102
 
   jpa:
     hibernate:
