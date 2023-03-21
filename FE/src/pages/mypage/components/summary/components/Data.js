@@ -25,7 +25,10 @@ export const CommuteData = () => {
 
   const startTime = 9;
   const endTime = 18;
-  let normalAttendance = -1;
+
+  const todayDay = moment().format("DD");
+
+  let normalAttendance = 0;
   let normalLeave = 0;
   let late = 0;
   let earlyLeave = 0;
@@ -41,7 +44,11 @@ export const CommuteData = () => {
     if (tmp >= startTime) {
       late += 1;
     } else {
-      normalAttendance += 1;
+      const tmp1 = moment(new Date(endData[i])).format("DD");
+      if (tmp1 === todayDay) {
+      } else {
+        normalAttendance += 1;
+      }
     }
   }
   for (let i = 0; i < endData.length; i++) {

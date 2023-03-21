@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import SubName from "./components/SubName";
-
 import classes from "./SideBar.module.css";
 
 const SideBar = (props) => {
