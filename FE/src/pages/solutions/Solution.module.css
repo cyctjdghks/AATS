@@ -1,11 +1,16 @@
 @font-face {
   font-family: "Apple_Gothic_Neo_Mid";
-  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
 }
 
 @font-face {
   font-family: "Apple_Gothic_Neo_Light";
   src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../fonts/AppleSDGothicNeoUL.ttf");
 }
 
 @font-face {
@@ -28,13 +33,98 @@
   src: url("../../fonts/SF-Pro-Display-Bold.otf");
 }
 
-.hr{
-  width: 150px;
-  float: left;
+.pageBox{
+  padding-top: 30px;
+  padding-bottom: 100px;
+  height: 100%;
+  background-color: rgb(235, 235, 235);
 }
 
-.titleBox{
+.intoroBox{
+  display: flex;
+  width: 60%;
   margin: auto;
-  width: 270px;
+}
+
+.AI{
+  width: 400px;
+  max-width: 500px;
+}
+
+.introTextBox{
+  padding-top: 120px;
   text-align: left;
+}
+
+.introTextBox p{
+  font-family: "Apple_Gothic_Neo_EBold";
+  font-weight: bold;
+
+}
+
+.introTextBox h1{
+  font-family: "Apple_Gothic_Neo_ULight";
+  font-size: 60px;
+  margin-top: -10px;
+  color: #1d36a3;
+
+}
+
+.introTextBox h2{
+  font-family: "Apple_Gothic_Neo_Bold";
+  margin-top: -50px;
+  font-size: 55px;
+  color: #1d36a3;
+}
+
+.introContent1{
+  font-family: "Apple_Gothic_Neo_Light";
+}
+
+.mainBox{
+  width: 50%;
+  margin: auto;
+  text-align: left;
+}
+
+
+.titleBox h1{
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 60px;
+}
+
+.titleBox h2{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 25px;
+  margin-top: -30px;
+
+}
+
+.titleBox h3{
+  font-family: "Apple_Gothic_Neo_ULight";
+  font-size: 23px;
+  margin-top: -15px;
+
+}
+
+.hrTop{
+  height: 7px;
+  border: none;
+  background-color: #48589c;
+}
+
+.solutionItem{
+  display: flex;
+}
+
+.vLine{
+  width: 5px;
+  height: 100px;
+  background-color: #00A6DC;
+  border: none;
+}
+
+
+.solution1{
+  width: 100%;
 }

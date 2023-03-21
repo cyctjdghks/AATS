@@ -6,8 +6,12 @@ import classes from "./User.module.css";
 import ceo from "../../../assets/MainContact/ceo.png";
 import quote1 from "../../../assets/MainContact/quote1.png";
 import quote2 from "../../../assets/MainContact/quote2.png";
+import phone from "../../../assets/MainContact/phone.png";
 
 const User = () => {
+  const nationList = ['한국', '중국', '일본', '미국', '인도', '캄보디아', '카타르'];
+
+
   return (
     <div className={classes.pageBox}>
       <div className={classes.sideBox}>
@@ -17,7 +21,21 @@ const User = () => {
           <img src={quote2} alt="" className={classes.quote2} />
         </div>
         <p className={classes.ceoMent}>D102 대표, 강모현</p>
-        <img src={ceo} alt="" className={classes.ceo}/>
+        <div className={classes.hLine}></div>
+        <div className={classes.phoneBox}>
+          <div>
+            <img src={phone} alt="" />
+          </div>
+          <div className={classes.phoneText}>
+            <p className={classes.phoneOne}>
+              당신의 회원을 안전하게 관리하세요
+            </p>
+            <p className={classes.phoneTwo}>Phone.02-123-456</p>
+          </div>
+        </div>
+        <div>
+          <img src={ceo} alt="" className={classes.ceo} />
+        </div>
       </div>
       <div className={classes.mainBox}>
         <h1 className={classes.mainName}>회원 등록</h1>
@@ -46,11 +64,19 @@ const User = () => {
             type="text"
             placeholder="나이를 입력해주세요"
           />
-          <InputLabel
-            label="휴대폰 번호"
-            type="text"
-            placeholder="휴대폰 번호를 입력해주세요"
-          />
+          <div className={classes.selectbox}>
+            <label for="ex_select" className={classes.selectTitle}>국적</label>
+            <div>
+              <select id="ex_select"  className={classes.selectIdBox}>
+                <option selected>
+                  국적 선택(필수)
+                </option>
+                {nationList.map((key, idx)=>(
+                  <option>{nationList[idx]}</option>
+                ))}
+              </select>
+            </div>
+          </div>
         </div>
         <div className={classes.inputBoxTwo}>
           <InputLabel
@@ -64,21 +90,22 @@ const User = () => {
             placeholder="비밀번호를 입력해주세요"
           />
           <InputLabel
-            label="이메일"
-            type="text"
-            placeholder="이메일을 입력해주세요"
+            label="생년월일"
+            type="date"
+            placeholder="생년월일을 입력해주세요"
           />
         </div>
         <InputLabel
-          label="국적"
+          label="휴대폰 번호"
           type="text"
-          placeholder="이메일을 입력해주세요"
+          placeholder="휴대폰 번호를 입력해주세요"
         />
         <InputLabel
-          label="생년월일"
+          label="이메일"
           type="text"
           placeholder="이메일을 입력해주세요"
         />
+
         <div className={classes.inputBoxThree}>
           <div className={classes.genderBox}>
             <p className={classes.genderName}>성별</p>
@@ -95,6 +122,7 @@ const User = () => {
             </div>
           </div>
         </div>
+        <button className={classes.submitBtn}>submit</button>
       </div>
     </div>
   );
