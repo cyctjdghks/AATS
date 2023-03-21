@@ -13,6 +13,7 @@ import AboutUs from "./pages/aboutus/AboutUs";
 import MyPage from "./pages/mypage/MyPage"
 // import css style 
 import classes from "./App.module.css";
+import Main from "./Test";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/mypage/*" element={<MyPage />} />
+        <Route path="/test" element={<Main />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
