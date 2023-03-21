@@ -17,6 +17,8 @@ spring:
         format_sql: true
 
 server:
+  servlet:
+    contextPath: /be
   ssl:
     enabled: false
   port: 8082
