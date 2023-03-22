@@ -12,4 +12,5 @@ public class D102Application {
 		SpringApplication.run(D102Application.class, args);
 	}
 
+
 }
