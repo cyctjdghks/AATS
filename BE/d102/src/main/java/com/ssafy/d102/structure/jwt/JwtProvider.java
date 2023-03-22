@@ -21,19 +21,8 @@ public class JwtProvider  {
     private String secretKey;
 
     @Value("${jwt.expirationTime}")
-    private int expiredTime;
+    private long expiredTime;
 
-    private static JwtProvider instance = new JwtProvider();
-
-    public static JwtProvider getInstance(){
-        return instance;
-    }
-
-    private long tokenValidTime = Duration.ofMinutes(expiredTime).toMillis();
-    @PostConstruct
-    protected void init() {
-        secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
-    }
 
     public String createToken(UserDto userDto) {
         Claims claims = Jwts.claims();
@@ -44,7 +33,7 @@ public class JwtProvider  {
         return Jwts.builder()
                 .setClaims(claims)
                 .setIssuedAt(now)
-                .setExpiration(new Date(now.getTime() + tokenValidTime))
+                .setExpiration(new Date(now.getTime() + expiredTime))
                 .signWith(SignatureAlgorithm.HS256, secretKey.getBytes())
                 .compact();
     }
@@ -57,7 +46,7 @@ public class JwtProvider  {
         return Jwts.builder()
                 .setClaims(claims)
                 .setIssuedAt(now)
-                .setExpiration(new Date(now.getTime() + tokenValidTime))
+                .setExpiration(new Date(now.getTime() + expiredTime))
                 .signWith(SignatureAlgorithm.HS256, secretKey.getBytes())
                 .compact();
     }
@@ -69,7 +58,7 @@ public class JwtProvider  {
         return Jwts.builder()
                 .setClaims(claims)
                 .setIssuedAt(now)
-                .setExpiration(new Date(now.getTime() + tokenValidTime))
+                .setExpiration(new Date(now.getTime() + expiredTime))
                 .signWith(SignatureAlgorithm.HS256, secretKey.getBytes())
                 .compact();
     }
@@ -96,7 +85,7 @@ public class JwtProvider  {
     public boolean validateToken(String jwtToken) {
         try {
             Claims claims = Jwts.parser()
-                    .setSigningKey(DatatypeConverter.parseBase64Binary(secretKey))
+                    .setSigningKey(secretKey.getBytes())
                     .parseClaimsJws(jwtToken)
                     .getBody();
             return !claims.getExpiration().before(new Date());
