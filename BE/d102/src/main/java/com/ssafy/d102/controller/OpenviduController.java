@@ -21,7 +21,7 @@ import io.openvidu.java.client.OpenViduJavaClientException;
 import io.openvidu.java.client.Session;
 import io.openvidu.java.client.SessionProperties;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "/openvidu")
 @RestController
 public class OpenviduController {
 
