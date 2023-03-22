@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrganiztionUpdatePwDto {
+public class OrganizationUpdatePwDto {
     private String organizationId;
     private String organizationPwd;
     private String organizationNewPwd;
