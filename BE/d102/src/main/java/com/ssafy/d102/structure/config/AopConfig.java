@@ -16,8 +16,8 @@ public class AopConfig {
     @AfterThrowing(value = "execution(* com.ssafy.d102.controller.*.*(..))", throwing = "e")
     public void AfterThrowing(JoinPoint joinPoint, Throwable e){
         logger.error("AOP : Error ");
-        Object arg = joinPoint.getArgs()[0];
-        logger.error("Method Parameter : {}", arg.toString());
+//        Object arg = joinPoint.getArgs()[0];
+//        logger.error("Method Parameter : {}", arg.toString());
         e.printStackTrace();
     }
 

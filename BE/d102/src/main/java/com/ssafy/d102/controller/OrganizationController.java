@@ -38,7 +38,7 @@ public class OrganizationController {
 
         Cookie cookie = new Cookie("Authorization", Key);
         cookie.setMaxAge(60*60);
-        cookie.setPath("/be");
+        cookie.setPath("/");
         response.addCookie(cookie);
 
         return new ResponseEntity<>(data, HttpStatus.OK);

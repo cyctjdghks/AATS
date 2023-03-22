@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +58,9 @@ public class OrganizationServiceImpl implements OrganizationService {
     public List<OrganizationDto> getAllOrganization() {
 
         List<Organization> inputList = repository.findAll();
+
+        System.out.println(inputList);
+
         List<OrganizationDto> outputList = new ArrayList<>();
         for(int i=0;i<inputList.size();i++){
             OrganizationDto output = new OrganizationDto();
@@ -66,8 +70,8 @@ public class OrganizationServiceImpl implements OrganizationService {
             output.setOrganizationLng(inputList.get(i).getOrganizationLng());
             output.setOrganizationName(inputList.get(i).getOrganizationName());
             output.setOrganizationSessionId(inputList.get(i).getOrganizationSessionId());
-            output.setOrganizationRegistDate(inputList.get(i).getCreated_at().toString());
-            output.setOrganizationUpdateDate(inputList.get(i).getUpdated_at().toString());
+            output.setOrganizationRegistDate(inputList.get(i).getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")));
+            output.setOrganizationUpdateDate(inputList.get(i).getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")));
 
             outputList.add(output);
         }
