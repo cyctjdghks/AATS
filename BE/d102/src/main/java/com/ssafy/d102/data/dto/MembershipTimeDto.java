@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MemebershipTimeDto {
+public class MembershipTimeDto {
     private String startTime;
     private String endTime;
 }

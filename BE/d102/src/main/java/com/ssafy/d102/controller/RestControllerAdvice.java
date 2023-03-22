@@ -36,6 +36,16 @@ public class RestControllerAdvice {
 
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<?> handleIllegalArgumentException(Exception e){
+        Map<String, Object> data = new HashMap<>();
+
+        data.put("msg", e.getMessage());
+        data.put("error", e.toString());
+
+        return new ResponseEntity<>(data, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(UnAuthorizationException.class)
     public ResponseEntity<?> handlerUnAuthorizationException(UnAuthorizationException e){
         Map<String, Object> data = new HashMap<>();
