@@ -1,12 +1,14 @@
 package com.ssafy.d102.data.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class UserDto {
     private String userId;
     private String userName;
@@ -17,7 +19,7 @@ public class UserDto {
     private String userEmail;
     private String userBirth;
     private String userNationality;
-    private String userStatus;
+    private Integer userStatus;
     private String userProfile;
     private String userRegistDate;
     private String userUpdateDate;

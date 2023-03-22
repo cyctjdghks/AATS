@@ -1,5 +1,8 @@
 package com.ssafy.d102.data.entity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -7,20 +10,23 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "user")
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User extends BaseEntity{
 
     @Id
     @Column(name = "user_id", length = 50, nullable = false)
     private String userId;
 
-    @Column(name = "user_pwd", length = 50, nullable = false)
+    @Column(name = "user_pwd", length = 70, nullable = false)
     private String userPwd;
 
     @Column(name = "user_name", length = 50, nullable = false)
     private String userName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "organization_id", nullable = false)
+    @JoinColumn(name = "organizationId", nullable = false)
     private Organization organization;
 
     @Column(name = "user_gender")

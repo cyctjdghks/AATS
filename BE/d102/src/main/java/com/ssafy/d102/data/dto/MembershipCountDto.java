@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MemebershipCountDto {
+public class MembershipCountDto {
     private Integer count;
 }
