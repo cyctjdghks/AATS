@@ -11,6 +11,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class OrganizationServiceImpl implements OrganizationService {
@@ -48,5 +51,27 @@ public class OrganizationServiceImpl implements OrganizationService {
                 .organizationLat(input.getOrganizationLat()==null ? null : input.getOrganizationLat())
                 .build());
 
+    }
+
+    @Override
+    public List<OrganizationDto> getAllOrganization() {
+
+        List<Organization> inputList = repository.findAll();
+        List<OrganizationDto> outputList = new ArrayList<>();
+        for(int i=0;i<inputList.size();i++){
+            OrganizationDto output = new OrganizationDto();
+            output.setOrganizationId(inputList.get(i).getOrganizationId());
+            output.setOrganizationPw(inputList.get(i).getOrganizationPw());
+            output.setOrganizationLat(inputList.get(i).getOrganizationLat());
+            output.setOrganizationLng(inputList.get(i).getOrganizationLng());
+            output.setOrganizationName(inputList.get(i).getOrganizationName());
+            output.setOrganizationSessionId(inputList.get(i).getOrganizationSessionId());
+            output.setOrganizationRegistDate(inputList.get(i).getCreated_at().toString());
+            output.setOrganizationUpdateDate(inputList.get(i).getUpdated_at().toString());
+
+            outputList.add(output);
+        }
+
+        return outputList;
     }
 }
