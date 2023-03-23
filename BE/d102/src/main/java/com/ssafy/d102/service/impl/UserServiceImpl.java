@@ -8,11 +8,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.beans.Transient;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -50,8 +53,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto loginUser(UserLoginDto input) {
+        //TODO: orElseThrow
         User user = userRepository.findById(input.getUserId()).get();
 
+        //TODO: 조건을 만족하지 않으면 null 던지고 아니면 그냥 리턴하도록? 예외처리를 더 보기 쉽도록
         if (user != null || passwordEncoder.matches(input.getUserPwd(), user.getUserPwd())) {
             return UserDto.builder()
                     .userId(user.getUserId())
@@ -76,12 +81,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void updateUser(String userId, UserRegistDto input) {
-        userRepository.findById(userId)
+        User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
-        User user = userRepository.getById(userId);
-
+//         userRepository.getById(userId);
         user.setUserPwd(input.getUserPwd());
         user.setUserName(input.getUserName());
         user.setOrganization(organizationRepository.findById(input.getOrganizationId()).get());
@@ -92,12 +97,12 @@ public class UserServiceImpl implements UserService {
         user.setUserBirth(input.getUserBirth());
         user.setUserNationality(input.getUserNationality());
         user.setUserProfile(new byte[0]);
-
-        userRepository.save(user);
+//        userRepository.save(user);
     }
 
     @Override
     public void deleteUser(String userId) {
+        //TODO : orElseThrow | 예외처리 하기
         Optional<User> user = userRepository.findById(userId);
 
         if (user.isPresent()) {
@@ -111,21 +116,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void updateUserPw(String userId, UserUpdatePwDto input) {
-        userRepository.findById(userId)
+        User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
-        User user = userRepository.getById(userId);
-
+//        userRepository.getById(userId);
         user.setUserPwd(input.getUserNewPwd());
-
-        userRepository.save(user);
+//        userRepository.save(user);
     }
 
     @Override
     public List<UserDto> getAllUser() {
         List<UserDto> list = new ArrayList<>();
         List<User> userlist = userRepository.findAll();
+
+        //TODO : entityToDto 구현 해보기
+//        return userlist.stream()
+//                .map(UserDto::entityToDto)
+//                .collect(Collectors.toList());
 
         for (User user : userlist) {
             list.add(new UserDto(
@@ -217,6 +226,7 @@ public class UserServiceImpl implements UserService {
                 )
         );
 
+        //TODO : 변수로 따로 뺴는거 고려해보기
         return new MembershipTimeDto(
                 timeLimitedMembership.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
                 timeLimitedMembership.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
@@ -225,6 +235,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MembershipCountDto getUserMembershipCount(String userId) {
+        //TODO : 콜백 없애기
         CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(
                 membershipRepository.findByUser(
                         userRepository.findById(userId).get()

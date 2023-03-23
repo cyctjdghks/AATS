@@ -28,6 +28,7 @@ public class RestControllerAdvice {
     @ExceptionHandler(NoContentException.class)
     public ResponseEntity<?> handleNoContentException(NoContentException e){
         Map<String, Object> data = new HashMap<>();
+        //TODO: 이미 어디서 난 오류인지 아는데 굳이 Trace?
         e.printStackTrace();
         data.put("msg", "fail");
         data.put("error", e.toString());

@@ -34,6 +34,7 @@ public class OrganizationServiceImpl implements OrganizationService {
             throw new NotMatchException("PW가 다릅니다.");
         }
         // organizationDto로 기관 정보 반환
+        //TODO: 이걸 Dto에 static 메소드로 만들어 봐라
         return entityToDto(organization);
     }
 
@@ -58,21 +59,23 @@ public class OrganizationServiceImpl implements OrganizationService {
 
         List<Organization> inputList = repository.findAll();
 
-        List<OrganizationDto> outputList = new ArrayList<>();
-        for(int i=0;i<inputList.size();i++)
-            outputList.add(entityToDto(inputList.get(i)));
+        //TODO: 이걸로 바꿔보기
+//        return repository.findAll().stream()
+//                .map(organization -> entityToDto(organization))
+//                .collect(Collectors.toList());
 
+        List<OrganizationDto> outputList = new ArrayList<>();
+        for(int i=0;i<inputList.size();i++) {
+            outputList.add(entityToDto(inputList.get(i)));
+        }
 
         return outputList;
     }
 
     @Override
     public OrganizationDto getOrganization(String organizationId) {
-
         Organization organization = getById(organizationId);
-
         return entityToDto(organization);
-
     }
 
     @Transactional
@@ -80,6 +83,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     public OrganizationDto updateOrganization(OrganizationDto organizationDto) {
         Organization organization = getById(organizationDto.getOrganizationId());
 
+        //TODO: 중괄호 다 넣기
         if(organizationDto.getOrganizationLng() != null)
             organization.setOrganizationLng(organizationDto.getOrganizationLng());
         if(organizationDto.getOrganizationLat() != null)
@@ -105,9 +109,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 
         // organizationNewPwd
         organization.setOrganizationPw(passwordEncoder.encode(organizationUpdatePwDto.getOrganizationNewPwd()));
-
         repository.save(organization);
-
     }
 
     @Override
@@ -127,6 +129,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     }
 
 
+    //TODO: 참 잘했어요
     private Organization getById(String OrganizationId){
         Organization organization = repository.findById(OrganizationId)
                 .orElseThrow(() -> new NoContentException("Id를 확인해주세요."));
