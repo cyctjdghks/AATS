@@ -5,7 +5,6 @@ import com.ssafy.d102.data.entity.*;
 import com.ssafy.d102.repository.*;
 import com.ssafy.d102.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -126,7 +125,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDto> getAllUser() {
         List<UserDto> list = new ArrayList<>();
-        List<User> userlist = new ArrayList<>();
+        List<User> userlist = userRepository.findAll();
 
         for (User user : userlist) {
             list.add(new UserDto(
@@ -151,68 +150,63 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getUser(String userId) {
-        Optional<User> user = userRepository.findById(userId);
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
-        if (user.isPresent()) {
-            return new UserDto(
-                    user.get().getUserId(),
-                    user.get().getUserName(),
-                    user.get().getOrganization().getOrganizationId(),
-                    user.get().getUserGender(),
-                    user.get().getUserAge(),
-                    user.get().getUserPhone(),
-                    user.get().getUserEmail(),
-                    user.get().getUserBirth(),
-                    user.get().getUserNationality(),
-                    user.get().getUserStatus(),
-                    null,
-                    user.get().getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
-                    user.get().getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            );
-        } else {
-            return null;
-        }
+        return new UserDto(
+                user.getUserId(),
+                user.getUserName(),
+                user.getOrganization().getOrganizationId(),
+                user.getUserGender(),
+                user.getUserAge(),
+                user.getUserPhone(),
+                user.getUserEmail(),
+                user.getUserBirth(),
+                user.getUserNationality(),
+                user.getUserStatus(),
+                null,
+                user.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
+                user.getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+        );
     }
 
     @Override
     public void startUser(String userId) {
-        Optional<User> user = userRepository.findById(userId);
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
-        if (user.isPresent()) {
-            userAttendanceStartRepository.save(
-                    UserAttendanceStart.builder()
-                            .startTime(LocalDateTime.now())
-                            .user(user.get())
-                            .build()
-            );
-        }
+        userAttendanceStartRepository.save(
+                UserAttendanceStart.builder()
+                        .startTime(LocalDateTime.now())
+                        .user(user)
+                        .build()
+        );
     }
 
     @Override
     public void endUser(String userId) {
-        Optional<User> user = userRepository.findById(userId);
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
-        if (user.isPresent()) {
-            userAttendanceEndRepository.save(
-                    UserAttendanceEnd.builder()
-                            .endTime(LocalDateTime.now())
-                            .user(user.get())
-                            .build()
-            );
-        }
+        userAttendanceEndRepository.save(
+                UserAttendanceEnd.builder()
+                        .endTime(LocalDateTime.now())
+                        .user(user)
+                        .build()
+        );
     }
 
+    //TODO
     @Override
     public MembershipDto getUserMembership(String userId) {
-        Optional<User> user = userRepository.findById(userId);
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
-        if (user.isPresent()) {
-            return new MembershipDto(
-                    membershipRepository.findByUser(user.get()).getMembershipType()
-            );
-        } else {
-            return null;
-        }
+        System.out.println("유저 타입" + membershipRepository.findByUser(user).getMembershipType());
+        
+        return new MembershipDto(
+                membershipRepository.findByUser(user).getMembershipType()
+        );
     }
 
     @Override
