@@ -1,0 +1,47 @@
+/* 모달창을 화면 중앙. 최상단에 노출 */
+.container {
+  /* 모달창 크기 */
+  width: 70%;
+  height: 70%;
+
+  /* 최상단 위치 */
+  /* z-index: 999; */
+
+  /* 중앙 배치 */
+  /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */
+  /* translate는 본인의 크기 기준으로 작동한다. */
+  position: absolute;
+  /* top: 50%; */
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* 모달창 디자인 */
+  background-color: rgb(255, 255, 255);
+
+  box-shadow: 0 2px 3px 0 rgba(209, 0, 157, 0.15);
+
+  border: none;
+}
+
+/* 모달창 내부 X버튼 */
+.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.container{
+  display: flex;
+}
+
+.containerLeft{
+  width: 45%;
+  height: 100%;
+  
+}
+
+.containerRight{
+  width: 55%;
+  height: 100%;
+  background-color: lightgrey;
+}

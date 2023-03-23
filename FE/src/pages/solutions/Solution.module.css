@@ -33,98 +33,234 @@
   src: url("../../fonts/SF-Pro-Display-Bold.otf");
 }
 
-.pageBox{
+.pageBox {
   padding-top: 30px;
   padding-bottom: 100px;
   height: 100%;
   background-color: rgb(235, 235, 235);
 }
 
-.intoroBox{
+.intoroBox {
   display: flex;
-  width: 60%;
+  justify-content: center;
   margin: auto;
 }
 
-.AI{
-  width: 400px;
+.AI {
+  width: 100%;
   max-width: 500px;
+  margin-top: -60px;
+  margin-right: 70px;
 }
 
-.introTextBox{
+.introTextBox {
   padding-top: 120px;
   text-align: left;
 }
 
-.introTextBox p{
+.introTitle1 {
   font-family: "Apple_Gothic_Neo_EBold";
   font-weight: bold;
-
 }
 
-.introTextBox h1{
+.introTextBox h1 {
   font-family: "Apple_Gothic_Neo_ULight";
   font-size: 60px;
   margin-top: -10px;
   color: #1d36a3;
-
 }
 
-.introTextBox h2{
+.introTextBox h2 {
   font-family: "Apple_Gothic_Neo_Bold";
   margin-top: -50px;
   font-size: 55px;
   color: #1d36a3;
 }
 
-.introContent1{
-  font-family: "Apple_Gothic_Neo_Light";
+.introContent1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
 }
 
-.mainBox{
-  width: 50%;
+.introContent2 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+}
+
+.introContent3 {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: -15px;
+  font-size: 18px;
+}
+
+/* 숫자 카운트 */
+.countBox {
+  width: 80%;
+  max-width: 1200px;
+  height: 150px;
+  background-color: rgb(253, 250, 245);
+  border-radius: 10px;
+  margin: auto;
+
+}
+
+.countSubBox{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: -5px;
+}
+
+.countBoxTitle{
+  font-family: "Apple_Gothic_Neo_Bold";
+  color: #1d36a3;
+  padding-top: 20px;
+}
+
+
+.count1 {
+  display: flex;
+}
+
+.count1 p{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count1 h3{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+.count2 {
+  display: flex;
+}
+
+.count2 p{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count2 h3{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+.count3 {
+  display: flex;
+}
+
+.count3 p{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count3 h3{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+
+
+
+.mainBox {
+  width: 60%;
   margin: auto;
   text-align: left;
+  padding-top: 100px;
 }
 
+.titleBox{
+  margin-bottom: 50px;
+}
 
-.titleBox h1{
+.titleBox h1 {
   font-family: "Apple_Gothic_Neo_Mid";
   font-size: 60px;
 }
 
-.titleBox h2{
+.titleBox h2 {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 25px;
   margin-top: -30px;
-
 }
 
-.titleBox h3{
+.titleBox h3 {
   font-family: "Apple_Gothic_Neo_ULight";
   font-size: 23px;
   margin-top: -15px;
-
 }
 
-.hrTop{
+.hrTop {
   height: 7px;
   border: none;
   background-color: #48589c;
 }
 
-.solutionItem{
+.solutionItem {
   display: flex;
 }
 
-.vLine{
-  width: 5px;
-  height: 100px;
-  background-color: #00A6DC;
+.vLine1 {
+  width: 15px;
+  height: 250px;
+  background-color: #005FB3;
   border: none;
+  margin-right: 50px;
 }
 
-
-.solution1{
+.solutionBox1{
   width: 100%;
+  padding-top: 30px;
+  display: flex;
+  color: #005FB3;
+  margin-bottom: 30px;
+
+  
 }
+
+.vLine2 {
+  width: 15px;
+  height: 250px;
+  background-color: #1d36a3;
+  border: none;
+  margin-right: 50px;
+}
+
+.solutionBox2{
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  color: #1d36a3;
+  margin-bottom: 30px;
+
+  
+}
+
+.vLine3 {
+  width: 15px;
+  height: 250px;
+  background-color: #4234C6;
+  border: none;
+  margin-right: 50px;
+}
+
+.solutionBox3{
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  color: #4234C6;
+  margin-bottom: 30px;
+
+  
+}
+
+
+
+
+
