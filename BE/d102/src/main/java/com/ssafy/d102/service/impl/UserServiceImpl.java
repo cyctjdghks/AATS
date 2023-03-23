@@ -77,8 +77,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(UserRegistDto input) {
-        User user = userRepository.findById(input.getUserId())
+    public void updateUser(String userId, UserRegistDto input) {
+        User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
         userRepository.save(user.builder()

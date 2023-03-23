@@ -7,7 +7,7 @@ import java.util.List;
 public interface UserService {
     void registUser(UserRegistDto input);
     UserDto loginUser(UserLoginDto input);
-    void updateUser(UserRegistDto input);
+    void updateUser(String userId, UserRegistDto input);
     void deleteUser(String userId);
     boolean validUserId(String userId);
     void updateUserPw(String userId, UserUpdatePwDto input);
