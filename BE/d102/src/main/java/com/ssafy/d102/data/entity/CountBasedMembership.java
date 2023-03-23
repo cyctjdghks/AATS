@@ -1,11 +1,15 @@
 package com.ssafy.d102.data.entity;
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 @Entity
 @Table(name = "count_based_membership")
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class CountBasedMembership {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

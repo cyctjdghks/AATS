@@ -1,12 +1,15 @@
 package com.ssafy.d102.data.entity;
 
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "membership")
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Membership {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
