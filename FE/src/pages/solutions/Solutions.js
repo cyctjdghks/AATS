@@ -1,6 +1,6 @@
 import SolutionItem from "./components/SolutionItem";
 
-import classes from "./Solution.module.css";
+import classes from "./Solutions.module.css";
 
 import AI from "../../assets/A.png";
 import solution1 from "../../assets/Solution/solution1.png";
@@ -8,10 +8,10 @@ import solution1 from "../../assets/Solution/solution1.png";
 const Solutions = () => {
   // 숫자 증가 애니메이션
   // count1
-  let countBox = document.querySelector("#count1"),
-    count = 0;
+  let countBox = document.querySelector("#count1"), count = 0;
 
   let counting = setInterval(function () {
+    let countBox = document.querySelector("#count1")
     if (count === 5) {
       clearInterval(counting);
       return false;
@@ -20,12 +20,13 @@ const Solutions = () => {
     countBox.innerHTML = new Intl.NumberFormat().format(count);
   }, 150);
 
-  // 숫자 증가 애니메이션
+  //숫자 증가 애니메이션
   // count2
   let countBox2 = document.querySelector("#count2"),
     count2 = 0;
 
   let counting2 = setInterval(function () {
+    let countBox2 = document.querySelector("#count2")
     if (count2 === 49) {
       clearInterval(counting2);
       return false;
@@ -36,10 +37,9 @@ const Solutions = () => {
 
   // 숫자 증가 애니메이션
   // count3
-  let countBox3 = document.querySelector("#count3"),
-    count3 = 0;
-
+  let countBox3 = document.querySelector("#count3"), count3 = 0
   let counting3 = setInterval(function () {
+    let countBox3 = document.querySelector("#count3")
     if (count3 === 6) {
       clearInterval(counting3);
       return false;
@@ -50,8 +50,8 @@ const Solutions = () => {
 
   return (
     <div className={classes.pageBox}>
-      <div className={classes.intoroBox}>
-        <img src={AI} alt="" className={classes.AI} />
+      <div className={classes.introBox}>
+        <img src={AI} alt="aiImg" className={classes.AI} />
         <div className={classes.introTextBox}>
           <p className={classes.introTitle1}>Global Top AI Solution</p>
           <h1>AATS</h1>

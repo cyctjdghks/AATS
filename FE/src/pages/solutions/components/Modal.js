@@ -9,10 +9,10 @@ const Modal = ({ setModalOpen, id, title, content, writer, number }) => {
 
   // 모달 외부 클릭시 끄기 처리
   // Modal 창을 useRef로 취득
-  const modalRef = useRef < HTMLDivElement > null;
+  const modalRef = useRef(null);
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container} ref={modalRef}>
       <div className={classes.containerLeft}>
       <h3 className={classes.number}>{number}</h3>
       
