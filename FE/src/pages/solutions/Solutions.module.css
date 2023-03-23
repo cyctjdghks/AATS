@@ -40,10 +40,11 @@
   background-color: rgb(235, 235, 235);
 }
 
-.intoroBox {
+.introBox {
   display: flex;
   justify-content: center;
   margin: auto;
+  width: 100%;
 }
 
 .AI {
