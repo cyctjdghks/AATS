@@ -1,5 +1,5 @@
 package com.ssafy.d102.data.entity;
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -7,6 +7,10 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "time_limited_membership")
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class TimeLimitedMembership {
 
     @Id

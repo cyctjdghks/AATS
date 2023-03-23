@@ -195,5 +195,27 @@ public class UserController {
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
+
+    @GetMapping("/get/start/{userId}")
+    public ResponseEntity<?> getUserStart(@PathVariable String userId) {
+        Map<String, Object> data = new HashMap<>();
+        List<DateTimeDto> list =  userService.getUserStart(userId);
+
+        data.put("msg", "success");
+        data.put("data", list);
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @GetMapping("/get/end/{userId}")
+    public ResponseEntity<?> getUserEnd(@PathVariable String userId) {
+        Map<String, Object> data = new HashMap<>();
+        List<DateTimeDto> list =  userService.getUserEnd(userId);
+
+        data.put("msg", "success");
+        data.put("data", list);
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
 }
 

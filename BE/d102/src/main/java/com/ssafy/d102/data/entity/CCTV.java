@@ -1,7 +1,6 @@
 package com.ssafy.d102.data.entity;
 
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -9,6 +8,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "cctv")
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class CCTV extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

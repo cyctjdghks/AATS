@@ -180,10 +180,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void startUser(String userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
+        user.setUserStatus(1); // 출근함
         userAttendanceStartRepository.save(
                 UserAttendanceStart.builder()
                         .startTime(LocalDateTime.now())
@@ -193,10 +195,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void endUser(String userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
+        user.setUserStatus(0); // 퇴근함
         userAttendanceEndRepository.save(
                 UserAttendanceEnd.builder()
                         .endTime(LocalDateTime.now())
@@ -235,7 +239,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MembershipCountDto getUserMembershipCount(String userId) {
-        //TODO : 콜백 없애기
+        //TODO : 콜백 없애기, JPQL로 한번에 해보기
         CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(
                 membershipRepository.findByUser(
                         userRepository.findById(userId).get()
@@ -272,5 +276,37 @@ public class UserServiceImpl implements UserService {
                 .count();
 
         return new CountUserDto((int) count);
+    }
+
+    @Override
+    public List<DateTimeDto> getUserStart(String userId) {
+        List<DateTimeDto> dateTimeDtos = new ArrayList<>();
+        List<UserAttendanceStart> list = userAttendanceStartRepository.findAll().stream()
+                .filter(userAttendanceStart -> userAttendanceStart.getUser().getUserId().equals(userId))
+                .collect(Collectors.toList());
+
+        for (UserAttendanceStart userAttendanceStart : list) {
+            dateTimeDtos.add(new DateTimeDto(
+                    userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+            ));
+        }
+
+        return dateTimeDtos;
+    }
+
+    @Override
+    public List<DateTimeDto> getUserEnd(String userId) {
+        List<DateTimeDto> dateTimeDtos = new ArrayList<>();
+        List<UserAttendanceEnd> list = userAttendanceEndRepository.findAll().stream()
+                .filter(userAttendanceEnd -> userAttendanceEnd.getUser().getUserId().equals(userId))
+                .collect(Collectors.toList());
+
+        for (UserAttendanceEnd userAttendanceEnd : list) {
+            dateTimeDtos.add(new DateTimeDto(
+                    userAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+            ));
+        }
+
+        return dateTimeDtos;
     }
 }
