@@ -16,13 +16,11 @@ public class OrganizationController {
 
     @Test
     public void loginOrganization(){
-
         service.registOrganization(OrganizationDto.builder()
                 .organizationId("ssafy")
                 .organizationPw("asd123")
                 .organizationName("김싸피")
                 .build());
-
 
         OrganizationLoginDto d = new OrganizationLoginDto();
         d.setOrganizationId("ssafy");
@@ -30,10 +28,7 @@ public class OrganizationController {
 
         OrganizationDto dto = service.loginOrganization(d);
 
-
-
         Assertions.assertSame(d.getOrganizationId(),dto.getOrganizationId());
-
     }
 
 }

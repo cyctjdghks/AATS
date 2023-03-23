@@ -1,5 +1,6 @@
 package com.ssafy.d102.data.dto;
 
+import com.ssafy.d102.data.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,4 +24,10 @@ public class UserDto {
     private String userProfile;
     private String userRegistDate;
     private String userUpdateDate;
+
+    public static UserDto entityToDto(User user){
+        return UserDto.builder()
+
+                .build();
+    }
 }
