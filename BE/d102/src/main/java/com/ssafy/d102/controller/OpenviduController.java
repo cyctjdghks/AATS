@@ -1,5 +1,6 @@
 package com.ssafy.d102.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -39,11 +40,17 @@ public class OpenviduController {
      * @return The Session ID
      */
     @PostMapping("/api/sessions")
-    public ResponseEntity<String> initializeSession(@RequestBody(required = false) Map<String, Object> params)
+    public ResponseEntity<?> initializeSession(@RequestBody(required = false) Map<String, Object> params)
             throws OpenViduJavaClientException, OpenViduHttpException {
+        Map<String, Object> data = new HashMap<>();
+
         SessionProperties properties = SessionProperties.fromJson(params).build();
         Session session = openvidu.createSession(properties);
-        return new ResponseEntity<>(session.getSessionId(), HttpStatus.OK);
+
+        data.put("msg", "success");
+        data.put("data", session.getSessionId());
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     /**
@@ -52,16 +59,22 @@ public class OpenviduController {
      * @return The Token associated to the Connection
      */
     @PostMapping("/api/sessions/{sessionId}/connections")
-    public ResponseEntity<String> createConnection(@PathVariable("sessionId") String sessionId,
+    public ResponseEntity<?> createConnection(@PathVariable("sessionId") String sessionId,
                                                    @RequestBody(required = false) Map<String, Object> params)
             throws OpenViduJavaClientException, OpenViduHttpException {
+        Map<String, Object> data = new HashMap<>();
+
         Session session = openvidu.getActiveSession(sessionId);
         if (session == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         ConnectionProperties properties = ConnectionProperties.fromJson(params).build();
         Connection connection = session.createConnection(properties);
-        return new ResponseEntity<>(connection.getToken(), HttpStatus.OK);
+
+        data.put("msg", "success");
+        data.put("data", connection.getToken());
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
 }
