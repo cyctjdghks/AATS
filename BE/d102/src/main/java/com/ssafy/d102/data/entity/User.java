@@ -1,8 +1,5 @@
 package com.ssafy.d102.data.entity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,6 +7,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "user")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
