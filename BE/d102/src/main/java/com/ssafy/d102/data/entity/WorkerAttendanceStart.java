@@ -1,5 +1,8 @@
 package com.ssafy.d102.data.entity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -7,6 +10,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "worker_attendance_start")
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class WorkerAttendanceStart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

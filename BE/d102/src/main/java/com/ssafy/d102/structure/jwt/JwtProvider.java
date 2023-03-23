@@ -41,7 +41,7 @@ public class JwtProvider  {
         Claims claims = Jwts.claims();
         claims.put("workerId", workerDto.getWorkerId());
         claims.put("workerName", workerDto.getWorkerName());
-        claims.put("workerOrganization", workerDto.getOrganizationId());
+        claims.put("workerOrganization", workerDto.getWorkerOrganizationId());
         Date now = new Date();
         return Jwts.builder()
                 .setClaims(claims)
