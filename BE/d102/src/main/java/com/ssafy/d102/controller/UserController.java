@@ -66,7 +66,6 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    //TODO
     @GetMapping("/valid/{userId}")
     public ResponseEntity<?> validUserId(@PathVariable String userId) {
         Map<String, Object> data = new HashMap<>();
@@ -130,6 +129,7 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
+    //TODO
     @GetMapping("/membership/{userId}")
     public ResponseEntity<?> getUserMembership(@PathVariable String userId) {
         Map<String, Object> data = new HashMap<>();
