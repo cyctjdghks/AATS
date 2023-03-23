@@ -78,8 +78,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(String userId, UserRegistDto input) {
-        User user = userRepository.findById(userId)
+        userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+
+        User user = userRepository.getById(userId);
 
         userRepository.save(user.builder()
                 .userPwd(input.getUserPwd())
@@ -111,22 +113,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUserPw(String userId, UserUpdatePwDto input) {
-        Optional<User> user = userRepository.findById(input.getUserId());
+//        Optional<User> user = userRepository.findById(input.getUserId());
 
-        if (user.isPresent()) {
-            userRepository.save(user.get().builder()
+        userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+
+        User user = userRepository.getById(userId);
+
+            userRepository.save(user.builder()
                     .userPwd(input.getUserNewPwd())
-                    .userName(user.get().getUserName())
-                    .organization(user.get().getOrganization())
-                    .userGender(user.get().getUserGender())
-                    .userAge(user.get().getUserAge())
-                    .userPhone(user.get().getUserPhone())
-                    .userEmail(user.get().getUserEmail())
-                    .userBirth(user.get().getUserBirth())
-                    .userNationality(user.get().getUserNationality())
+                    .userName(user.getUserName())
+                    .organization(user.getOrganization())
+                    .userGender(user.getUserGender())
+                    .userAge(user.getUserAge())
+                    .userPhone(user.getUserPhone())
+                    .userEmail(user.getUserEmail())
+                    .userBirth(user.getUserBirth())
+                    .userNationality(user.getUserNationality())
                     .userProfile(new byte[0])
                     .build());
-        }
     }
 
     @Override
