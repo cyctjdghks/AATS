@@ -13,8 +13,8 @@ public class OrganizationDto {
     private String organizationId;
     private String organizationPw;
     private String organizationName;
-    private Float organizationLng;
-    private Float organizationLat;
+    private Double organizationLng;
+    private Double organizationLat;
     private String organizationSessionId;
     private String organizationRegistDate;
     private String organizationUpdateDate;

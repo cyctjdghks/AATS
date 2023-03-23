@@ -11,13 +11,13 @@ public class Membership {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "membership_no")
-    private long no;
+    private long membershipNo;
 
     @Column(name = "membership_type")
-    private int type;
+    private int membershipType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     private User user;
 
     // getters, setters, constructors

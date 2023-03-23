@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class cctvDto {
     private Long cctvNo;
-    private Float cctvLat;
-    private Float cctvLng;
+    private Double cctvLat;
+    private Double cctvLng;
     private String cctvInformation;
     private String organizationId;
     private String cctvRegistDate;

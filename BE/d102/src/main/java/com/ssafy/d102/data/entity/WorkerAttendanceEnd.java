@@ -17,7 +17,7 @@ public class WorkerAttendanceEnd  {
     private LocalDateTime endTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "worker_id", nullable = false)
+    @JoinColumn(name = "workerId", nullable = false)
     private Worker worker;
 
     // 생성자, getter, setter, toString 등 생략

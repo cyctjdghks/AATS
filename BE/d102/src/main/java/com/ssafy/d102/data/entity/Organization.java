@@ -17,17 +17,17 @@ public class Organization extends BaseEntity {
     @Column(name = "organization_id", length = 50, nullable = false)
     private String organizationId;
 
-    @Column(name = "organization_pw", length = 128, nullable = false)
+    @Column(name = "organization_pw", length = 70, nullable = false)
     private String organizationPw;
 
     @Column(name = "organization_name", length = 10, nullable = false)
     private String organizationName;
 
     @Column(name = "organization_lng")
-    private Float organizationLng;
+    private Double organizationLng;
 
     @Column(name = "organization_lat")
-    private Float organizationLat;
+    private Double organizationLat;
 
     @Column(name = "organization_session_id", length = 10)
     private String organizationSessionId;

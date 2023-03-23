@@ -23,11 +23,8 @@ public class UserAttendanceEnd {
     @Column(name = "end_time", nullable = false, columnDefinition = "datetime default now()")
     private LocalDateTime endTime;
 
-    @Column(name = "user_id", nullable = false)
-    private String userId;
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", insertable = false, updatable = false)
+    @JoinColumn(name = "userId")
     private User user;
 
     // Getter, Setter

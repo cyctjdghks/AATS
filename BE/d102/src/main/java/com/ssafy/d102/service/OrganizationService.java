@@ -2,7 +2,7 @@ package com.ssafy.d102.service;
 
 import com.ssafy.d102.data.dto.OrganizationDto;
 import com.ssafy.d102.data.dto.OrganizationLoginDto;
-import com.ssafy.d102.data.dto.OrganizationRegistDto;
+import com.ssafy.d102.data.dto.OrganizationSetSessionDto;
 import com.ssafy.d102.data.dto.OrganizationUpdatePwDto;
 
 import java.util.List;
@@ -19,4 +19,8 @@ public interface OrganizationService {
     OrganizationDto updateOrganization(OrganizationDto organizationDto);
 
     void changePw(OrganizationUpdatePwDto organizationUpdatePwDto);
+
+    void setSessionId(OrganizationSetSessionDto organizationSetSessionDto);
+
+    String getSessionId(String organizationId);
 }

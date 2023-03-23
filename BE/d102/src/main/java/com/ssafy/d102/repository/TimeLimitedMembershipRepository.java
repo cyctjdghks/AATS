@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TimeLimitedMembershipRepository extends JpaRepository<TimeLimitedMembership, Long> {
-    TimeLimitedMembership findByMembershipNo(Membership membership);
+    TimeLimitedMembership findByMembership(Membership membership);
 }

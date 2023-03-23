@@ -25,7 +25,7 @@ public class UserAttendanceStart {
     private LocalDateTime startTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "userId")
     private User user;
 
     // Constructors, getters/setters, etc.

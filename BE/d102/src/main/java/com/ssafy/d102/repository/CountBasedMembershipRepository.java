@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CountBasedMembershipRepository extends JpaRepository<CountBasedMembership, Long> {
-    CountBasedMembership findByMembershipNo(Membership membership);
+    CountBasedMembership findByMembership(Membership membership);
 }

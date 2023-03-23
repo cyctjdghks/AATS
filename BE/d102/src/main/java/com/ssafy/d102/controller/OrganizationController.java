@@ -2,11 +2,10 @@ package com.ssafy.d102.controller;
 
 import com.ssafy.d102.data.dto.OrganizationDto;
 import com.ssafy.d102.data.dto.OrganizationLoginDto;
-import com.ssafy.d102.data.dto.OrganizationRegistDto;
+import com.ssafy.d102.data.dto.OrganizationSetSessionDto;
 import com.ssafy.d102.data.dto.OrganizationUpdatePwDto;
 import com.ssafy.d102.service.OrganizationService;
 import com.ssafy.d102.structure.jwt.JwtProvider;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -103,6 +102,31 @@ public class OrganizationController {
         service.changePw(organizationUpdatePwDto);
 
         data.put("msg", "success");
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @PostMapping("/setsessionid")
+    public ResponseEntity<?>  setSessionId(OrganizationSetSessionDto organizationSetSessionDto){
+        log.info("Set SessionId Method start");
+        Map<String, Object> data = new HashMap<>();
+
+        service.setSessionId(organizationSetSessionDto);
+
+        data.put("msg", "success");
+
+        return new ResponseEntity<>(data,HttpStatus.OK);
+    }
+
+    @GetMapping("/getsessionid/{organizationId}")
+    public ResponseEntity<?> getSessionId(@PathVariable String organizationId){
+        log.info("Get SessionId Method start");
+        Map<String, Object> data = new HashMap<>();
+
+        String sessionId = service.getSessionId(organizationId);
+
+        data.put("msg", "success");
+        data.put("organizationSessionId", sessionId);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }

@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class cctvRegistDto {
-    private Float cctvLat;
-    private Float cctvLng;
+    private Double cctvLat;
+    private Double cctvLng;
     private String cctvInformation;
     private String organizationId;
 }

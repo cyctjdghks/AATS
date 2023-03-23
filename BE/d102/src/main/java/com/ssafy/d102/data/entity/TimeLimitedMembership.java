@@ -21,7 +21,7 @@ public class TimeLimitedMembership {
     private LocalDateTime endTime;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "membership_no", nullable = false)
+    @JoinColumn(name = "membershipNo", nullable = false)
     private Membership membership;
 
     // constructors, getters, setters
