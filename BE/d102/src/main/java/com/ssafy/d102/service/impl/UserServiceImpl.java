@@ -214,7 +214,7 @@ public class UserServiceImpl implements UserService {
 
         if (user.isPresent()) {
             return new MembershipDto(
-                    membershipRepository.findByUser(user.get()).getType()
+                    membershipRepository.findByUser(user.get()).getMembershipType()
             );
         } else {
             return null;
@@ -223,7 +223,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MembershipTimeDto getUserMembershipTime(String userId) {
-        TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembershipNo(
+        TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(
                 membershipRepository.findByUser(
                         userRepository.findById(userId).get()
                 )
@@ -237,7 +237,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MembershipCountDto getUserMembershipCount(String userId) {
-        CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembershipNo(
+        CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(
                 membershipRepository.findByUser(
                         userRepository.findById(userId).get()
                 )
@@ -258,7 +258,7 @@ public class UserServiceImpl implements UserService {
     public CountUserDto countUserUseTime() {
 
         long count = membershipRepository.findAll().stream()
-                .filter(membership -> membership.getType() == 0)
+                .filter(membership -> membership.getMembershipType() == 0)
                 .filter(membership -> membership.getUser().getUserStatus() == 1)
                 .count();
 
@@ -268,7 +268,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public CountUserDto countUserUseCount() {
         long count = membershipRepository.findAll().stream()
-                .filter(membership -> membership.getType() == 1)
+                .filter(membership -> membership.getMembershipType() == 1)
                 .filter(membership -> membership.getUser().getUserStatus() == 1)
                 .count();
 

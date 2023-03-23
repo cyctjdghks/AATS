@@ -14,7 +14,7 @@ public class Worker extends BaseEntity {
     @Column(name = "worker_id", length = 50, nullable = false)
     private String workerId;
 
-    @Column(name = "worker_pw", length = 20, nullable = false)
+    @Column(name = "worker_pw", length = 70, nullable = false)
     private String workerPw;
 
     @Column(name = "worker_name", length = 10, nullable = false)
@@ -24,7 +24,7 @@ public class Worker extends BaseEntity {
     private Integer workerStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "organization_id", nullable = false)
+    @JoinColumn(name = "organizationId", nullable = false)
     private Organization organization;
 
     @Column(name = "worker_gender")

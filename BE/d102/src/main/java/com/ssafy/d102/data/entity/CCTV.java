@@ -13,19 +13,19 @@ public class CCTV extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cctv_no")
-    private long id;
+    private long CCTVNo;
 
     @Column(name = "cctv_lat")
-    private float latitude;
+    private Double CCTVLat;
 
     @Column(name = "cctv_lng")
-    private float longitude;
+    private Double CCTVLng;
 
     @Column(name = "cctv_information")
-    private String information;
+    private String CCTVInformation;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "organization_id")
+    @JoinColumn(name = "organizationId")
     private Organization organization;
 
     // getters and setters

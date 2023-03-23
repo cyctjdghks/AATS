@@ -4,7 +4,7 @@ import com.ssafy.d102.data.Exception.NoContentException;
 import com.ssafy.d102.data.Exception.NotMatchException;
 import com.ssafy.d102.data.dto.OrganizationDto;
 import com.ssafy.d102.data.dto.OrganizationLoginDto;
-import com.ssafy.d102.data.dto.OrganizationRegistDto;
+import com.ssafy.d102.data.dto.OrganizationSetSessionDto;
 import com.ssafy.d102.data.dto.OrganizationUpdatePwDto;
 import com.ssafy.d102.data.entity.Organization;
 import com.ssafy.d102.repository.OrganizationRepository;
@@ -110,6 +110,22 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     }
 
+    @Override
+    public void setSessionId(OrganizationSetSessionDto organizationSetSessionDto) {
+        Organization organization = getById(organizationSetSessionDto.getOrganizationId());
+
+        organization.setOrganizationSessionId(organizationSetSessionDto.getSessionId());
+
+        repository.save(organization);
+    }
+
+    @Override
+    public String getSessionId(String organizationId) {
+        Organization organization = getById(organizationId);
+
+        return organization.getOrganizationSessionId();
+    }
+
 
     private Organization getById(String OrganizationId){
         Organization organization = repository.findById(OrganizationId)
@@ -122,11 +138,24 @@ public class OrganizationServiceImpl implements OrganizationService {
                 .organizationId(organization.getOrganizationId())
                 .organizationName(organization.getOrganizationName())
                 .organizationSessionId(organization.getOrganizationSessionId()==null ? null : organization.getOrganizationSessionId())
-                .organizationLng(organization.getOrganizationLng()==null ? null : organization.getOrganizationLng())
-                .organizationLat(organization.getOrganizationLat()==null ? null : organization.getOrganizationLat())
+                .organizationLng(organization.getOrganizationLng() == null ? null : organization.getOrganizationLng())
+                .organizationLat(organization.getOrganizationLat() == null ? null : organization.getOrganizationLat())
                 .organizationRegistDate(organization.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")))
                 .organizationUpdateDate(organization.getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")))
                 .build();
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
