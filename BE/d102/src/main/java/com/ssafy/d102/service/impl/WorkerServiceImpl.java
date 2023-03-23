@@ -20,6 +20,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -221,5 +222,41 @@ public class WorkerServiceImpl implements WorkerService {
         if (worker.isPresent()) {
             workerRepository.delete(worker.get());
         }
+    }
+
+    @Override
+    public List<DateTimeDto> getWorkerStart(String id) {
+        List<DateTimeDto> list = new ArrayList<>();
+        List<WorkerAttendanceStart> workerStartList =
+                workerAttendanceStartRepository.findAll().stream()
+                        .filter(workerAttendanceStart -> workerAttendanceStart.getWorker().getWorkerId().equals(id))
+                        .collect(Collectors.toList());
+
+
+        for (WorkerAttendanceStart startList : workerStartList) {
+            list.add(new DateTimeDto(
+                    startList.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+            ));
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<DateTimeDto> getWorkerEnd(String id) {
+        List<DateTimeDto> list = new ArrayList<>();
+        List<WorkerAttendanceEnd> workerEndList =
+                workerAttendanceEndRepository.findAll().stream()
+                        .filter(workerAttendanceEnd -> workerAttendanceEnd.getWorker().getWorkerId().equals(id))
+                        .collect(Collectors.toList());
+
+
+        for (WorkerAttendanceEnd endList : workerEndList) {
+            list.add(new DateTimeDto(
+                    endList.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+            ));
+        }
+
+        return list;
     }
 }

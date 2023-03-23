@@ -1,9 +1,6 @@
 package com.ssafy.d102.controller;
 
-import com.ssafy.d102.data.dto.WorkerDto;
-import com.ssafy.d102.data.dto.WorkerLoginDto;
-import com.ssafy.d102.data.dto.WorkerRegistDto;
-import com.ssafy.d102.data.dto.WorkerUpdatePwDto;
+import com.ssafy.d102.data.dto.*;
 import com.ssafy.d102.data.entity.Worker;
 import com.ssafy.d102.service.WorkerService;
 import lombok.RequiredArgsConstructor;
@@ -121,5 +118,30 @@ public class WorkerController {
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
+
+    @GetMapping("get/start/{workerId}")
+    public ResponseEntity<?> getWorkerStart(@PathVariable("workerId") String id) {
+        Map<String, Object> data = new HashMap<>();
+
+
+        List<DateTimeDto> workerStartList = workerService.getWorkerStart(id);
+        data.put("msg", "success");
+        data.put("data", workerStartList);
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @GetMapping("get/end/{workerId}")
+    public ResponseEntity<?> getWorkerEnd(@PathVariable("workerId") String id) {
+        Map<String, Object> data = new HashMap<>();
+
+
+        List<DateTimeDto> workerStartList = workerService.getWorkerStart(id);
+        data.put("msg", "success");
+        data.put("data", workerStartList);
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
 
 }

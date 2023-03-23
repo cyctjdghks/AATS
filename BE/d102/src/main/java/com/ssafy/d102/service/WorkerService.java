@@ -1,9 +1,6 @@
 package com.ssafy.d102.service;
 
-import com.ssafy.d102.data.dto.WorkerDto;
-import com.ssafy.d102.data.dto.WorkerLoginDto;
-import com.ssafy.d102.data.dto.WorkerRegistDto;
-import com.ssafy.d102.data.dto.WorkerUpdatePwDto;
+import com.ssafy.d102.data.dto.*;
 import com.ssafy.d102.data.entity.Worker;
 
 import java.util.List;
@@ -27,4 +24,8 @@ public interface WorkerService {
     void registWorker(WorkerRegistDto input);
 
     void deleteWorker(String id);
+
+    List<DateTimeDto> getWorkerStart(String id);
+
+    List<DateTimeDto> getWorkerEnd(String id);
 }
