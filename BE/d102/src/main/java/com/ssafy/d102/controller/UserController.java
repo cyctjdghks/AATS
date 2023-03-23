@@ -46,6 +46,16 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
+    @PutMapping("/update/{userId}")
+    public ResponseEntity<?> updateUser(@PathVariable String userId, @RequestBody UserRegistDto input) {
+        Map<String, Object> data = new HashMap<>();
+        userService.updateUser(userId, input);
+
+        data.put("msg", "success");
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
     @DeleteMapping("/delete/{userId}")
     public ResponseEntity<?> deleteUser(@PathVariable String userId) {
         Map<String, Object> data = new HashMap<>();
@@ -68,7 +78,7 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @PostMapping("/update/pw/{userId}")
+    @PutMapping("/update/pw/{userId}")
     public ResponseEntity<?> updateUserPw(@PathVariable String userId, @RequestBody UserUpdatePwDto input) {
         Map<String, Object> data = new HashMap<>();
         userService.updateUserPw(userId, input);
@@ -78,7 +88,7 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/update/all")
+    @GetMapping("/all")
     public ResponseEntity<?> getAllUser() {
         Map<String, Object> data = new HashMap<>();
         List<UserDto> list =  userService.getAllUser();
