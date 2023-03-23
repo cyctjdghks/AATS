@@ -83,18 +83,18 @@ public class UserServiceImpl implements UserService {
 
         User user = userRepository.getById(userId);
 
-        userRepository.save(user.builder()
-                .userPwd(input.getUserPwd())
-                .userName(input.getUserName())
-                .organization(organizationRepository.findById(input.getOrganizationId()).get())
-                .userGender(input.getUserGender())
-                .userAge(input.getUserAge())
-                .userPhone(input.getUserPhone())
-                .userEmail(input.getUserEmail())
-                .userBirth(input.getUserBirth())
-                .userNationality(input.getUserNationality())
-                .userProfile(new byte[0])
-                .build());
+        user.setUserPwd(input.getUserPwd());
+        user.setUserName(input.getUserName());
+        user.setOrganization(organizationRepository.findById(input.getOrganizationId()).get());
+        user.setUserGender(input.getUserGender());
+        user.setUserAge(input.getUserAge());
+        user.setUserPhone(input.getUserPhone());
+        user.setUserEmail(input.getUserEmail());
+        user.setUserBirth(input.getUserBirth());
+        user.setUserNationality(input.getUserNationality());
+        user.setUserProfile(new byte[0]);
+
+        userRepository.save(user);
     }
 
     @Override
@@ -113,25 +113,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUserPw(String userId, UserUpdatePwDto input) {
-//        Optional<User> user = userRepository.findById(input.getUserId());
-
         userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
         User user = userRepository.getById(userId);
 
-            userRepository.save(user.builder()
-                    .userPwd(input.getUserNewPwd())
-                    .userName(user.getUserName())
-                    .organization(user.getOrganization())
-                    .userGender(user.getUserGender())
-                    .userAge(user.getUserAge())
-                    .userPhone(user.getUserPhone())
-                    .userEmail(user.getUserEmail())
-                    .userBirth(user.getUserBirth())
-                    .userNationality(user.getUserNationality())
-                    .userProfile(new byte[0])
-                    .build());
+        user.setUserPwd(input.getUserNewPwd());
+
+        userRepository.save(user);
     }
 
     @Override
