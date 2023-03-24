@@ -48,8 +48,9 @@ public class User extends BaseEntity{
     @Column(name = "user_status", nullable = false)
     private Integer userStatus;
 
-    @Column(name = "user_profile", nullable = false)
-    private byte[] userProfile;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "imageId")
+    private Image Image;
 
     // getters and setters
 

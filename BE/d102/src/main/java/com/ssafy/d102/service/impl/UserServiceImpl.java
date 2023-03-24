@@ -29,11 +29,13 @@ public class UserServiceImpl implements UserService {
     private final TimeLimitedMembershipRepository timeLimitedMembershipRepository;
     private final CountBasedMembershipRepository countBasedMembershipRepository;
     private final PasswordEncoder passwordEncoder;
+    private final ImageRepository imageRepository;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public void registUser(UserRegistDto input) {
+
         userRepository.save(User.builder()
                 .userId(input.getUserId())
                 .userPwd(input.getUserPwd())
@@ -46,8 +48,7 @@ public class UserServiceImpl implements UserService {
                 .userBirth(input.getUserBirth())
                 .userNationality(input.getUserNationality())
                 .userStatus(0)
-                .userProfile(new byte[0])
-//                .userProfile(input.getUserProfile())
+                .Image(imageRepository.findById(input.getUserImage()).get())
                 .build());
     }
 
@@ -96,7 +97,6 @@ public class UserServiceImpl implements UserService {
         user.setUserEmail(input.getUserEmail());
         user.setUserBirth(input.getUserBirth());
         user.setUserNationality(input.getUserNationality());
-        user.setUserProfile(new byte[0]);
 //        userRepository.save(user);
     }
 

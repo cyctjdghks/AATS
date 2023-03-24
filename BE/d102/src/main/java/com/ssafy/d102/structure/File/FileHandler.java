@@ -1,11 +1,13 @@
 package com.ssafy.d102.structure.File;
 
-import com.ssafy.d102.data.entity.Board;
+import com.ssafy.d102.data.Exception.NotMatchException;
+import com.ssafy.d102.data.entity.Image;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,10 +16,10 @@ import java.util.List;
 @Component
 public class FileHandler {
 
-    public List<Board> parseFileInfo(Long boardID, List<MultipartFile> multipartFiles) throws Exception {
+    public Image parseFileInfo(Long boardID, MultipartFile multipartFiles){
 
         // 반환을 할 파일 리스트
-        List<Board> fileList = new ArrayList<>();
+        Image fileList = new Image();
 
         // 파일이 빈 것이 들어오면 빈 것을 반환
         if (multipartFiles.isEmpty()) {
@@ -53,15 +55,15 @@ public class FileHandler {
         }
 
         // 파일들을 이제 만져볼 것이다
-        for (MultipartFile multipartFile : multipartFiles) {
+//        for (MultipartFile multipartFile : multipartFiles) {
             // 파일이 비어 있지 않을 때 작업을 시작해야 오류가 나지 않는다
-            if (!multipartFile.isEmpty()) {
+            if (!multipartFiles.isEmpty()) {
                 // jpeg, png, gif 파일들만 받아서 처리할 예정
-                String contentType = multipartFile.getContentType();
+                String contentType = multipartFiles.getContentType();
                 String originalFileExtension;
                 // 확장자 명이 없으면 이 파일은 잘 못 된 것이다
                 if (ObjectUtils.isEmpty(contentType)) {
-                    break;
+                    throw new NotMatchException("확장자 명이 없습니다.");
                 } else {
                     if (contentType.contains("image/jpeg")) {
                         originalFileExtension = ".jpg";
@@ -72,26 +74,28 @@ public class FileHandler {
                     }
                     // 다른 파일 명이면 아무 일 하지 않는다
                     else {
-                        break;
+                        throw new NotMatchException("다른 파일명입니다.");
                     }
                 }
                 // 각 이름은 겹치면 안되므로 나노 초까지 동원하여 지정
                 String new_file_name = System.nanoTime() + originalFileExtension;
                 // 생성 후 리스트에 추가
-                Board board = Board.builder()
-                        .boardIdx(boardID)
-                        .originalFileName(multipartFile.getOriginalFilename())
+                fileList = Image.builder()
+                        .originalFileName(multipartFiles.getOriginalFilename())
                         .storedFileName(path + "/" + new_file_name)
-                        .fileSize(multipartFile.getSize())
+                        .fileSize(multipartFiles.getSize())
                         .build();
-                fileList.add(board);
 
                 // 저장된 파일로 변경하여 이를 보여주기 위함
                 file = new File(absolutePath + path + "/" + new_file_name);
                 System.out.println(file);
-                multipartFile.transferTo(file);
+                try {
+                    multipartFiles.transferTo(file);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
-        }
+//        }
 
         return fileList;
     }

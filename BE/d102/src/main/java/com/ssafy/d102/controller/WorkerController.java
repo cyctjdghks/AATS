@@ -17,14 +17,10 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/worker")
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class WorkerController {
     private final WorkerService workerService;
 
-    @Autowired
-    public WorkerController(WorkerService workerService) {
-        this.workerService = workerService;
-    }
 
     @PostMapping("/login")
     public ResponseEntity<?> loginWorker(@RequestBody WorkerLoginDto input) {
@@ -59,27 +55,27 @@ public class WorkerController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @PutMapping("update/{workerId}")
-    public ResponseEntity<?> updateWorker(@PathVariable("workerId") String id, @RequestBody WorkerRegistDto input) {
+    @PutMapping("/update")
+    public ResponseEntity<?> updateWorker(@RequestBody WorkerRegistDto input) {
         Map<String, Object> data = new HashMap<>();
-        workerService.updateWorker(id, input);
+        workerService.updateWorker(input);
 
         data.put("msg", "success");
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @PostMapping("update/pw/{workerId}")
-    public ResponseEntity<?> updateWorkerPw(@PathVariable("workerId") String id, @RequestBody WorkerUpdatePwDto input) {
+    @PostMapping("/update/pw")
+    public ResponseEntity<?> updateWorkerPw(@RequestBody WorkerUpdatePwDto input) {
         Map<String, Object> data = new HashMap<>();
-        workerService.updateWorkerPw(id, input);
+        workerService.updateWorkerPw(input);
 
         data.put("msg", "success");
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @PostMapping("start/{workerId}")
+    @GetMapping("start/{workerId}")
     public ResponseEntity<?> startWorker(@PathVariable("workerId") String id) {
         Map<String, Object> data = new HashMap<>();
         workerService.startWorker(id);
@@ -89,7 +85,7 @@ public class WorkerController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @PostMapping("end/{workerId}")
+    @GetMapping("end/{workerId}")
     public ResponseEntity<?> endWorker(@PathVariable("workerId") String id) {
         Map<String, Object> data = new HashMap<>();
         workerService.endWorker(id);

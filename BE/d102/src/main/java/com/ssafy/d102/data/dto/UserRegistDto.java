@@ -21,5 +21,5 @@ public class UserRegistDto {
     private String userBirth;
     private String userNationality;
     private String userStatus;
-    private String userProfile;
+    private long userImage;
 }
