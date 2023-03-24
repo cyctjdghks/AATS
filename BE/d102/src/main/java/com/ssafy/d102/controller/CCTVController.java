@@ -31,7 +31,7 @@ public class CCTVController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/get/{userId}")
+    @GetMapping("/get/{cctvNo}")
     public ResponseEntity<?> getCctv(@PathVariable Long cctvNo) {
         Map<String, Object> data = new HashMap<>();
         cctvDto cctvDto = cctvService.getCctv(cctvNo);
