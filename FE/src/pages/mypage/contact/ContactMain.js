@@ -1,7 +1,9 @@
 import classes from "./ContactMain.module.css";
 
-// import contactimg from '../../../assets/contact/도표이미지.png'
-import tmpContact from "../../../assets/contact/tmpContact.png";
+import ceo from "../../../assets/contact/ceo.png";
+import quote1 from "../../../assets/contact/quote1.png";
+import quote2 from "../../../assets/contact/quote2.png";
+import phone from "../../../assets/contact/phone.png";
 
 import InputLabel from "./components/InputLabel";
 
@@ -48,20 +50,26 @@ const ContactMain = () => {
           <button className={classes.contactbtn}>제출하기</button>
         </div>
         <div className={classes.imgbox}>
-          <h3>CONTACT US</h3>
-          <p className={classes.imgemail}>SSAFY.D102@ssafy.com</p>
-          <p className={classes.imgcontetnt}>
-            D 102조는 자동 출결 및 추적 시스템을 통해
-          </p>
-          <p className={classes.imgcontetnt}>
-            모두의 일상을 더 나은 방향으로 바꾸기위해 앞장서고 있습니다.
-          </p>
-          <p className={classes.imgcontetnt}>문의사항은 연락 바랍니다. </p>
-          <img
-            src={tmpContact}
-            alt="도표이미지"
-            className={classes.contactimg}
-          />
+          <div className={classes.imgTextBox}>
+            <img src={quote1} alt="따옴표1" className={classes.quote1} />
+            <h3>AATS, 이것은 혁신입니다.</h3>
+            <img src={quote2} alt="따옴표2" className={classes.quote2} />
+
+            <p className={classes.d102}>D102 팀장, 강모현</p>
+            <div className={classes.hLine}></div>
+            <div className={classes.phoneBox}>
+              <div>
+                <img src={phone} alt="" className={classes.phone} />
+              </div>
+              <div>
+                <p className={classes.phoneOne}>
+                  당신의 궁금증을 해결해 드립니다.
+                </p>
+                <p className={classes.phoneTwo}>Phone.02-123-456</p>
+              </div>
+            </div>
+            <img src={ceo} alt="ceo" className={classes.contactimg} />
+          </div>
         </div>
       </div>
     </div>
