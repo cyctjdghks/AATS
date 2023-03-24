@@ -46,3 +46,6 @@
   margin-bottom: 5px;
   padding-bottom: 2.5px;
 }
+.InputLabel label input:disabled{
+  background-color: inherit;
+}
