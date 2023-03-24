@@ -36,16 +36,16 @@
   margin-top: 10px;
 }
 
-
 .titlebox h1 {
   font-family: "Apple_Gothic_Neo_Bold";
-  margin-top: 40px;
+  margin-top: 35px;
 }
 
 .titlebox h3 {
   font-family: "Apple_Gothic_Neo_Light";
   font-size: auto;
   width: 90%;
+  margin-top: -10px;
 }
 
 .hr {
@@ -63,6 +63,7 @@
 }
 .contentbox {
   width: 50%;
+  margin-top: -30px;
 }
 
 .contentboxone label p {
@@ -79,8 +80,8 @@
   outline: none;
   border-bottom: 2px solid lightgray;
   border-radius: 3px;
-  margin-bottom: 13px;
-  padding-bottom: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
   margin-top: -5px;
   /* cursor: pointer; */
 }
@@ -116,7 +117,7 @@
 .contactbtn {
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 18px;
-  background-color: #4786ff;
+  background-color: #b02626;
   color: white;
   float: right;
   border: none;
@@ -131,7 +132,7 @@
 }
 
 .contactbtn:hover {
-  background-color: #396fd3;
+  background-color: #b02626;
 }
 
 /* 두 번째 칸 이미지 부분 */
@@ -139,54 +140,83 @@
 .imgbox {
   width: 70%;
   margin-left: 70px;
+  margin-top: -20px;
 }
 
 .imgbox h3 {
-  font-family: "Apple_Gothic_Neo_Bold";
+  font-family: "Apple_Gothic_Neo_R";
   text-align: center;
   font-size: 24px;
-  color: #ff5732;
-  margin-top: 60px;
+  color: black;
+  margin-top: -5px;
+}
+
+.imgTextBox {
+  width: 60%;
+  margin: auto;
 }
 
 
-
-.imgemail {
-  font-family: "Apple_Gothic_Neo_Light";
-  margin-top: -20px;
-  margin-bottom: 40px;
-  text-align: center;
-  font-size: 25px;
-  color: #000000;
+.quote2{
+  float: right;
+  margin-top: -30px;
+  
 }
 
-.imgcontetnt {
-  text-align: center;
-  font-size: 15px;
+.d102{
   font-family: "Apple_Gothic_Neo_R";
-  margin-top: -13px;
-  color: #3a3a3a;
+  margin-top: 50px;
+  font-size: 20px;
+  margin-left: 110px;
+  margin-top: 0px;
+}
+
+.hLine{
+  border: 1px solid #b02626;
+  width: 75%;
+  margin: auto;
+}
+
+.phoneBox{
+  display: flex;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.phone{
+  
+}
+
+.phoneOne{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  padding-top: 15px;
+}
+
+.phoneTwo{
+  font-family: "Apple_Gothic_Neo_Bold";
+  margin-top: -10px;
 }
 
 .contactimg {
   margin: auto;
   display: block;
   border-radius: 10px;
-  width: 100%;
+  width: 80%;
   max-width: 600px;
-  margin-top: 80px;
+  margin-top: -20px;
 }
 
 
 @media screen and (max-width: 1024px) {
-  .pagebox{
+  .pagebox {
     width: 100%;
     margin-left: 10%;
   }
-  .imgbox{
+  .imgbox {
     display: none;
   }
-  .contentbox{
+  .contentbox {
     width: 100%;
   }
 }
