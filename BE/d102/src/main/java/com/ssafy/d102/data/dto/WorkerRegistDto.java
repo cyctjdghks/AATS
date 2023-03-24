@@ -11,7 +11,6 @@ public class WorkerRegistDto {
     private String workerId;
     private String workerPwd;
     private String workerName;
-    private Integer workerStatus;
     private String workerOrganizationId;
     private Integer workerGender;
     private Integer workerAge;
@@ -19,5 +18,4 @@ public class WorkerRegistDto {
     private String workerEmail;
     private String workerBirth;
     private String workerNationality;
-    private String workerProfile;
 }

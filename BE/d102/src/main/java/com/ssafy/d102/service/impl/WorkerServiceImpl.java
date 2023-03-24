@@ -34,12 +34,6 @@ public class WorkerServiceImpl implements WorkerService {
     private final WorkerAttendanceStartRepository workerAttendanceStartRepository;
     private final WorkerAttendanceEndRepository workerAttendanceEndRepository;
 
-//    public WorkerServiceImpl(WorkerRepository repository, PasswordEncoder passwordEncoder, OrganizationRepository organizationRepository) {
-//        this.repository = repository;
-//        this.passwordEncoder = passwordEncoder;
-//        this.organizationRepository = organizationRepository;
-//    }
-
     @Override
     public WorkerDto loginWorker(WorkerLoginDto input) {
         String id = input.getWorkerId();
@@ -71,9 +65,9 @@ public class WorkerServiceImpl implements WorkerService {
     @Override
     public List<WorkerDto> getAllWorker() {
         List<WorkerDto> list = new ArrayList<>();
-        List<Worker> workerlist = new ArrayList<>();
+        List<Worker> workerlist = workerRepository.findAll();
 
-        for (Worker worker : workerRepository.findAll()) {
+        for (Worker worker : workerlist) {
             list.add(new WorkerDto(
                     worker.getWorkerId(),
                     worker.getWorkerName(),
@@ -121,10 +115,10 @@ public class WorkerServiceImpl implements WorkerService {
 
     @Override
     public void updateWorker(String id, WorkerRegistDto input) {
-        Worker worker = workerRepository.findById(input.getWorkerId())
+        Worker worker = workerRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
-        workerRepository.save(worker.builder()
+        workerRepository.save(Worker.builder()
                 .workerId(worker.getWorkerId())
                 .workerPw(passwordEncoder.encode(input.getWorkerPwd()))
                 .workerName(input.getWorkerName())
@@ -136,7 +130,7 @@ public class WorkerServiceImpl implements WorkerService {
                 .workerEmail(input.getWorkerEmail())
                 .workerBirth(input.getWorkerBirth())
                 .workerNationality(input.getWorkerNationality())
-                .workerProfile(new byte[1])
+                .workerProfile(worker.getWorkerProfile())
                 .build());
     }
 
@@ -202,7 +196,7 @@ public class WorkerServiceImpl implements WorkerService {
                 .workerId(input.getWorkerId())
                 .workerPw(passwordEncoder.encode(input.getWorkerPwd()))
                 .workerName(input.getWorkerName())
-                .workerStatus(input.getWorkerStatus())
+                .workerStatus(0)
                 .organization(organizationRepository.findById(input.getWorkerOrganizationId()).get())
                 .workerGender(input.getWorkerGender())
                 .workerAge(input.getWorkerAge())
@@ -210,7 +204,7 @@ public class WorkerServiceImpl implements WorkerService {
                 .workerEmail(input.getWorkerEmail())
                 .workerBirth(input.getWorkerBirth())
                 .workerNationality(input.getWorkerNationality())
-                .workerProfile(new byte[1])
+                .workerProfile(new byte[0])
                 .build());
     }
 
