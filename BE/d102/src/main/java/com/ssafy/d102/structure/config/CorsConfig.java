@@ -38,6 +38,7 @@ public class CorsConfig implements WebMvcConfigurer {
 //        registry.addResourceHandler("/swagger-ui.html**").addResourceLocations("classpath:/META-INF/resources/swagger-ui.html");
 //        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         registry.addResourceHandler("/**").addResourceLocations("file:///usr/app/");
+//        registry.addResourceHandler("/**").addResourceLocations("file:///C:/safy/workspace/S08P22D102/BE/d102/");
     }
 
 }

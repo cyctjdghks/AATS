@@ -16,14 +16,11 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Board extends BaseEntity {
+public class Image extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @NotNull
-    private long boardIdx;
+    private long imageId;
 
     @NotNull
     private String originalFileName;
