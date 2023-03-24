@@ -8,7 +8,6 @@ const Main = () => {
     lng: 128.41612352992854,
   });
   const [cctvLocation, setCctvLocation] = useState({});
-
   console.log(cctvLocation);
 
   const url = "https://j8d102.p.ssafy.io/be/board";
