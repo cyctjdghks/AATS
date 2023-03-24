@@ -11,6 +11,7 @@ import NotFound from "./pages/notfound/NotFound";
 import Home from "./pages/home/Home";
 import AboutUs from "./pages/aboutus/AboutUs";
 import MyPage from "./pages/mypage/MyPage"
+import Admin from "./pages/admin/Admin";
 // import css style 
 import classes from "./App.module.css";
 import Main from "./Test";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/mypage/*" element={<MyPage />} />
         <Route path="/test" element={<Main />} />
+        <Route path="/admin/*" element={<Admin />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
