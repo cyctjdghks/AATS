@@ -16,7 +16,7 @@ const NavRight = () => {
     navigate("/auth/signup");
   };
   const logout = () =>{
-    dispatch(authActions.organizationLogout(null))
+    dispatch(authActions.organizationLogout(''))
     navigate('/')
   }
 
