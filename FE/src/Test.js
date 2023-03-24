@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 
@@ -8,17 +9,27 @@ const Main = () => {
   });
   const [cctvLocation, setCctvLocation] = useState({});
 
-  const [cctvName, setCctvName] = useState("");
-  const [organizationId, setOrganizationId] = useState("");
+  console.log(cctvLocation);
 
-  
-  const axioData = {
-    cctvLat: cctvLocation.lat,
-    cctvLng: cctvLocation.lng,
-    cctvInformation: cctvName,
-    organizationId: organizationId,
+  const url = "https://j8d102.p.ssafy.io/be/board";
+  const sendImg = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    const files = event.target.elements.files.files;
+    console.log(files);
+    for (let i = 0; i < files.length; i++) {
+      formData.append("files", files[i]);
+    }
+    console.log(formData);
+    axios
+      .post(url, formData)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
-  console.log(axioData);
 
   return (
     <div>
@@ -49,6 +60,12 @@ const Main = () => {
       {position && (
         <p>{"위도 : " + position.lat + " / 경도 : " + position.lng}</p>
       )}
+      <div>
+        <form onSubmit={sendImg}>
+          <input type="file" name="files" multiple />
+          <button type="submit">전송</button>
+        </form>
+      </div>
     </div>
   );
 };

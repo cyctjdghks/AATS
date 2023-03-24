@@ -23,10 +23,7 @@
   src: url("../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-@font-face {
-  font-family: "SF-Pro-Display-Bold";
-  src: url("../../fonts/SF-Pro-Display-Bold.otf");
-}
+
 
 .developerBox {
   width: 100%;
