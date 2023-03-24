@@ -34,9 +34,10 @@ public class CorsConfig implements WebMvcConfigurer {
 //    Swagger2 일경우
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+//        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
 //        registry.addResourceHandler("/swagger-ui.html**").addResourceLocations("classpath:/META-INF/resources/swagger-ui.html");
-        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+//        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        registry.addResourceHandler("/**").addResourceLocations("file:///C:/ssafy/workspace/S08P22D102/BE/d102/");
     }
 
 }
