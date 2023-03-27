@@ -37,6 +37,7 @@ public class CCTVServiceImpl implements CCTVService {
         CCTV cctv = cctvRepository.findById(cctvNo)
                 .orElseThrow(() -> new IllegalArgumentException("cctv가 없습니다"));
 
+        //TODO : entityToDto
         cctvDto cctvDto = new cctvDto(
                 cctv.getCCTVNo(),
                 cctv.getCCTVLat(),

@@ -66,6 +66,7 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException("비밀번호가 다릅니다.");
         }
 
+        //TODO : entityToDto
         UserDto userDto = UserDto.builder()
                 .userId(user.getUserId())
                 .userName(user.getUserName())
@@ -94,6 +95,7 @@ public class UserServiceImpl implements UserService {
 
         user.setUserPwd(input.getUserPwd());
         user.setUserName(input.getUserName());
+        //TODO
         user.setOrganization(organizationRepository.findById(input.getOrganizationId()).get());
         user.setUserGender(input.getUserGender());
         user.setUserAge(input.getUserAge());
@@ -131,7 +133,7 @@ public class UserServiceImpl implements UserService {
         List<User> userlist = userRepository.findAll();
 
         //TODO : entityToDto 구현 해보기
-//        return userlist.stream()
+//        return userRepository.findAll().stream()
 //                .map(UserDto::entityToDto)
 //                .collect(Collectors.toList());
 
@@ -161,6 +163,7 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
+        //TODO
         UserDto userDto = UserDto.builder()
                 .userId(user.getUserId())
                 .userName(user.getUserName())
@@ -218,7 +221,8 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
-        Membership membership = membershipRepository.findByUser(user);
+        Membership membership = membershipRepository.findByUser(user)
+                .orElseThrow(() -> new IllegalArgumentException("회원권이 없습니다."));
 
         MembershipDto membershipDto = new MembershipDto(membership.getMembershipType());
 
@@ -230,9 +234,10 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
-        TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(
-                        membershipRepository.findByUser(user)
-                )
+        Membership membership = membershipRepository.findByUser(user)
+                .orElseThrow(() -> new IllegalArgumentException("회원권이 없습니다."));
+
+        TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(membership)
                 .orElseThrow(() -> new IllegalArgumentException("등록된 기간제 회원권이 없습니다."));
 
         MembershipTimeDto membershipTimeDto = new MembershipTimeDto(
@@ -249,9 +254,9 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
-        CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(
-                        membershipRepository.findByUser(user)
-                )
+        Membership membership = membershipRepository.findByUser(user)
+                .orElseThrow(() -> new IllegalArgumentException("회원권이 없습니다."));
+        CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(membership)
                 .orElseThrow(() -> new IllegalArgumentException("등록된 횟수제 회원권이 없습니다."));
         ;
 
@@ -264,6 +269,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public CountUserDto countUserAll() {
+        //TODO
         CountUserDto countUserDto = new CountUserDto(
                 userRepository.findAll().size()
         );
@@ -296,6 +302,7 @@ public class UserServiceImpl implements UserService {
         List<DateTimeDto> dateTimeDtos = new ArrayList<>();
         List<UserAttendanceStart> list = userAttendanceStartRepository.findAll().stream()
                 .filter(userAttendanceStart -> userAttendanceStart.getUser().getUserId().equals(userId))
+                //TODO : 여기에 map으로 밑에 로직 해결해보기
                 .collect(Collectors.toList());
 
         for (UserAttendanceStart userAttendanceStart : list) {
@@ -313,6 +320,7 @@ public class UserServiceImpl implements UserService {
         List<UserAttendanceStart> list = userAttendanceStartRepository.findAll().stream()
                 .filter(userAttendanceStart -> userAttendanceStart.getUser().getUserId().equals(userId))
                 .filter(userAttendanceStart -> userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
+                //TODO
                 .collect(Collectors.toList());
 
         for (UserAttendanceStart userAttendanceStart : list) {
@@ -329,6 +337,7 @@ public class UserServiceImpl implements UserService {
         List<DateTimeDto> dateTimeDtos = new ArrayList<>();
         List<UserAttendanceEnd> list = userAttendanceEndRepository.findAll().stream()
                 .filter(userAttendanceEnd -> userAttendanceEnd.getUser().getUserId().equals(userId))
+                //TODO
                 .collect(Collectors.toList());
 
         for (UserAttendanceEnd userAttendanceEnd : list) {
@@ -346,6 +355,7 @@ public class UserServiceImpl implements UserService {
         List<UserAttendanceEnd> list = userAttendanceEndRepository.findAll().stream()
                 .filter(userAttendanceEnd -> userAttendanceEnd.getUser().getUserId().equals(userId))
                 .filter(userAttendanceStart -> userAttendanceStart.getEndTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
+                //TODO
                 .collect(Collectors.toList());
 
         for (UserAttendanceEnd userAttendanceEnd : list) {
