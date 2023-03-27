@@ -28,5 +28,9 @@ public interface WorkerService {
 
     List<DateTimeDto> getWorkerStart(String id);
 
+    List<DateTimeDto> getWorkerMonthStart(String id, String month);
+
     List<DateTimeDto> getWorkerEnd(String id);
+
+    List<DateTimeDto> getWorkerMonthEnd(String id, String month);
 }
