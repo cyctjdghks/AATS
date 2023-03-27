@@ -5,6 +5,8 @@ import com.ssafy.d102.data.dto.MembershipCountDto;
 import com.ssafy.d102.data.dto.MembershipTimeDto;
 import com.ssafy.d102.data.dto.TimeMembershipDto;
 
+import java.util.List;
+
 public interface MembershipService {
     void registTimeMembership(String userId, MembershipTimeDto input);
     void registCountMembership(String userId, MembershipCountDto input);

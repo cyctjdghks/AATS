@@ -9,7 +9,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.beans.Transient;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -35,6 +34,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void registUser(UserRegistDto input) {
+        imageRepository.findById(input.getUserImage())
+                        .orElseThrow(() -> new IllegalArgumentException("이미지가 없습니다"));
 
         userRepository.save(User.builder()
                 .userId(input.getUserId())
@@ -83,8 +84,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void updateUser(String userId, UserRegistDto input) {
-        User user = userRepository.findById(userId)
+    public void updateUser(UserRegistDto input) {
+        User user = userRepository.findById(input.getUserId())
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
 //         userRepository.getById(userId);
@@ -117,8 +118,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void updateUserPw(String userId, UserUpdatePwDto input) {
-        User user = userRepository.findById(userId)
+    public void updateUserPw(UserUpdatePwDto input) {
+        User user = userRepository.findById(input.getUserId())
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
 //        userRepository.getById(userId);
@@ -212,22 +213,23 @@ public class UserServiceImpl implements UserService {
     //TODO
     @Override
     public MembershipDto getUserMembership(String userId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+        User user = userRepository.findById(userId).get();
 
-        System.out.println("유저 타입" + membershipRepository.findByUser(user).getMembershipType());
-        
+        System.out.println("서비스 들어옴");
+
+        Membership membership = membershipRepository.findByUser(user);
+
         return new MembershipDto(
-                membershipRepository.findByUser(user).getMembershipType()
+                membership.getMembershipType()
         );
     }
 
     @Override
     public MembershipTimeDto getUserMembershipTime(String userId) {
+        User user = userRepository.findById(userId).get();
+
         TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(
-                membershipRepository.findByUser(
-                        userRepository.findById(userId).get()
-                )
+                membershipRepository.findByUser(user)
         );
 
         //TODO : 변수로 따로 뺴는거 고려해보기
@@ -235,16 +237,18 @@ public class UserServiceImpl implements UserService {
                 timeLimitedMembership.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
                 timeLimitedMembership.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
         );
+
     }
 
     @Override
     public MembershipCountDto getUserMembershipCount(String userId) {
         //TODO : 콜백 없애기, JPQL로 한번에 해보기
+        User user = userRepository.findById(userId).get();
+
         CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(
-                membershipRepository.findByUser(
-                        userRepository.findById(userId).get()
-                )
+                membershipRepository.findByUser(user)
         );
+
         return new MembershipCountDto(
                 countBasedMembership.getCount()
         );
@@ -295,10 +299,44 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<DateTimeDto> getUserMonthStart(String userId, String month) {
+        List<DateTimeDto> dateTimeDtos = new ArrayList<>();
+        List<UserAttendanceStart> list = userAttendanceStartRepository.findAll().stream()
+                .filter(userAttendanceStart -> userAttendanceStart.getUser().getUserId().equals(userId))
+                .filter(userAttendanceStart -> userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
+                .collect(Collectors.toList());
+
+        for (UserAttendanceStart userAttendanceStart : list) {
+            dateTimeDtos.add(new DateTimeDto(
+                    userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+            ));
+        }
+
+        return dateTimeDtos;
+    }
+
+    @Override
     public List<DateTimeDto> getUserEnd(String userId) {
         List<DateTimeDto> dateTimeDtos = new ArrayList<>();
         List<UserAttendanceEnd> list = userAttendanceEndRepository.findAll().stream()
                 .filter(userAttendanceEnd -> userAttendanceEnd.getUser().getUserId().equals(userId))
+                .collect(Collectors.toList());
+
+        for (UserAttendanceEnd userAttendanceEnd : list) {
+            dateTimeDtos.add(new DateTimeDto(
+                    userAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+            ));
+        }
+
+        return dateTimeDtos;
+    }
+
+    @Override
+    public List<DateTimeDto> getUserMonthEnd(String userId, String month) {
+        List<DateTimeDto> dateTimeDtos = new ArrayList<>();
+        List<UserAttendanceEnd> list = userAttendanceEndRepository.findAll().stream()
+                .filter(userAttendanceEnd -> userAttendanceEnd.getUser().getUserId().equals(userId))
+                .filter(userAttendanceStart -> userAttendanceStart.getEndTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
                 .collect(Collectors.toList());
 
         for (UserAttendanceEnd userAttendanceEnd : list) {

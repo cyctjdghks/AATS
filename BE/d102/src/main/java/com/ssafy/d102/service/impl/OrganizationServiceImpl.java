@@ -98,6 +98,11 @@ public class OrganizationServiceImpl implements OrganizationService {
         return entityToDto(organization);
     }
 
+    @Override
+    public boolean validOrganizationId(String organizationId) {
+        return repository.existsByOrganizationId(organizationId);
+    }
+
     @Transactional
     @Override
     public void changePw(OrganizationUpdatePwDto organizationUpdatePwDto) {

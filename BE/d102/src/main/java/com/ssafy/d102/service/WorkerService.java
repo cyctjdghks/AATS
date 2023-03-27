@@ -16,6 +16,7 @@ public interface WorkerService {
     void updateWorker(WorkerRegistDto input);
 
     void updateWorkerPw(WorkerUpdatePwDto input);
+    boolean validWorkerId(String workerId);
 
     void startWorker(String id);
 

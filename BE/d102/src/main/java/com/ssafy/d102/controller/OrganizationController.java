@@ -1,9 +1,7 @@
 package com.ssafy.d102.controller;
 
-import com.ssafy.d102.data.dto.OrganizationDto;
-import com.ssafy.d102.data.dto.OrganizationLoginDto;
-import com.ssafy.d102.data.dto.OrganizationSetSessionDto;
-import com.ssafy.d102.data.dto.OrganizationUpdatePwDto;
+import com.ssafy.d102.data.dto.*;
+import com.ssafy.d102.data.entity.Organization;
 import com.ssafy.d102.service.OrganizationService;
 import com.ssafy.d102.structure.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
@@ -92,6 +90,17 @@ public class OrganizationController {
         data.put("data", dto);
 
         return new ResponseEntity<>(data,HttpStatus.OK);
+    }
+
+    @GetMapping("/valid/{organizationId}")
+    public ResponseEntity<?> validOrganizationId(@PathVariable String organizationId) {
+        Map<String, Object> data = new HashMap<>();
+        OrganizationValidIdDto organizationValidIdDto = new OrganizationValidIdDto(service.validOrganizationId(organizationId));
+
+        data.put("msg", "success");
+        data.put("data", organizationValidIdDto);
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @PutMapping("/changepw")

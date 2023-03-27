@@ -24,7 +24,7 @@ public class TimeLimitedMembership {
     @Column(name = "end_time", nullable = false)
     private LocalDateTime endTime;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "membershipNo", nullable = false)
     private Membership membership;
 

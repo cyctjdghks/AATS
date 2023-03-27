@@ -130,6 +130,7 @@ public class WorkerServiceImpl implements WorkerService {
                 .workerEmail(input.getWorkerEmail())
                 .workerBirth(input.getWorkerBirth())
                 .workerNationality(input.getWorkerNationality())
+                .workerProfile(worker.getWorkerProfile())
                 .build());
     }
 
@@ -154,7 +155,13 @@ public class WorkerServiceImpl implements WorkerService {
                 .workerEmail(worker.getWorkerEmail())
                 .workerBirth(worker.getWorkerBirth())
                 .workerNationality(worker.getWorkerNationality())
+                .workerProfile(worker.getWorkerProfile())
                 .build());
+    }
+
+    @Override
+    public boolean validWorkerId(String workerId) {
+        return workerRepository.existsByWorkerId(workerId);
     }
 
     @Override
@@ -197,6 +204,7 @@ public class WorkerServiceImpl implements WorkerService {
                 .workerId(input.getWorkerId())
                 .workerPw(passwordEncoder.encode(input.getWorkerPwd()))
                 .workerName(input.getWorkerName())
+                .workerStatus(0)
                 .organization(organizationRepository.findById(input.getWorkerOrganizationId()).get())
                 .workerGender(input.getWorkerGender())
                 .workerAge(input.getWorkerAge())
@@ -204,6 +212,7 @@ public class WorkerServiceImpl implements WorkerService {
                 .workerEmail(input.getWorkerEmail())
                 .workerBirth(input.getWorkerBirth())
                 .workerNationality(input.getWorkerNationality())
+                .workerProfile(new byte[0])
                 .build());
     }
 

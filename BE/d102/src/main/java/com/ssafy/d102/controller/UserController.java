@@ -46,10 +46,10 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @PutMapping("/update/{userId}")
-    public ResponseEntity<?> updateUser(@PathVariable String userId, @RequestBody UserRegistDto input) {
+    @PutMapping("/update")
+    public ResponseEntity<?> updateUser(@RequestBody UserRegistDto input) {
         Map<String, Object> data = new HashMap<>();
-        userService.updateUser(userId, input);
+        userService.updateUser(input);
 
         data.put("msg", "success");
 
@@ -77,10 +77,10 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @PutMapping("/update/pw/{userId}")
-    public ResponseEntity<?> updateUserPw(@PathVariable String userId, @RequestBody UserUpdatePwDto input) {
+    @PutMapping("/update/pw")
+    public ResponseEntity<?> updateUserPw(@RequestBody UserUpdatePwDto input) {
         Map<String, Object> data = new HashMap<>();
-        userService.updateUserPw(userId, input);
+        userService.updateUserPw(input);
 
         data.put("msg", "success");
 
@@ -132,6 +132,8 @@ public class UserController {
     //TODO
     @GetMapping("/membership/{userId}")
     public ResponseEntity<?> getUserMembership(@PathVariable String userId) {
+        System.out.println("컨트롤러 들어옴");
+
         Map<String, Object> data = new HashMap<>();
         MembershipDto membershipDto = userService.getUserMembership(userId);
 
@@ -207,10 +209,32 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
+    @GetMapping("/get/start/{userId}/{month}")
+    public ResponseEntity<?> getUserMonthStart(@PathVariable String userId, @PathVariable String month) {
+        Map<String, Object> data = new HashMap<>();
+        List<DateTimeDto> list =  userService.getUserMonthStart(userId, month);
+
+        data.put("msg", "success");
+        data.put("data", list);
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
     @GetMapping("/get/end/{userId}")
     public ResponseEntity<?> getUserEnd(@PathVariable String userId) {
         Map<String, Object> data = new HashMap<>();
         List<DateTimeDto> list =  userService.getUserEnd(userId);
+
+        data.put("msg", "success");
+        data.put("data", list);
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @GetMapping("/get/end/{userId}/{month}")
+    public ResponseEntity<?> getUserMonthEnd(@PathVariable String userId, @PathVariable String month) {
+        Map<String, Object> data = new HashMap<>();
+        List<DateTimeDto> list =  userService.getUserMonthEnd(userId, month);
 
         data.put("msg", "success");
         data.put("data", list);

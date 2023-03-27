@@ -19,8 +19,8 @@ public class Membership {
     @Column(name = "membership_type")
     private int membershipType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "userId", unique = true)
     private User user;
 
     // getters, setters, constructors

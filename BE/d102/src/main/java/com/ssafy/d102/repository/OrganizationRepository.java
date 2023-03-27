@@ -11,4 +11,6 @@ public interface OrganizationRepository extends JpaRepository<Organization, Stri
 
     Optional<Organization> findById(String organization_id);
 
+    boolean existsByOrganizationId(String organizationId);
+
 }
