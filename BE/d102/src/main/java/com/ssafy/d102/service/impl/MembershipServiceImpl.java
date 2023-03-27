@@ -61,18 +61,21 @@ public class MembershipServiceImpl implements MembershipService {
                 .user(userRepository.findById(userId).get())
                 .build());
 
-
-        countBasedMembershipRepository.save(CountBasedMembership.builder()
+        CountBasedMembership countBasedMembership = CountBasedMembership.builder()
                 .count(input.getCount())
                 .membership(membership)
-                .build());
+                .build();
+
+        countBasedMembershipRepository.save(countBasedMembership);
     }
 
     @Override
     public TimeMembershipDto getTimeMembership(String userId) {
         TimeMembershipDto timeMembershipDto = new TimeMembershipDto();
 
-        User user = userRepository.findById(userId).get();
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+
         Membership membership = membershipRepository.findByUser(user);
 
         TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(membership);
@@ -88,7 +91,9 @@ public class MembershipServiceImpl implements MembershipService {
     public CountMembershipDto getCountMembership(String userId) {
         CountMembershipDto countMembershipDto = new CountMembershipDto();
 
-        User user = userRepository.findById(userId).get();
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+
         Membership membership = membershipRepository.findByUser(user);
 
 
