@@ -36,6 +36,7 @@ public class MembershipServiceImpl implements MembershipService {
     @Override
     @Transactional
     public void registTimeMembership(String userId, MembershipTimeDto input) {
+        //TODO
         Membership membership = membershipRepository.save(Membership.builder()
                 .membershipType(0)
                 .user(userRepository.findById(userId).get())
@@ -56,6 +57,7 @@ public class MembershipServiceImpl implements MembershipService {
     @Override
     @Transactional
     public void registCountMembership(String userId, MembershipCountDto input) {
+        //TODO
         Membership membership = membershipRepository.save(Membership.builder()
                 .membershipType(1)
                 .user(userRepository.findById(userId).get())
@@ -73,11 +75,11 @@ public class MembershipServiceImpl implements MembershipService {
     public TimeMembershipDto getTimeMembership(String userId) {
         TimeMembershipDto timeMembershipDto = new TimeMembershipDto();
 
+        //TODO : JPQL 써서 join으로 해결해보기
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
-
-        Membership membership = membershipRepository.findByUser(user);
-
+        Membership membership = membershipRepository.findByUser(user)
+                .orElseThrow(() -> new IllegalArgumentException("회원권이 없습니다."));
         TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(membership)
                 .orElseThrow(() -> new IllegalArgumentException("등록된 기간제 회원권이 없습니다."));
 
@@ -92,12 +94,11 @@ public class MembershipServiceImpl implements MembershipService {
     public CountMembershipDto getCountMembership(String userId) {
         CountMembershipDto countMembershipDto = new CountMembershipDto();
 
+        //TODO: JPQL
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
-
-        Membership membership = membershipRepository.findByUser(user);
-
-
+        Membership membership = membershipRepository.findByUser(user)
+                .orElseThrow(() -> new IllegalArgumentException("등록된멤버십이 없습니다."));
         CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(membership)
                 .orElseThrow(() -> new IllegalArgumentException("등록된 횟수제 회원권이 없습니다."));
 
