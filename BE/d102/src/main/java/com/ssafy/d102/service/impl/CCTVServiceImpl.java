@@ -22,12 +22,14 @@ public class CCTVServiceImpl implements CCTVService {
 
     @Override
     public void registCctv(cctvRegistDto input) {
-        cctvRepository.save(CCTV.builder()
+        CCTV cctv = CCTV.builder()
                 .CCTVLat(input.getCctvLat())
                 .CCTVLng(input.getCctvLng())
                 .CCTVInformation(input.getCctvInformation())
                 .organization(organizationRepository.findById(input.getOrganizationId()).get())
-                .build());
+                .build();
+
+        cctvRepository.save(cctv);
     }
 
     @Override
@@ -35,7 +37,7 @@ public class CCTVServiceImpl implements CCTVService {
         CCTV cctv = cctvRepository.findById(cctvNo)
                 .orElseThrow(() -> new IllegalArgumentException("cctv가 없습니다"));
 
-        return new cctvDto(
+        cctvDto cctvDto = new cctvDto(
                 cctv.getCCTVNo(),
                 cctv.getCCTVLat(),
                 cctv.getCCTVLat(),
@@ -44,6 +46,8 @@ public class CCTVServiceImpl implements CCTVService {
                 cctv.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
                 cctv.getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
         );
+
+        return cctvDto;
     }
 
     @Override
