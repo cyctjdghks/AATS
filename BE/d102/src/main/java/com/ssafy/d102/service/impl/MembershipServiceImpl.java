@@ -78,7 +78,8 @@ public class MembershipServiceImpl implements MembershipService {
 
         Membership membership = membershipRepository.findByUser(user);
 
-        TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(membership);
+        TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(membership)
+                .orElseThrow(() -> new IllegalArgumentException("등록된 기간제 회원권이 없습니다."));
 
         timeMembershipDto.setMembershipNo(timeLimitedMembership.getType1No());
         timeMembershipDto.setStartTime(timeLimitedMembership.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")));
@@ -97,7 +98,8 @@ public class MembershipServiceImpl implements MembershipService {
         Membership membership = membershipRepository.findByUser(user);
 
 
-        CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(membership);
+        CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(membership)
+                .orElseThrow(() -> new IllegalArgumentException("등록된 횟수제 회원권이 없습니다."));
 
         countMembershipDto.setMembershipNo(countBasedMembership.getType2No());
         countMembershipDto.setCount(countBasedMembership.getCount());

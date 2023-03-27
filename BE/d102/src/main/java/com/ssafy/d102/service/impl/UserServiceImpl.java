@@ -231,8 +231,9 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
         TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(
-                membershipRepository.findByUser(user)
-        );
+                        membershipRepository.findByUser(user)
+                )
+                .orElseThrow(() -> new IllegalArgumentException("등록된 기간제 회원권이 없습니다."));
 
         MembershipTimeDto membershipTimeDto = new MembershipTimeDto(
                 timeLimitedMembership.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
@@ -249,8 +250,10 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
 
         CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(
-                membershipRepository.findByUser(user)
-        );
+                        membershipRepository.findByUser(user)
+                )
+                .orElseThrow(() -> new IllegalArgumentException("등록된 횟수제 회원권이 없습니다."));
+        ;
 
         MembershipCountDto membershipCountDto = new MembershipCountDto(
                 countBasedMembership.getCount()
