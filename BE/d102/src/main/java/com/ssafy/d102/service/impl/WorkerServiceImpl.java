@@ -160,6 +160,11 @@ public class WorkerServiceImpl implements WorkerService {
     }
 
     @Override
+    public boolean validWorkerId(String workerId) {
+        return workerRepository.existsByWorkerId(workerId);
+    }
+
+    @Override
     public void startWorker(String id) {
         Optional<Worker> worker = workerRepository.findById(id);
 

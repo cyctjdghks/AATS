@@ -9,13 +9,13 @@ public interface UserService {
 
     UserDto loginUser(UserLoginDto input);
 
-    void updateUser(String userId, UserRegistDto input);
+    void updateUser(UserRegistDto input);
 
     void deleteUser(String userId);
 
     boolean validUserId(String userId);
 
-    void updateUserPw(String userId, UserUpdatePwDto input);
+    void updateUserPw(UserUpdatePwDto input);
 
     List<UserDto> getAllUser();
 
@@ -39,5 +39,9 @@ public interface UserService {
 
     List<DateTimeDto> getUserStart(String userId);
 
+    List<DateTimeDto> getUserMonthStart(String userId, String month);
+
     List<DateTimeDto> getUserEnd(String userId);
+
+    List<DateTimeDto> getUserMonthEnd(String userId, String month);
 }

@@ -19,6 +19,9 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -68,8 +71,10 @@ public class MembershipServiceImpl implements MembershipService {
     @Override
     public TimeMembershipDto getTimeMembership(String userId) {
         TimeMembershipDto timeMembershipDto = new TimeMembershipDto();
+
         User user = userRepository.findById(userId).get();
         Membership membership = membershipRepository.findByUser(user);
+
         TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(membership);
 
         timeMembershipDto.setMembershipNo(timeLimitedMembership.getType1No());
@@ -82,8 +87,11 @@ public class MembershipServiceImpl implements MembershipService {
     @Override
     public CountMembershipDto getCountMembership(String userId) {
         CountMembershipDto countMembershipDto = new CountMembershipDto();
+
         User user = userRepository.findById(userId).get();
         Membership membership = membershipRepository.findByUser(user);
+
+
         CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(membership);
 
         countMembershipDto.setMembershipNo(countBasedMembership.getType2No());

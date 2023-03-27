@@ -18,6 +18,8 @@ public interface OrganizationService {
 
     OrganizationDto updateOrganization(OrganizationDto organizationDto);
 
+    boolean validOrganizationId(String organizationId);
+
     void changePw(OrganizationUpdatePwDto organizationUpdatePwDto);
 
     void setSessionId(OrganizationSetSessionDto organizationSetSessionDto);

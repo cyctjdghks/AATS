@@ -23,7 +23,7 @@ public class User extends BaseEntity{
     @Column(name = "user_name", length = 50, nullable = false)
     private String userName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "organizationId", nullable = false)
     private Organization organization;
 
@@ -48,7 +48,7 @@ public class User extends BaseEntity{
     @Column(name = "user_status", nullable = false)
     private Integer userStatus;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "imageId")
     private Image Image;
 

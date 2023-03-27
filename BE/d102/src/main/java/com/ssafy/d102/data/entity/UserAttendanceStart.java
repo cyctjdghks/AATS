@@ -24,7 +24,7 @@ public class UserAttendanceStart {
     @Column(name = "start_time", nullable = false)
     private LocalDateTime startTime;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "userId")
     private User user;
 

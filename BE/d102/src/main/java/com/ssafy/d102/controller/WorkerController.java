@@ -65,6 +65,17 @@ public class WorkerController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
+    @GetMapping("/valid/{workerId}")
+    public ResponseEntity<?> validWorkerId(@PathVariable String workerId) {
+        Map<String, Object> data = new HashMap<>();
+        WorkerValidIdDto workerValidIdDto = new WorkerValidIdDto(workerService.validWorkerId(workerId));
+
+        data.put("msg", "success");
+        data.put("data", workerValidIdDto);
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
     @PostMapping("/update/pw")
     public ResponseEntity<?> updateWorkerPw(@RequestBody WorkerUpdatePwDto input) {
         Map<String, Object> data = new HashMap<>();

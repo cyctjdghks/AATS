@@ -26,7 +26,7 @@ public class CCTV extends BaseEntity{
     @Column(name = "cctv_information")
     private String CCTVInformation;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "organizationId")
     private Organization organization;
 

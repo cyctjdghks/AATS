@@ -29,7 +29,7 @@ public class Worker extends BaseEntity {
     @Column(name = "worker_status", nullable = false)
     private Integer workerStatus;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "organizationId", nullable = false)
     private Organization organization;
 
