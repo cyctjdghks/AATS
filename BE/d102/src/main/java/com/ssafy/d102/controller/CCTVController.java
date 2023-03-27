@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @RestController
 @RequestMapping("/cctv")
-@Slf4j
 @RequiredArgsConstructor
 public class CCTVController {
     private final CCTVService cctvService;
