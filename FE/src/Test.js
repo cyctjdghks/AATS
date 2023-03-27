@@ -8,20 +8,31 @@ const Main = () => {
     lng: 128.41612352992854,
   });
   const [cctvLocation, setCctvLocation] = useState({});
-  console.log(cctvLocation);
 
-  const url = "https://j8d102.p.ssafy.io/be/board";
+  const url2 = "http://192.168.100.81:8082/be/image";
+  const url = "https://j8d102.p.ssafy.io/be/image";
   const sendImg = (event) => {
     event.preventDefault();
     const formData = new FormData();
     const files = event.target.elements.files.files;
-    console.log(files);
+    const user = {
+      userId: "ssafy",
+      userPwd: "1234qwer!",
+    };
     for (let i = 0; i < files.length; i++) {
       formData.append("files", files[i]);
     }
-    console.log(formData);
+    const userBlob = new Blob([JSON.stringify(user)], { type: 'application/json' });
+    formData.append("user", userBlob, 'user.json')
+    for (let value of formData.values()) {
+      console.log(value);
+    }
     axios
-      .post(url, formData)
+      .post(url2, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((response) => {
         console.log(response);
       })
@@ -29,7 +40,7 @@ const Main = () => {
         console.log(error);
       });
   };
-
+  const urltmp = "http://127.0.0.1:5000"
   return (
     <div>
       <Map // 지도를 표시할 Container
@@ -64,6 +75,9 @@ const Main = () => {
           <input type="file" name="files" multiple />
           <button type="submit">전송</button>
         </form>
+      </div>
+      <div>
+      <button onClick={()=>{window.open(urltmp)}}> CCTV </button>
       </div>
     </div>
   );

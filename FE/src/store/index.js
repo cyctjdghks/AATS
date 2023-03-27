@@ -12,7 +12,8 @@ import {
 } from "redux-persist";
 
 import authReducer from "./auth";
-import commuteReducer from "./commute";
+import userReducer from "./user";
+import workerReducer from "./woker";
 import startReducer from "./start"
 import endReducer from "./end"
 
@@ -20,14 +21,15 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["auth", "commute", "start", "end"],
+  whitelist: ["auth", "worker", 'user', "start", "end"],
 };
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  commute: commuteReducer,
+  user: userReducer,
+  worker: workerReducer,
   start: startReducer,
-  end: endReducer
+  end: endReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

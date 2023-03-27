@@ -18,12 +18,16 @@ import TocIcon from "@mui/icons-material/Toc";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
+import CameraOutdoorIcon from '@mui/icons-material/CameraOutdoor';
 //import css style
-import classes from "./NavDropDown.module.css"
+import classes from "./NavDropDown.module.css";
 
 const NavDropDown = () => {
   const navigate = useNavigate();
-  const isLogin = useSelector((state)=> state.auth.isLogin)
+  const isLogin = useSelector((state) => state.auth.isLogin);
+  const userType = useSelector((state) => state.auth.userType);
 
   const toHome = () => {
     navigate("/");
@@ -49,6 +53,12 @@ const NavDropDown = () => {
   const toMypageContact = () => {
     navigate("/mypage/contact");
   };
+  const toDashBoard = () =>{
+    navigate("/admin")
+  }
+  const toCctv = () => {
+    navigate("/admin/cctv")
+  }
 
   const firstLogoutdata = [
     { name: "Home", icon: <HomeIcon color="primary" />, link: toHome },
@@ -62,7 +72,25 @@ const NavDropDown = () => {
     { name: "Sign Up", icon: <AssignmentIndIcon />, link: toSignUp },
   ];
 
-  const firstLoginData = [
+  const firstOrganizationLoginData = [
+    {
+      name: "DashBoard",
+      icon: <DashboardIcon/>,
+      link: toDashBoard,
+    },
+    { name: "D", icon: <PermContactCalendarIcon />, link: toDashBoard },
+    { name: "CCTV", icon: <CameraOutdoorIcon />, link: toCctv },
+  ];
+  const firstWorkerLoginData = [
+    {
+      name: "My Info",
+      icon: <AccountCircleIcon color="primary" />,
+      link: toMypage,
+    },
+    { name: "Calendar", icon: <EventAvailableIcon />, link: toMypage },
+    { name: "Contact", icon: <HeadsetMicIcon />, link: toMypageContact },
+  ];
+  const firstUserLoginData = [
     {
       name: "My Info",
       icon: <AccountCircleIcon color="primary" />,
@@ -77,12 +105,24 @@ const NavDropDown = () => {
 
   const [open, setOpen] = useState(false);
 
-  const firstdata = isLogin ? firstLoginData : firstLogoutdata
-  const secondData = isLogin ? secondLoginData : secondLogoutData
+  const firstdata = () => {
+    if (isLogin === false) {
+      return firstLogoutdata;
+    } else {
+      if (userType === 0) {
+        return firstOrganizationLoginData;
+      } else if (userType === 1) {
+        return firstWorkerLoginData;
+      } else {
+        return firstUserLoginData;
+      }
+    }
+  };
+  const secondData = isLogin ? secondLoginData : secondLogoutData;
 
   const firstList = () => (
     <div style={{ width: "auto" }} onClick={() => setOpen(false)}>
-      {firstdata.map((item, index) => (
+      {firstdata().map((item, index) => (
         <ListItem button key={index} onClick={item.link}>
           <ListItemIcon>{item.icon}</ListItemIcon>
           <ListItemText primary={item.name} />

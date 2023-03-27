@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.userDataBox {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  font-family: "Apple_Gothic_Neo_Light";
+}
+.idBox {
+  width: 20%;
+}
+.nameBox {
+  width: 20%;
+}
+.genderBox {
+  width: 10%;
+}
+.statusBox{
+  width: 10%;
+}
+.emailBox {
+  width: 40%;
+}
+.verticalLine {
+  height: 50%;
+  margin-top: 25%;
+  margin-bottom: 25%;
+}

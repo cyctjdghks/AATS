@@ -12,30 +12,67 @@ import { authActions } from "../../../store/auth";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { DataInput } from "../components/Effectiveness";
+import { DataInput, CheckPassword } from "../components/Effectiveness";
 
 const User = () => {
   const navigate = useNavigate();
+  const organizationId = useSelector((state) => state.auth.id);
   const [name, setName, nameError] = DataInput(/^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/);
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [password, setPassword, passwordError] = DataInput(
     /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/
   );
-
+  const [confirmPassword, setConfirmPassword, confirmPasswordError] =
+    CheckPassword(password);
+  const [nationality, setNationality] = useState();
+  const [gender, setGender] = useState();
+  const [age, setAge, ageError] = DataInput(/^[0-9]+$/);
+  const [phoneNumber, setPhoneNumber, phoneNumberError] = DataInput(
+    /^([0-9]+)-([0-9]+)-([0-9]+)/
+  );
+  const [email, setEmail, emailError] = DataInput(
+    /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
+  );
+  const [birth, setBirth] = useState();
+  const [profile, setProfile] = useState("");
+  // 이미지 저장
+  const saveImg = (event) => {
+    event.preventDefault();
+    setProfile(event.target.elements.files.files);
+  };
   // 회원 등록 api 요청
   const registUserSubmit = (event) => {
     event.preventDefault();
     const url = "https://j8d102.p.ssafy.io/be/user/regist";
-    const axiosData = {
+    const formData = new FormData();
+    const user = {
       userId: id,
       uerPwd: password,
       userName: name,
+      organizationId,
+      userGender: gender,
+      useAge: age,
+      userPhone: phoneNumber,
+      userEmail: email,
+      userBirth: birth,
+      userNationality: nationality,
     };
+    for (let i = 0; i < profile.length; i++) {
+      formData.append("profile", profile[i]);
+    }
+    const userBlob = new Blob([JSON.stringify(user)], {
+      type: "application/json",
+    });
+    formData.append("user", userBlob, "user.json");
     axios
-      .post(url, axiosData)
+      .post(url, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
       .then((response) => {
         if (response.status === 200) {
-          navigate("/mypage");
+          navigate("/regist");
         } else {
         }
       })
@@ -45,42 +82,29 @@ const User = () => {
   };
 
   // submit 활성화 & 비활성화
-  const nullError = !!id && !!name && !!password;
-  const effectivnessError = idError && nameError && passwordError;
+  const nullError =
+    !!id &&
+    !!name &&
+    !!password &&
+    !!email &&
+    !!confirmPassword &&
+    !!age &&
+    !!nationality &&
+    !!gender &&
+    !!phoneNumber &&
+    !!birth &&
+    !!profile;
+  const effectivnessError =
+    idError &&
+    nameError &&
+    passwordError &&
+    emailError &&
+    confirmPasswordError &&
+    ageError &&
+    phoneNumberError;
   const submitError = nullError && effectivnessError;
 
-  const nationList = [
-    "한국",
-    "중국",
-    "일본",
-    "미국",
-    "인도",
-    "캄보디아",
-    "카타르",
-  ];
-
-  const organizationId = useSelector((state) => state.auth.id);
-  console.log(organizationId);
-
-  const url = "https://j8d102.p.ssafy.io/be/board";
-  const sendImg = (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    const files = event.target.elements.files.files;
-    console.log(files);
-    for (let i = 0; i < files.length; i++) {
-      formData.append("files", files[i]);
-    }
-    console.log(formData);
-    axios
-      .post(url, formData)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  const nationList = ["한국", "미국", "일본", "중국"];
 
   return (
     <div className={classes.pageBox}>
@@ -117,40 +141,41 @@ const User = () => {
         <div className={classes.companyIdBox}>
           <div className={classes.IdTextBox}>
             <p className={classes.IdName}>기관 아이디*</p>
-            <p className={classes.IdSubName}>기관 아이디를 입력해주세요</p>
           </div>
-          <div>
-            <InputBigLabel
-              type="text"
-              placeholder="기관 아이디 입력"
-              value={organizationId}
-              disabled={true}
-            />
-          </div>
+          <InputBigLabel
+            type="text"
+            placeholder="기관 아이디 입력"
+            value={organizationId}
+            disabled={true}
+          />
         </div>
         <form onSubmit={registUserSubmit}>
           <div className={classes.hline}></div>
-          <form onSubmit={sendImg}>
-            <input type="file" name="files" multiple />
-            <button type="submit">전송</button>
-          </form>
           <div className={classes.inputBoxOne}>
             <InputLabel
               label="이름"
               type="text"
               placeholder="이름을 입력해주세요"
+              onChange={setName}
+              errorMessage={nameError ? "" : "한글, 영어로만 입력해주세요"}
             />
             <InputLabel
               label="나이"
               type="text"
               placeholder="나이를 입력해주세요"
+              onChange={setAge}
+              errorMessage={ageError ? "" : "숫자로만 입력해주세요"}
             />
             <div className={classes.selectbox}>
               <label htmlFor="ex_select" className={classes.selectTitle}>
                 국적
               </label>
               <div>
-                <select id="ex_select" className={classes.selectIdBox}>
+                <select
+                  id="ex_select"
+                  className={classes.selectIdBox}
+                  onChange={(event) => setNationality(event.target.value)}
+                >
                   <option defaultValue>국적 선택(필수)</option>
                   {nationList.map((nation, idx) => (
                     <option key={idx}>{nation}</option>
@@ -164,27 +189,51 @@ const User = () => {
               label="아이디"
               type="text"
               placeholder="아이디를 입력해주세요"
+              onChange={setId}
+              errorMessage={idError ? "" : "영어와 숫자로만 입력해주세요."}
             />
             <InputLabel
-              label="비밀번호"
+              label="휴대폰 번호"
               type="text"
-              placeholder="비밀번호를 입력해주세요"
+              placeholder="휴대폰 번호를 입력해주세요"
+              onChange={setPhoneNumber}
+              errorMessage={
+                phoneNumberError ? "" : "전화번호 양식을 맞춰주세요"
+              }
             />
             <InputLabel
               label="생년월일"
               type="date"
               placeholder="생년월일을 입력해주세요"
+              onChange={(event) => setBirth(event.target.value)}
             />
           </div>
-          <InputLabel
-            label="휴대폰 번호"
-            type="text"
-            placeholder="휴대폰 번호를 입력해주세요"
-          />
           <InputLabel
             label="이메일"
             type="text"
             placeholder="이메일을 입력해주세요"
+            onChange={setEmail}
+            errorMessage={emailError ? "" : "이메일 양식을 맞춰주세요"}
+          />
+          <InputLabel
+            label="비밀번호"
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+            onChange={setPassword}
+            errorMessage={
+              passwordError
+                ? ""
+                : "영어,숫자,특수문자를 반드시 포함해야합니다(9~16)"
+            }
+          />
+          <InputLabel
+            label="비밀번호"
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+            onChange={setConfirmPassword}
+            errorMessage={
+              confirmPasswordError ? "" : "비밀번호와 일치하지 않습니다."
+            }
           />
 
           <div className={classes.inputBoxThree}>
@@ -203,7 +252,13 @@ const User = () => {
               </div>
             </div>
           </div>
-          <button type="submit" disabled={!submitError} className={classes.submitBtn}>submit</button>
+          <button
+            type="submit"
+            disabled={!submitError}
+            className={classes.submitBtn}
+          >
+            submit
+          </button>
         </form>
       </div>
     </div>
