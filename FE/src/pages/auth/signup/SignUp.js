@@ -3,11 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 // component 호출
-import InputLabel from "../components/InputLabel";
-import { DataInput, UserValidCheck, CheckPassword } from "../components/Effectiveness";
+import InputShortLabel from "../components/InputShortLabel";
+import {
+  DataInput,
+  UserValidCheck,
+  CheckPassword,
+} from "../components/Effectiveness";
 
 // classes 호출
-import classes from "./SignUp.module.css"
+import classes from "./SignUp.module.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -16,7 +20,8 @@ const SignUp = () => {
   const [password, setPassword, passwordError] = DataInput(
     /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/
   );
-  const [confirmPassword, setConfirmPassword, confirmPasswordError] = CheckPassword(password)
+  const [confirmPassword, setConfirmPassword, confirmPasswordError] =
+    CheckPassword(password);
 
   const [position, setPosition] = useState({
     lat: 0,
@@ -31,9 +36,9 @@ const SignUp = () => {
       organizationId: id,
       organizationPw: password,
       organizationName: name,
-      organizationLng : position.lng,
-      organizationLat : position.lat
-    }
+      organizationLng: position.lng,
+      organizationLat: position.lat,
+    };
     axios
       .post(url, axiosData)
       .then((response) => {
@@ -49,76 +54,87 @@ const SignUp = () => {
 
   // submit 활성화 & 비활성화
   const nullError = !!id && !!name && !!password && !!confirmPassword;
-  const effectivnessError = idError && nameError && passwordError && confirmPasswordError;
+  const effectivnessError =
+    idError && nameError && passwordError && confirmPasswordError;
   const submitError = nullError && effectivnessError;
 
   return (
-    <div>
-      <h1>SignUp Page</h1>
-      <form onSubmit={organizationSubmit}>
-        <InputLabel
-          label="이름"
-          type="text"
-          value={name}
-          placeholder="이름을 입력해주세요"
-          onChange={setName}
-          errorMessage={nameError ? "" : "영어 한글 숫자로만 입력해주세요"}
-        />
-        <InputLabel
-          label="아이디"
-          type="text"
-          value={id}
-          placeholder="아이디를 입력해주세요"
-          onChange={setId}
-          errorMessage={idError ? "" : "영어와 숫자로만 입력해주세요."}
-        />
-        <InputLabel
-          label="비밀번호"
-          type="password"
-          value={password}
-          placeholder="9자 이상 16자 이하의 비밀번호를 입력해주세요"
-          onChange={setPassword}
-          errorMessage={
-            passwordError ? "" : "영어와 숫자 그리고 특수문자로만 입력해주세요."
-          }
-        />
-        <InputLabel
-          label="비밀번호 확인"
-          type="password"
-          value={confirmPassword}
-          placeholder="비밀번호를 다시 입력해주세요"
-          onChange={setConfirmPassword}
-          errorMessage={
-            confirmPasswordError ? "" : "비밀번호가 일치하지 않습니다."
-          }
-        />
-        <button type="submit" disabled={!submitError}>
+    <div className={classes.pageBox}>
+      <div className={classes.signupBox}>
+        <h1 className={classes.signupPageTitle}>회원가입</h1>
+        <form onSubmit={organizationSubmit}>
+          <div className={classes.InputLabelBox1}>
+            <InputShortLabel
+              label="이름"
+              type="text"
+              value={name}
+              placeholder="이름을 입력해주세요"
+              onChange={setName}
+              errorMessage={nameError ? "" : "영어 한글 숫자로만 입력해주세요"}
+            />
+            <InputShortLabel
+              label="아이디"
+              type="text"
+              value={id}
+              placeholder="아이디를 입력해주세요"
+              onChange={setId}
+              errorMessage={idError ? "" : "영어와 숫자로만 입력해주세요."}
+            />
+          </div>
+          <div className={classes.InputLabelBox2}>
+            <InputShortLabel
+              label="비밀번호"
+              type="password"
+              value={password}
+              placeholder="비밀번호를 입력해주세요"
+              onChange={setPassword}
+              errorMessage={
+                passwordError
+                  ? ""
+                  : "영어와 숫자 그리고 특수문자로만 입력해주세요."
+              }
+            />
+            <InputShortLabel
+              label="비밀번호 확인"
+              type="password"
+              value={confirmPassword}
+              placeholder="비밀번호를 다시 입력해주세요"
+              onChange={setConfirmPassword}
+              errorMessage={
+                confirmPasswordError ? "" : "비밀번호가 일치하지 않습니다."
+              }
+            />
+          </div>
+        <div className={classes.mapDiv}>
+          <Map // 지도를 표시할 Container
+            center={{
+              // 지도의 중심좌표
+              lat: 36.10713422838027,
+              lng: 128.41612352992854,
+            }}
+            style={{
+              width: "300px",
+              height: "300px",
+            }}
+            level={4} // 지도의 확대 레벨
+            onClick={(_t, mouseEvent) => {
+              setPosition({
+                lat: mouseEvent.latLng.getLat(),
+                lng: mouseEvent.latLng.getLng(),
+              });
+            }}
+          >
+            {position && <MapMarker position={position} />}
+          </Map>
+        </div>
+          <button type="submit" disabled={!submitError}>
           회원가입
         </button>
-        {/* 경도 위도 */}
-      </form>
-      <div className={classes.mapDiv}>
-        <Map // 지도를 표시할 Container
-          center={{
-            // 지도의 중심좌표
-            lat: 36.10713422838027,
-            lng: 128.41612352992854,
-          }}
-          style={{
-            width: "450px",
-            height: "450px",
-          }}
-          level={4} // 지도의 확대 레벨
-          onClick={(_t, mouseEvent) => {
-            setPosition({
-              lat: mouseEvent.latLng.getLat(),
-              lng: mouseEvent.latLng.getLng(),
-            });
-          }}
-        >
-          {position && <MapMarker position={position} />}
-        </Map>
+          {/* 경도 위도 */}
+        </form>
+        
       </div>
+      <div className={classes.signupBox2}></div>
     </div>
   );
 };

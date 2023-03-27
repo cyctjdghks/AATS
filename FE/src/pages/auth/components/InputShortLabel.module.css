@@ -31,11 +31,13 @@
 .InputLabel label p {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 17px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .input {
   font-family: "Apple_Gothic_Neo_Light";
-  width: 400px;
+  width: 210px;
   font-size: 17px;
   padding-top: 11px;
   padding-bottom: 6px;
@@ -43,11 +45,13 @@
 
   border: solid 1px lightgrey;
   margin-bottom: 6px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 1024px) {
   .input {
-    width: 300px;
+    width: 210px;
   }
 }
 

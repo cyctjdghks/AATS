@@ -1,3 +1,83 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.pageBox{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(235, 235, 235);
+  padding-top: 10px;
+
+}
+
+.signupPageTitle{
+  font-family: "Apple_Gothic_Neo_Mid";
+  margin-top: 40px;
+}
+
+.signupBox{
+  margin-top: 50px;
+  width: 550px;
+  background-color: white;
+  margin-right: 10px;
+  margin-bottom: 100px;
+}
+
+.InputLabelBox1{
+  display: flex;
+  text-align: left;
+  justify-content: center;
+
+}
+
+.InputLabelBox2{
+  display: flex;
+  text-align: left;
+  justify-content: center;
+}
+
+
+
+.signupBox2{
+  margin-top: 50px;
+  width: 550px;
+  background-color: white;
+  margin-left: 20px;
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 1024px) {
+  .signupBox2{
+    display: none;
+  }
+}
+
 .mapDiv{
   display: flex;
   align-items: center;
