@@ -1,31 +1,31 @@
 @font-face {
   font-family: "Apple_Gothic_Neo_Mid";
-  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+  src: url("../../../../fonts/AppleSDGothicNeoM.ttf");
 }
 
 @font-face {
   font-family: "Apple_Gothic_Neo_Light";
-  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
 }
 
 @font-face {
   font-family: "Apple_Gothic_Neo_ULight";
-  src: url("../../../fonts/AppleSDGothicNeoUL.ttf");
+  src: url("../../../../fonts/AppleSDGothicNeoUL.ttf");
 }
 
 @font-face {
   font-family: "Apple_Gothic_Neo_Bold";
-  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+  src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
 }
 
 @font-face {
   font-family: "Apple_Gothic_Neo_EBold";
-  src: url("../../../fonts/AppleSDGothicNeoEB.ttf");
+  src: url("../../../../fonts/AppleSDGothicNeoEB.ttf");
 }
 
 @font-face {
   font-family: "Apple_Gothic_Neo_R";
-  src: url("../../../fonts/AppleSDGothicNeoR.ttf");
+  src: url("../../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
 .pageBox {
@@ -53,11 +53,20 @@
   display: flex;
   justify-content: center;
   margin-top: 50px;
-  margin-bottom: 320px;
 }
 
 .typeOne {
-  margin-right: 25px;
+  margin-right: 20px;
+}
+
+.organization {
+  cursor: pointer;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.organization:hover {
+  border-radius: 8px;
+  border: 2px solid rgb(95, 95, 95);
 }
 
 .user {
@@ -77,6 +86,7 @@
 
 .typeTwo {
   margin-left: 25px;
+  margin-right: 20px;
 }
 
 .typeTwo img {
@@ -104,4 +114,44 @@
 .typeTwo p {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 20px;
+}
+
+.typeThree {
+  margin-left: 30px;
+}
+
+.typeThree img {
+  border-radius: 8px;
+  height: 160px;
+  cursor: pointer;
+  border: 2px solid rgb(219, 219, 219);
+}
+
+.typeThree img:hover {
+  border-radius: 8px;
+  border: 2px solid rgb(95, 95, 95);
+}
+
+.typeThree p {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+}
+
+.signupBox {
+  margin-bottom: 240px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.signupImg {
+  margin-top: 17px;
+  margin-left: 5px;
+}
+
+.signupBox:hover{
+  font-weight: bold;
 }

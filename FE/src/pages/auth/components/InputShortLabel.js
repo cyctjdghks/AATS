@@ -1,6 +1,6 @@
-import classes from "./InputLabel.module.css"
+import classes from "./InputShortLabel.module.css"
 
-const InputLabel= ({label, errorMessage, ...rest}) => {
+const InputShortLabel= ({label, errorMessage, ...rest}) => {
   return(
     <div className={classes.InputLabel}>
       <label>
@@ -12,4 +12,4 @@ const InputLabel= ({label, errorMessage, ...rest}) => {
   )
 }
 
-export default InputLabel
+export default InputShortLabel
