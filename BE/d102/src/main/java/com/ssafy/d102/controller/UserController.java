@@ -126,7 +126,6 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    //TODO
     @GetMapping("/membership/{userId}")
     public ResponseEntity<?> getUserMembership(@PathVariable String userId) {
         System.out.println("컨트롤러 들어옴");
