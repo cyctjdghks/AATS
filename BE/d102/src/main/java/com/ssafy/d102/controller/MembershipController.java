@@ -12,9 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @RestController
 @RequestMapping("/membership")
-@Slf4j
 @RequiredArgsConstructor
 public class MembershipController {
     private final MembershipService membershipService;
