@@ -245,6 +245,25 @@ public class WorkerServiceImpl implements WorkerService {
     }
 
     @Override
+    public List<DateTimeDto> getWorkerMonthStart(String id, String month) {
+        List<DateTimeDto> list = new ArrayList<>();
+        List<WorkerAttendanceStart> workerMonthStartList =
+                workerAttendanceStartRepository.findAll().stream()
+                        .filter(workerAttendanceStart -> workerAttendanceStart.getWorker().getWorkerId().equals(id))
+                        .filter(workerAttendanceStart -> workerAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
+                        .collect(Collectors.toList());
+
+
+        for (WorkerAttendanceStart monthStartList : workerMonthStartList) {
+            list.add(new DateTimeDto(
+                    monthStartList.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+            ));
+        }
+
+        return list;
+    }
+
+    @Override
     public List<DateTimeDto> getWorkerEnd(String id) {
         List<DateTimeDto> list = new ArrayList<>();
         List<WorkerAttendanceEnd> workerEndList =
@@ -256,6 +275,25 @@ public class WorkerServiceImpl implements WorkerService {
         for (WorkerAttendanceEnd endList : workerEndList) {
             list.add(new DateTimeDto(
                     endList.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+            ));
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<DateTimeDto> getWorkerMonthEnd(String id, String month) {
+        List<DateTimeDto> list = new ArrayList<>();
+        List<WorkerAttendanceEnd> workerMonthEndList =
+                workerAttendanceEndRepository.findAll().stream()
+                        .filter(workerAttendanceEnd -> workerAttendanceEnd.getWorker().getWorkerId().equals(id))
+                        .filter(workerAttendanceEnd -> workerAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
+                        .collect(Collectors.toList());
+
+
+        for (WorkerAttendanceEnd monthEndList : workerMonthEndList) {
+            list.add(new DateTimeDto(
+                    monthEndList.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
             ));
         }
 

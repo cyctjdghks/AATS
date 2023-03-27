@@ -138,14 +138,38 @@ public class WorkerController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
+    @GetMapping("get/start/{workerId}/{month}")
+    public ResponseEntity<?> getWorkerMonthStart(@PathVariable("workerId") String id, @PathVariable("month") String month) {
+        Map<String, Object> data = new HashMap<>();
+
+
+        List<DateTimeDto> workerMonthStartList = workerService.getWorkerMonthStart(id, month);
+        data.put("msg", "success");
+        data.put("data", workerMonthStartList);
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
     @GetMapping("get/end/{workerId}")
     public ResponseEntity<?> getWorkerEnd(@PathVariable("workerId") String id) {
         Map<String, Object> data = new HashMap<>();
 
 
-        List<DateTimeDto> workerStartList = workerService.getWorkerStart(id);
+        List<DateTimeDto> workerEndList = workerService.getWorkerEnd(id);
         data.put("msg", "success");
-        data.put("data", workerStartList);
+        data.put("data", workerEndList);
+
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @GetMapping("get/end/{workerId}/{month}")
+    public ResponseEntity<?> getWorkerMonthEnd(@PathVariable("workerId") String id, @PathVariable("month") String month) {
+        Map<String, Object> data = new HashMap<>();
+
+
+        List<DateTimeDto> workerMonthEndList = workerService.getWorkerMonthEnd(id, month);
+        data.put("msg", "success");
+        data.put("data", workerMonthEndList);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
