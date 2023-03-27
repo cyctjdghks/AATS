@@ -1,0 +1,10 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.horizenHr{
+  width: 90%;
+  margin: 0, 5%, 0, 5%;
+}

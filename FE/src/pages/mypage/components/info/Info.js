@@ -4,7 +4,7 @@ import logo from "../../../../assets/profileTest.jpg";
 import classes from "./Info.module.css";
 
 const Info = () => {
-  const userData = useSelector((state) => state.auth.userData);
+  const userData = useSelector((state) => state.user.userData);
 
   return (
     <div className={classes.info}>

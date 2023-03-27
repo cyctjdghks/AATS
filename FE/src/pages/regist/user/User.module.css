@@ -28,8 +28,6 @@
   src: url("../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-
-
 .pageBox {
   display: flex;
 }
@@ -53,7 +51,7 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .sideBox {
     display: none;
   }
@@ -145,7 +143,8 @@
 
 .companyIdBox {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: baseline;
 }
 
 .IdTextBox {
@@ -167,7 +166,7 @@
   display: flex;
 }
 
-.selectbox{
+.selectbox {
   margin-top: 12px;
 }
 
@@ -178,16 +177,15 @@ select {
   width: 100%; /* 원하는 너비설정 */
   border: 1px solid #999;
   border-radius: 0px; /* iOS 둥근모서리 제거 */
-
 }
 
-.selectbox label{
+.selectbox label {
   font-family: "Apple_Gothic_Neo_Mid";
   float: left;
   margin-top: 3px;
 }
 
-.selectIdBox{
+.selectIdBox {
   font-family: "Apple_Gothic_Neo_Light";
   width: 100%;
   font-size: 17px;
@@ -197,7 +195,6 @@ select {
   padding-right: 25px;
   border: solid 1px lightgrey;
   margin-top: 7px;
-
 }
 
 .inputBoxTwo {
@@ -237,7 +234,7 @@ select {
   cursor: pointer;
 }
 
-.submitBtn:hover{
+.submitBtn:hover {
   font-family: "Apple_Gothic_Neo_Mid";
   font-size: 20px;
   background-color: #8f1f1f;

@@ -3,19 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   id: '',
   organizationData: {},
-  userData: {
-    id: "bingbang",
-    name: "이병수",
-    status: 1,
-    organization_id: "ssafy",
-    gender: 1,
-    age: 27,
-    phoneNumber: "010-1234-5678",
-    email: "ssafy1234@ssafy.com",
-    birth: "1997-11-05",
-    nationality: "대한민국",
-    profile: "aaaaa",
-  },
+  userType: 0,
+  // 0 : organization, 1: worker, 2: user
   isLogin: false,
 };
 
@@ -24,27 +13,15 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     organizationLogin(state, action) {
-      state.id = action.payload.id;
+      state.id = action.payload.organizationId;
       state.organizationData = action.payload;
+      state.userType = 0
       state.isLogin = true;
     },
     organizationLogout(state, action) {
-      state.id= action.payload;
-      state.organizationData ={};
-      state.userData= {
-        id: "bingbang",
-        name: "이병수",
-        status: 1,
-        organization_id: "ssafy",
-        gender: 1,
-        age: 27,
-        phoneNumber: "010-1234-5678",
-        email: "ssafy1234@ssafy.com",
-        birth: "1997-11-05",
-        nationality: "대한민국",
-        profile: "aaaaa",
-      };
-      state.isLogin = false;
+      state.id = action.payload
+      state.organizationData = action.payload
+      state.isLogin = false
     },
   }
 });
