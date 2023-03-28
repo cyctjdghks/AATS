@@ -44,6 +44,7 @@
   background-color: white;
   box-shadow: 2px 5px 5px grey;
   border-radius: 3px;
+  margin-bottom: 30px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -62,6 +63,14 @@
   text-align: center;
 }
 
+.hline{
+  margin: auto;
+  width:89%;
+  height: 5px;
+  background-color: #e6e7ee;
+  margin-top: -10px;
+}
+
 .loginContentBox {
   display: flex;
   justify-content: center;
@@ -70,7 +79,7 @@
 
 .InputLabelBox1{
   display: flex;
-  margin-top: -10px;
+  margin-top: 5px;
 }
 
 .InputLabelBox2{

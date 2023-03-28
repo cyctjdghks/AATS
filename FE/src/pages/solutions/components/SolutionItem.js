@@ -17,6 +17,7 @@ const SolutionItem = (props) => {
   const solutionName = props.solutionName
   const solutionSubName = props.solutionSubName
   const hashtag = props.hashtag
+  const content = props.content
 
   return (
     <div className={classes.solutionBox}>
@@ -25,6 +26,9 @@ const SolutionItem = (props) => {
         <p className={classes.solutionName}>{solutionName}</p>
         <p className={classes.solutionSubName}>{solutionSubName}</p>
         <p className={classes.hashtag}>{hashtag}</p>
+      </div>
+      <div>
+        <p>{content}</p>
       </div>
       <div>
         <img src={props.img} alt="" className={classes.img} onClick={showModal}/>
@@ -38,6 +42,7 @@ const SolutionItem = (props) => {
         solutionName={solutionName}
         solutionSubName={solutionSubName}
         hashtag={hashtag}
+        content={content}
         />}
       </div>
     </div>
