@@ -25,7 +25,7 @@
 
 .pageBox {
   text-align: left;
-  padding-top: 10px;
+  padding-top: 20px;
   height: 100%;
   background-color: rgb(235, 235, 235);
   display: flex;
@@ -38,18 +38,24 @@
   width: 550px;
   height: 500px;
   background-color: white;
-  box-shadow: 1px 1px 3px 5px #dadce0;
+  box-shadow: 2px 5px 5px grey;
   border-radius: 3px;
+  margin-left: 170px;
 }
 
 @media screen and (max-width: 1024px) {
   .loginBox {
     width: 400px;
+    margin-left: 0px;
+  }
+
+  .imgBox{
+    display: none;
   }
 }
 
 .loginBox h1 {
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-family: "Apple_Gothic_Neo_R";
   padding-top: 20px;
   text-align: center;
 }
@@ -71,6 +77,7 @@
   margin-top: 10px;
   background-color: #2b41a1;;
   color: white;
+  box-shadow: 2px 4px 5px grey;
 }
 
 .toGoBox {
@@ -99,7 +106,7 @@
 
 .imgBox {
   width: 40%;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .quoteText1 {
@@ -114,37 +121,101 @@
   float: right;
 }
 
+.d102{
+  font-family: "Apple_Gothic_Neo_R";
+  padding-top: 10px;
+  margin-left: 80px;
+  font-size: 19px;
+}
+
+.hLine{
+  margin: auto;
+  width: 80%;
+  height: 2px;
+  background-color: #2b41a1;
+}
+
 .iconBox {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 60px;
+  padding-top: 40px;
 }
 
 .icon1 {
   text-align: center;
+  display: flex;
+  
 }
 
-.icon1 p {
+.phone{
+  margin-top: -10px;
+}
+
+.iconPBox1{
+  text-align: left;
+  margin-left: 10px;
+  margin-top: -5px;
+}
+
+.iconP1{
+  font-family: "Apple_Gothic_Neo_Mid";
+  
+}
+
+.iconP2{
   font-family: "Apple_Gothic_Neo_R";
+  margin-top: -10px;
 }
 
 .icon2 {
   text-align: center;
+  display: flex;
 }
 
-.icon2 p {
-  font-family: "Apple_Gothic_Neo_R";
-  padding-top: 10px;
+.iconPBox2{
+  margin-left: 15px;
+  text-align: left;
+  margin-top: -5px;
 }
 
-.icon3 p {
-  font-family: "Apple_Gothic_Neo_R";
-  padding-top: 8.5px;
+.iconP3{
+  font-family: "Apple_Gothic_Neo_Mid";
+
 }
+
+.iconP4{
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: -10px;
+
+}
+
+.icon3{
+  text-align: center;
+  display: flex;
+}
+
+.iconPBox3{
+  margin-left: 15px;
+  text-align: left;
+  margin-top: -5px;
+}
+
+.iconP5{
+  font-family: "Apple_Gothic_Neo_Mid";
+
+}
+
+.iconP6{
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: -10px;
+}
+
 
 .ceoBox {
   text-align: center;
 }
 
-.ceo {
+.ceo{
+  margin-top: 30px;
+  width: 350px;
 }
