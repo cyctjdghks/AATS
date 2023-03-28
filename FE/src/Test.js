@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
+import classes from "./Test.module.css";
 
 const Main = () => {
   const [position, setPosition] = useState({
@@ -22,8 +23,10 @@ const Main = () => {
     for (let i = 0; i < files.length; i++) {
       formData.append("files", files[i]);
     }
-    const userBlob = new Blob([JSON.stringify(user)], { type: 'application/json' });
-    formData.append("user", userBlob, 'user.json')
+    const userBlob = new Blob([JSON.stringify(user)], {
+      type: "application/json",
+    });
+    formData.append("user", userBlob, "user.json");
     for (let value of formData.values()) {
       console.log(value);
     }
@@ -40,7 +43,22 @@ const Main = () => {
         console.log(error);
       });
   };
-  const urltmp = "http://127.0.0.1:5000"
+
+  const urltmp = "http://127.0.0.1:5000";
+  const [filename, setFileName] = useState("")
+  const saveImg = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    const files = event.target.elements.files.files;
+    for (let i = 0; i < files.length; i++) {
+      formData.append("files", files[i]);
+    }
+    for (let value of formData.values()) {
+      console.log(value);
+      setFileName(value.name)
+    }
+  };
+
   return (
     <div>
       <Map // 지도를 표시할 Container
@@ -77,7 +95,23 @@ const Main = () => {
         </form>
       </div>
       <div>
-      <button onClick={()=>{window.open(urltmp)}}> CCTV </button>
+        <button
+          onClick={() => {
+            window.open(urltmp);
+          }}
+        >
+          {" "}
+          CCTV{" "}
+        </button>
+      </div>
+
+      <div className={classes.filebox}>
+        <form onSubmit={sendImg}>
+          <label htmlFor="file">파일찾기</label>
+          <input type="file" id="file" name="files" multiple />
+          <input className={classes.uploadName} placeholder="선택된 파일 없음" defaultValue={filename} disabled={true}/>
+          <button type="submit"> 저장</button>
+        </form>
       </div>
     </div>
   );

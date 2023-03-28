@@ -1,6 +1,6 @@
 import InputLabel from "../components/InputLabel";
 import InputBigLabel from "../components/InputBigLabel";
-
+import SaveImg from "../components/SaveImg";
 import classes from "./User.module.css";
 
 import ceo from "../../../assets/MainContact/ceo.png";
@@ -13,6 +13,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataInput, CheckPassword } from "../components/Effectiveness";
+import { GenderCheckbox } from "../components/GenderCheckBox";
 
 const User = () => {
   const navigate = useNavigate();
@@ -25,7 +26,6 @@ const User = () => {
   const [confirmPassword, setConfirmPassword, confirmPasswordError] =
     CheckPassword(password);
   const [nationality, setNationality] = useState();
-  const [gender, setGender] = useState();
   const [age, setAge, ageError] = DataInput(/^[0-9]+$/);
   const [phoneNumber, setPhoneNumber, phoneNumberError] = DataInput(
     /^([0-9]+)-([0-9]+)-([0-9]+)/
@@ -35,10 +35,13 @@ const User = () => {
   );
   const [birth, setBirth] = useState();
   const [profile, setProfile] = useState("");
+  const [male, female, setMale, setFemale] = GenderCheckbox();
   // 이미지 저장
+  const [filename, setFileName] = useState("");
   const saveImg = (event) => {
     event.preventDefault();
     setProfile(event.target.elements.files.files);
+    setFileName(event.target.elements.files.files[0].name);
   };
   // 회원 등록 api 요청
   const registUserSubmit = (event) => {
@@ -50,13 +53,14 @@ const User = () => {
       uerPwd: password,
       userName: name,
       organizationId,
-      userGender: gender,
+      userGender: male ? 1 : 0,
       useAge: age,
       userPhone: phoneNumber,
       userEmail: email,
       userBirth: birth,
       userNationality: nationality,
     };
+    console.log(user);
     for (let i = 0; i < profile.length; i++) {
       formData.append("profile", profile[i]);
     }
@@ -90,7 +94,6 @@ const User = () => {
     !!confirmPassword &&
     !!age &&
     !!nationality &&
-    !!gender &&
     !!phoneNumber &&
     !!birth &&
     !!profile;
@@ -149,117 +152,112 @@ const User = () => {
             disabled={true}
           />
         </div>
-        <form onSubmit={registUserSubmit}>
-          <div className={classes.hline}></div>
-          <div className={classes.inputBoxOne}>
-            <InputLabel
-              label="이름"
-              type="text"
-              placeholder="이름을 입력해주세요"
-              onChange={setName}
-              errorMessage={nameError ? "" : "한글, 영어로만 입력해주세요"}
-            />
-            <InputLabel
-              label="나이"
-              type="text"
-              placeholder="나이를 입력해주세요"
-              onChange={setAge}
-              errorMessage={ageError ? "" : "숫자로만 입력해주세요"}
-            />
-            <div className={classes.selectbox}>
-              <label htmlFor="ex_select" className={classes.selectTitle}>
-                국적
-              </label>
-              <div>
-                <select
-                  id="ex_select"
-                  className={classes.selectIdBox}
-                  onChange={(event) => setNationality(event.target.value)}
-                >
-                  <option defaultValue>국적 선택(필수)</option>
-                  {nationList.map((nation, idx) => (
-                    <option key={idx}>{nation}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </div>
-          <div className={classes.inputBoxTwo}>
-            <InputLabel
-              label="아이디"
-              type="text"
-              placeholder="아이디를 입력해주세요"
-              onChange={setId}
-              errorMessage={idError ? "" : "영어와 숫자로만 입력해주세요."}
-            />
-            <InputLabel
-              label="휴대폰 번호"
-              type="text"
-              placeholder="휴대폰 번호를 입력해주세요"
-              onChange={setPhoneNumber}
-              errorMessage={
-                phoneNumberError ? "" : "전화번호 양식을 맞춰주세요"
-              }
-            />
-            <InputLabel
-              label="생년월일"
-              type="date"
-              placeholder="생년월일을 입력해주세요"
-              onChange={(event) => setBirth(event.target.value)}
-            />
-          </div>
-          <InputLabel
-            label="이메일"
-            type="text"
-            placeholder="이메일을 입력해주세요"
-            onChange={setEmail}
-            errorMessage={emailError ? "" : "이메일 양식을 맞춰주세요"}
-          />
-          <InputLabel
-            label="비밀번호"
-            type="password"
-            placeholder="비밀번호를 입력해주세요"
-            onChange={setPassword}
-            errorMessage={
-              passwordError
-                ? ""
-                : "영어,숫자,특수문자를 반드시 포함해야합니다(9~16)"
-            }
-          />
-          <InputLabel
-            label="비밀번호"
-            type="password"
-            placeholder="비밀번호를 입력해주세요"
-            onChange={setConfirmPassword}
-            errorMessage={
-              confirmPasswordError ? "" : "비밀번호와 일치하지 않습니다."
-            }
-          />
+        <div className={classes.hline}></div>
 
-          <div className={classes.inputBoxThree}>
-            <div className={classes.genderBox}>
-              <p className={classes.genderName}>성별</p>
-              <div className={classes.gender}>
-                <label>
-                  남
-                  <input type="checkbox" />
-                  &nbsp;&nbsp;
-                </label>
-                <label>
-                  여
-                  <input type="checkbox" />
-                </label>
-              </div>
+        <div className={classes.inputBoxOne}>
+          <InputLabel
+            label="이름"
+            type="text"
+            placeholder="이름을 입력해주세요"
+            onChange={setName}
+            errorMessage={nameError ? "" : "한글, 영어로만 입력해주세요"}
+          />
+          <InputLabel
+            label="나이"
+            type="text"
+            placeholder="나이를 입력해주세요"
+            onChange={setAge}
+            errorMessage={ageError ? "" : "숫자로만 입력해주세요"}
+          />
+          <div className={classes.selectbox}>
+            <label htmlFor="ex_select" className={classes.selectTitle}>
+              국적
+            </label>
+            <div>
+              <select
+                id="ex_select"
+                className={classes.selectIdBox}
+                onChange={(event) => setNationality(event.target.value)}
+              >
+                <option defaultValue>국적 선택(필수)</option>
+                {nationList.map((nation, idx) => (
+                  <option key={idx}>{nation}</option>
+                ))}
+              </select>
             </div>
           </div>
-          <button
-            type="submit"
-            disabled={!submitError}
-            className={classes.submitBtn}
-          >
-            submit
-          </button>
-        </form>
+        </div>
+        <div className={classes.inputBoxTwo}>
+          <InputLabel
+            label="아이디"
+            type="text"
+            placeholder="아이디를 입력해주세요"
+            onChange={setId}
+            errorMessage={idError ? "" : "영어와 숫자로만 입력해주세요."}
+          />
+          <InputLabel
+            label="휴대폰 번호"
+            type="text"
+            placeholder="휴대폰 번호를 입력해주세요"
+            onChange={setPhoneNumber}
+            errorMessage={phoneNumberError ? "" : "전화번호 양식을 맞춰주세요"}
+          />
+          <InputLabel
+            label="생년월일"
+            type="date"
+            placeholder="생년월일을 입력해주세요"
+            onChange={setBirth}
+          />
+        </div>
+        <InputLabel
+          label="이메일"
+          type="text"
+          placeholder="이메일을 입력해주세요"
+          onChange={setEmail}
+          errorMessage={emailError ? "" : "이메일 양식을 맞춰주세요"}
+        />
+        <InputLabel
+          label="비밀번호"
+          type="password"
+          placeholder="비밀번호를 입력해주세요"
+          onChange={setPassword}
+          errorMessage={
+            passwordError
+              ? ""
+              : "영어,숫자,특수문자를 반드시 포함해야합니다(9~16)"
+          }
+        />
+        <InputLabel
+          label="비밀번호"
+          type="password"
+          placeholder="비밀번호를 입력해주세요"
+          onChange={setConfirmPassword}
+          errorMessage={
+            confirmPasswordError ? "" : "비밀번호와 일치하지 않습니다."
+          }
+        />
+
+        <div className={classes.inputBoxThree}>
+          <div className={classes.genderBox}>
+            <p className={classes.genderName}>성별</p>
+            <label className={classes.Gender}>
+              남
+              <input type="checkbox" checked={male} onChange={setMale} />
+            </label>
+            <label className={classes.Gender}>
+              여
+              <input type="checkbox" checked={female} onChange={setFemale} />
+            </label>
+          </div>
+          <SaveImg onSubmit={saveImg} filename={filename} />
+        </div>
+        <button
+          onClick={registUserSubmit}
+          disabled={!submitError}
+          className={classes.submitBtn}
+        >
+          submit
+        </button>
       </div>
     </div>
   );
