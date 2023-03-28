@@ -1,4 +1,5 @@
 .authBox {
-  /* height: calc(100vh - 160px); */
-  /* overflow: hidden; */
+  min-height: calc(100vh - 160px);
+  position: relative;
+  background-color: rgb(235, 235, 235);
 }

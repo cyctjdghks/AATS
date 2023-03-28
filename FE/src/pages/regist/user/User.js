@@ -50,7 +50,7 @@ const User = () => {
     const formData = new FormData();
     const user = {
       userId: id,
-      uerPwd: password,
+      userPwd: password,
       userName: name,
       organizationId,
       userGender: male ? 1 : 0,
@@ -206,7 +206,7 @@ const User = () => {
             label="생년월일"
             type="date"
             placeholder="생년월일을 입력해주세요"
-            onChange={setBirth}
+            onChange={(event) => setBirth(event.target.value)}
           />
         </div>
         <InputLabel
