@@ -86,22 +86,38 @@ const Organization = () => {
             <p className={classes.quoteText1}>
               AIVE의 미션은 사용자와 ~ 깊게 이해하여 혁신적인 AI 기술을 바탕으로
               한 어쩌구 저쩌구 입니다. 어쩌구 저쩌구 입니다. 어쩌구 저쩌구
-              입니다.
+              입니다. 어쩌구 저쩌
             </p>
-            <p></p>
             <img src={quote2} alt="따옴표2" className={classes.quote2} />
+            <p className={classes.d102}>삼성 청년 SW 아카데미, D102 일동</p>
+            <div className={classes.hLine}></div>
             <div className={classes.iconBox}>
               <div className={classes.icon1}>
-                <img src={phone} alt="" className={classes.phone} />
-                <p>Phone.02-123-456</p>
+                <div>
+                  <img src={phone} alt="" className={classes.phone} />
+                </div>
+                <div className={classes.iconPBox1}>
+                  <p className={classes.iconP1}>Phone</p>
+                  <p className={classes.iconP2}>02-123-456</p>
+                </div>
               </div>
               <div className={classes.icon2}>
-                <img src={tmp1} alt="" className={classes.tmp1} />
-                <p>Gumi No.1</p>
+                <div>
+                  <img src={tmp1} alt="" className={classes.tmp1} />
+                </div>
+                <div className={classes.iconPBox2}>
+                  <p className={classes.iconP3}>Gumi</p>
+                  <p className={classes.iconP4}>No.1</p>
+                </div>
               </div>
               <div className={classes.icon3}>
-                <img src={tmp2} alt="" className={classes.tmp2} />
-                <p>Gumi No.1</p>
+                <div>
+                  <img src={tmp2} alt="" className={classes.tmp2} />
+                </div>
+                <div className={classes.iconPBox3}>
+                  <p className={classes.iconP5}>Gumi</p>
+                  <p className={classes.iconP6}>No.1</p>
+                </div>
               </div>
             </div>
           </div>

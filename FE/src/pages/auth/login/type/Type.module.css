@@ -29,7 +29,24 @@
 }
 
 .pageBox {
-  margin-top: 140px;
+  margin-top: -30px;
+  background-color: rgb(235, 235, 235);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.topBox {
+  width: 70%;
+  height: 180px;
+  border-radius: 8px;
+  background-color: white;
+  margin: auto;
+}
+
+.loginBox{
+  margin-bottom: 50px;
 }
 
 .pageBox h3 {
@@ -61,7 +78,7 @@
 
 .organization {
   cursor: pointer;
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid rgb(235, 235, 235);
 }
 
 .organization:hover {
@@ -71,7 +88,7 @@
 
 .user {
   cursor: pointer;
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid rgb(235, 235, 235);
 }
 
 .user:hover {
@@ -103,7 +120,7 @@
 
 .worker {
   cursor: pointer;
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid rgb(235, 235, 235);
 }
 
 .worker:hover {
@@ -138,7 +155,6 @@
 }
 
 .signupBox {
-  margin-bottom: 240px;
   margin-top: 25px;
   display: flex;
   justify-content: center;
@@ -152,6 +168,6 @@
   margin-left: 5px;
 }
 
-.signupBox:hover{
+.signupBox:hover {
   font-weight: bold;
 }
