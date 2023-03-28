@@ -30,11 +30,12 @@
 
 .pageBox {
   display: flex;
+  height: 100%;
 }
 
 .sideBox {
   background-color: rgb(235, 235, 235);
-  height: 820px;
+  height: 100%;
   width: 40%;
 }
 
@@ -203,6 +204,8 @@ select {
 
 .inputBoxThree {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .genderBox {
@@ -245,4 +248,15 @@ select {
   margin-top: 10px;
   width: 100%;
   cursor: pointer;
+}
+
+
+.Gender {
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 14px;
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
 }
