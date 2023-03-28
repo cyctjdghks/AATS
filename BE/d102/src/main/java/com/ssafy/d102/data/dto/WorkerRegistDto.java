@@ -18,4 +18,5 @@ public class WorkerRegistDto {
     private String workerEmail;
     private String workerBirth;
     private String workerNationality;
+    private Long workerImageId;
 }

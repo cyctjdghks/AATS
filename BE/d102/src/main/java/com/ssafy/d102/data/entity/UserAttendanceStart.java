@@ -21,7 +21,7 @@ public class UserAttendanceStart {
     @Column(name = "start_no")
     private Long startNo;
 
-    @Column(name = "start_time", nullable = false)
+    @Column(name = "start_time", nullable = false, columnDefinition = "datetime default now()")
     private LocalDateTime startTime;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

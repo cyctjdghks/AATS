@@ -1,15 +1,21 @@
 package com.ssafy.d102.controller;
 
 import com.ssafy.d102.data.dto.*;
+import com.ssafy.d102.data.entity.Image;
 import com.ssafy.d102.data.entity.Worker;
+import com.ssafy.d102.service.ImageService;
 import com.ssafy.d102.service.WorkerService;
+import com.ssafy.d102.structure.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,12 +26,21 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class WorkerController {
     private final WorkerService workerService;
+    private final ImageService imageService;
+    private final JwtProvider jwtProvider;
 
 
     @PostMapping("/login")
-    public ResponseEntity<?> loginWorker(@RequestBody WorkerLoginDto input) {
+    public ResponseEntity<?> loginWorker(@RequestBody WorkerLoginDto input, HttpServletResponse response) {
         Map<String, Object> data = new HashMap<>();
         WorkerDto workerDto = workerService.loginWorker(input);
+
+        String Key = jwtProvider.createToken(workerDto);
+
+        Cookie cookie = new Cookie("Authorization", Key);
+        cookie.setMaxAge(60*60);
+        cookie.setPath("/");
+        response.addCookie(cookie);
 
         data.put("msg", "success");
         data.put("data", workerDto);
@@ -47,7 +62,7 @@ public class WorkerController {
     @GetMapping("/get/{workerId}")
     public ResponseEntity<?> getWorker(@PathVariable("workerId") String id) {
         Map<String, Object> data = new HashMap<>();
-        WorkerDto workerDto = workerService.getWorkerById(id);
+        WorkerDto workerDto = workerService.getWorker(id);
 
         data.put("msg", "success");
         data.put("data", workerDto);
@@ -56,8 +71,16 @@ public class WorkerController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<?> updateWorker(@RequestBody WorkerRegistDto input) {
+    public ResponseEntity<?> updateWorker(@RequestPart(name = "profile", required = false) MultipartFile profile,
+                                          @RequestPart(name = "worker") WorkerRegistDto input) {
         Map<String, Object> data = new HashMap<>();
+
+        if (profile != null) {
+            long id = 0l;
+            id = imageService.addImage(Image.builder().build(), profile);
+            input.setWorkerImageId(id);
+        }
+
         workerService.updateWorker(input);
 
         data.put("msg", "success");
@@ -107,8 +130,16 @@ public class WorkerController {
     }
 
     @PostMapping("/regist")
-    public ResponseEntity<?> registWorker(@RequestBody WorkerRegistDto input) {
+    public ResponseEntity<?> registWorker(@RequestPart(name = "profile", required = false) MultipartFile profile,
+                                          @RequestPart(name = "worker") WorkerRegistDto input) {
         Map<String, Object> data = new HashMap<>();
+
+        if (profile != null) {
+            long id = 0l;
+            id = imageService.addImage(Image.builder().build(), profile);
+            input.setWorkerImageId(id);
+        }
+
         workerService.registWorker(input);
 
         data.put("msg", "success");
@@ -172,6 +203,21 @@ public class WorkerController {
         data.put("data", workerMonthEndList);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @GetMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletResponse response){
+        String logoutMSG = "logout";
+        Map<String, Object> data = new HashMap<>();
+
+        Cookie cookie = new Cookie("Authorization", logoutMSG);
+        cookie.setMaxAge(0);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+
+        data.put("msg", "success");
+
+        return new ResponseEntity<>(data, HttpStatus.OK );
     }
 
 

@@ -43,6 +43,12 @@ public class JwtInterceptor implements HandlerInterceptor {
             }
         }
 
+        System.out.println(request.getRequestURI());
+
+        String uri = request.getRequestURI().split("/")[2];
+
+        System.out.println("URI = " + uri  );
+
         log.info("token={" + token + "}");
         if (!jwtService.validateToken(token)) {
             log.error("권한이 만료되거나 없습니다.");

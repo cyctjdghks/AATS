@@ -1,19 +1,15 @@
 package com.ssafy.d102.data.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-
-@Entity
 @Table(name = "worker")
 @Getter
 @Builder
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Worker extends BaseEntity {
 
     @Id
@@ -51,10 +47,12 @@ public class Worker extends BaseEntity {
     @Column(name = "worker_nationality", length = 100)
     private String workerNationality;
 
-    @Column(name = "worker_profile", nullable = false)
-    private byte[] workerProfile;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "imageId", unique = true)
+    private Image Image;
 
     // getters and setters
     // constructors
     // other methods
 }
+

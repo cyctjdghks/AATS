@@ -1,6 +1,12 @@
 package com.ssafy.d102.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.ssafy.d102.data.Exception.NotMatchException;
+import com.ssafy.d102.data.dto.OrganizationLoginDto;
+import com.ssafy.d102.data.dto.UserLoginDto;
 import com.ssafy.d102.data.entity.Image;
 import com.ssafy.d102.service.ImageService;
 import com.ssafy.d102.service.impl.ImageServiceImpl;
@@ -12,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,14 +30,13 @@ public class ImageController {
 
     private final ImageService imageService;
 
+    // Not Used
     @PostMapping("/image")
-    public ResponseEntity<?> saveImage(@Validated @RequestParam("files") MultipartFile files) {
-
+    public ResponseEntity<?> saveImage(@RequestPart(name = "image", required = false) MultipartFile files) {
         Map<String, Object> data = new HashMap<>();
-//        for(MultipartFile m : files) {
-            if (files.getOriginalFilename().equals(""))
-                throw new NotMatchException("파일이 없습니다.");
-//        }
+        if (files == null)
+            throw new NotMatchException("파일이 없습니다.");
+
         long id = imageService.addImage(Image.builder().build(), files);
 
         data.put("msg","success");
@@ -48,5 +54,8 @@ public class ImageController {
         log.info(imgPath);
         return imgPath;
     }
+
+
+
 
 }

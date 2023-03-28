@@ -11,7 +11,7 @@ public interface WorkerService {
 
     List<WorkerDto> getAllWorker();
 
-    WorkerDto getWorkerById(String id);
+    WorkerDto getWorker(String id);
 
     void updateWorker(WorkerRegistDto input);
 

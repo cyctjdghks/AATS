@@ -1,4 +1,5 @@
 package com.ssafy.d102.data.entity;
+import com.ssafy.d102.data.dto.UserDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -49,10 +50,12 @@ public class User extends BaseEntity{
     private Integer userStatus;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "imageId")
+    @JoinColumn(name = "imageId", unique = true)
     private Image Image;
 
     // getters and setters
+
+
 
     // TODO : 생각해 볼 것
     // setter를 쓰는거보단 method를 만들어서 해당 메소드에서만 변경이 이루어지는 것이 좋음
