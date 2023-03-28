@@ -76,6 +76,7 @@ const SignUp = () => {
     <div className={classes.pageBox}>
       <div className={classes.loginBox}>
         <h1>회원가입</h1>
+        <div className={classes.hline}></div>
         <div className={classes.loginContentBox}>
           <form onSubmit={organizationSubmit}>
             <div className={classes.InputLabelBox1}>

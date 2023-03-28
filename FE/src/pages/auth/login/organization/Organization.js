@@ -43,10 +43,16 @@ const Organization = () => {
       });
   };
 
+  const toSignup = (event) => {
+    event.preventDefault();
+    navigate("/auth/signup");
+  };
+
   return (
     <div className={classes.pageBox}>
       <div className={classes.loginBox}>
-        <h1>로그인</h1>
+        <h1>기관 로그인</h1>
+        <div className={classes.hline}></div>
         <div className={classes.loginContentBox}>
           <form onSubmit={organizationLogin}>
             <InputLabel
@@ -73,7 +79,7 @@ const Organization = () => {
               로그인
             </button>
             <div className={classes.toGoBox}>
-              <p>회원가입 하러 가기</p>
+              <p onClick={toSignup}>회원가입 하러 가기</p>
               <ExitToAppIcon 
               className={classes.signupImg}/>
             </div>

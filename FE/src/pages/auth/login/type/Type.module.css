@@ -28,8 +28,163 @@
   src: url("../../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
+.pageBox{
+  height: 100%;
+  padding-top: 10px;
+  background-color: rgb(235, 235, 235);
+  padding-bottom: 120px;
+}
+
+.topBox {
+  width: 70%;
+  height: 180px;
+  border-radius: 8px;
+  background-color: white;
+  margin: auto;
+  margin-top: 32px;
+  box-shadow: 1px 1px 3px 5px #dadce0;
+}
+
+.pageName {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 30px;
+  color: #1d36a3;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.countSubBox{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: -5px;
+}
+
+.count1 {
+  display: flex;
+}
+
+.count1 p{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count1 h3{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+
+.count2 {
+  display: flex;
+}
+
+.count2 p{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count2 h3{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+.count3 {
+  display: flex;
+}
+
+.count3 p{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count3 h3{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+
+
+.pageSubBox{
+  width: 70%;
+  margin: auto;
+}
+
+.pageTitle{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 27px;
+  margin-top: 70px;
+
+}
+
+.pageTitle2{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+  margin-top: -20px;
+}
+
+.typeBox{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+.organization{
+  width: 300px;
+  transition: all 0.2s linear;
+  box-shadow: 1px 1px 3px 5px #dadce0;
+  cursor: pointer;
+}
+
+.organization:hover{
+  width: 320px;
+}
+
+.user{
+  width: 300px;
+  transition: all 0.2s linear;
+  box-shadow: 1px 1px 3px 5px #dadce0;
+  cursor: pointer;
+}
+
+.user:hover{
+  width: 320px;
+}
+
+.worker{
+  width: 300px;
+  transition: all 0.2s linear;
+  box-shadow: 1px 1px 3px 5px #dadce0;
+  cursor: pointer;
+}
+
+.worker:hover{
+  width: 320px;
+}
+
+.p1{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 25px;
+}
+
+.p2{
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 20px;
+  margin-top: -20px;
+}
+
+
+
+/* 
 .pageBox {
-  margin-top: -30px;
   background-color: rgb(235, 235, 235);
   height: 100%;
   display: flex;
@@ -43,10 +198,11 @@
   border-radius: 8px;
   background-color: white;
   margin: auto;
+  margin-top: 42px;
 }
 
 .loginBox{
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 
 .pageBox h3 {
@@ -170,4 +326,4 @@
 
 .signupBox:hover {
   font-weight: bold;
-}
+} */

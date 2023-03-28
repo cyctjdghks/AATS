@@ -110,6 +110,7 @@ const Solutions = () => {
               solutionName="솔루션 네임"
               solutionSubName="솔루션 서브네임"
               hashtag="#솔루션"
+              content="이 기술은 어쩌고 저쩌고 입니다. "
               img={solution1}
             />
           </div>

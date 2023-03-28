@@ -58,6 +58,15 @@
   font-family: "Apple_Gothic_Neo_R";
   padding-top: 20px;
   text-align: center;
+
+}
+
+.hline{
+  margin: auto;
+  width: 77%;
+  height: 5px;
+  background-color: #e6e7ee;
+  margin-top: -10px;
 }
 
 .loginContentBox {
