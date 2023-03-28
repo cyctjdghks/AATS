@@ -4,10 +4,7 @@ import com.ssafy.d102.data.Exception.NoContentException;
 import com.ssafy.d102.data.Exception.NotMatchException;
 import com.ssafy.d102.data.dto.*;
 import com.ssafy.d102.data.entity.*;
-import com.ssafy.d102.repository.OrganizationRepository;
-import com.ssafy.d102.repository.WorkerAttendanceEndRepository;
-import com.ssafy.d102.repository.WorkerAttendanceStartRepository;
-import com.ssafy.d102.repository.WorkerRepository;
+import com.ssafy.d102.repository.*;
 import com.ssafy.d102.service.WorkerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,32 +31,20 @@ public class WorkerServiceImpl implements WorkerService {
     private final WorkerAttendanceStartRepository workerAttendanceStartRepository;
     private final WorkerAttendanceEndRepository workerAttendanceEndRepository;
 
+    private final ImageRepository imageRepository;
+
     @Override
     public WorkerDto loginWorker(WorkerLoginDto input) {
-        String id = input.getWorkerId();
 
-        Worker worker = workerRepository.findById(id)
-                .orElseThrow(() -> new NoContentException("Id를 확인해주세요."));
+        Worker worker = getWorkerById(input.getWorkerId());
+
+        Image image = getImageById(worker.getImage()==null?null:worker.getImage().getImageId());
 
         if(!passwordEncoder.matches(input.getWorkerPwd(), worker.getWorkerPw())) {
-            throw new NotMatchException("PW가 다릅니다.");
+            throw new IllegalArgumentException("PW가 다릅니다.");
         }
 
-        return WorkerDto.builder()
-                .workerId(worker.getWorkerId())
-                .workerName(worker.getWorkerName())
-                .workerStatus(worker.getWorkerStatus())
-                .workerOrganizationId(worker.getOrganization().getOrganizationId())
-                .workerGender(worker.getWorkerGender())
-                .workerAge(worker.getWorkerAge())
-                .workerPhone(worker.getWorkerPhone())
-                .workerEmail(worker.getWorkerEmail())
-                .workerBirth(worker.getWorkerBirth())
-                .workerNationality(worker.getWorkerNationality())
-                .workerProfile(null)
-                .workerRegistDate(worker.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")))
-                .workerUpdateDate(worker.getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")))
-                .build();
+        return new WorkerDto().entityToDto(worker);
     }
 
     @Override
@@ -68,95 +53,46 @@ public class WorkerServiceImpl implements WorkerService {
         List<Worker> workerlist = workerRepository.findAll();
 
         for (Worker worker : workerlist) {
-            list.add(new WorkerDto(
-                    worker.getWorkerId(),
-                    worker.getWorkerName(),
-                    worker.getWorkerStatus(),
-                    worker.getOrganization().getOrganizationId(),
-                    worker.getWorkerGender(),
-                    worker.getWorkerAge(),
-                    worker.getWorkerPhone(),
-                    worker.getWorkerEmail(),
-                    worker.getWorkerBirth(),
-                    worker.getWorkerNationality(),
-                    null,
-                    worker.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
-                    worker.getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            ));
+            list.add(new WorkerDto().entityToDto(worker));
         }
 
         return list;
     }
 
     @Override
-    public WorkerDto getWorkerById(String id) {
-        Optional<Worker> worker = workerRepository.findById(id);
+    public WorkerDto getWorker(String id) {
+        Worker worker = getWorkerById(id);
 
-        if (worker.isPresent()) {
-            return new WorkerDto(
-                    worker.get().getWorkerId(),
-                    worker.get().getWorkerName(),
-                    worker.get().getWorkerStatus(),
-                    worker.get().getOrganization().getOrganizationId(),
-                    worker.get().getWorkerGender(),
-                    worker.get().getWorkerAge(),
-                    worker.get().getWorkerPhone(),
-                    worker.get().getWorkerEmail(),
-                    worker.get().getWorkerBirth(),
-                    worker.get().getWorkerNationality(),
-                    null,
-                    worker.get().getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
-                    worker.get().getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            );
-        } else {
-            return null;
-        }
+        return new WorkerDto().entityToDto(worker);
     }
 
     @Override
     public void updateWorker(WorkerRegistDto input) {
-        Worker worker = workerRepository.findById(input.getWorkerId())
-                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+        Worker worker = getWorkerById(input.getWorkerId());
 
         workerRepository.save(Worker.builder()
                 .workerId(worker.getWorkerId())
                 .workerPw(passwordEncoder.encode(input.getWorkerPwd()))
                 .workerName(input.getWorkerName())
                 .workerStatus(worker.getWorkerStatus())
-                .organization(organizationRepository.findById(input.getWorkerOrganizationId()).get())
+                .organization(getOrganizationById(input.getWorkerOrganizationId()))
                 .workerGender(input.getWorkerGender())
                 .workerAge(input.getWorkerAge())
                 .workerPhone(input.getWorkerPhone())
                 .workerEmail(input.getWorkerEmail())
                 .workerBirth(input.getWorkerBirth())
                 .workerNationality(input.getWorkerNationality())
-                .workerProfile(worker.getWorkerProfile())
                 .build());
     }
 
     @Override
     public void updateWorkerPw(WorkerUpdatePwDto input) {
-        Worker worker = workerRepository.findById(input.getWorkerId())
-                .orElseThrow(() -> new NoContentException("입력하신 아이디가 없습니다."));
+        Worker worker = getWorkerById(input.getWorkerId());
 
         if(!passwordEncoder.matches(input.getWorkerPwd(),worker.getWorkerPw()))
-            throw new NotMatchException("입력하신 비밀번호가 다릅니다.");
+            throw new IllegalArgumentException("입력하신 비밀번호가 다릅니다.");
 
-
-        workerRepository.save(Worker.builder()
-                .workerId(worker.getWorkerId())
-                .workerPw(passwordEncoder.encode(input.getWorkerNewPwd()))
-                .workerName(worker.getWorkerName())
-                .workerStatus(worker.getWorkerStatus())
-                .organization(worker.getOrganization())
-                .workerGender(worker.getWorkerGender())
-                .workerAge(worker.getWorkerAge())
-                .workerPhone(worker.getWorkerPhone())
-                .workerEmail(worker.getWorkerEmail())
-                .workerBirth(worker.getWorkerBirth())
-                .workerNationality(worker.getWorkerNationality())
-                .workerProfile(worker.getWorkerProfile())
-                .build());
+        worker.setWorkerPw(passwordEncoder.encode(input.getWorkerNewPwd()));
     }
 
     @Override
@@ -166,39 +102,36 @@ public class WorkerServiceImpl implements WorkerService {
 
     @Override
     public void startWorker(String id) {
-        Optional<Worker> worker = workerRepository.findById(id);
+        Worker worker = getWorkerById(id);
 
-        if (worker.isPresent()) {
-            workerAttendanceStartRepository.save(
-                    WorkerAttendanceStart.builder()
-                            .startTime(LocalDateTime.now())
-                            .worker(worker.get())
-                            .build()
-            );
-        }
+         workerAttendanceStartRepository.save(
+                 WorkerAttendanceStart.builder()
+                         .startTime(LocalDateTime.now())
+                         .worker(worker)
+                         .build()
+         );
     }
 
     @Override
     public void endWorker(String id) {
-        Optional<Worker> worker = workerRepository.findById(id);
+        Worker worker = getWorkerById(id);
 
-        if (worker.isPresent()) {
-            workerAttendanceEndRepository.save(
-                    WorkerAttendanceEnd.builder()
-                            .endTime(LocalDateTime.now())
-                            .worker(worker.get())
-                            .build()
-            );
-        }
+        workerAttendanceEndRepository.save(
+                WorkerAttendanceEnd.builder()
+                        .endTime(LocalDateTime.now())
+                        .worker(worker)
+                        .build()
+        );
+
     }
 
 
     @Override
     public void registWorker(WorkerRegistDto input) {
 
-        Organization organization = organizationRepository.findById(input.getWorkerOrganizationId())
-                .orElseThrow(() -> new NoContentException("없는 기관입니다."));
+        Organization organization = getOrganizationById(input.getWorkerOrganizationId());
 
+         Image image = getImageById(input.getWorkerImageId());
 
         workerRepository.save(Worker.builder()
                 .workerId(input.getWorkerId())
@@ -212,18 +145,16 @@ public class WorkerServiceImpl implements WorkerService {
                 .workerEmail(input.getWorkerEmail())
                 .workerBirth(input.getWorkerBirth())
                 .workerNationality(input.getWorkerNationality())
-                .workerProfile(new byte[0])
+                .Image(image)
                 .build());
     }
 
     @Override
     public void deleteWorker(String id) {
 
-        Optional<Worker> worker = workerRepository.findById(id);
+        Worker worker = getWorkerById(id);
 
-        if (worker.isPresent()) {
-            workerRepository.delete(worker.get());
-        }
+        workerRepository.delete(worker);
     }
 
     @Override
@@ -299,4 +230,21 @@ public class WorkerServiceImpl implements WorkerService {
 
         return list;
     }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public Worker getWorkerById(String workerId){
+        return workerRepository.findById(workerId)
+                .orElseThrow(() -> new IllegalArgumentException("Id를 확인해주세요."));
+    }
+    public Image getImageById(Long imageId){
+        if(imageId == null) return null;
+        return imageRepository.findById(imageId)
+                .orElse(null);
+    }
+    public Organization getOrganizationById(String organizationId){
+        return organizationRepository.findById(organizationId)
+                .orElseThrow(() -> new IllegalArgumentException("없는 기관입니다."));
+    }
+
 }

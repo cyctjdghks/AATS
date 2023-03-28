@@ -31,7 +31,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         Organization organization = getById(input.getOrganizationId());
         // 입력한 비밀번호와 저장된 비밀번호가 같은지 확인
         if(!passwordEncoder.matches(input.getOrganizationPwd(),organization.getOrganizationPw())){
-            throw new NotMatchException("PW가 다릅니다.");
+            throw new IllegalArgumentException("PW가 다릅니다.");
         }
         // organizationDto로 기관 정보 반환
         //TODO: 이걸 Dto에 static 메소드로 만들어 봐라
@@ -109,7 +109,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         Organization organization = getById(organizationUpdatePwDto.getOrganizationId());
 
         if(!passwordEncoder.matches(organizationUpdatePwDto.getOrganizationPwd(),organization.getOrganizationPw())){
-            throw new NotMatchException("PW가 다릅니다.");
+            throw new IllegalArgumentException("PW가 다릅니다.");
         }
 
         // organizationNewPwd
@@ -137,7 +137,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     //TODO: 참 잘했어요
     private Organization getById(String OrganizationId){
         Organization organization = repository.findById(OrganizationId)
-                .orElseThrow(() -> new NoContentException("Id를 확인해주세요."));
+                .orElseThrow(() -> new IllegalArgumentException("Id를 확인해주세요."));
         return organization;
     }
 
@@ -145,11 +145,9 @@ public class OrganizationServiceImpl implements OrganizationService {
         return OrganizationDto.builder()
                 .organizationId(organization.getOrganizationId())
                 .organizationName(organization.getOrganizationName())
-                .organizationSessionId(organization.getOrganizationSessionId()==null ? null : organization.getOrganizationSessionId())
-                .organizationLng(organization.getOrganizationLng() == null ? null : organization.getOrganizationLng())
-                .organizationLat(organization.getOrganizationLat() == null ? null : organization.getOrganizationLat())
-                .organizationRegistDate(organization.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")))
-                .organizationUpdateDate(organization.getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")))
+                .organizationSessionId(organization.getOrganizationSessionId())
+                .organizationLng(organization.getOrganizationLng())
+                .organizationLat(organization.getOrganizationLat())
                 .build();
     }
 

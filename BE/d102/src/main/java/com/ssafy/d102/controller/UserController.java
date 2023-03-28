@@ -1,14 +1,23 @@
 package com.ssafy.d102.controller;
 
+import com.ssafy.d102.data.Exception.NotMatchException;
 import com.ssafy.d102.data.dto.*;
+import com.ssafy.d102.data.entity.Image;
+import com.ssafy.d102.service.ImageService;
 import com.ssafy.d102.service.UserService;
+import com.ssafy.d102.service.WorkerService;
+import com.ssafy.d102.structure.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,12 +28,22 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
+    private final ImageService imageService;
+    private final JwtProvider jwtProvider;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @PostMapping("/regist")
-    public ResponseEntity<?> registUser(@RequestBody UserRegistDto input) {
+    public ResponseEntity<?> registUser(@RequestPart(name = "profile", required = false) MultipartFile profile,
+                                        @RequestPart(name = "user") UserRegistDto input) {
         Map<String, Object> data = new HashMap<>();
+
+        if (profile != null) {
+            long id = 0l;
+            id = imageService.addImage(Image.builder().build(), profile);
+            input.setUserImageId(id);
+        }
+
         userService.registUser(input);
 
         data.put("msg", "success");
@@ -33,19 +52,35 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody UserLoginDto input) {
+    public ResponseEntity<?> loginUser(@RequestBody UserLoginDto input, HttpServletResponse response) {
+        log.info("login User Method start");
         Map<String, Object> data = new HashMap<>();
-        UserDto user = userService.loginUser(input);
+        UserDto userDto = userService.loginUser(input);
+
+        String Key = jwtProvider.createToken(userDto);
+
+        Cookie cookie = new Cookie("Authorization", Key);
+        cookie.setMaxAge(60*60);
+        cookie.setPath("/");
+        response.addCookie(cookie);
 
         data.put("msg", "success");
-        data.put("data", user);
+        data.put("data", userDto);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<?> updateUser(@RequestBody UserRegistDto input) {
+    public ResponseEntity<?> updateUser(@RequestPart(name = "profile", required = false) MultipartFile profile,
+                                        @RequestPart(name = "user") UserRegistDto input) {
         Map<String, Object> data = new HashMap<>();
+
+        if (profile != null) {
+            long id = 0l;
+            id = imageService.addImage(Image.builder().build(), profile);
+            input.setUserImageId(id);
+        }
+
         userService.updateUser(input);
 
         data.put("msg", "success");
@@ -236,6 +271,20 @@ public class UserController {
         data.put("data", list);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+    @GetMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletResponse response){
+        String logoutMSG = "logout";
+        Map<String, Object> data = new HashMap<>();
+
+        Cookie cookie = new Cookie("Authorization", logoutMSG);
+        cookie.setMaxAge(0);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+
+        data.put("msg", "success");
+
+        return new ResponseEntity<>(data, HttpStatus.OK );
     }
 }
 

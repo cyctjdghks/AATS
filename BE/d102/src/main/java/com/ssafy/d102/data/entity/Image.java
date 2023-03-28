@@ -20,7 +20,7 @@ public class Image extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long imageId;
+    private Long imageId;
 
     @NotNull
     private String originalFileName;

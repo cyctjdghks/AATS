@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.lang.reflect.Member;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -33,15 +34,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void registUser(UserRegistDto input) {
-        Organization organization = organizationRepository.findById(input.getOrganizationId())
-                .orElseThrow(() -> new IllegalArgumentException("기관이 없습니다."));
+        Organization organization = getOrganizationById(input.getOrganizationId());
 
-        Image image = imageRepository.findById(input.getUserImage())
-                .orElseThrow(() -> new IllegalArgumentException("이미지가 없습니다."));
+        Image image = getImageById(input.getUserImageId());
 
         User user = User.builder()
                 .userId(input.getUserId())
-                .userPwd(input.getUserPwd())
+                .userPwd(passwordEncoder.encode(input.getUserPwd()))
                 .userName(input.getUserName())
                 .organization(organization)
                 .userGender(input.getUserGender())
@@ -59,56 +58,41 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto loginUser(UserLoginDto input) {
-        User user = userRepository.findById(input.getUserId())
-                .orElseThrow(() -> new IllegalArgumentException("유저 아이디가 없습니다."));
+        User user = getUserById(input.getUserId());
 
         if (!passwordEncoder.matches(input.getUserPwd(), user.getUserPwd())) {
             throw new IllegalArgumentException("비밀번호가 다릅니다.");
         }
 
-        //TODO : entityToDto
-        UserDto userDto = UserDto.builder()
-                .userId(user.getUserId())
-                .userName(user.getUserName())
-                .organizationId(user.getOrganization().getOrganizationId())
-                .userGender(user.getUserGender())
-                .userAge(user.getUserAge())
-                .userPhone(user.getUserPhone())
-                .userEmail(user.getUserEmail())
-                .userBirth(user.getUserBirth())
-                .userNationality(user.getUserNationality())
-                .userStatus(user.getUserStatus())
-                .userProfile(null)
-//                    .userProfile(user.getUserProfile());
-                .userRegistDate(user.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")))
-                .userUpdateDate(user.getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")))
-                .build();
+        //TODO : entityToDto (Done)
 
-        return userDto;
+
+        return new UserDto().entityToDto(user);
     }
 
     @Override
     @Transactional
     public void updateUser(UserRegistDto input) {
-        User user = userRepository.findById(input.getUserId())
-                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+        User user = getUserById(input.getUserId());
+
+        Image image = getImageById(input.getUserImageId());
 
         user.setUserPwd(input.getUserPwd());
         user.setUserName(input.getUserName());
         //TODO
-        user.setOrganization(organizationRepository.findById(input.getOrganizationId()).get());
+        user.setOrganization(getOrganizationById(input.getOrganizationId()));
         user.setUserGender(input.getUserGender());
         user.setUserAge(input.getUserAge());
         user.setUserPhone(input.getUserPhone());
         user.setUserEmail(input.getUserEmail());
         user.setUserBirth(input.getUserBirth());
         user.setUserNationality(input.getUserNationality());
+        user.setImage(image);
     }
 
     @Override
     public void deleteUser(String userId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다."));
+        User user = getUserById(userId);
 
         userRepository.delete(user);
     }
@@ -121,10 +105,14 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void updateUserPw(UserUpdatePwDto input) {
-        User user = userRepository.findById(input.getUserId())
-                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+        User user = getUserById(input.getUserId());
 
-        user.setUserPwd(input.getUserNewPwd());
+        if(!passwordEncoder.matches(input.getUserPwd(),user.getUserPwd()))
+            throw new IllegalArgumentException("패스워드가 다릅니다.");
+        user.setUserPwd(passwordEncoder.encode(input.getUserNewPwd()));
+
+        userRepository.save(user);
+
     }
 
     @Override
@@ -138,21 +126,7 @@ public class UserServiceImpl implements UserService {
 //                .collect(Collectors.toList());
 
         for (User user : userlist) {
-            list.add(new UserDto(
-                    user.getUserId(),
-                    user.getUserName(),
-                    user.getOrganization().getOrganizationId(),
-                    user.getUserGender(),
-                    user.getUserAge(),
-                    user.getUserPhone(),
-                    user.getUserEmail(),
-                    user.getUserBirth(),
-                    user.getUserNationality(),
-                    user.getUserStatus(),
-                    null,
-                    user.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
-                    user.getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            ));
+            list.add(new UserDto().entityToDto(user));
         }
 
         return list;
@@ -160,35 +134,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getUser(String userId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+        User user = getUserById(userId);
 
         //TODO
-        UserDto userDto = UserDto.builder()
-                .userId(user.getUserId())
-                .userName(user.getUserName())
-                .organizationId(user.getOrganization().getOrganizationId())
-                .userGender(user.getUserGender())
-                .userAge(user.getUserAge())
-                .userPhone(user.getUserPhone())
-                .userEmail(user.getUserEmail())
-                .userBirth(user.getUserBirth())
-                .userNationality(user.getUserNationality())
-                .userStatus(user.getUserStatus())
-//                .userProfile(user.getImage())
-                .userProfile(null)
-                .userRegistDate(user.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")))
-                .userUpdateDate(user.getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")))
-                .build();
 
-        return userDto;
+        return new UserDto().entityToDto(user);
     }
 
     @Override
     @Transactional
     public void startUser(String userId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+        User user = getUserById(userId);
 
         user.setUserStatus(1); // 출근함
 
@@ -197,14 +153,14 @@ public class UserServiceImpl implements UserService {
                 .user(user)
                 .build();
 
+        userRepository.save(user);
         userAttendanceStartRepository.save(userAttendanceStart);
     }
 
     @Override
     @Transactional
     public void endUser(String userId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+        User user = getUserById(userId);
 
         user.setUserStatus(0); // 퇴근함
 
@@ -213,16 +169,15 @@ public class UserServiceImpl implements UserService {
                 .user(user)
                 .build();
 
+        userRepository.save(user);
         userAttendanceEndRepository.save(userAttendanceEnd);
     }
 
     @Override
     public MembershipDto getUserMembership(String userId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+        User user = getUserById(userId);
 
-        Membership membership = membershipRepository.findByUser(user)
-                .orElseThrow(() -> new IllegalArgumentException("회원권이 없습니다."));
+        Membership membership = getMembershipByUser(user);
 
         MembershipDto membershipDto = new MembershipDto(membership.getMembershipType());
 
@@ -231,14 +186,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public MembershipTimeDto getUserMembershipTime(String userId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+        User user = getUserById(userId);
 
-        Membership membership = membershipRepository.findByUser(user)
-                .orElseThrow(() -> new IllegalArgumentException("회원권이 없습니다."));
+        Membership membership = getMembershipByUser(user);
 
-        TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(membership)
-                .orElseThrow(() -> new IllegalArgumentException("등록된 기간제 회원권이 없습니다."));
+        TimeLimitedMembership timeLimitedMembership = getTimeLimitedMembershipByMembership(membership);
 
         MembershipTimeDto membershipTimeDto = new MembershipTimeDto(
                 timeLimitedMembership.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
@@ -251,14 +203,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public MembershipCountDto getUserMembershipCount(String userId) {
         //TODO : 콜백 없애기, JPQL로 한번에 해보기
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
+        User user = getUserById(userId);
 
-        Membership membership = membershipRepository.findByUser(user)
-                .orElseThrow(() -> new IllegalArgumentException("회원권이 없습니다."));
-        CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(membership)
-                .orElseThrow(() -> new IllegalArgumentException("등록된 횟수제 회원권이 없습니다."));
-        ;
+        Membership membership = getMembershipByUser(user);
+
+        CountBasedMembership countBasedMembership = getCountBasedMembershipByMembership(membership);
 
         MembershipCountDto membershipCountDto = new MembershipCountDto(
                 countBasedMembership.getCount()
@@ -365,5 +314,35 @@ public class UserServiceImpl implements UserService {
         }
 
         return dateTimeDtos;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public User getUserById(String userId){
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다."));
+    }
+
+    public Organization getOrganizationById(String organizationId){
+        return organizationRepository.findById(organizationId)
+                .orElseThrow(() -> new IllegalArgumentException("등록된 기관이 아닙니다."));
+    }
+    public Membership getMembershipByUser(User user){
+        return membershipRepository.findByUser(user)
+                .orElseThrow(() -> new IllegalArgumentException("회원권이 없습니다."));
+    }
+    public Image getImageById(Long imageId){
+        if(imageId == null) return null;
+        return imageRepository.findById(imageId)
+                .orElse(null);
+    }
+
+    public TimeLimitedMembership getTimeLimitedMembershipByMembership(Membership membership){
+        return timeLimitedMembershipRepository.findByMembership(membership)
+                .orElseThrow(() -> new IllegalArgumentException("등록된 기간제 회원권이 없습니다."));
+    }
+    public CountBasedMembership getCountBasedMembershipByMembership(Membership membership){
+        return countBasedMembershipRepository.findByMembership(membership)
+                .orElseThrow(() -> new IllegalArgumentException("등록된 횟수제 회원권이 없습니다."));
     }
 }

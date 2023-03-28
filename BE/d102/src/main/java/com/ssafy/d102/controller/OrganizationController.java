@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
@@ -138,6 +139,21 @@ public class OrganizationController {
         data.put("organizationSessionId", sessionId);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @GetMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletResponse response){
+        String logoutMSG = "logout";
+        Map<String, Object> data = new HashMap<>();
+
+        Cookie cookie = new Cookie("Authorization", logoutMSG);
+        cookie.setMaxAge(0);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+
+        data.put("msg", "success");
+
+        return new ResponseEntity<>(data, HttpStatus.OK );
     }
 
 

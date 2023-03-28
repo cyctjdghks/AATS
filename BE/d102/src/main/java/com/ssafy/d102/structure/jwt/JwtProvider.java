@@ -32,6 +32,7 @@ public class JwtProvider {
         claims.put("userId", userDto.getUserId());
         claims.put("userName", userDto.getUserName());
         claims.put("userOrganization", userDto.getOrganizationId());
+        claims.put("role", 0);
         Date now = new Date();
         return Jwts.builder()
                 .setClaims(claims)
@@ -45,7 +46,8 @@ public class JwtProvider {
         Claims claims = Jwts.claims();
         claims.put("workerId", workerDto.getWorkerId());
         claims.put("workerName", workerDto.getWorkerName());
-        claims.put("workerOrganization", workerDto.getWorkerOrganizationId());
+        claims.put("workerOrganization", workerDto.getOrganizationId());
+        claims.put("role", 1);
         Date now = new Date();
         return Jwts.builder()
                 .setClaims(claims)
@@ -59,6 +61,7 @@ public class JwtProvider {
         Claims claims = Jwts.claims();
         claims.put("organizationId", organizationDto.getOrganizationId());
         claims.put("organizationName", organizationDto.getOrganizationName());
+        claims.put("role", 2);
         Date now = new Date();
         return Jwts.builder()
                 .setClaims(claims)
@@ -98,6 +101,19 @@ public class JwtProvider {
                     .parseClaimsJws(jwtToken)
                     .getBody();
             return !claims.getExpiration().before(new Date());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean checkRole(String jwtToken, String URI){
+        try {
+            Claims claims = Jwts.parser()
+                    .setSigningKey(secretKey.getBytes())
+                    .parseClaimsJws(jwtToken)
+                    .getBody();
+            return !claims.get("role").equals(URI);
         } catch (Exception e) {
             e.printStackTrace();
             return false;

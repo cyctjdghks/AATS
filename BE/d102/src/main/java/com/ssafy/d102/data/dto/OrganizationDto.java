@@ -16,6 +16,4 @@ public class OrganizationDto {
     private Double organizationLng;
     private Double organizationLat;
     private String organizationSessionId;
-    private String organizationRegistDate;
-    private String organizationUpdateDate;
 }
