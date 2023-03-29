@@ -7,7 +7,7 @@ RUN adduser --disabled-password --gecos "" user  \
     && echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 WORKDIR /usr/app
 COPY . .
-RUN python3 -m venv venv --without-pip
+RUN python3 -m venv venv
 WORKDIR /usr/app/venv/Scripts
 RUN pwd
 RUN ls
