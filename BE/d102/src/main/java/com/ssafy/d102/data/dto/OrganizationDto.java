@@ -1,5 +1,6 @@
 package com.ssafy.d102.data.dto;
 
+import com.ssafy.d102.data.entity.Organization;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,4 +16,15 @@ public class OrganizationDto {
     private String organizationName;
     private Double organizationLng;
     private Double organizationLat;
+    private String organizationSessionId;
+
+    public OrganizationDto entityToDto(Organization organization) {
+        return OrganizationDto.builder()
+                .organizationId(organization.getOrganizationId())
+                .organizationName(organization.getOrganizationName())
+//                .organizationSessionId(organization.getOrganizationSessionId())
+                .organizationLng(organization.getOrganizationLng())
+                .organizationLat(organization.getOrganizationLat())
+                .build();
+    }
 }

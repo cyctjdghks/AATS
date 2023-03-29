@@ -70,7 +70,7 @@ public class WorkerServiceImpl implements WorkerService {
     public void updateWorker(WorkerRegistDto input) {
         Worker worker = getWorkerById(input.getWorkerId());
 
-        workerRepository.save(Worker.builder()
+        Worker saveworker = Worker.builder()
                 .workerId(worker.getWorkerId())
                 .workerPw(passwordEncoder.encode(input.getWorkerPwd()))
                 .workerName(input.getWorkerName())
@@ -82,7 +82,9 @@ public class WorkerServiceImpl implements WorkerService {
                 .workerEmail(input.getWorkerEmail())
                 .workerBirth(input.getWorkerBirth())
                 .workerNationality(input.getWorkerNationality())
-                .build());
+                .build();
+
+        workerRepository.save(saveworker);
     }
 
     @Override
@@ -93,6 +95,7 @@ public class WorkerServiceImpl implements WorkerService {
             throw new IllegalArgumentException("입력하신 비밀번호가 다릅니다.");
 
         worker.setWorkerPw(passwordEncoder.encode(input.getWorkerNewPwd()));
+        workerRepository.save(worker);
     }
 
     @Override
@@ -104,25 +107,30 @@ public class WorkerServiceImpl implements WorkerService {
     public void startWorker(String id) {
         Worker worker = getWorkerById(id);
 
-         workerAttendanceStartRepository.save(
-                 WorkerAttendanceStart.builder()
-                         .startTime(LocalDateTime.now())
-                         .worker(worker)
-                         .build()
-         );
+        worker.setWorkerStatus(1);
+
+        WorkerAttendanceStart workerAttendanceStart = WorkerAttendanceStart.builder()
+                .startTime(LocalDateTime.now())
+                .worker(worker)
+                .build();
+
+        workerRepository.save(worker);
+        workerAttendanceStartRepository.save(workerAttendanceStart);
     }
 
     @Override
     public void endWorker(String id) {
         Worker worker = getWorkerById(id);
 
-        workerAttendanceEndRepository.save(
-                WorkerAttendanceEnd.builder()
-                        .endTime(LocalDateTime.now())
-                        .worker(worker)
-                        .build()
-        );
+        worker.setWorkerStatus(0);
 
+        WorkerAttendanceEnd workerAttendanceEnd = WorkerAttendanceEnd.builder()
+                .endTime(LocalDateTime.now())
+                .worker(worker)
+                .build();
+
+        workerRepository.save(worker);
+        workerAttendanceEndRepository.save(workerAttendanceEnd);
     }
 
 
@@ -133,20 +141,22 @@ public class WorkerServiceImpl implements WorkerService {
 
          Image image = getImageById(input.getWorkerImageId());
 
-        workerRepository.save(Worker.builder()
-                .workerId(input.getWorkerId())
-                .workerPw(passwordEncoder.encode(input.getWorkerPwd()))
-                .workerName(input.getWorkerName())
-                .workerStatus(0)
-                .organization(organizationRepository.findById(input.getWorkerOrganizationId()).get())
-                .workerGender(input.getWorkerGender())
-                .workerAge(input.getWorkerAge())
-                .workerPhone(input.getWorkerPhone())
-                .workerEmail(input.getWorkerEmail())
-                .workerBirth(input.getWorkerBirth())
-                .workerNationality(input.getWorkerNationality())
-                .Image(image)
-                .build());
+         Worker worker = Worker.builder()
+                 .workerId(input.getWorkerId())
+                 .workerPw(passwordEncoder.encode(input.getWorkerPwd()))
+                 .workerName(input.getWorkerName())
+                 .workerStatus(0)
+                 .organization(organization)
+                 .workerGender(input.getWorkerGender())
+                 .workerAge(input.getWorkerAge())
+                 .workerPhone(input.getWorkerPhone())
+                 .workerEmail(input.getWorkerEmail())
+                 .workerBirth(input.getWorkerBirth())
+                 .workerNationality(input.getWorkerNationality())
+                 .Image(image)
+                 .build();
+
+        workerRepository.save(worker);
     }
 
     @Override

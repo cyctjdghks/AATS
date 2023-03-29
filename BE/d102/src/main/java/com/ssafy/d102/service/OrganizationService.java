@@ -22,7 +22,7 @@ public interface OrganizationService {
 
     void changePw(OrganizationUpdatePwDto organizationUpdatePwDto);
 
-    void setSessionId(OrganizationSetSessionDto organizationSetSessionDto);
+//    void setSessionId(OrganizationSetSessionDto organizationSetSessionDto);
 
 //    String getSessionId(String organizationId);
 }

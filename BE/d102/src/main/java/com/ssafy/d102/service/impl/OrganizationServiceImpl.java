@@ -35,7 +35,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         }
         // organizationDto로 기관 정보 반환
         //TODO: 이걸 Dto에 static 메소드로 만들어 봐라
-        return entityToDto(organization);
+        return new OrganizationDto().entityToDto(organization);
     }
 
     // 기관 등록
@@ -43,15 +43,16 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     public void registOrganization(OrganizationDto input) {
 
-        repository.save(Organization.builder()
+        Organization organization = Organization.builder()
                 .organizationId(input.getOrganizationId())
                 .organizationPw(passwordEncoder.encode(input.getOrganizationPw()))
                 .organizationName(input.getOrganizationName())
 //                .organizationSessionId(input.getOrganizationSessionId()==null ? null : input.getOrganizationSessionId())
                 .organizationLng(input.getOrganizationLng()==null ? null : input.getOrganizationLng())
                 .organizationLat(input.getOrganizationLat()==null ? null : input.getOrganizationLat())
-                .build());
+                .build();
 
+        repository.save(organization);
     }
 
     @Override
@@ -66,7 +67,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 
         List<OrganizationDto> outputList = new ArrayList<>();
         for(int i=0;i<inputList.size();i++) {
-            outputList.add(entityToDto(inputList.get(i)));
+            outputList.add(new OrganizationDto().entityToDto(inputList.get(i)));
         }
 
         return outputList;
@@ -75,7 +76,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     public OrganizationDto getOrganization(String organizationId) {
         Organization organization = getById(organizationId);
-        return entityToDto(organization);
+        return new OrganizationDto().entityToDto(organization);
     }
 
     @Transactional
@@ -95,7 +96,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 
         repository.save(organization);
 
-        return entityToDto(organization);
+        return new OrganizationDto().entityToDto(organization);
     }
 
     @Override
@@ -117,14 +118,14 @@ public class OrganizationServiceImpl implements OrganizationService {
         repository.save(organization);
     }
 
-    @Override
-    public void setSessionId(OrganizationSetSessionDto organizationSetSessionDto) {
-        Organization organization = getById(organizationSetSessionDto.getOrganizationId());
-
+//    @Override
+//    public void setSessionId(OrganizationSetSessionDto organizationSetSessionDto) {
+//        Organization organization = getById(organizationSetSessionDto.getOrganizationId());
+//
 //        organization.setOrganizationSessionId(organizationSetSessionDto.getSessionId());
-
-        repository.save(organization);
-    }
+//
+//        repository.save(organization);
+//    }
 
 //    @Override
 //    public String getSessionId(String organizationId) {
@@ -141,15 +142,15 @@ public class OrganizationServiceImpl implements OrganizationService {
         return organization;
     }
 
-    private OrganizationDto entityToDto(Organization organization){
-        return OrganizationDto.builder()
-                .organizationId(organization.getOrganizationId())
-                .organizationName(organization.getOrganizationName())
-//                .organizationSessionId(organization.getOrganizationSessionId())
-                .organizationLng(organization.getOrganizationLng())
-                .organizationLat(organization.getOrganizationLat())
-                .build();
-    }
+//    private OrganizationDto entityToDto(Organization organization){
+//        return OrganizationDto.builder()
+//                .organizationId(organization.getOrganizationId())
+//                .organizationName(organization.getOrganizationName())
+////                .organizationSessionId(organization.getOrganizationSessionId())
+//                .organizationLng(organization.getOrganizationLng())
+//                .organizationLat(organization.getOrganizationLat())
+//                .build();
+//    }
 
 }
 

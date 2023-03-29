@@ -20,6 +20,6 @@ public class UserRegistDto {
     private String userEmail;
     private String userBirth;
     private String userNationality;
-    private String userStatus;
+//    private String userStatus;
     private Long userImageId;
 }
