@@ -3,7 +3,7 @@ RUN pip install --upgrade pip
 WORKDIR /usr/app
 COPY . .
 RUN ls
-RUN python3 -m venv object --without-pip
+RUN python3 -m venv venv
 RUN cd object
 RUN Scripts/activate.bat
 EXPOSE 8083
