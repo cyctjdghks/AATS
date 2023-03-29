@@ -8,14 +8,10 @@ RUN apt-get update && apt-get install -y sudo
 WORKDIR /usr/app
 RUN python3 -m venv venv
 WORKDIR /usr/app/venv/bin
-
 COPY ./object ./usr/app/venv
 RUN ls
 RUN sudo chmod 777 /usr/app/venv/bin/activate 
 RUN . /usr/app/venv/bin/activate \
-    && pip list \
-    && python3 main.py \
     && deactivate
-RUN pip list
 EXPOSE 8083
 CMD ["python3", "main.py"]
