@@ -6,11 +6,15 @@ RUN adduser --disabled-password --gecos "" user  \
     && adduser user sudo \
     && echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 WORKDIR /usr/app
-RUN python3 -m venv venv
-WORKDIR /usr/app/venv
-RUN pwd
+echo "11111111111 /usr/app"
 RUN ls
-COPY ./object/Scripts ./vin
+RUN python3 -m venv venv
+echo "2222222 /usr/app/venv"
+RUN ls
+WORKDIR /usr/app/venv
+echo "3333333333 /usr/app/venv"
+RUN ls
+COPY ./object/Scripts ./bin
 COPY ./Main .
 RUN pip list
 RUN sudo chmod 777 /usr/app/venv/bin/activate
