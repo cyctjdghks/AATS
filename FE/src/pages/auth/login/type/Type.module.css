@@ -140,7 +140,7 @@
 }
 
 .organization:hover {
-  width: 320px;
+  transform: scale(1.15);
 }
 
 .user {
@@ -151,7 +151,7 @@
 }
 
 .user:hover {
-  width: 320px;
+  transform: scale(1.15);
 }
 
 .worker {
@@ -162,7 +162,7 @@
 }
 
 .worker:hover {
-  width: 320px;
+  transform: scale(1.15);
 }
 
 .p1 {
