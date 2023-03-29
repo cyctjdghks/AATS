@@ -31,13 +31,13 @@ const UserDatas = (props) => {
   return (
     <div className={classes.userDataBox}>
       <div className={classes.idBox}>{userData.userId}</div>
-      <hr className={classes.verticalLine} />
+      {/* <hr className={classes.verticalLine} /> */}
       <div className={classes.nameBox}>{userData.userName}</div>
-      <hr className={classes.verticalLine} />
+      {/* <hr className={classes.verticalLine} /> */}
       <div className={classes.genderBox}>{userData.userGender}</div>
-      <hr className={classes.verticalLine} />
+      {/* <hr className={classes.verticalLine} /> */}
       <div className={classes.statusBox}>{userData.userStatus}</div>
-      <hr className={classes.verticalLine} />
+      {/* <hr className={classes.verticalLine} /> */}
       <div className={classes.emailBox}>{userData.userEmail}</div>
     </div>
   );
