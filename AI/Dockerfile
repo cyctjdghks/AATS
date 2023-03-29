@@ -9,7 +9,10 @@ WORKDIR /usr/app
 RUN echo "11111111111 /usr/app"
 RUN ls
 RUN python3 -m venv venv
-RUN echo "2222222 /usr/app/venv"
+RUN echo "2222222 /usr/app"
+RUN ls
+WORKDIR /usr/app/venv/bin
+RUN echo "444444444 /usr/app/venv/bin"
 RUN ls
 WORKDIR /usr/app/venv
 RUN echo "3333333333 /usr/app/venv"
