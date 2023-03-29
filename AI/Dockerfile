@@ -12,6 +12,7 @@ RUN pwd
 RUN ls
 COPY ./object/Scripts ./vin
 COPY ./Main .
+RUN pip list
 RUN sudo chmod 777 /usr/app/venv/bin/activate
 RUN /usr/app/venv/bin/activate
 RUN pip list
