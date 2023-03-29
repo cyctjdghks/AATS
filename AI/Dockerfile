@@ -19,4 +19,4 @@ RUN . /usr/app/venv/bin/activate \
     && deactivate
 RUN pip list
 EXPOSE 8083
-CMD ["echo", "hi"]
+CMD ["python3", "main.py"]
