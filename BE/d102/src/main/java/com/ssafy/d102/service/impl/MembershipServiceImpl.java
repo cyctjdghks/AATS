@@ -33,39 +33,119 @@ public class MembershipServiceImpl implements MembershipService {
     @Override
     @Transactional
     public void registTimeMembership(String userId, MembershipTimeDto input) {
-        //TODO
-        Membership membership = membershipRepository.save(Membership.builder()
-                .membershipType(0)
-                .user(userRepository.findById(userId).get())
-                .build());
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("유저 아이디가 없습니다"));
 
-        TimeLimitedMembership timeLimitedMembership = new TimeLimitedMembership();
+        Membership membership = null;
 
-        // 포맷터
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+        if (user.getMembership() != null) {
+            int userType = user.getMembership().getMembershipType();
 
-        timeLimitedMembership.setStartTime(LocalDateTime.parse(input.getStartTime(), formatter));
-        timeLimitedMembership.setEndTime(LocalDateTime.parse(input.getEndTime(), formatter));
-        timeLimitedMembership.setMembership(membership);
+            membership = membershipRepository.findByUser(user)
+                    .orElseThrow(() -> new IllegalArgumentException("멤버십이 없습니다."));
 
-        timeLimitedMembershipRepository.save(timeLimitedMembership);
+            if (userType == 0) {
+                TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.getTimeLimitedMembershipByMembership(membership)
+                        .orElseThrow(() -> new IllegalArgumentException("기간제 멤버십이 없습니다."));
+
+                // 포맷터
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+
+                timeLimitedMembership.setEndTime(LocalDateTime.parse(input.getEndTime(), formatter));
+            } else {
+                CountBasedMembership countBasedMembership = countBasedMembershipRepository.getCountBasedMembershipRepositoryByMembership(membership)
+                        .orElseThrow(() -> new IllegalArgumentException("횟수제 멤버십이 없습니다."));
+
+                countBasedMembershipRepository.delete(countBasedMembership);
+
+                membership.setMembershipType(0);
+
+                TimeLimitedMembership timeLimitedMembership = new TimeLimitedMembership();
+
+                // 포맷터
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+
+                timeLimitedMembership.setStartTime(LocalDateTime.parse(input.getStartTime(), formatter));
+                timeLimitedMembership.setEndTime(LocalDateTime.parse(input.getEndTime(), formatter));
+                timeLimitedMembership.setMembership(membership);
+
+                timeLimitedMembershipRepository.save(timeLimitedMembership);
+                membership.setTimeLimitedMembership(timeLimitedMembership);
+                membership.setCountBasedMembership(null);
+            }
+
+        } else {
+            membership = membershipRepository.save(Membership.builder()
+                    .membershipType(0)
+                    .user(user)
+                    .build());
+
+            TimeLimitedMembership timeLimitedMembership = new TimeLimitedMembership();
+
+            // 포맷터
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+
+            timeLimitedMembership.setStartTime(LocalDateTime.parse(input.getStartTime(), formatter));
+            timeLimitedMembership.setEndTime(LocalDateTime.parse(input.getEndTime(), formatter));
+            timeLimitedMembership.setMembership(membership);
+
+            timeLimitedMembershipRepository.save(timeLimitedMembership);
+        }
+
+
     }
 
     @Override
     @Transactional
     public void registCountMembership(String userId, MembershipCountDto input) {
-        //TODO
-        Membership membership = membershipRepository.save(Membership.builder()
-                .membershipType(1)
-                .user(userRepository.findById(userId).get())
-                .build());
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("유저 아이디가 없습니다"));
 
-        CountBasedMembership countBasedMembership = CountBasedMembership.builder()
-                .count(input.getCount())
-                .membership(membership)
-                .build();
+        Membership membership = null;
 
-        countBasedMembershipRepository.save(countBasedMembership);
+        if (user.getMembership() != null) {
+            int userType = user.getMembership().getMembershipType();
+
+            membership = membershipRepository.findByUser(user)
+                    .orElseThrow(() -> new IllegalArgumentException("멤버십이 없습니다."));
+
+            if (userType == 1) {
+                CountBasedMembership countBasedMembership = countBasedMembershipRepository.getCountBasedMembershipRepositoryByMembership(membership)
+                        .orElseThrow(() -> new IllegalArgumentException("횟수제 멤버십이 없습니다."));
+
+                int total = countBasedMembership.getCount() + input.getCount();
+
+                countBasedMembership.setCount(total);
+            } else {
+                TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.getTimeLimitedMembershipByMembership(membership)
+                        .orElseThrow(() -> new IllegalArgumentException("기간제 멤버십이 없습니다."));
+
+                timeLimitedMembershipRepository.delete(timeLimitedMembership);
+
+                membership.setMembershipType(1);
+
+                CountBasedMembership countBasedMembership = CountBasedMembership.builder()
+                        .count(input.getCount())
+                        .membership(membership)
+                        .build();
+
+                countBasedMembershipRepository.save(countBasedMembership);
+                membership.setTimeLimitedMembership(null);
+                membership.setCountBasedMembership(countBasedMembership);
+            }
+        } else {
+            membership = membershipRepository.save(Membership.builder()
+                    .membershipType(1)
+                    .user(user)
+                    .build());
+
+            CountBasedMembership countBasedMembership = CountBasedMembership.builder()
+                    .count(input.getCount())
+                    .membership(membership)
+                    .build();
+
+            countBasedMembershipRepository.save(countBasedMembership);
+        }
     }
 
     @Override
@@ -77,7 +157,7 @@ public class MembershipServiceImpl implements MembershipService {
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
         Membership membership = membershipRepository.findByUser(user)
                 .orElseThrow(() -> new IllegalArgumentException("회원권이 없습니다."));
-        TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.findByMembership(membership)
+        TimeLimitedMembership timeLimitedMembership = timeLimitedMembershipRepository.getTimeLimitedMembershipByMembership(membership)
                 .orElseThrow(() -> new IllegalArgumentException("등록된 기간제 회원권이 없습니다."));
 
         timeMembershipDto.setMembershipNo(timeLimitedMembership.getType1No());
@@ -96,7 +176,7 @@ public class MembershipServiceImpl implements MembershipService {
                 .orElseThrow(() -> new IllegalArgumentException("아이디가 없습니다"));
         Membership membership = membershipRepository.findByUser(user)
                 .orElseThrow(() -> new IllegalArgumentException("등록된멤버십이 없습니다."));
-        CountBasedMembership countBasedMembership = countBasedMembershipRepository.findByMembership(membership)
+        CountBasedMembership countBasedMembership = countBasedMembershipRepository.getCountBasedMembershipRepositoryByMembership(membership)
                 .orElseThrow(() -> new IllegalArgumentException("등록된 횟수제 회원권이 없습니다."));
 
         countMembershipDto.setMembershipNo(countBasedMembership.getType2No());
