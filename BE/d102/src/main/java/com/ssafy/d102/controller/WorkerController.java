@@ -1,14 +1,17 @@
 package com.ssafy.d102.controller;
 
-import com.ssafy.d102.data.dto.*;
+import com.ssafy.d102.data.dto.request.WorkerLoginDto;
+import com.ssafy.d102.data.dto.request.WorkerRegistDto;
+import com.ssafy.d102.data.dto.request.WorkerUpdatePwDto;
+import com.ssafy.d102.data.dto.response.DateTimeDto;
+import com.ssafy.d102.data.dto.response.WorkerDto;
+import com.ssafy.d102.data.dto.response.WorkerValidIdDto;
 import com.ssafy.d102.data.entity.Image;
-import com.ssafy.d102.data.entity.Worker;
 import com.ssafy.d102.service.ImageService;
 import com.ssafy.d102.service.WorkerService;
 import com.ssafy.d102.structure.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.ssafy.d102.data.dto;
+package com.ssafy.d102.data.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

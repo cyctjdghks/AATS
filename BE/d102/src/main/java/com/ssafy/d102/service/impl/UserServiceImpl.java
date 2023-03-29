@@ -1,6 +1,11 @@
 package com.ssafy.d102.service.impl;
 
-import com.ssafy.d102.data.dto.*;
+import com.ssafy.d102.data.dto.MembershipCountDto;
+import com.ssafy.d102.data.dto.MembershipTimeDto;
+import com.ssafy.d102.data.dto.request.UserLoginDto;
+import com.ssafy.d102.data.dto.request.UserRegistDto;
+import com.ssafy.d102.data.dto.request.UserUpdatePwDto;
+import com.ssafy.d102.data.dto.response.*;
 import com.ssafy.d102.data.entity.*;
 import com.ssafy.d102.repository.*;
 import com.ssafy.d102.service.UserService;
@@ -9,7 +14,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.lang.reflect.Member;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;

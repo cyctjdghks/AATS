@@ -1,7 +1,7 @@
 package com.ssafy.d102.controller;
 
-import com.ssafy.d102.data.dto.cctvDto;
-import com.ssafy.d102.data.dto.cctvRegistDto;
+import com.ssafy.d102.data.dto.response.cctvDto;
+import com.ssafy.d102.data.dto.request.cctvRegistDto;
 import com.ssafy.d102.service.CCTVService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

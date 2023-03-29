@@ -1,22 +1,23 @@
 package com.ssafy.d102.controller;
 
-import com.ssafy.d102.data.Exception.NotMatchException;
-import com.ssafy.d102.data.dto.*;
+import com.ssafy.d102.data.dto.MembershipCountDto;
+import com.ssafy.d102.data.dto.MembershipTimeDto;
+import com.ssafy.d102.data.dto.request.UserLoginDto;
+import com.ssafy.d102.data.dto.request.UserRegistDto;
+import com.ssafy.d102.data.dto.request.UserUpdatePwDto;
+import com.ssafy.d102.data.dto.response.*;
 import com.ssafy.d102.data.entity.Image;
 import com.ssafy.d102.service.ImageService;
 import com.ssafy.d102.service.UserService;
-import com.ssafy.d102.service.WorkerService;
 import com.ssafy.d102.structure.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;

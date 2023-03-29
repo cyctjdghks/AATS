@@ -1,4 +1,4 @@
-package com.ssafy.d102.data.dto;
+package com.ssafy.d102.data.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class cctvRegistDto {
-    private Double cctvLat;
-    private Double cctvLng;
-    private String cctvInformation;
+public class OrganizationLoginDto {
     private String organizationId;
+    private String organizationPwd;
 }

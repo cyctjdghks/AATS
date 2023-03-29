@@ -1,7 +1,7 @@
 package com.ssafy.d102.controller;
 
 import com.ssafy.d102.data.dto.OrganizationDto;
-import com.ssafy.d102.data.dto.OrganizationLoginDto;
+import com.ssafy.d102.data.dto.request.OrganizationLoginDto;
 import com.ssafy.d102.service.OrganizationService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

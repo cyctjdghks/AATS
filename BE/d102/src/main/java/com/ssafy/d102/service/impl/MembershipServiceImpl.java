@@ -1,9 +1,9 @@
 package com.ssafy.d102.service.impl;
 
-import com.ssafy.d102.data.dto.CountMembershipDto;
+import com.ssafy.d102.data.dto.response.CountMembershipDto;
 import com.ssafy.d102.data.dto.MembershipCountDto;
 import com.ssafy.d102.data.dto.MembershipTimeDto;
-import com.ssafy.d102.data.dto.TimeMembershipDto;
+import com.ssafy.d102.data.dto.response.TimeMembershipDto;
 import com.ssafy.d102.data.entity.CountBasedMembership;
 import com.ssafy.d102.data.entity.Membership;
 import com.ssafy.d102.data.entity.TimeLimitedMembership;
@@ -19,9 +19,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

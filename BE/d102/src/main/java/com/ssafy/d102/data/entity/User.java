@@ -1,9 +1,7 @@
 package com.ssafy.d102.data.entity;
-import com.ssafy.d102.data.dto.UserDto;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
