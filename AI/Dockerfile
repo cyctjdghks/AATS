@@ -8,7 +8,7 @@ RUN adduser --disabled-password --gecos "" user  \
 WORKDIR /usr/app
 COPY . .
 RUN python3 -m venv object --without-pip
-RUN cd object/Scripts
+WORKDIR /usr/app/object/Scripts
 RUN pwd
 RUN ls
 RUN sudo activate
