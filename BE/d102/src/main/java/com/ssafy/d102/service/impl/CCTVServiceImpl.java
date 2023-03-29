@@ -1,15 +1,13 @@
 package com.ssafy.d102.service.impl;
 
-import com.ssafy.d102.data.dto.cctvDto;
-import com.ssafy.d102.data.dto.cctvRegistDto;
+import com.ssafy.d102.data.dto.response.cctvDto;
+import com.ssafy.d102.data.dto.request.cctvRegistDto;
 import com.ssafy.d102.data.entity.CCTV;
 import com.ssafy.d102.repository.CCTVRepository;
 import com.ssafy.d102.repository.OrganizationRepository;
 import com.ssafy.d102.service.CCTVService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.time.format.DateTimeFormatter;
 
 @Service
 @RequiredArgsConstructor

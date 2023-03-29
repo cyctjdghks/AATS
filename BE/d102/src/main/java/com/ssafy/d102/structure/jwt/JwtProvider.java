@@ -1,8 +1,8 @@
 package com.ssafy.d102.structure.jwt;
 
 import com.ssafy.d102.data.dto.OrganizationDto;
-import com.ssafy.d102.data.dto.UserDto;
-import com.ssafy.d102.data.dto.WorkerDto;
+import com.ssafy.d102.data.dto.response.UserDto;
+import com.ssafy.d102.data.dto.response.WorkerDto;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -10,10 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.xml.bind.DatatypeConverter;
-import java.time.Duration;
-import java.util.Base64;
 import java.util.Date;
 
 @Slf4j

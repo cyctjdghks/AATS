@@ -1,4 +1,4 @@
-package com.ssafy.d102.data.dto;
+package com.ssafy.d102.data.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,6 +20,5 @@ public class UserRegistDto {
     private String userEmail;
     private String userBirth;
     private String userNationality;
-//    private String userStatus;
     private Long userImageId;
 }

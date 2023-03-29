@@ -1,4 +1,4 @@
-package com.ssafy.d102.data.dto;
+package com.ssafy.d102.data.dto.response;
 
 import com.ssafy.d102.data.entity.CCTV;
 import lombok.AllArgsConstructor;

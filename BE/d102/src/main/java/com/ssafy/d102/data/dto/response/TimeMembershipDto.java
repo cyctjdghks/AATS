@@ -1,4 +1,4 @@
-package com.ssafy.d102.data.dto;
+package com.ssafy.d102.data.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WorkerLoginDto {
-    private String workerId;
-    private String workerPwd;
+public class TimeMembershipDto {
+    private Long membershipNo;
+    private String startTime;
+    private String endTime;
 }

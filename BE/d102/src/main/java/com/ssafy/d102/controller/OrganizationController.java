@@ -1,7 +1,9 @@
 package com.ssafy.d102.controller;
 
-import com.ssafy.d102.data.dto.*;
-import com.ssafy.d102.data.entity.Organization;
+import com.ssafy.d102.data.dto.request.OrganizationLoginDto;
+import com.ssafy.d102.data.dto.request.OrganizationUpdatePwDto;
+import com.ssafy.d102.data.dto.OrganizationDto;
+import com.ssafy.d102.data.dto.response.OrganizationValidIdDto;
 import com.ssafy.d102.service.OrganizationService;
 import com.ssafy.d102.structure.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
@@ -115,31 +116,6 @@ public class OrganizationController {
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
-
-//    @PostMapping("/setsessionid")
-//    public ResponseEntity<?>  setSessionId(OrganizationSetSessionDto organizationSetSessionDto){
-//        log.info("Set SessionId Method start");
-//        Map<String, Object> data = new HashMap<>();
-//
-//        service.setSessionId(organizationSetSessionDto);
-//
-//        data.put("msg", "success");
-//
-//        return new ResponseEntity<>(data,HttpStatus.OK);
-//    }
-
-//    @GetMapping("/getsessionid/{organizationId}")
-//    public ResponseEntity<?> getSessionId(@PathVariable String organizationId){
-//        log.info("Get SessionId Method start");
-//        Map<String, Object> data = new HashMap<>();
-//
-//        String sessionId = service.getSessionId(organizationId);
-//
-//        data.put("msg", "success");
-//        data.put("organizationSessionId", sessionId);
-//
-//        return new ResponseEntity<>(data, HttpStatus.OK);
-//    }
 
     @GetMapping("/logout")
     public ResponseEntity<?> logout(HttpServletResponse response){

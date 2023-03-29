@@ -1,6 +1,9 @@
 package com.ssafy.d102.controller;
 
-import com.ssafy.d102.data.dto.*;
+import com.ssafy.d102.data.dto.MembershipCountDto;
+import com.ssafy.d102.data.dto.MembershipTimeDto;
+import com.ssafy.d102.data.dto.response.CountMembershipDto;
+import com.ssafy.d102.data.dto.response.TimeMembershipDto;
 import com.ssafy.d102.service.MembershipService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
