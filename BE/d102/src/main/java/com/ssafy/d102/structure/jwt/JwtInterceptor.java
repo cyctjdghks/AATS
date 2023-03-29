@@ -49,6 +49,10 @@ public class JwtInterceptor implements HandlerInterceptor {
 
         System.out.println("URI = " + uri  );
 
+        if(!jwtService.checkRole(token,uri)){
+            throw new UnAuthorizationException("권한이 없습니다.");
+        }
+
         log.info("token={" + token + "}");
         if (!jwtService.validateToken(token)) {
             log.error("권한이 만료되거나 없습니다.");
