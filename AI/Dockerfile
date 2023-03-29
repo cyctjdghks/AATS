@@ -6,6 +6,7 @@ RUN adduser --disabled-password --gecos "" user  \
     && adduser user sudo \
     && echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 WORKDIR /usr/app
+COPY . .
 RUN python3 -m venv object
 WORKDIR /usr/app/object
 RUN pwd
