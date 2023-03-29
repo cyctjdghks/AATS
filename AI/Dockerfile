@@ -13,6 +13,6 @@ RUN ls
 RUN sudo chmod 777 /usr/app/venv/bin/activate 
 RUN . /usr/app/venv/bin/activate \
     && deactivate
-RUN python3 /usr/app/venv/Lib/site-packages/main.py
+WORKDIR /usr/app/venv/Lib/site-packages
 EXPOSE 8083
 CMD ["python3", "main.py"]
