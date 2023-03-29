@@ -13,8 +13,19 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>AIVE</title>
   </head>
-  <!-- <style>
-     #swal2-html-container {
+  <style>
+    /* html {
+      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
+      overflow-y: hidden;
+    }
+
+    #root {
+      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
+      overflow: overlay;            
+    } */
+     /* #swal2-html-container {
       margin: 0;
       display: inline-block;
     }
@@ -31,14 +42,14 @@
 
     .swal2-container.swal2-center>.swal2-popup {
       border-radius: 30px;
-    }
-  </style> -->
+    } */
+  </style>
   <body>
+    <div id="root"></div>
     <script
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3afa2f4d1c4eb894052bb0407c9992d2&libraries=services,clusterer"
     ></script>
-    <div id="root"></div>
 
   </body>
 </html>

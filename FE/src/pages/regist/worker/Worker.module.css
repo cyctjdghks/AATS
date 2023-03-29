@@ -30,12 +30,12 @@
 
 .pageBox {
   display: flex;
-  width: 100%;
   height: 100%;
 }
 
 .sideBox {
   background-color: rgb(235, 235, 235);
+  height: 100%;
   width: 40%;
 }
 

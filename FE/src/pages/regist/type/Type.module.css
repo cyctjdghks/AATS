@@ -28,12 +28,11 @@
   src: url("../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-
-.pageBox{
+.pageBox {
   height: 100%;
+  min-height: calc(100vh - 170px);
   padding-top: 10px;
   background-color: rgb(235, 235, 235);
-  padding-bottom: 120px;
 }
 
 .topBox {
@@ -56,7 +55,7 @@
   margin-bottom: 30px;
 }
 
-.countSubBox{
+.countSubBox {
   display: flex;
   justify-content: space-evenly;
   margin-top: -5px;
@@ -66,29 +65,28 @@
   display: flex;
 }
 
-.count1 p{
+.count1 p {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 23px;
 }
 
-.count1 h3{
+.count1 h3 {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 45px;
   margin-top: 5px;
   color: #b02626;
 }
 
-
 .count2 {
   display: flex;
 }
 
-.count2 p{
+.count2 p {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 23px;
 }
 
-.count2 h3{
+.count2 h3 {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 45px;
   margin-top: 5px;
@@ -99,75 +97,73 @@
   display: flex;
 }
 
-.count3 p{
+.count3 p {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 23px;
 }
 
-.count3 h3{
+.count3 h3 {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 45px;
   margin-top: 5px;
   color: #b02626;
 }
 
-
-
-.pageSubBox{
-  width: 50%;
+.pageSubBox {
+  width: 55%;
   margin: auto;
-  /* height: 420px; */
 }
 
-.pageTitle{
+.pageTitle {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 27px;
   margin-top: 70px;
-
 }
 
-.pageTitle2{
+.pageTitle2 {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 20px;
   margin-top: -20px;
 }
 
-.typeBox{
+.typeBox {
   margin-top: 50px;
   display: flex;
   justify-content: space-evenly;
-  
 }
 
+.detailBox {
+  width: 40%;
+}
 
-.user{
-  width: 300px;
+.user {
+  width: 100%;
   transition: all 0.2s linear;
   box-shadow: 1px 1px 3px 5px #dadce0;
   cursor: pointer;
 }
 
-.user:hover{
+.user:hover {
   transform: scale(1.15);
 }
 
-.worker{
-  width: 300px;
+.worker {
+  width: 100%;
   transition: all 0.2s linear;
   box-shadow: 1px 1px 3px 5px #dadce0;
   cursor: pointer;
 }
 
-.worker:hover{
+.worker:hover {
   transform: scale(1.15);
 }
 
-.p1{
+.p1 {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 25px;
 }
 
-.p2{
+.p2 {
   font-family: "Apple_Gothic_Neo_Mid";
   font-size: 20px;
   margin-top: -20px;

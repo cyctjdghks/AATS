@@ -28,8 +28,8 @@ const User = () => {
     event.preventDefault();
     const url = "https://j8d102.p.ssafy.io/be/user/login";
     const axiosData = {
-      organizationId: id,
-      organizationPwd: password,
+      userId: id,
+      userPwd: password,
     };
     console.log(axiosData);
     axios

@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
+import { startActions } from "../../../store/start";
+import { endActions } from "../../../store/end";
 // import css style
 import classes from "./NavRight.module.css";
 
 const NavRight = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userType = useSelector((state) => state.auth.userType)
   const isLogin = useSelector((state) => state.auth.isLogin);
 
   const toLogin = () => {
@@ -16,7 +19,15 @@ const NavRight = () => {
     navigate("/auth/signup");
   };
   const logout = () =>{
-    dispatch(authActions.organizationLogout(''))
+    if (userType === 0){
+      dispatch(authActions.organizationLogout(''))
+      dispatch(startActions.resetData([]))
+      dispatch(endActions.resetData([]))
+    } else if(userType === 1){
+      dispatch(authActions.workerLogout(''))
+    } else if(userType === 2){
+      dispatch(authActions.userLogout(''))
+    }
     navigate('/')
   }
 

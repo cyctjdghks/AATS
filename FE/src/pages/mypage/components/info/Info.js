@@ -1,7 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import logo from "../../../../assets/profileTest.jpg";
 
 import classes from "./Info.module.css";
 
@@ -17,6 +15,7 @@ const Info = () => {
       setType(false)
     }
   }
+  console.log(userData);
   const data = {
     id : type ? workerData.workerId : userData.userId,
     name : type ? workerData.workerName : userData.userName,
@@ -27,17 +26,17 @@ const Info = () => {
     phone : type ? workerData.workerPhone : userData.userPhone,
     nationality : type ? workerData.workerNationality : userData.userNationality,
     birth : type ? workerData.workerBirth : userData.userBirth,
-    profile : type ? workerData.workerProfile : userData.userProfile,
+    profile : type ? workerData.workerProfilePath : userData.userProfilePath,
   }
-
+  console.log(data);
 
   useEffect(() =>{
     tmp();
   })
-
+  const profileLink = "https://j8d102.p.ssafy.io/be/"+ data.profile
   return (
     <div className={classes.info}>
-      <img src={logo} alt="logo" />
+      <img src={profileLink} alt="progile" />
       <hr className={classes.verticalHr} />
       <div className={classes.infoBox}>
         <div className={classes.topBox}>

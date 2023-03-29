@@ -1,3 +1,5 @@
+import { useState, useEffect} from "react"
+
 import { useNavigate } from "react-router-dom";
 
 import organization from "../../../../assets/auths/organization.png";
@@ -9,49 +11,50 @@ import classes from "./Type.module.css";
 const Type = () => {
   const navigate = useNavigate();
 
-  // 숫자 증가 애니메이션
-  // count1
-  let countBox = document.querySelector("#count1"),
-    count = 0;
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+  const [count3, setCount3] = useState(0);
+  const count1End = 4;
+  const count2End = 60;
+  const count3End = 100;
 
-  let counting = setInterval(function () {
-    let countBox = document.querySelector("#count1");
-    if (count === 51) {
-      clearInterval(counting);
-      return false;
+  useEffect(() => {
+    let timer = null;
+    if (count1 < count1End) {
+      timer = setInterval(() => {
+        setCount1((prevState) => {
+          return prevState + 1;
+        });
+      }, 150);
     }
-    count += 1;
-    countBox.innerHTML = new Intl.NumberFormat().format(count);
-  }, 10);
+    return () => clearInterval(timer);
+  }, [count1]);
 
-  //숫자 증가 애니메이션
-  // count2
-  let countBox2 = document.querySelector("#count2"),
-    count2 = 0;
-
-  let counting2 = setInterval(function () {
-    let countBox2 = document.querySelector("#count2");
-    if (count2 === 64) {
-      clearInterval(counting2);
-      return false;
+  useEffect(() => {
+    let timer = null;
+    if (count2 < count2End) {
+      timer = setInterval(() => {
+        setCount2((prevState) => {
+          return prevState + 1;
+        });
+      }, 10);
     }
-    count2 += 1;
-    countBox2.innerHTML = new Intl.NumberFormat().format(count2);
-  }, 10);
+    return () => clearInterval(timer);
+  }, [count2]);
 
-  // 숫자 증가 애니메이션
-  // count3
-  let countBox3 = document.querySelector("#count3"),
-    count3 = 0;
-  let counting3 = setInterval(function () {
-    let countBox3 = document.querySelector("#count3");
-    if (count3 === 71) {
-      clearInterval(counting3);
-      return false;
+  useEffect(() => {
+    let timer = null;
+    if (count3 < count3End) {
+      timer = setInterval(() => {
+        setCount3((prevState) => {
+          return prevState + 1;
+        });
+      }, 6);
     }
-    count3 += 1;
-    countBox3.innerHTML = new Intl.NumberFormat().format(count3);
-  }, 10);
+    return () => clearInterval(timer);
+  }, [count3]);
+
+
 
   const toOrganizationLogin = (event) => {
     event.preventDefault();
@@ -74,17 +77,17 @@ const Type = () => {
         <div className={classes.countSubBox}>
           <div className={classes.count1}>
             <p>총&nbsp;&nbsp;</p>
-            <h3 id="count1"></h3>
+            <h3>{count1}</h3>
             <p>&nbsp;&nbsp;기관</p>
           </div>
           <div className={classes.count2}>
             <p>총&nbsp;&nbsp;</p>
-            <h3 id="count2"></h3>
-            <p>&nbsp;&nbsp;회원</p>
+            <h3>{count2}</h3>
+            <p>&nbsp;&nbsp;근무자</p>
           </div>
           <div className={classes.count3}>
             <p>총&nbsp;&nbsp;</p>
-            <h3 id="count3"></h3>
+            <h3>{count3}</h3>
             <p>&nbsp;&nbsp;회원</p>
           </div>
         </div>
