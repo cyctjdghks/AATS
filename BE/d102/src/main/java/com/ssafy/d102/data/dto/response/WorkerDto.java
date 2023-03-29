@@ -14,8 +14,8 @@ public class WorkerDto {
     private String workerId;
     private String workerName;
     private Integer workerStatus;
-    private String OrganizationId;
-    private String OrganizationName;
+    private String organizationId;
+    private String organizationName;
     private Integer workerGender;
     private Integer workerAge;
     private String workerPhone;
@@ -30,8 +30,8 @@ public class WorkerDto {
                 .workerId(worker.getWorkerId())
                 .workerName(worker.getWorkerName())
                 .workerStatus(worker.getWorkerStatus())
-                .OrganizationId(worker.getOrganization()==null? null: worker.getOrganization().getOrganizationId())
-                .OrganizationName(worker.getOrganization()==null? null: worker.getOrganization().getOrganizationName())
+                .organizationId(worker.getOrganization()==null? null: worker.getOrganization().getOrganizationId())
+                .organizationName(worker.getOrganization()==null? null: worker.getOrganization().getOrganizationName())
                 .workerGender(worker.getWorkerGender())
                 .workerAge(worker.getWorkerAge())
                 .workerPhone(worker.getWorkerPhone())

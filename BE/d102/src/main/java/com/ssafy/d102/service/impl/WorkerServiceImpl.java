@@ -76,7 +76,7 @@ public class WorkerServiceImpl implements WorkerService {
                 .workerPw(passwordEncoder.encode(input.getWorkerPwd()))
                 .workerName(input.getWorkerName())
                 .workerStatus(worker.getWorkerStatus())
-                .organization(getOrganizationById(input.getWorkerOrganizationId()))
+                .organization(getOrganizationById(input.getOrganizationId()))
                 .workerGender(input.getWorkerGender())
                 .workerAge(input.getWorkerAge())
                 .workerPhone(input.getWorkerPhone())
@@ -138,7 +138,7 @@ public class WorkerServiceImpl implements WorkerService {
     @Override
     public void registWorker(WorkerRegistDto input) {
 
-        Organization organization = getOrganizationById(input.getWorkerOrganizationId());
+        Organization organization = getOrganizationById(input.getOrganizationId());
 
          Image image = getImageById(input.getWorkerImageId());
 

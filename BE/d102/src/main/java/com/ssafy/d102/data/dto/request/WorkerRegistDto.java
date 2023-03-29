@@ -11,7 +11,7 @@ public class WorkerRegistDto {
     private String workerId;
     private String workerPwd;
     private String workerName;
-    private String workerOrganizationId;
+    private String OrganizationId;
     private Integer workerGender;
     private Integer workerAge;
     private String workerPhone;
