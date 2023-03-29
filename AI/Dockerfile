@@ -9,6 +9,7 @@ WORKDIR /usr/app
 RUN python3 -m venv venv
 WORKDIR /usr/app/venv/bin
 RUN ls
+COPY ./Object ./usr/app/venv
 COPY ./Main .
 RUN pip install requests
 RUN pip list
