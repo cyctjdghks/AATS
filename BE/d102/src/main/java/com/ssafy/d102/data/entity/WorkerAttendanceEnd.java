@@ -22,7 +22,7 @@ public class WorkerAttendanceEnd  {
     @Column(name = "end_time", nullable = false, columnDefinition = "datetime default now()")
     private LocalDateTime endTime;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "workerId", nullable = false)
     private Worker worker;
 

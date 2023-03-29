@@ -15,5 +15,4 @@ public class OrganizationDto {
     private String organizationName;
     private Double organizationLng;
     private Double organizationLat;
-    private String organizationSessionId;
 }

@@ -24,5 +24,5 @@ public interface OrganizationService {
 
     void setSessionId(OrganizationSetSessionDto organizationSetSessionDto);
 
-    String getSessionId(String organizationId);
+//    String getSessionId(String organizationId);
 }

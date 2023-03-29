@@ -3,6 +3,8 @@ package com.ssafy.d102.data.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
+
 @Table(name = "worker")
 @Getter
 @Builder
@@ -25,7 +27,7 @@ public class Worker extends BaseEntity {
     @Column(name = "worker_status", nullable = false)
     private Integer workerStatus;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "organizationId", nullable = false)
     private Organization organization;
 
@@ -50,6 +52,12 @@ public class Worker extends BaseEntity {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "imageId", unique = true)
     private Image Image;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "worker", cascade = CascadeType.ALL)
+    private List<WorkerAttendanceStart> workerAttendanceStarts;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "worker", cascade = CascadeType.ALL)
+    private List<WorkerAttendanceEnd> workerAttendanceEnds;
 
     // getters and setters
     // constructors

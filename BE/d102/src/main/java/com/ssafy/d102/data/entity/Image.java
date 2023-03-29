@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Builder
@@ -28,6 +25,6 @@ public class Image extends BaseEntity {
     @NotNull
     private String storedFileName;
 
-    private long fileSize;
+    private Long fileSize;
 
 }
