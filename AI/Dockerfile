@@ -16,4 +16,4 @@ RUN . /usr/app/venv/bin/activate \
 WORKDIR /usr/app/venv/Lib/site-packages
 RUN ls
 EXPOSE 8083
-CMD ["python3", "/usr/app/venv/Lib/site-packagesmain.py"]
+CMD ["python3", "/usr/app/venv/Lib/site-packages/main.py"]
