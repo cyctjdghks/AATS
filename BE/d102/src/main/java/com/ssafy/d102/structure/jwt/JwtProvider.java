@@ -113,7 +113,23 @@ public class JwtProvider {
                     .setSigningKey(secretKey.getBytes())
                     .parseClaimsJws(jwtToken)
                     .getBody();
-            return !claims.get("role").equals(URI);
+
+            int role = Integer.parseInt(String.valueOf(claims.get("role")));
+
+            if(role >=3 || role<0) return false;
+
+            if(URI.equals("membership") || URI.equals("cctv")){
+                return true;
+            }else if(URI.equals("user") && role >= 0){
+                return true;
+            }else if(URI.equals("worker") && role >= 1){
+                return true;
+            }else if(URI.equals("organization") && role == 2){
+                return true;
+            }else{
+                return false;
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             return false;
