@@ -19,6 +19,13 @@ RUN pip install requests
 RUN pip list
 RUN ls
 WORKDIR /user/app/venv/bin
+RUN ls
+WORKDIR /user/app/venv/lib
+RUN ls
+WORKDIR /user/app/venv/lib64
+RUN ls
+WORKDIR /user/app/venv/include
+RUN ls
 RUN . /usr/app/venv/bin/deactivate
 RUN pip list
 RUn ls
