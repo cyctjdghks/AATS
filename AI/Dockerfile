@@ -6,14 +6,14 @@ RUN adduser --disabled-password --gecos "" user  \
     && adduser user sudo \
     && echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 WORKDIR /usr/app
-COPY . .
-RUN python3 -m venv object --without-pip
-WORKDIR /usr/app/object
+RUN python3 -m venv venv
+WORKDIR /usr/app/venv
 RUN pwd
 RUN ls
-RUN sudo chmod 777 /usr/app/object/Script/activate
-RUN /usr/app/object/Script/activate
+COPY ./object/Scripts ./vin
+COPY ./Main .
+RUN sudo chmod 777 /usr/app/venv/bin/activate
+RUN /usr/app/venv/bin/activate
 RUn ls
-COPY . .
 EXPOSE 8083
 CMD ["python3", "main.py"]
