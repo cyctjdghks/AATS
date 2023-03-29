@@ -39,8 +39,6 @@ public class WorkerServiceImpl implements WorkerService {
 
         Worker worker = getWorkerById(input.getWorkerId());
 
-        Image image = getImageById(worker.getImage()==null?null:worker.getImage().getImageId());
-
         if(!passwordEncoder.matches(input.getWorkerPwd(), worker.getWorkerPw())) {
             throw new IllegalArgumentException("PW가 다릅니다.");
         }
