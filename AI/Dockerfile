@@ -6,13 +6,13 @@ RUN adduser --disabled-password --gecos "" user  \
     && adduser user sudo \
     && echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 WORKDIR /usr/app
-echo "11111111111 /usr/app"
+RUN echo "11111111111 /usr/app"
 RUN ls
 RUN python3 -m venv venv
-echo "2222222 /usr/app/venv"
+RUN echo "2222222 /usr/app/venv"
 RUN ls
 WORKDIR /usr/app/venv
-echo "3333333333 /usr/app/venv"
+RUN echo "3333333333 /usr/app/venv"
 RUN ls
 COPY ./object/Scripts ./bin
 COPY ./Main .
