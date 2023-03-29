@@ -5,6 +5,6 @@ COPY . .
 RUN pwd
 RUN ls
 RUN cd object/Scripts
-RUN activate object
+RUN source activate object
 EXPOSE 8083
 CMD ["python3", "main.py"]
