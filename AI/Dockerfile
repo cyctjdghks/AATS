@@ -7,8 +7,8 @@ RUN adduser --disabled-password --gecos "" user  \
     && echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 WORKDIR /usr/app
 COPY . .
-RUN python3 -m venv venv
+RUN python3 -m venv object
 RUN sudo su
-RUN venv/Scripts/activate.bat
+RUN object/Scripts/activate.bat
 EXPOSE 8083
 CMD ["python3", "main.py"]
