@@ -12,6 +12,6 @@ WORKDIR /usr/app/venv/bin
 RUN pwd
 RUN ls
 RUN cat /etc/passwd | grep postgres
-RUN .activate
+RUN . activate
 EXPOSE 8083
 CMD ["python3", "main.py"]
