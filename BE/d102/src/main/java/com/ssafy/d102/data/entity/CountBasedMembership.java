@@ -19,8 +19,8 @@ public class CountBasedMembership {
     @Column(name = "count", nullable = false)
     private Integer count;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "membershipNo", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "membershipNo", nullable = false, unique = true)
     private Membership membership;
 
     // getters and setters

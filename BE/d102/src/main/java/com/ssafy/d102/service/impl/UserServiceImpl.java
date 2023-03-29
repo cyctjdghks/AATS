@@ -350,11 +350,11 @@ public class UserServiceImpl implements UserService {
     }
 
     public TimeLimitedMembership getTimeLimitedMembershipByMembership(Membership membership){
-        return timeLimitedMembershipRepository.findByMembership(membership)
+        return timeLimitedMembershipRepository.getTimeLimitedMembershipByMembership(membership)
                 .orElseThrow(() -> new IllegalArgumentException("등록된 기간제 회원권이 없습니다."));
     }
     public CountBasedMembership getCountBasedMembershipByMembership(Membership membership){
-        return countBasedMembershipRepository.findByMembership(membership)
+        return countBasedMembershipRepository.getCountBasedMembershipRepositoryByMembership(membership)
                 .orElseThrow(() -> new IllegalArgumentException("등록된 횟수제 회원권이 없습니다."));
     }
 }

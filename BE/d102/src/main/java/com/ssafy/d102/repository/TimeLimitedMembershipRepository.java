@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface TimeLimitedMembershipRepository extends JpaRepository<TimeLimitedMembership, Long> {
-    Optional<TimeLimitedMembership> findByMembership(Membership membership);
+    Optional<TimeLimitedMembership> getTimeLimitedMembershipByMembership(Membership membership);
 }
