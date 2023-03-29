@@ -13,11 +13,12 @@ const SolutionItem = (props) => {
     setModalOpen(true);
   };
 
-  const number = props.number
-  const solutionName = props.solutionName
-  const solutionSubName = props.solutionSubName
-  const hashtag = props.hashtag
-  const content = props.content
+  const number = props.number;
+  const solutionName = props.solutionName;
+  const solutionSubName = props.solutionSubName;
+  const hashtag = props.hashtag;
+  const content = props.content;
+  const colors = props.colors;
 
   return (
     <div className={classes.solutionBox}>
@@ -27,23 +28,20 @@ const SolutionItem = (props) => {
         <p className={classes.solutionSubName}>{solutionSubName}</p>
         <p className={classes.hashtag}>{hashtag}</p>
       </div>
-      <div>
-        <p>{content}</p>
-      </div>
-      <div>
-        <img src={props.img} alt="" className={classes.img} onClick={showModal}/>
-      </div>
-      <div>
-        {modalOpen 
-        && 
-        <Modal 
-        setModalOpen={setModalOpen}
-        number={number}
-        solutionName={solutionName}
-        solutionSubName={solutionSubName}
-        hashtag={hashtag}
-        content={content}
-        />}
+      <img src={props.img} alt="" className={classes.img} onClick={showModal} />
+
+      <div style={modalOpen ? { display: "block" } : { display: "none" }}>
+        {modalOpen && (
+          <Modal
+            setModalOpen={setModalOpen}
+            number={number}
+            solutionName={solutionName}
+            solutionSubName={solutionSubName}
+            hashtag={hashtag}
+            content={content}
+            colors={colors}
+          />
+        )}
       </div>
     </div>
   );

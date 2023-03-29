@@ -47,6 +47,21 @@ const Solutions = () => {
     count3 += 1;
     countBox3.innerHTML = new Intl.NumberFormat().format(count3);
   }, 100);
+  const firstColors = {
+    color1 : "#00A6DC",
+    color2 : "#ACDEF1F5",
+    color3 : "#dcf3fcf5"
+  }
+  const secondColors = {
+    color1 : "yellow",
+    color2 : "black",
+    color3 : "green"
+  }
+  const thirdColors = {
+    color1 : "#00A6DC",
+    color2 : "black",
+    color3 : "#dcf3fcf5"
+  }
 
   return (
     <div className={classes.pageBox}>
@@ -112,6 +127,7 @@ const Solutions = () => {
               hashtag="#솔루션"
               content="이 기술은 어쩌고 저쩌고 입니다. "
               img={solution1}
+              colors={firstColors}
             />
           </div>
           <div className={classes.solutionBox2}>
@@ -122,6 +138,7 @@ const Solutions = () => {
               solutionSubName="솔루션 서브네임"
               hashtag="#솔루션"
               img={solution1}
+              colors={secondColors}
             />
           </div>
           <div className={classes.solutionBox3}>
@@ -132,6 +149,7 @@ const Solutions = () => {
               solutionSubName="솔루션 서브네임"
               hashtag="#솔루션"
               img={solution1}
+              colors={thirdColors}
             />
           </div>
           
