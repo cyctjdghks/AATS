@@ -12,7 +12,9 @@ RUN ls
 COPY ./Main .
 RUN pip install requests
 RUN pip list
-RUN sudo chmod 777 /usr/app/venv/bin/activate
+RUN sudo chmod 777 /usr/app/venv/bin/activate \
+    && pip list \
+    && deactivate
 RUN . /usr/app/venv/bin/activate
 RUN pip list
 EXPOSE 8083
