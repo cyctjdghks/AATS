@@ -255,7 +255,7 @@
 .vLine2 {
   width: 15px;
   height: 250px;
-  background-color: #1d36a3;
+  background-color: #3A83D3;
   border: none;
   margin-right: 50px;
 }
@@ -264,7 +264,7 @@
   width: 100%;
   padding-top: 30px;
   display: flex;
-  color: #1d36a3;
+  color: #3A83D3;
   margin-bottom: 30px;
 
   
@@ -283,6 +283,24 @@
   padding-top: 30px;
   display: flex;
   color: #4234C6;
+  margin-bottom: 30px;
+
+  
+}
+
+.vLine4 {
+  width: 15px;
+  height: 250px;
+  background-color: #8156F4;
+  border: none;
+  margin-right: 50px;
+}
+
+.solutionBox4{
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  color: #8156F4;
   margin-bottom: 30px;
 
   
