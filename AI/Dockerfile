@@ -5,7 +5,6 @@ COPY . .
 RUN ls
 RUN python3 -m venv object --without-pip
 RUN cd object/Scripts
-RUN PATH=/usr/local/bin:/bin:/usr/bin
-RUN activate
+RUN activate.bat
 EXPOSE 8083
 CMD ["python3", "main.py"]
