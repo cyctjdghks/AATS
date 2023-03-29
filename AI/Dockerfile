@@ -18,7 +18,7 @@ COPY ./object/Scripts ./bin
 COPY ./Main .
 RUN pip list
 RUN sudo chmod 777 /usr/app/venv/bin/activate
-RUN . /usr/app/venv/bin/activate
+RUN /usr/app/venv/bin/activate
 RUN pip install requests
 RUN pip list
 RUN ls
@@ -30,7 +30,7 @@ WORKDIR /user/app/venv/lib64
 RUN ls
 WORKDIR /user/app/venv/include
 RUN ls
-RUN . /usr/app/venv/bin/deactivate
+RUN /usr/app/venv/bin/deactivate
 RUN pip list
 RUn ls
 EXPOSE 8083
