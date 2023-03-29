@@ -47,7 +47,7 @@ public class OrganizationServiceImpl implements OrganizationService {
                 .organizationId(input.getOrganizationId())
                 .organizationPw(passwordEncoder.encode(input.getOrganizationPw()))
                 .organizationName(input.getOrganizationName())
-                .organizationSessionId(input.getOrganizationSessionId()==null ? null : input.getOrganizationSessionId())
+//                .organizationSessionId(input.getOrganizationSessionId()==null ? null : input.getOrganizationSessionId())
                 .organizationLng(input.getOrganizationLng()==null ? null : input.getOrganizationLng())
                 .organizationLat(input.getOrganizationLat()==null ? null : input.getOrganizationLat())
                 .build());
@@ -90,8 +90,8 @@ public class OrganizationServiceImpl implements OrganizationService {
             organization.setOrganizationLat(organizationDto.getOrganizationLat());
         if(organizationDto.getOrganizationName() != null)
             organization.setOrganizationName(organizationDto.getOrganizationName());
-        if(organizationDto.getOrganizationSessionId() != null)
-            organization.setOrganizationSessionId(organizationDto.getOrganizationSessionId());
+//        if(organizationDto.getOrganizationSessionId() != null)
+//            organization.setOrganizationSessionId(organizationDto.getOrganizationSessionId());
 
         repository.save(organization);
 
@@ -121,17 +121,17 @@ public class OrganizationServiceImpl implements OrganizationService {
     public void setSessionId(OrganizationSetSessionDto organizationSetSessionDto) {
         Organization organization = getById(organizationSetSessionDto.getOrganizationId());
 
-        organization.setOrganizationSessionId(organizationSetSessionDto.getSessionId());
+//        organization.setOrganizationSessionId(organizationSetSessionDto.getSessionId());
 
         repository.save(organization);
     }
 
-    @Override
-    public String getSessionId(String organizationId) {
-        Organization organization = getById(organizationId);
-
-        return organization.getOrganizationSessionId();
-    }
+//    @Override
+//    public String getSessionId(String organizationId) {
+//        Organization organization = getById(organizationId);
+//
+//        return organization.getOrganizationSessionId();
+//    }
 
 
     //TODO: 참 잘했어요
@@ -145,7 +145,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         return OrganizationDto.builder()
                 .organizationId(organization.getOrganizationId())
                 .organizationName(organization.getOrganizationName())
-                .organizationSessionId(organization.getOrganizationSessionId())
+//                .organizationSessionId(organization.getOrganizationSessionId())
                 .organizationLng(organization.getOrganizationLng())
                 .organizationLat(organization.getOrganizationLat())
                 .build();

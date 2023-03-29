@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "organization")
@@ -29,9 +30,14 @@ public class Organization extends BaseEntity {
     @Column(name = "organization_lat")
     private Double organizationLat;
 
-    @Column(name = "organization_session_id", length = 10)
-    private String organizationSessionId;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organization", cascade = CascadeType.ALL)
+    private List<User> users;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organization", cascade = CascadeType.ALL)
+    private List<Worker> workers;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organization", cascade = CascadeType.ALL)
+    private List<CCTV> cctvs;
 
     // getters and setters
     // constructors

@@ -128,18 +128,18 @@ public class OrganizationController {
         return new ResponseEntity<>(data,HttpStatus.OK);
     }
 
-    @GetMapping("/getsessionid/{organizationId}")
-    public ResponseEntity<?> getSessionId(@PathVariable String organizationId){
-        log.info("Get SessionId Method start");
-        Map<String, Object> data = new HashMap<>();
-
-        String sessionId = service.getSessionId(organizationId);
-
-        data.put("msg", "success");
-        data.put("organizationSessionId", sessionId);
-
-        return new ResponseEntity<>(data, HttpStatus.OK);
-    }
+//    @GetMapping("/getsessionid/{organizationId}")
+//    public ResponseEntity<?> getSessionId(@PathVariable String organizationId){
+//        log.info("Get SessionId Method start");
+//        Map<String, Object> data = new HashMap<>();
+//
+//        String sessionId = service.getSessionId(organizationId);
+//
+//        data.put("msg", "success");
+//        data.put("organizationSessionId", sessionId);
+//
+//        return new ResponseEntity<>(data, HttpStatus.OK);
+//    }
 
     @GetMapping("/logout")
     public ResponseEntity<?> logout(HttpServletResponse response){
