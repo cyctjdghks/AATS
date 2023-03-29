@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -57,8 +58,28 @@ const SignUp = () => {
       .post(url, axiosData)
       .then((response) => {
         if (response.status === 200) {
+          Swal.fire({
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">회원가입이 완료되었습니다.<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">가입한 아이디와 비밀번호로 로그인해 주세요</div>',
+            icon: "success",
+            width: 350,
+            confirmButtonColor: "#9A9A9A",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          });
           navigate("/auth/login");
         } else {
+          Swal.fire({
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">회원가입이 실패했습니다.div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">서버가 불안정하니 다시 시도해 주세요</div>',
+            icon: "error",
+            width: 350,
+            confirmButtonColor: "#9A9A9A",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          });
         }
       })
       .catch((error) => {

@@ -43,6 +43,7 @@
   border-radius: 8px;
   background-color: white;
   margin: auto;
+  box-shadow: 1px 1px 3px 5px #dadce0;
 }
 
 .pageName {

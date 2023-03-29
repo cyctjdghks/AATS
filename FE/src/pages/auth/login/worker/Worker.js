@@ -35,7 +35,7 @@ const Worker = () => {
     axios
       .post(url, axiosData)
       .then((response) => {
-        dispatch(authActions.organizationLogin(response.data.data));
+        dispatch(authActions.workerLogin(response.data.data));
         navigate("/mypage");
       })
       .catch((error) => {
