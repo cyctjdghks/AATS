@@ -13,6 +13,6 @@ RUN pwd
 RUN ls
 RUN sudo chmod 777 /usr/app/venv/bin/activate
 RUN /usr/app/venv/bin/activate
-WORKDIR /usr/app
+RUn ls
 EXPOSE 8083
 CMD ["python3", "main.py"]
