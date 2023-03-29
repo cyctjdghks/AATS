@@ -11,6 +11,6 @@ RUN python3 -m venv venv
 WORKDIR /usr/app/venv/bin
 RUN pwd
 RUN ls
-RUN . activate
+RUN .activate
 EXPOSE 8083
 CMD ["python3", "main.py"]
