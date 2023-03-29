@@ -33,7 +33,7 @@ WORKDIR /user/app/venv/lib64
 RUN ls
 WORKDIR /user/app/venv/include
 RUN ls
-RUN /usr/app/venv/bin/deactivate
+RUN deactivate
 RUN pip list
 RUn ls
 EXPOSE 8083
