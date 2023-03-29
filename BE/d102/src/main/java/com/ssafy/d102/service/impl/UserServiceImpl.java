@@ -190,6 +190,10 @@ public class UserServiceImpl implements UserService {
 
         Membership membership = getMembershipByUser(user);
 
+        if(membership.getMembershipType() != 0) {
+            throw new IllegalArgumentException("기간제 회원이 아닙니다.");
+        }
+
         TimeLimitedMembership timeLimitedMembership = getTimeLimitedMembershipByMembership(membership);
 
         MembershipTimeDto membershipTimeDto = new MembershipTimeDto(
@@ -206,6 +210,10 @@ public class UserServiceImpl implements UserService {
         User user = getUserById(userId);
 
         Membership membership = getMembershipByUser(user);
+
+        if(membership.getMembershipType() != 1) {
+            throw new IllegalArgumentException("횟수제 회원이 아닙니다.");
+        }
 
         CountBasedMembership countBasedMembership = getCountBasedMembershipByMembership(membership);
 
