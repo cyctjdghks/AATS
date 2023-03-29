@@ -8,9 +8,9 @@ RUN adduser --disabled-password --gecos "" user  \
 WORKDIR /usr/app
 COPY . .
 RUN python3 -m venv venv
-WORKDIR /usr/app/venv/bin
+WORKDIR /usr/app/venv
 RUN pwd
 RUN ls
-RUN activate
+RUN bin/Activate.ps1
 EXPOSE 8083
 CMD ["python3", "main.py"]
