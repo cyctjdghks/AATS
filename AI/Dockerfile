@@ -14,5 +14,6 @@ RUN pip list
 RUN sudo chmod 777 /usr/app/venv/bin/activate
 RUN . /usr/app/venv/bin/activate
 RUN pip install requests
+RUN deactivate
 EXPOSE 8083
 CMD ["echo", "hi"]
