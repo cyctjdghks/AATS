@@ -5,6 +5,6 @@ COPY . .
 RUN ls
 RUN python3 -m venv object --without-pip
 RUN cd object/Scripts
-RUN source activate
+RUN sudo source activate
 EXPOSE 8083
 CMD ["python3", "main.py"]
