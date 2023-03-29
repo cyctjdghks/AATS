@@ -15,4 +15,4 @@ RUN sudo chmod 777 /usr/app/venv/bin/activate
 RUN /usr/app/venv/bin/activate
 RUN pip install requests
 EXPOSE 8083
-CMD ["python3", "main.py"]
+CMD ["echo", "hi"]
