@@ -4,51 +4,52 @@ import classes from "./Solutions.module.css";
 
 import AI from "../../assets/A.png";
 import solution1 from "../../assets/Solution/solution1.png";
+import { useEffect, useState } from "react";
 
 const Solutions = () => {
-  // 숫자 증가 애니메이션
-  // count1
-  let countBox = document.querySelector("#count1"),
-    count = 0;
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+  const [count3, setCount3] = useState(0);
+  const count1End = 5;
+  const count2End = 42;
+  const count3End = 6;
 
-  let counting = setInterval(function () {
-    let countBox = document.querySelector("#count1");
-    if (count === 5) {
-      clearInterval(counting);
-      return false;
+  useEffect(() => {
+    let timer = null;
+    if (count1 < count1End) {
+      timer = setInterval(() => {
+        setCount1((prevState) => {
+          return prevState + 1;
+        });
+      }, 84);
     }
-    count += 1;
-    countBox.innerHTML = new Intl.NumberFormat().format(count);
-  }, 150);
+    return () => clearInterval(timer);
+  }, [count1]);
 
-  //숫자 증가 애니메이션
-  // count2
-  let countBox2 = document.querySelector("#count2"),
-    count2 = 0;
-
-  let counting2 = setInterval(function () {
-    let countBox2 = document.querySelector("#count2");
-    if (count2 === 49) {
-      clearInterval(counting2);
-      return false;
+  useEffect(() => {
+    let timer = null;
+    if (count2 < count2End) {
+      timer = setInterval(() => {
+        setCount2((prevState) => {
+          return prevState + 1;
+        });
+      }, 10);
     }
-    count2 += 1;
-    countBox2.innerHTML = new Intl.NumberFormat().format(count2);
-  }, 15);
+    return () => clearInterval(timer);
+  }, [count2]);
 
-  // 숫자 증가 애니메이션
-  // count3
-  let countBox3 = document.querySelector("#count3"),
-    count3 = 0;
-  let counting3 = setInterval(function () {
-    let countBox3 = document.querySelector("#count3");
-    if (count3 === 6) {
-      clearInterval(counting3);
-      return false;
+  useEffect(() => {
+    let timer = null;
+    if (count3 < count3End) {
+      timer = setInterval(() => {
+        setCount3((prevState) => {
+          return prevState + 1;
+        });
+      }, 70);
     }
-    count3 += 1;
-    countBox3.innerHTML = new Intl.NumberFormat().format(count3);
-  }, 100);
+    return () => clearInterval(timer);
+  }, [count3]);
+
   const firstColors = {
     color1: "#005FB3",
     color2: "#3D99F5F5",
@@ -65,10 +66,10 @@ const Solutions = () => {
     color3: "#d3d3d3",
   };
   const fourthColors = {
-    color1: '#8156F4',
-    color2: '#9077FDF5',
-    color3: '#d3d3d3',
-  }
+    color1: "#8156F4",
+    color2: "#9077FDF5",
+    color3: "#d3d3d3",
+  };
 
   return (
     <div className={classes.pageBox}>
@@ -101,17 +102,17 @@ const Solutions = () => {
         <div className={classes.countSubBox}>
           <div className={classes.count1}>
             <p>총&nbsp;&nbsp;</p>
-            <h3 id="count1">5</h3>
+            <h3>{count1}</h3>
             <p>&nbsp;&nbsp;기술</p>
           </div>
           <div className={classes.count2}>
             <p>단&nbsp;&nbsp;</p>
-            <h3 id="count2">49</h3>
+            <h3>{count2}</h3>
             <p>&nbsp;&nbsp;일</p>
           </div>
           <div className={classes.count3}>
             <p>단&nbsp;&nbsp;</p>
-            <h3 id="count3">6</h3>
+            <h3> {count3}</h3>
             <p>&nbsp;&nbsp;인원</p>
           </div>
         </div>
@@ -173,7 +174,7 @@ const Solutions = () => {
               solutionSubName="솔루션 서브네임"
               hashtag="#솔루션"
               img={solution1}
-              colors={thirdColors}
+              colors={fourthColors}
             />
           </div>
         </div>

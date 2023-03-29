@@ -66,6 +66,18 @@
   .AI{
     display: none;
   }
+  .vLine1{
+    display: none;
+  }
+  .vLine2{
+    display: none;
+  }
+  .vLine3{
+    display: none;
+  }
+  .vLine4{
+    display: none;
+  }
 
 
 }

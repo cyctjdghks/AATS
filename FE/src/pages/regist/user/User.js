@@ -38,6 +38,10 @@ const User = () => {
   const [male, female, setMale, setFemale] = GenderCheckbox();
   // 이미지 저장
   const [filename, setFileName] = useState("");
+  const stringToInt = (data) => {
+    const ans = parseInt(data, 10);
+    return ans;
+  };
   const saveImg = (event) => {
     event.preventDefault();
     setProfile(event.target.elements.files.files);
@@ -54,7 +58,7 @@ const User = () => {
       userName: name,
       organizationId,
       userGender: male ? 1 : 0,
-      useAge: age,
+      useAge: stringToInt(age),
       userPhone: phoneNumber,
       userEmail: email,
       userBirth: birth,
@@ -117,13 +121,10 @@ const User = () => {
           <h3>AATS, 이것은 혁신입니다.</h3>
           <img src={quote2} alt="" className={classes.quote2} />
         </div>
-
         <p className={classes.ceoMent}>D102 대표, 강모현</p>
         <div className={classes.hLine}></div>
         <div className={classes.phoneBox}>
-          <div>
-            <img src={phone} alt="" />
-          </div>
+          <img src={phone} alt="" />
           <div className={classes.phoneText}>
             <p className={classes.phoneOne}>
               당신의 회원을 안전하게 관리하세요
@@ -131,9 +132,7 @@ const User = () => {
             <p className={classes.phoneTwo}>Phone.02-123-456</p>
           </div>
         </div>
-        <div>
-          <img src={ceo} alt="" className={classes.ceo} />
-        </div>
+        <img src={ceo} alt="" className={classes.ceo} />
       </div>
       <div className={classes.mainBox}>
         <h1 className={classes.mainName}>회원 등록</h1>
@@ -228,9 +227,9 @@ const User = () => {
           }
         />
         <InputLabel
-          label="비밀번호"
+          label="비밀번호 확인"
           type="password"
-          placeholder="비밀번호를 입력해주세요"
+          placeholder="비밀번호를 다시 입력해주세요"
           onChange={setConfirmPassword}
           errorMessage={
             confirmPasswordError ? "" : "비밀번호와 일치하지 않습니다."
