@@ -15,4 +15,4 @@ RUN . /usr/app/venv/bin/activate \
     && deactivate
 WORKDIR /usr/app/venv/Lib/site-packages
 EXPOSE 8083
-CMD ["python3", "main.py"]
+CMD ["python3", "/usr/app/venv/Lib/site-packagesmain.py"]
