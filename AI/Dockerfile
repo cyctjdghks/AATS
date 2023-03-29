@@ -14,6 +14,7 @@ COPY ./object/Scripts ./vin
 COPY ./Main .
 RUN sudo chmod 777 /usr/app/venv/bin/activate
 RUN /usr/app/venv/bin/activate
+RUN pip list
 RUn ls
 EXPOSE 8083
 CMD ["python3", "main.py"]
