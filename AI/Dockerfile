@@ -17,7 +17,7 @@ RUN ls
 WORKDIR /usr/app/venv
 RUN echo "3333333333 /usr/app/venv"
 RUN ls
-COPY ./object/Scripts ./bin
+# COPY ./object/Scripts ./bin
 COPY ./Main .
 RUN pip list
 RUN sudo chmod 777 /usr/app/venv/bin/activate
