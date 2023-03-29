@@ -116,17 +116,17 @@ public class OrganizationController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @PostMapping("/setsessionid")
-    public ResponseEntity<?>  setSessionId(OrganizationSetSessionDto organizationSetSessionDto){
-        log.info("Set SessionId Method start");
-        Map<String, Object> data = new HashMap<>();
-
-        service.setSessionId(organizationSetSessionDto);
-
-        data.put("msg", "success");
-
-        return new ResponseEntity<>(data,HttpStatus.OK);
-    }
+//    @PostMapping("/setsessionid")
+//    public ResponseEntity<?>  setSessionId(OrganizationSetSessionDto organizationSetSessionDto){
+//        log.info("Set SessionId Method start");
+//        Map<String, Object> data = new HashMap<>();
+//
+//        service.setSessionId(organizationSetSessionDto);
+//
+//        data.put("msg", "success");
+//
+//        return new ResponseEntity<>(data,HttpStatus.OK);
+//    }
 
 //    @GetMapping("/getsessionid/{organizationId}")
 //    public ResponseEntity<?> getSessionId(@PathVariable String organizationId){

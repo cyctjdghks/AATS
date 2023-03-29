@@ -38,17 +38,17 @@ public class CCTVServiceImpl implements CCTVService {
                 .orElseThrow(() -> new IllegalArgumentException("cctv가 없습니다"));
 
         //TODO : entityToDto
-        cctvDto cctvDto = new cctvDto(
-                cctv.getCCTVNo(),
-                cctv.getCCTVLat(),
-                cctv.getCCTVLat(),
-                cctv.getCCTVInformation(),
-                cctv.getOrganization().getOrganizationId(),
-                cctv.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
-                cctv.getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-        );
+//        cctvDto cctvDto = new cctvDto(
+//                cctv.getCCTVNo(),
+//                cctv.getCCTVLat(),
+//                cctv.getCCTVLat(),
+//                cctv.getCCTVInformation(),
+//                cctv.getOrganization().getOrganizationId(),
+//                cctv.getCreated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
+//                cctv.getUpdated_at().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+//        );
 
-        return cctvDto;
+        return new cctvDto().entityToDto(cctv);
     }
 
     @Override
