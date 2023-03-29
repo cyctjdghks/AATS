@@ -14,7 +14,7 @@ RUN ls
 RUN sudo chmod 777 /usr/app/venv/bin/activate 
 RUN . /usr/app/venv/bin/activate \
     && pip list \
-    && python3 /usr/app/main.py \
+    && python3 main.py \
     && deactivate
 RUN pip list
 EXPOSE 8083
