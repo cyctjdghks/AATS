@@ -1,5 +1,5 @@
 FROM python:3.9.16
-RUN pip install --upgrade pip
+RUN pip3 install --upgrade pip3
 WORKDIR /usr/app
 COPY . .
 RUN python3 -m venv object
