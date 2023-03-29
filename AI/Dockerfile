@@ -11,6 +11,6 @@ RUN python3 -m venv venv
 WORKDIR /usr/app/venv
 RUN pwd
 RUN ls
-RUN sudo source bin/Activate.ps1
+RUN source bin/Activate.ps1
 EXPOSE 8083
 CMD ["python3", "main.py"]
