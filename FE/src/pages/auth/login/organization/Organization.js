@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import InputLabel from "../../components/InputLabel";
 import { DataInput } from "../../components/Effectiveness";
 import axios from "axios";
@@ -14,7 +15,7 @@ import phone from "../../../../assets/auths/phone.png";
 import tmp1 from "../../../../assets/auths/tmp1.png";
 import tmp2 from "../../../../assets/auths/tmp2.png";
 
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
 const Organization = () => {
   const dispatch = useDispatch();
@@ -35,8 +36,31 @@ const Organization = () => {
     axios
       .post(url, axiosData)
       .then((response) => {
-        dispatch(authActions.organizationLogin(response.data.data));
-        navigate("/mypage");
+        if (response.status === 200) {
+          dispatch(authActions.organizationLogin(response.data.data));
+          Swal.fire({
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 완료되었습니다.<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">AATS 서비스를 이용해보세요</div>',
+            icon: "success",
+            width: 350,
+            confirmButtonColor: "#9A9A9A",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          });
+          navigate("/regist");
+        } else{
+          Swal.fire({
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 실패했습니다.<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>',
+            width: 350,
+            icon: "error",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: "#9A9A9A",
+          });
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -80,8 +104,7 @@ const Organization = () => {
             </button>
             <div className={classes.toGoBox}>
               <p onClick={toSignup}>회원가입 하러 가기</p>
-              <ExitToAppIcon 
-              className={classes.signupImg}/>
+              <ExitToAppIcon className={classes.signupImg} />
             </div>
           </form>
         </div>
