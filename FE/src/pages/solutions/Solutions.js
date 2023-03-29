@@ -8,10 +8,11 @@ import solution1 from "../../assets/Solution/solution1.png";
 const Solutions = () => {
   // 숫자 증가 애니메이션
   // count1
-  let countBox = document.querySelector("#count1"), count = 0;
+  let countBox = document.querySelector("#count1"),
+    count = 0;
 
   let counting = setInterval(function () {
-    let countBox = document.querySelector("#count1")
+    let countBox = document.querySelector("#count1");
     if (count === 5) {
       clearInterval(counting);
       return false;
@@ -26,7 +27,7 @@ const Solutions = () => {
     count2 = 0;
 
   let counting2 = setInterval(function () {
-    let countBox2 = document.querySelector("#count2")
+    let countBox2 = document.querySelector("#count2");
     if (count2 === 49) {
       clearInterval(counting2);
       return false;
@@ -37,9 +38,10 @@ const Solutions = () => {
 
   // 숫자 증가 애니메이션
   // count3
-  let countBox3 = document.querySelector("#count3"), count3 = 0
+  let countBox3 = document.querySelector("#count3"),
+    count3 = 0;
   let counting3 = setInterval(function () {
-    let countBox3 = document.querySelector("#count3")
+    let countBox3 = document.querySelector("#count3");
     if (count3 === 6) {
       clearInterval(counting3);
       return false;
@@ -48,20 +50,20 @@ const Solutions = () => {
     countBox3.innerHTML = new Intl.NumberFormat().format(count3);
   }, 100);
   const firstColors = {
-    color1 : "#00A6DC",
-    color2 : "#ACDEF1F5",
-    color3 : "#dcf3fcf5"
-  }
+    color1: "#00A6DC",
+    color2: "#ACDEF1F5",
+    color3: "#dcf3fcf5",
+  };
   const secondColors = {
-    color1 : "yellow",
-    color2 : "black",
-    color3 : "green"
-  }
+    color1: "yellow",
+    color2: "black",
+    color3: "green",
+  };
   const thirdColors = {
-    color1 : "#00A6DC",
-    color2 : "black",
-    color3 : "#dcf3fcf5"
-  }
+    color1: "#00A6DC",
+    color2: "black",
+    color3: "#dcf3fcf5",
+  };
 
   return (
     <div className={classes.pageBox}>
@@ -152,7 +154,6 @@ const Solutions = () => {
               colors={thirdColors}
             />
           </div>
-          
         </div>
       </div>
     </div>

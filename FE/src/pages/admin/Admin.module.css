@@ -1,13 +1,7 @@
 .admin {
   width: 100%;
-  display: flex;
-}
-.contentBox{
-  width: calc(100% - 350px);
+  /* display: flex; */
+  position: relative;
+  min-height: calc(100% - 160px);
 }
 
-@media screen and (max-width: 1024px) {
-  .contentBox{
-    width: 100%;
-  }
-}

@@ -25,6 +25,9 @@ const startSlice = createSlice({
     getData(state, action) {
       state.timeList = action.payload;
     },
+    resetData(state, action) {
+      state.timeList = action.payload
+    },
   },
 });
 

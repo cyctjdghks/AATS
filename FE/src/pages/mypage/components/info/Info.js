@@ -1,10 +1,39 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import logo from "../../../../assets/profileTest.jpg";
 
 import classes from "./Info.module.css";
 
 const Info = () => {
-  const userData = useSelector((state) => state.user.userData);
+  const userData = useSelector((state) => state.auth.userData);
+  const workerData = useSelector((state) => state.auth.workerData)
+  const userType = useSelector((state) => state.auth.userType);
+  const [type, setType] = useState("");
+  const tmp = () =>{
+    if (userType === 1){
+      setType(true)
+    }else if(userType === 2){
+      setType(false)
+    }
+  }
+  const data = {
+    id : type ? workerData.workerId : userData.userId,
+    name : type ? workerData.workerName : userData.userName,
+    organizationName : type ? workerData.organizationName : userData.organizationName,
+    gender : type ? workerData.workerGender : userData.userGender,
+    age : type ? workerData.workerAge : userData.userAge,
+    email : type ? workerData.workerEmail : userData.userEmail,
+    phone : type ? workerData.workerPhone : userData.userPhone,
+    nationality : type ? workerData.workerNationality : userData.userNationality,
+    birth : type ? workerData.workerBirth : userData.userBirth,
+    profile : type ? workerData.workerProfile : userData.userProfile,
+  }
+
+
+  useEffect(() =>{
+    tmp();
+  })
 
   return (
     <div className={classes.info}>
@@ -14,19 +43,19 @@ const Info = () => {
         <div className={classes.topBox}>
           <div className={classes.contentBox}>
             <p className={classes.name}>
-              {userData.name}({userData.gender ? "남" : "여"}) | {userData.age}세
+              {data.name}({data.gender ? "남" : "여"}) | {data.age}세
             </p>
           </div>
           <div className={classes.contentBox}>
             <p className={classes.content}>
               <span className={classes.tag}> 기관 : </span>
-              {userData.organization_id}
+              {data.organizationName}
             </p>
           </div>
           <div className={classes.contentBox}>
             <p className={classes.content}>
               <span className={classes.tag}> 유형 : </span>
-              {userData.organization_id}
+              {type ? "근무자" : "회원"}
             </p>
           </div>
         </div>
@@ -35,21 +64,21 @@ const Info = () => {
           <div className={classes.contentBox}>
             <p className={classes.content}>
               <span className={classes.tag}> 국적 : </span>
-              {userData.nationality}
+              {data.nationality}
             </p>
             <p className={classes.content}>
               <span className={classes.tag}> 생년월일 : </span>
-              {userData.birth}
+              {data.birth}
             </p>
           </div>
           <div className={classes.contentBox}>
             <p className={classes.content}>
               <span className={classes.tag}> 이메일 : </span>
-              {userData.email}
+              {data.email}
             </p>
             <p className={classes.content}>
               <span className={classes.tag}> 연락처 : </span>
-              {userData.phoneNumber}
+              {data.phone}
             </p>
           </div>
         </div>
