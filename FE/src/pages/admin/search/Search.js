@@ -1,9 +1,9 @@
 import UserDatas from "./components/UserData";
 import { useSelector } from "react-redux";
-import classes from "./DashBoard.module.css"
+import classes from "./Search.module.css"
 
-const DashBoard = () => {
-  const userDatas = useSelector((state) => state.user.users);
+const Search = () => {
+  const userDatas = useSelector((state) => state.auth.users);
   const top = {
     userId : '아이디',
     userName : '이름',
@@ -32,4 +32,4 @@ const DashBoard = () => {
   );
 };
 
-export default DashBoard;
+export default Search;
