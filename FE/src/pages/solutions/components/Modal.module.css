@@ -31,8 +31,6 @@
 .modalBackGround{
   position: fixed;
   top:0; left: 0; bottom: 0; right: 0;
-  /* background: rgba(0, 0, 0, 0.8); */
-  background: #ACDEF1F5;
 }
 
 /* 모달창을 화면 중앙. 최상단에 노출 */
@@ -54,7 +52,6 @@
 
   /* 모달창 디자인 */
   background-color: rgb(255, 255, 255);
-
   border: none;
 }
 
@@ -75,7 +72,6 @@
   height: 100%;
   width: 5%;
   max-width: 20px;
-  background-color: #00A6DC;
 }
 
 .TitleBox{
@@ -102,28 +98,28 @@
 .number{
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 45px;
-  color: #00A6DC;
+  color: inherit;
 
 }
 
 .solutionName{
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 30px;
-  color: #00A6DC;
+  color: inherit;
   margin-top: -40px;
 }
 
 .solutionSubName{
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 30px;
-  color: #00A6DC;
+  color: inherit;
   margin-top: -30px;
 }
 
 .hashtag{
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 30px;
-  color: #00A6DC;
+  color: inherit;
   margin-top: -30px;
 }
 
@@ -136,7 +132,6 @@
 .containerRight{
   width: 55%;
   height: 100%;
-  background-color: #dcf3fcf5;
 }
 
 /* 모달창 내부 X버튼 */

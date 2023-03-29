@@ -28,8 +28,6 @@
   src: url("../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-
-
 .solutionBox {
   display: flex;
   justify-content: space-between;
@@ -61,7 +59,7 @@
 }
 
 .img {
-  width: 70%;
+  width: 295px;
   border-radius: 5px;
   cursor: pointer;
 }
