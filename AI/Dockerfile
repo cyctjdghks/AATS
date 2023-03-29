@@ -4,7 +4,7 @@ WORKDIR /usr/app
 COPY . .
 RUN ls
 RUN python3 -m venv object --without-pip
-RUN cd object/Scripts
-RUN activate.bat
+RUN cd object
+RUN Scripts/activate.bat
 EXPOSE 8083
 CMD ["python3", "main.py"]
