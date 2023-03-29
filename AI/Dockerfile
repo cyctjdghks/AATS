@@ -17,7 +17,7 @@ RUN sudo chmod 777 /usr/app/venv/bin/activate
 RUN . /usr/app/venv/bin/activate
 RUN pip install requests
 RUN pip list
-RUN deactivate
+RUN . /usr/app/venv/bin/deactivate
 RUN pip list
 RUn ls
 EXPOSE 8083
