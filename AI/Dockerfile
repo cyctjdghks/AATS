@@ -12,7 +12,7 @@ RUN ls
 COPY ./Main .
 RUN pip list
 RUN sudo chmod 777 /usr/app/venv/bin/activate
-RUN . activate
+RUN . /usr/app/venv/bin/activate
 RUN pip install requests
 EXPOSE 8083
 CMD ["echo", "hi"]
