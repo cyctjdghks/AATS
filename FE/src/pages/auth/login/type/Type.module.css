@@ -131,9 +131,12 @@
   display: flex;
   justify-content: space-evenly;
 }
+.detailBox {
+  width: 25%;
+}
 
 .organization {
-  width: 300px;
+  width: 100%;
   transition: all 0.2s linear;
   box-shadow: 1px 1px 3px 5px #dadce0;
   cursor: pointer;
@@ -144,7 +147,7 @@
 }
 
 .user {
-  width: 300px;
+  width: 100%;
   transition: all 0.2s linear;
   box-shadow: 1px 1px 3px 5px #dadce0;
   cursor: pointer;
@@ -155,7 +158,7 @@
 }
 
 .worker {
-  width: 300px;
+  width: 100%;
   transition: all 0.2s linear;
   box-shadow: 1px 1px 3px 5px #dadce0;
   cursor: pointer;
@@ -175,151 +178,3 @@
   font-size: 20px;
   margin-top: -20px;
 }
-
-/* .pageBox {
-  background-color: rgb(235, 235, 235);
-  min-height: calc(100vh - 160px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.topBox {
-  display: inline-block;
-  margin-top: 30px;
-  width: 70%;
-  height: 180px;
-  border-radius: 8px;
-  background-color: white;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.loginBox {
-  display: inline-block;
-  min-height: calc(100% - 180px);
-}
-
-.pageBox h3 {
-  font-family: "Apple_Gothic_Neo_R";
-  font-size: 30px;
-}
-
-.pageText {
-  font-family: "Apple_Gothic_Neo_R";
-  font-size: 21px;
-  margin-top: -15px;
-}
-
-.hLine {
-  border-bottom: 2px solid rgb(202, 202, 202);
-  width: 420px;
-  margin: auto;
-}
-
-.typeBox {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.typeOne {
-  margin-right: 20px;
-}
-
-.organization {
-  cursor: pointer;
-  border: 2px solid rgb(235, 235, 235);
-}
-
-.organization:hover {
-  border-radius: 8px;
-  border: 2px solid rgb(95, 95, 95);
-}
-
-.user {
-  cursor: pointer;
-  border: 2px solid rgb(235, 235, 235);
-}
-
-.user:hover {
-  border-radius: 8px;
-  border: 2px solid rgb(95, 95, 95);
-}
-
-.typeOne p {
-  font-family: "Apple_Gothic_Neo_Bold";
-  font-size: 20px;
-}
-
-.typeTwo {
-  margin-left: 25px;
-  margin-right: 20px;
-}
-
-.typeTwo img {
-  border-radius: 8px;
-  height: 160px;
-  cursor: pointer;
-  border: 2px solid rgb(219, 219, 219);
-}
-
-.typeTwo img:hover {
-  border-radius: 8px;
-  border: 2px solid rgb(95, 95, 95);
-}
-
-.worker {
-  cursor: pointer;
-  border: 2px solid rgb(235, 235, 235);
-}
-
-.worker:hover {
-  border-radius: 8px;
-  border: 2px solid rgb(95, 95, 95);
-}
-
-.typeTwo p {
-  font-family: "Apple_Gothic_Neo_Bold";
-  font-size: 20px;
-}
-
-.typeThree {
-  margin-left: 30px;
-}
-
-.typeThree img {
-  border-radius: 8px;
-  height: 160px;
-  cursor: pointer;
-  border: 2px solid rgb(219, 219, 219);
-}
-
-.typeThree img:hover {
-  border-radius: 8px;
-  border: 2px solid rgb(95, 95, 95);
-}
-
-.typeThree p {
-  font-family: "Apple_Gothic_Neo_Bold";
-  font-size: 20px;
-}
-
-.signupBox {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  font-family: "Apple_Gothic_Neo_R";
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.signupImg {
-  margin-top: 17px;
-  margin-left: 5px;
-}
-
-.signupBox:hover {
-  font-weight: bold;
-}  */
