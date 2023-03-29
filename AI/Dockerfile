@@ -11,6 +11,6 @@ RUN python3 -m venv object --without-pip
 WORKDIR /usr/app/object/Scripts
 RUN pwd
 RUN ls
-RUN sudo activate
+RUN activate
 EXPOSE 8083
 CMD ["python3", "main.py"]
