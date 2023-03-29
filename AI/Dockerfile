@@ -7,7 +7,7 @@ RUN adduser --disabled-password --gecos "" user  \
     && echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 WORKDIR /usr/app
 RUN python3 -m venv object
-WORKDIR /usr/app/object/Script
+WORKDIR /usr/app/object
 RUN pwd
 RUN ls
 RUN sudo chmod 777 /usr/app/object/Script/activate
