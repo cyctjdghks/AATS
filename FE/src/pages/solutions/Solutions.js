@@ -50,20 +50,25 @@ const Solutions = () => {
     countBox3.innerHTML = new Intl.NumberFormat().format(count3);
   }, 100);
   const firstColors = {
-    color1: "#00A6DC",
-    color2: "#ACDEF1F5",
-    color3: "#dcf3fcf5",
+    color1: "#005FB3",
+    color2: "#3D99F5F5",
+    color3: "#d3d3d3",
   };
   const secondColors = {
-    color1: "yellow",
-    color2: "black",
-    color3: "green",
+    color1: "#3A83D3",
+    color2: "#6D9AE3F5",
+    color3: "#d3d3d3",
   };
   const thirdColors = {
-    color1: "#00A6DC",
-    color2: "black",
-    color3: "#dcf3fcf5",
+    color1: "#4234C6",
+    color2: "#9A8CF9F5",
+    color3: "#d3d3d3",
   };
+  const fourthColors = {
+    color1: '#8156F4',
+    color2: '#9077FDF5',
+    color3: '#d3d3d3',
+  }
 
   return (
     <div className={classes.pageBox}>
@@ -127,7 +132,13 @@ const Solutions = () => {
               solutionName="솔루션 네임"
               solutionSubName="솔루션 서브네임"
               hashtag="#솔루션"
-              content="이 기술은 어쩌고 저쩌고 입니다. "
+              content="이 기술은 어쩌고 저쩌고 입니다. 
+              어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고
+              어쩌고 저쩌고 어쩌고 저쩌고어쩌고 저쩌고 어쩌고 저쩌고
+              어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고
+              어쩌고 저쩌고 어쩌고 저쩌고어쩌고 저쩌고 어쩌고 저쩌고
+              어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고 어쩌고 저쩌고
+              어쩌고 저쩌고 어쩌고 저쩌고어쩌고 저쩌고 어쩌고 저쩌고"
               img={solution1}
               colors={firstColors}
             />
@@ -147,6 +158,17 @@ const Solutions = () => {
             <div className={classes.vLine3}></div>
             <SolutionItem
               number="SOLUTION3"
+              solutionName="솔루션 네임"
+              solutionSubName="솔루션 서브네임"
+              hashtag="#솔루션"
+              img={solution1}
+              colors={thirdColors}
+            />
+          </div>
+          <div className={classes.solutionBox4}>
+            <div className={classes.vLine4}></div>
+            <SolutionItem
+              number="SOLUTION4"
               solutionName="솔루션 네임"
               solutionSubName="솔루션 서브네임"
               hashtag="#솔루션"

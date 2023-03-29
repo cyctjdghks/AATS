@@ -83,6 +83,7 @@
 .contentBox{
   margin-left: 60px;
   margin-top: 50px;
+  width: 80%;
 }
 
 @media screen and (max-width: 1024px) {
