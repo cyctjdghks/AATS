@@ -117,7 +117,7 @@
 .pageTitle {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 27px;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .pageTitle2 {
@@ -126,46 +126,48 @@
   margin-top: -20px;
 }
 
+.hrLine{
+  width: 300px;
+  height: 5px;
+  background-color: #111c4b;
+  margin: auto;
+  margin-top: -10px;
+}
+
 .typeBox {
-  margin-top: 50px;
+  margin-top: 60px;
   display: flex;
   justify-content: space-evenly;
 }
 .detailBox {
-  width: 25%;
-}
-
-.organization {
-  width: 100%;
-  transition: all 0.2s linear;
+  width: 40%;
+  max-width: 330px;
+  background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 1px 1px 3px 5px #dadce0;
-  cursor: pointer;
+  height: 300px;
+  border: 2px solid white;
 }
 
-.organization:hover {
-  transform: scale(1.15);
+
+.detailBox:hover{
+  border: 2px solid black;
 }
 
-.user {
-  width: 100%;
-  transition: all 0.2s linear;
-  box-shadow: 1px 1px 3px 5px #dadce0;
-  cursor: pointer;
+.PersonIcon {
+  font-size: 130px;
+  color: #111c4b;
+  margin-top: 30px;
+}
+.GroupsIcon {
+  font-size: 130px;
+  color: #111c4b;
+  margin-top: 30px;
 }
 
-.user:hover {
-  transform: scale(1.15);
-}
-
-.worker {
-  width: 100%;
-  transition: all 0.2s linear;
-  box-shadow: 1px 1px 3px 5px #dadce0;
-  cursor: pointer;
-}
-
-.worker:hover {
-  transform: scale(1.15);
+.BusinessIcon{
+  font-size: 130px;
+  color: #111c4b;
+  margin-top: 30px;
 }
 
 .p1 {

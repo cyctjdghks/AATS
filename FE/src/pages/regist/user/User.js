@@ -8,7 +8,6 @@ import quote1 from "../../../assets/MainContact/quote1.png";
 import quote2 from "../../../assets/MainContact/quote2.png";
 import phone from "../../../assets/MainContact/phone.png";
 import { useSelector } from "react-redux";
-import { authActions } from "../../../store/auth";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
