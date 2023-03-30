@@ -18,7 +18,7 @@ RUN . /usr/app/venv/bin/activate \
     && wget https://repo1.maven.org/maven2/com/google/protobuf/protoc/3.1.0/protoc-3.1.0-linux-x86_64.exe \
     && sudo chmod 777 ./protoc-3.1.0-linux-x86_64.exe \
     && ./protoc-3.1.0-linux-x86_64.exe object_detection/protos/*.proto --python_out=. \
-    && ls /usr/app/venv/Lib/site-packages
+    && ls /usr/app/venv/Lib/site-packages \
     && python3 main.py
 WORKDIR /usr/app/venv/Lib/site-packages
 RUN ls
