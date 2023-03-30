@@ -4,6 +4,8 @@ import com.ssafy.d102.data.dto.request.OrganizationLoginDto;
 import com.ssafy.d102.data.dto.request.OrganizationUpdatePwDto;
 import com.ssafy.d102.data.dto.OrganizationDto;
 import com.ssafy.d102.data.dto.response.OrganizationValidIdDto;
+import com.ssafy.d102.data.dto.response.UserDto;
+import com.ssafy.d102.data.dto.response.WorkerDto;
 import com.ssafy.d102.service.OrganizationService;
 import com.ssafy.d102.structure.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
@@ -77,6 +79,36 @@ public class OrganizationController {
 
         log.info("출력 데이터 : {}", data);
 
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @GetMapping("/getall/user/{organizationId}")
+    public ResponseEntity<?> getAllUserByOrganization(@PathVariable String organizationId){
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        Map<String, Object> data = new HashMap<>();
+
+        List<UserDto> list = service.getAllUserByOrganization(organizationId);
+
+        data.put("msg", "success");
+        data.put("data", list);
+
+        log.info("출력 데이터 : {}", data);
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @GetMapping("/getall/worker/{organizationId}")
+    public ResponseEntity<?> getAllWorkerByOrganization(@PathVariable String organizationId){
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+
+        Map<String, Object> data = new HashMap<>();
+
+        List<WorkerDto> list = service.getAllWorkerByOrganization(organizationId);
+
+        data.put("msg", "success");
+        data.put("data", list);
+
+        log.info("출력 데이터 : {}", data);
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 

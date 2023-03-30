@@ -3,8 +3,14 @@ package com.ssafy.d102.service.impl;
 import com.ssafy.d102.data.dto.OrganizationDto;
 import com.ssafy.d102.data.dto.request.OrganizationLoginDto;
 import com.ssafy.d102.data.dto.request.OrganizationUpdatePwDto;
+import com.ssafy.d102.data.dto.response.UserDto;
+import com.ssafy.d102.data.dto.response.WorkerDto;
 import com.ssafy.d102.data.entity.Organization;
+import com.ssafy.d102.data.entity.User;
+import com.ssafy.d102.data.entity.Worker;
 import com.ssafy.d102.repository.OrganizationRepository;
+import com.ssafy.d102.repository.UserRepository;
+import com.ssafy.d102.repository.WorkerRepository;
 import com.ssafy.d102.service.OrganizationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,7 +24,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrganizationServiceImpl implements OrganizationService {
     private final OrganizationRepository repository;
+    private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final WorkerRepository workerRepository;
 
     // 기관 로그인
     @Override
@@ -32,6 +40,21 @@ public class OrganizationServiceImpl implements OrganizationService {
         // organizationDto로 기관 정보 반환
         //TODO: 이걸 Dto에 static 메소드로 만들어 봐라
         return new OrganizationDto().entityToDto(organization);
+    }
+
+    @Override
+    public List<UserDto> getAllUserByOrganization(String organizationId) {
+
+        Organization organization = getById(organizationId);
+
+        List<User> list = userRepository.findByOrganization(organization);
+
+        List<UserDto> output = new ArrayList<>();
+
+        for(User user : list)
+            output.add(new UserDto().entityToDto(user));
+
+        return output;
     }
 
     // 기관 등록
@@ -67,6 +90,8 @@ public class OrganizationServiceImpl implements OrganizationService {
 
         return outputList;
     }
+
+
 
     @Override
     public OrganizationDto getOrganization(String organizationId) {
@@ -109,6 +134,20 @@ public class OrganizationServiceImpl implements OrganizationService {
         // organizationNewPwd
         organization.setOrganizationPw(passwordEncoder.encode(organizationUpdatePwDto.getOrganizationNewPwd()));
         repository.save(organization);
+    }
+
+    @Override
+    public List<WorkerDto> getAllWorkerByOrganization(String organizationId) {
+        Organization organization = getById(organizationId);
+
+        List<Worker> list = workerRepository.findByOrganization(organization);
+
+        List<WorkerDto> output = new ArrayList<>();
+
+        for(Worker worker : list)
+            output.add(new WorkerDto().entityToDto(worker));
+
+        return output;
     }
 
     //TODO: 참 잘했어요
