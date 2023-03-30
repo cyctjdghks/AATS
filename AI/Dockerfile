@@ -25,5 +25,7 @@ WORKDIR /app
 # 애플리케이션 코드 복사
 COPY . /app
 
+WORKDIR /tmp/models/research
+
 # 컨테이너 실행시 실행될 명령어 설정
 CMD [ "python", "app.py" ]
