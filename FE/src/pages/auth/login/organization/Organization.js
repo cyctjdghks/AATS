@@ -48,7 +48,7 @@ const Organization = () => {
             confirmButtonText:
               '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
           });
-          navigate("/regist");
+          navigate("/admin");
         } else{
           Swal.fire({
             title:

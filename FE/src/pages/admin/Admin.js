@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Cctv from "./cctv/Cctv";
+import Welcome from "./welcome/Welcome"
 import Search from "./search/Search";
-import Detail from "./Detail";
+import Detail from "./detail/Detail";
 // import css style
 import classes from "./Admin.module.css";
 
@@ -9,9 +9,9 @@ const Admin = () => {
   return (
     <div className={classes.admin}>
       <Routes>
-        <Route path="" element={<Search />}></Route>
-        <Route path="/cctv" element={<Cctv />}></Route>
-        <Route path="/detail" element={<Detail />}></Route>
+        <Route path="" element={<Welcome />}></Route>
+        <Route path="search" element={<Search />}></Route>
+        <Route path="detail" element={<Detail />}></Route>
       </Routes>
     </div>
   );

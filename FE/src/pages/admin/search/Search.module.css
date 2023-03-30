@@ -35,48 +35,46 @@
   padding-top: 30px;
 }
 
-.textBox{
+.textBox {
   width: 40%;
 }
 
-.quote1{
+.quote1 {
   float: left;
   margin-top: 15px;
 }
 
-.quote2{
+.quote2 {
   float: right;
   margin-top: -40px;
 }
 
-.pageName1{
+.pageName1 {
   font-family: "Apple_Gothic_Neo_EBold";
   color: #2b41a1;
   font-size: 30px;
   margin-right: 50px;
-  
 }
 
-.pageName2{
+.pageName2 {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 20px;
   margin-top: -30px;
 }
 
-.searchIcon{
+.searchIcon {
   margin-top: 12px;
 }
 
-.hrLine{
+.hrLine {
   background-color: #2b41a1;
   height: 3px;
   width: 40%;
   max-width: 280px;
   margin-top: 0px;
-
 }
 
-.searchBar{
+.searchBar {
   width: 100%;
   display: flex;
   height: 100px;
@@ -86,7 +84,7 @@
   margin-top: 30px;
 }
 
-.serchInput{
+.serchInput {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 17px;
   height: 30px;
@@ -100,17 +98,15 @@
   padding-left: 20px;
 }
 
-.searchIconBox{
+.searchIconBox {
   width: 70px;
   height: 61px;
   background-color: #2b41a1;
   box-shadow: 2px 4px 5px grey;
   cursor: pointer;
-  
-
 }
 
-.horizenHr{
+.horizenHr {
   width: 90%;
   margin: 0, 5%, 0, 5%;
   height: 3px;
@@ -118,13 +114,12 @@
   border: none;
 }
 
-.peopleBox{
+.peopleBox {
   background-color: white;
   box-shadow: 2px 4px 5px grey;
   width: 80%;
   padding: 20px;
   min-height: 120px;
-
 }
 
 /* userDataTop */
@@ -145,7 +140,7 @@
 .genderBox {
   width: 10%;
 }
-.statusBox{
+.statusBox {
   width: 10%;
 }
 .emailBox {
@@ -155,5 +150,4 @@
   height: 50%;
   margin-top: 25%;
   margin-bottom: 25%;
-
 }
