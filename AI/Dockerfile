@@ -17,7 +17,7 @@ RUN git clone https://github.com/tensorflow/models.git && \
     pip install flask && \
     pip uninstall opencv-python && \
     pip install opencv-python && \
-    apt-get install libgl1-mesa-glx
+    apt-get install libgl1-mesa-glx && \
     pwd && \
     ls
     
