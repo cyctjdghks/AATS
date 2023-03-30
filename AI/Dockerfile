@@ -26,4 +26,4 @@ WORKDIR /app
 COPY . /app
 
 # 컨테이너 실행시 실행될 명령어 설정
-CMD [ "python", "./app.py" ]
+CMD [ "python", "app.py" ]
