@@ -10,6 +10,7 @@ RUN virtualenv -p python3.9 venv
 
 RUN apt-get update && apt-get install -y \
     protobuf-compiler \
+    && rm -rf /var/lib/apt/lists/*
 # 가상환경을 활성화합니다.
 RUN . venv/bin/activate && \
     git clone https://github.com/tensorflow/models.git && \
