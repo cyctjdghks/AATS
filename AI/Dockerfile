@@ -13,7 +13,8 @@ RUN git clone https://github.com/tensorflow/models.git /tmp/models && \
     cd /tmp/models/research && \
     protoc object_detection/protos/*.proto --python_out=. && \
     cp object_detection/packages/tf2/setup.py . && \
-    python -m pip install --no-cache-dir .
+    python -m pip install --no-cache-dir . && \
+    pwd
 
 # 작업 디렉토리 생성
 RUN mkdir /app
