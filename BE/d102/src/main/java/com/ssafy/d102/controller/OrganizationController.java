@@ -83,8 +83,11 @@ public class OrganizationController {
     }
 
     @PostMapping("/getall/user")
-    public ResponseEntity<?> getAllUserByOrganization(@RequestBody String organizationId){
+    public ResponseEntity<?> getAllUserByOrganization(@RequestBody Map<String,String> input){
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        String organizationId = input.get("organizationId");
+
+        log.info("sdasdasdasdasdasdasdasdasdas" + organizationId);
 
         Map<String, Object> data = new HashMap<>();
 
@@ -98,8 +101,9 @@ public class OrganizationController {
     }
 
     @PostMapping("/getall/worker")
-    public ResponseEntity<?> getAllWorkerByOrganization(@RequestBody String organizationId){
+    public ResponseEntity<?> getAllWorkerByOrganization(@RequestBody Map<String,String> input){
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        String organizationId = input.get("organizationId");
 
         Map<String, Object> data = new HashMap<>();
 
