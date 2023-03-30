@@ -17,6 +17,7 @@ RUN git clone https://github.com/tensorflow/models.git && \
     pip install flask && \
     pip uninstall -y opencv-python && \
     pip install opencv-python && \
+    pip install flask-cors && \
     apt-get update && \
     apt-get install -y libgl1 && \
     pwd && \
