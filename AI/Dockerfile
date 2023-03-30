@@ -25,7 +25,7 @@ WORKDIR /app
 # 애플리케이션 코드 복사
 COPY . /app
 
-RUN find / -name "app.py"
+RUN find / -name "app"
 
 WORKDIR /tmp/models/research
 
