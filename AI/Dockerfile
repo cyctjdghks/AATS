@@ -23,7 +23,7 @@ WORKDIR /app
 
 
 # 애플리케이션 코드 복사
-COPY . /app
+COPY  app.py/app
 
 RUN find / -name "tmp"
 
