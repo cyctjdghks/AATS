@@ -20,6 +20,7 @@ RUN ls
 RUN sudo chmod 777 /usr/app/venv/bin/activate 
 RUN . /usr/app/venv/bin/activate \
     && pip3 install flask \
+    && pip3 install numpy \
     && ls /usr/app/venv/Lib/site-packages \
     && python3 /usr/app/venv/Lib/site-packages/main.py;
 WORKDIR /usr/app/venv/Lib/site-packages
