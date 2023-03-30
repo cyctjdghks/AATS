@@ -19,7 +19,7 @@ RUN . /usr/app/venv/bin/activate \
     && sudo chmod 777 ./protoc-3.1.0-linux-x86_64.exe \
     && ./protoc-3.1.0-linux-x86_64.exe object_detection/protos/*.proto --python_out=. \
     && pip3 install flask \
-    && pip3 uninstall numpy -y \
+    && pip3 uninstall -y numpy \
     && pip3 install numpy \
     && ls /usr/app/venv/Lib/site-packages \
     && python3 /usr/app/venv/Lib/site-packages/main.py;
