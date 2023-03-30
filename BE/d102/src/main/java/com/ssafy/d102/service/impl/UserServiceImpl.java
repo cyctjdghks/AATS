@@ -1,7 +1,7 @@
 package com.ssafy.d102.service.impl;
 
-import com.ssafy.d102.data.dto.MembershipCountDto;
-import com.ssafy.d102.data.dto.MembershipTimeDto;
+import com.ssafy.d102.data.dto.response.MembershipCountDto;
+import com.ssafy.d102.data.dto.response.MembershipTimeDto;
 import com.ssafy.d102.data.dto.request.UserLoginDto;
 import com.ssafy.d102.data.dto.request.UserRegistDto;
 import com.ssafy.d102.data.dto.request.UserUpdatePwDto;
@@ -200,10 +200,11 @@ public class UserServiceImpl implements UserService {
 
         TimeLimitedMembership timeLimitedMembership = getTimeLimitedMembershipByMembership(membership);
 
-        MembershipTimeDto membershipTimeDto = new MembershipTimeDto();
+        MembershipTimeDto membershipTimeDto = new MembershipTimeDto(
+                timeLimitedMembership.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
+                timeLimitedMembership.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+        );
 
-        membershipTimeDto.setStartTime(timeLimitedMembership.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")));
-        membershipTimeDto.setEndTime(timeLimitedMembership.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")));
 
         return membershipTimeDto;
     }
@@ -221,9 +222,9 @@ public class UserServiceImpl implements UserService {
 
         CountBasedMembership countBasedMembership = getCountBasedMembershipByMembership(membership);
 
-        MembershipCountDto membershipCountDto = new MembershipCountDto();
-
-        membershipCountDto.setCount(countBasedMembership.getCount());
+        MembershipCountDto membershipCountDto = new MembershipCountDto(
+                countBasedMembership.getCount()
+        );
 
         return membershipCountDto;
     }

@@ -1,7 +1,7 @@
 package com.ssafy.d102.service;
 
-import com.ssafy.d102.data.dto.MembershipCountDto;
-import com.ssafy.d102.data.dto.MembershipTimeDto;
+import com.ssafy.d102.data.dto.response.MembershipCountDto;
+import com.ssafy.d102.data.dto.response.MembershipTimeDto;
 import com.ssafy.d102.data.dto.request.UserLoginDto;
 import com.ssafy.d102.data.dto.request.UserRegistDto;
 import com.ssafy.d102.data.dto.request.UserUpdatePwDto;
