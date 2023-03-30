@@ -9,7 +9,10 @@ RUN pip install virtualenv
 RUN virtualenv -p python3.9 venv
 
 # 가상환경을 활성화합니다.
-RUN . venv/bin/activate
+RUN . venv/bin/activate && \
+    pwd
+    
+
 
 
 # 컨테이너 실행시 실행될 명령어 설정
