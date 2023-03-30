@@ -1,8 +1,6 @@
 package com.ssafy.d102.controller;
 
-import com.ssafy.d102.data.dto.request.WorkerLoginDto;
-import com.ssafy.d102.data.dto.request.WorkerRegistDto;
-import com.ssafy.d102.data.dto.request.WorkerUpdatePwDto;
+import com.ssafy.d102.data.dto.request.*;
 import com.ssafy.d102.data.dto.response.DateTimeDto;
 import com.ssafy.d102.data.dto.response.WorkerDto;
 import com.ssafy.d102.data.dto.response.WorkerValidIdDto;
@@ -70,13 +68,13 @@ public class WorkerController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/get/{workerId}")
-    public ResponseEntity<?> getWorker(@PathVariable("workerId") String workerId) {
+    @PostMapping("/get")
+    public ResponseEntity<?> getWorker(@RequestBody WorkerGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 workerId : {}", workerId);
+        log.info("입력 데이터 workerId : {}", input.getWorkerId());
 
         Map<String, Object> data = new HashMap<>();
-        WorkerDto workerDto = workerService.getWorker(workerId);
+        WorkerDto workerDto = workerService.getWorker(input.getWorkerId());
 
         data.put("msg", "success");
         data.put("data", workerDto);
@@ -208,14 +206,14 @@ public class WorkerController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("get/start/{workerId}")
-    public ResponseEntity<?> getWorkerStart(@PathVariable("workerId") String workerId) {
+    @PostMapping("get/start")
+    public ResponseEntity<?> getWorkerStart(@RequestBody WorkerGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 workerId : {}", workerId);
+        log.info("입력 데이터 workerId : {}", input.getWorkerId());
 
         Map<String, Object> data = new HashMap<>();
 
-        List<DateTimeDto> workerStartList = workerService.getWorkerStart(workerId);
+        List<DateTimeDto> workerStartList = workerService.getWorkerStart(input.getWorkerId());
         data.put("msg", "success");
         data.put("data", workerStartList);
 
@@ -224,15 +222,15 @@ public class WorkerController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("get/start/{workerId}/{month}")
-    public ResponseEntity<?> getWorkerMonthStart(@PathVariable("workerId") String workerId, @PathVariable("month") String month) {
+    @PostMapping("get/start/month")
+    public ResponseEntity<?> getWorkerMonthStart(@RequestBody WorkerGetMonthDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 input : {}", workerId);
-        log.info("입력 데이터 month : {}", month);
+        log.info("입력 데이터 input : {}", input.getWorkerId());
+        log.info("입력 데이터 month : {}", input.getMonth());
 
         Map<String, Object> data = new HashMap<>();
 
-        List<DateTimeDto> workerMonthStartList = workerService.getWorkerMonthStart(workerId, month);
+        List<DateTimeDto> workerMonthStartList = workerService.getWorkerMonthStart(input.getWorkerId(), input.getMonth());
         data.put("msg", "success");
         data.put("data", workerMonthStartList);
 
@@ -241,14 +239,14 @@ public class WorkerController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("get/end/{workerId}")
-    public ResponseEntity<?> getWorkerEnd(@PathVariable("workerId") String workerId) {
+    @PostMapping("get/end")
+    public ResponseEntity<?> getWorkerEnd(@RequestBody WorkerGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 workerId : {}", workerId);
+        log.info("입력 데이터 workerId : {}", input.getWorkerId());
 
         Map<String, Object> data = new HashMap<>();
 
-        List<DateTimeDto> workerEndList = workerService.getWorkerEnd(workerId);
+        List<DateTimeDto> workerEndList = workerService.getWorkerEnd(input.getWorkerId());
         data.put("msg", "success");
         data.put("data", workerEndList);
 
@@ -257,14 +255,14 @@ public class WorkerController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("get/end/{workerId}/{month}")
-    public ResponseEntity<?> getWorkerMonthEnd(@PathVariable("workerId") String workerId, @PathVariable("month") String month) {
+    @PostMapping("get/end/month")
+    public ResponseEntity<?> getWorkerMonthEnd(@RequestBody WorkerGetMonthDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 workerId : {}", workerId);
+        log.info("입력 데이터 workerId : {}", input.getWorkerId());
 
         Map<String, Object> data = new HashMap<>();
 
-        List<DateTimeDto> workerMonthEndList = workerService.getWorkerMonthEnd(workerId, month);
+        List<DateTimeDto> workerMonthEndList = workerService.getWorkerMonthEnd(input.getWorkerId(), input.getMonth());
         data.put("msg", "success");
         data.put("data", workerMonthEndList);
 
