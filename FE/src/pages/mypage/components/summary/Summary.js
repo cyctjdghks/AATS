@@ -53,35 +53,38 @@ const Summary = () => {
           <p className={classes.today}>TODAY</p>
           <p className={classes.today2}>{today}</p>
           <div className={classes.timeBox}>
-            <div>
-              <p>{todayStartTime}</p>
-              <p>{todayStart}</p>
+            <div className={classes.startBtn}>
+              <p className={classes.startP1}>{todayStartTime}</p>
+              <p className={classes.startP2}>{todayStart}</p>
             </div>
-            <div>
-              <p>{todayEndTime}</p>
-              <p>{todayEnd}</p>
+            <div className={classes.endBtn}>
+              <p className={classes.startP1}>{todayEndTime}</p>
+              <p className={classes.startP2}>{todayEnd}</p>
             </div>
           </div>
-        </div>
-        <hr className={classes.verticalHr} />
-        <div className={classes.secondBox}>
-          <CommutePie></CommutePie>
         </div>
         <hr className={classes.verticalHr} />
         <div className={classes.thirdBox}>
           <div className={classes.commuteBox}>
             <div className={classes.attendanceBox}>
-              <p>출근</p>
-              <p>정상 출근 : {commuteData.normalAttendance}</p>
+              <button className={classes.attendanceBoxP1}>출근</button>
+              <div className={classes.attendanceText1}>
+                <p className={classes.normalAttendance}>정상 출근</p>
+                <p className={classes.normalAttendance2}>{commuteData.normalAttendance}</p>
+              </div>
               <p>지각 : {commuteData.late}</p>
             </div>
             <div className={classes.leaveBox}>
-              <p>퇴근</p>
+              <button className={classes.attendanceBoxP2}>퇴근</button>
               <p>정상 퇴근 : {commuteData.normalLeave}</p>
               <p>조퇴 : {commuteData.earlyLeave}</p>
             </div>
           </div>
           <div>결근 : {commuteData.absen}</div>
+        </div>
+        <hr className={classes.verticalHr} />
+        <div className={classes.secondBox}>
+          <CommutePie></CommutePie>
         </div>
       </div>
     </div>
