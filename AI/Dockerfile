@@ -1,6 +1,6 @@
 FROM python:3.9.16
 
-RUN pwd
+
 
 # 필요한 패키지 설치
 RUN apt-get update && apt-get install -y \
@@ -32,4 +32,4 @@ RUN find / -name "tmp"
 WORKDIR /tmp/models/research
 
 # 컨테이너 실행시 실행될 명령어 설정
-CMD [ "python", "app.py" ]
+CMD [ "python", "main.py" ]
