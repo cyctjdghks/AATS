@@ -4,9 +4,14 @@ FROM python:3.9-slim-buster
 # 작업 디렉토리 설정
 WORKDIR /app
 
-# 의존성 설치
-RUN pip3 list 
+# 가상환경 생성
+RUN python3 -m venv /app/venv
 
+# 가상환경 활성화
+ENV PATH="/app/venv/bin:$PATH"
+
+# 의존성 설치
+RUN pip3 list
 
 # 소스 코드 복사
 COPY . .
