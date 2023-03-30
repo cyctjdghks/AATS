@@ -33,8 +33,8 @@ app = Flask(__name__)
 
 CORS(app)  # 모든
 
-PATH_TO_SAVED_MODEL = "C:/mydrive/real/data/inference_graph/saved_model"
-category_index = label_map_util.create_category_index_from_labelmap("C:/mydrive/real/data/label_map.pbtxt",
+PATH_TO_SAVED_MODEL = "saved_model"
+category_index = label_map_util.create_category_index_from_labelmap("label_map.pbtxt",
                                                                     use_display_name=True)
 detect_fn = tf.saved_model.load(PATH_TO_SAVED_MODEL)
 
