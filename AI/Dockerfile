@@ -2,7 +2,7 @@ FROM python:3.9.16
 # RUN pip install --upgrade pip
 RUN apt-get update && apt-get install -y sudo && pip3 install wget && pip3 install pip
 #  RUN adduser --disabled-password --gecos "" user  \
-##    && echo 'user:user' | chpasswd \
+#    && echo 'user:user' | chpasswd \
 #    && adduser user sudo \
 #    && echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 WORKDIR /usr/app
