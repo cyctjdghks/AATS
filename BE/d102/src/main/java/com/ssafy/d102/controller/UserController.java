@@ -2,9 +2,7 @@ package com.ssafy.d102.controller;
 
 import com.ssafy.d102.data.dto.MembershipCountDto;
 import com.ssafy.d102.data.dto.MembershipTimeDto;
-import com.ssafy.d102.data.dto.request.UserLoginDto;
-import com.ssafy.d102.data.dto.request.UserRegistDto;
-import com.ssafy.d102.data.dto.request.UserUpdatePwDto;
+import com.ssafy.d102.data.dto.request.*;
 import com.ssafy.d102.data.dto.response.*;
 import com.ssafy.d102.data.entity.Image;
 import com.ssafy.d102.service.ImageService;
@@ -164,13 +162,13 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/get/{userId}")
-    public ResponseEntity<?> getUser(@PathVariable String userId) {
+    @PostMapping("/get")
+    public ResponseEntity<?> getUser(@RequestBody UserGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
+        log.info("입력 데이터 userId : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        UserDto userDto = userService.getUser(userId);
+        UserDto userDto = userService.getUser(input.getUserId());
 
         data.put("msg", "success");
         data.put("data", userDto);
@@ -210,13 +208,13 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/membership/{userId}")
-    public ResponseEntity<?> getUserMembership(@PathVariable String userId) {
+    @PostMapping("/membership")
+    public ResponseEntity<?> getUserMembership(@RequestBody UserGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
+        log.info("입력 데이터 userId : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        MembershipDto membershipDto = userService.getUserMembership(userId);
+        MembershipDto membershipDto = userService.getUserMembership(input.getUserId());
 
         data.put("msg", "success");
         data.put("data", membershipDto);
@@ -226,13 +224,13 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/membership/time/{userId}")
-    public ResponseEntity<?> getUserMembershipTime(@PathVariable String userId) {
+    @PostMapping("/membership/time")
+    public ResponseEntity<?> getUserMembershipTime(@RequestBody UserGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
+        log.info("입력 데이터 userId : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        MembershipTimeDto membershipTimeDto = userService.getUserMembershipTime(userId);
+        MembershipTimeDto membershipTimeDto = userService.getUserMembershipTime(input.getUserId());
 
         data.put("msg", "success");
         data.put("data", membershipTimeDto);
@@ -242,13 +240,13 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/membership/count/{userId}")
-    public ResponseEntity<?> getUserMembershipCount(@PathVariable String userId) {
+    @PostMapping("/membership/count")
+    public ResponseEntity<?> getUserMembershipCount(@PathVariable UserGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
+        log.info("입력 데이터 userId : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        MembershipCountDto membershipCountDto = userService.getUserMembershipCount(userId);
+        MembershipCountDto membershipCountDto = userService.getUserMembershipCount(input.getUserId());
 
         data.put("msg", "success");
         data.put("data", membershipCountDto);
@@ -303,13 +301,13 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/get/start/{userId}")
-    public ResponseEntity<?> getUserStart(@PathVariable String userId) {
+    @PostMapping("/get/start")
+    public ResponseEntity<?> getUserStart(@RequestBody UserGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
+        log.info("입력 데이터 userId : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        List<DateTimeDto> list =  userService.getUserStart(userId);
+        List<DateTimeDto> list =  userService.getUserStart(input.getUserId());
 
         data.put("msg", "success");
         data.put("data", list);
@@ -319,14 +317,13 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/get/start/{userId}/{month}")
-    public ResponseEntity<?> getUserMonthStart(@PathVariable String userId, @PathVariable String month) {
+    @PostMapping("/get/start/month")
+    public ResponseEntity<?> getUserMonthStart(@RequestBody UserGetMonthDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
-        log.info("입력 데이터 month : {}", month);
+        log.info("입력 데이터 input : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        List<DateTimeDto> list =  userService.getUserMonthStart(userId, month);
+        List<DateTimeDto> list =  userService.getUserMonthStart(input.getUserId(), input.getMonth());
 
         data.put("msg", "success");
         data.put("data", list);
@@ -336,13 +333,13 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/get/end/{userId}")
-    public ResponseEntity<?> getUserEnd(@PathVariable String userId) {
+    @PostMapping("/get/end")
+    public ResponseEntity<?> getUserEnd(@RequestBody UserGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
+        log.info("입력 데이터 input : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        List<DateTimeDto> list =  userService.getUserEnd(userId);
+        List<DateTimeDto> list =  userService.getUserEnd(input.getUserId());
 
         data.put("msg", "success");
         data.put("data", list);
@@ -352,14 +349,13 @@ public class UserController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/get/end/{userId}/{month}")
-    public ResponseEntity<?> getUserMonthEnd(@PathVariable String userId, @PathVariable String month) {
+    @PostMapping("/get/end/month")
+    public ResponseEntity<?> getUserMonthEnd(@RequestBody UserGetMonthDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
-        log.info("입력 데이터 month : {}", month);
+        log.info("입력 데이터 input : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        List<DateTimeDto> list =  userService.getUserMonthEnd(userId, month);
+        List<DateTimeDto> list =  userService.getUserMonthEnd(input.getUserId(), input.getMonth());
 
         data.put("msg", "success");
         data.put("data", list);

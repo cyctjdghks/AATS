@@ -2,6 +2,7 @@ package com.ssafy.d102.controller;
 
 import com.ssafy.d102.data.dto.MembershipCountDto;
 import com.ssafy.d102.data.dto.MembershipTimeDto;
+import com.ssafy.d102.data.dto.request.UserGetDto;
 import com.ssafy.d102.data.dto.response.CountMembershipDto;
 import com.ssafy.d102.data.dto.response.TimeMembershipDto;
 import com.ssafy.d102.service.MembershipService;
@@ -23,14 +24,14 @@ public class MembershipController {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @PostMapping("/time/{userId}")
-    public ResponseEntity<?> registTimeMembership(@PathVariable String userId, @RequestBody MembershipTimeDto input) {
+    @PostMapping("/time")
+    public ResponseEntity<?> registTimeMembership(@RequestBody MembershipTimeDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
+        log.info("입력 데이터 userId : {}", input.getUserId());
         log.info("입력 데이터 input : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        membershipService.registTimeMembership(userId, input);
+        membershipService.registTimeMembership(input.getUserId(), input);
 
         data.put("msg", "success");
 
@@ -39,14 +40,14 @@ public class MembershipController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @PostMapping("/count/{userId}")
-    public ResponseEntity<?> registCountMembership(@PathVariable String userId, @RequestBody MembershipCountDto input) {
+    @PostMapping("/count")
+    public ResponseEntity<?> registCountMembership(@RequestBody MembershipCountDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
+        log.info("입력 데이터 userId : {}", input.getUserId());
         log.info("입력 데이터 input : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        membershipService.registCountMembership(userId, input);
+        membershipService.registCountMembership(input.getUserId(), input);
 
         data.put("msg", "success");
 
@@ -55,13 +56,13 @@ public class MembershipController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/time/{userId}")
-    public ResponseEntity<?> getTimeMembership(@PathVariable String userId) {
+    @PostMapping("/time/get")
+    public ResponseEntity<?> getTimeMembership(@RequestBody UserGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
+        log.info("입력 데이터 input : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        TimeMembershipDto timeMembershipDto = membershipService.getTimeMembership(userId);
+        TimeMembershipDto timeMembershipDto = membershipService.getTimeMembership(input.getUserId());
 
         data.put("msg", "success");
         data.put("data", timeMembershipDto);
@@ -71,13 +72,13 @@ public class MembershipController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/count/{userId}")
-    public ResponseEntity<?> getCountMembership(@PathVariable String userId) {
+    @PostMapping("/count/get")
+    public ResponseEntity<?> getCountMembership(@RequestBody UserGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 userId : {}", userId);
+        log.info("입력 데이터 input : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        CountMembershipDto countMembershipDto = membershipService.getCountMembership(userId);
+        CountMembershipDto countMembershipDto = membershipService.getCountMembership(input.getUserId());
 
         data.put("msg", "success");
         data.put("data", countMembershipDto);
