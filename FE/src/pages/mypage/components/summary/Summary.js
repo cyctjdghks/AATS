@@ -46,39 +46,43 @@ const Summary = () => {
   }
 
   return (
-    <div className={classes.summary}>
-      <div className={classes.firstBox}>
-        <p>Today : {today}</p>
-        <div className={classes.timeBox}>
-          <div>
-            <p>{todayStartTime}</p>
-            <p>{todayStart}</p>
-          </div>
-          <div>
-            <p>{todayEndTime}</p>
-            <p>{todayEnd}</p>
-          </div>
-        </div>
-      </div>
-      <hr className={classes.verticalHr} />
-      <div className={classes.secondBox}>
-        <CommutePie></CommutePie>
-      </div>
-      <hr className={classes.verticalHr} />
-      <div className={classes.thirdBox}>
-        <div className={classes.commuteBox}>
-          <div className={classes.attendanceBox}>
-            <p>출근</p>
-            <p>정상 출근 : {commuteData.normalAttendance}</p>
-            <p>지각 : {commuteData.late}</p>
-          </div>
-          <div className={classes.leaveBox}>
-            <p>퇴근</p>
-            <p>정상 퇴근 : {commuteData.normalLeave}</p>
-            <p>조퇴 : {commuteData.earlyLeave}</p>
+    <div>
+      <p className={classes.summaryTitle}>출결 현황</p>
+      <div className={classes.summary}>
+        <div className={classes.firstBox}>
+          <p className={classes.today}>TODAY</p>
+          <p className={classes.today2}>{today}</p>
+          <div className={classes.timeBox}>
+            <div>
+              <p>{todayStartTime}</p>
+              <p>{todayStart}</p>
+            </div>
+            <div>
+              <p>{todayEndTime}</p>
+              <p>{todayEnd}</p>
+            </div>
           </div>
         </div>
-        <div>결근 : {commuteData.absen}</div>
+        <hr className={classes.verticalHr} />
+        <div className={classes.secondBox}>
+          <CommutePie></CommutePie>
+        </div>
+        <hr className={classes.verticalHr} />
+        <div className={classes.thirdBox}>
+          <div className={classes.commuteBox}>
+            <div className={classes.attendanceBox}>
+              <p>출근</p>
+              <p>정상 출근 : {commuteData.normalAttendance}</p>
+              <p>지각 : {commuteData.late}</p>
+            </div>
+            <div className={classes.leaveBox}>
+              <p>퇴근</p>
+              <p>정상 퇴근 : {commuteData.normalLeave}</p>
+              <p>조퇴 : {commuteData.earlyLeave}</p>
+            </div>
+          </div>
+          <div>결근 : {commuteData.absen}</div>
+        </div>
       </div>
     </div>
   );

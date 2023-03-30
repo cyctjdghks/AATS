@@ -25,7 +25,7 @@
   
   .pageBox {
     text-align: left;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     height: 100%;
     background-color: rgb(235, 235, 235);
     display: flex;
@@ -113,6 +113,7 @@
   }
   
   .imgBox {
+    padding-top: 15px;
     width: 40%;
     margin-top: 60px;
   }
