@@ -1,5 +1,6 @@
 package com.ssafy.d102.controller;
 
+import com.ssafy.d102.data.dto.request.cctvGetDto;
 import com.ssafy.d102.data.dto.response.cctvDto;
 import com.ssafy.d102.data.dto.request.cctvRegistDto;
 import com.ssafy.d102.service.CCTVService;
@@ -36,12 +37,13 @@ public class CCTVController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @GetMapping("/get/{cctvNo}")
-    public ResponseEntity<?> getCctv(@PathVariable Long cctvNo) {
+    @PostMapping("/get")
+    public ResponseEntity<?> getCctv(@RequestBody cctvGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
-        log.info("입력 데이터 cctvNo : {}", cctvNo);
+        log.info("입력 데이터 cctvNo : {}", input);
+
         Map<String, Object> data = new HashMap<>();
-        cctvDto cctvDto = cctvService.getCctv(cctvNo);
+        cctvDto cctvDto = cctvService.getCctv(input.getCctvNo());
 
         data.put("msg", "success");
         data.put("data", cctvDto);
