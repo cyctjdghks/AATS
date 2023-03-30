@@ -1,5 +1,6 @@
 .authBox {
   min-height: calc(100vh - 160px);
+  height: 100%;
   position: relative;
   background-color: rgb(235, 235, 235);
 }

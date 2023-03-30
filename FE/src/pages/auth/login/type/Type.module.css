@@ -111,7 +111,7 @@
 .pageSubBox {
   width: 70%;
   margin: auto;
-  height: 400px;
+  padding-bottom: 10px;
 }
 
 .pageTitle {
