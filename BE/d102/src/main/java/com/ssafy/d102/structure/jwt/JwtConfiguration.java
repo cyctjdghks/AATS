@@ -15,9 +15,12 @@ public class JwtConfiguration implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtInterceptor)
                 .order(1)
-                .addPathPatterns("/organization/**", "/worker/**", "/user/**", "/cctv/**", "/membership/**")   // 탐색 부분 설정
-                .excludePathPatterns("/user/login", "/user/regist", // 탐색 제외 부분 설정
-                        "/worker/login", "/worker/regist",
-                        "/organization/login", "/organization/regist");
+                .addPathPatterns(
+//                        "/organization/**", "/worker/**", "/user/**", "/cctv/**", "/membership/**"
+                )   // 탐색 부분 설정
+//                .excludePathPatterns("/user/login", "/user/regist", // 탐색 제외 부분 설정
+//                        "/worker/login", "/worker/regist",
+//                        "/organization/login", "/organization/regist")
+                        ;
     }
 }
