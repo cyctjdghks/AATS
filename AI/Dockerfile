@@ -11,9 +11,9 @@ WORKDIR /usr/app/venv/bin
 COPY /object /usr/app/venv
 RUN sudo chmod 777 /usr/app/venv/bin/activate 
 RUN . /usr/app/venv/bin/activate \
-    && git clone https://github.com/tensorflow/models.git
-    && cd /usr/app/venv/bin/models/research
-    && cp object_detection/packages/tf2/setup.py .\
+    && git clone https://github.com/tensorflow/models.git \
+    && cd /usr/app/venv/bin/models/research \
+    && cp object_detection/packages/tf2/setup.py . \
     && python3 -m pip install . \
     && wget https://repo1.maven.org/maven2/com/google/protobuf/protoc/3.1.0/protoc-3.1.0-linux-x86_64.exe \
     && sudo chmod 777 ./protoc-3.1.0-linux-x86_64.exe \
