@@ -10,6 +10,7 @@ RUN virtualenv -p python3.9 venv
 
 # 가상환경을 활성화합니다.
 RUN . venv/bin/activate && \
+    git clone https://github.com/tensorflow/models.git /usr/app && \
     pwd
     
 
