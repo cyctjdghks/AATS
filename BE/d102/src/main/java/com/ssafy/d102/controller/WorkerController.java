@@ -35,6 +35,9 @@ public class WorkerController {
 
     @PostMapping("/login")
     public ResponseEntity<?> loginWorker(@RequestBody WorkerLoginDto input, HttpServletResponse response) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 input : {}", input);
+
         Map<String, Object> data = new HashMap<>();
         WorkerDto workerDto = workerService.loginWorker(input);
 
@@ -48,27 +51,37 @@ public class WorkerController {
         data.put("msg", "success");
         data.put("data", workerDto);
 
+        log.info("출력 데이터 : {}", data);
+
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("/all")
     public ResponseEntity<?> getAllWorker() {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
         Map<String, Object> data = new HashMap<>();
         List<WorkerDto> worker = workerService.getAllWorker();
 
         data.put("msg", "success");
         data.put("data", worker);
 
+        log.info("출력 데이터 : {}", data);
+
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("/get/{workerId}")
-    public ResponseEntity<?> getWorker(@PathVariable("workerId") String id) {
+    public ResponseEntity<?> getWorker(@PathVariable("workerId") String workerId) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 workerId : {}", workerId);
+
         Map<String, Object> data = new HashMap<>();
-        WorkerDto workerDto = workerService.getWorker(id);
+        WorkerDto workerDto = workerService.getWorker(workerId);
 
         data.put("msg", "success");
         data.put("data", workerDto);
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
@@ -76,6 +89,9 @@ public class WorkerController {
     @PutMapping("/update")
     public ResponseEntity<?> updateWorker(@RequestPart(name = "profile", required = false) MultipartFile profile,
                                           @RequestPart(name = "worker") WorkerRegistDto input) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 input : {}", input);
+
         Map<String, Object> data = new HashMap<>();
 
         if (profile != null) {
@@ -88,46 +104,68 @@ public class WorkerController {
 
         data.put("msg", "success");
 
+        log.info("출력 데이터 : {}", data);
+
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("/valid/{workerId}")
     public ResponseEntity<?> validWorkerId(@PathVariable String workerId) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 workerId : {}", workerId);
+
         Map<String, Object> data = new HashMap<>();
         WorkerValidIdDto workerValidIdDto = new WorkerValidIdDto(workerService.validWorkerId(workerId));
 
         data.put("msg", "success");
         data.put("data", workerValidIdDto);
 
+        log.info("출력 데이터 : {}", data);
+
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @PostMapping("/update/pw")
     public ResponseEntity<?> updateWorkerPw(@RequestBody WorkerUpdatePwDto input) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 input : {}", input);
+
         Map<String, Object> data = new HashMap<>();
         workerService.updateWorkerPw(input);
 
         data.put("msg", "success");
 
+        log.info("출력 데이터 : {}", data);
+
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("start/{workerId}")
-    public ResponseEntity<?> startWorker(@PathVariable("workerId") String id) {
+    public ResponseEntity<?> startWorker(@PathVariable("workerId") String workerId) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 workerId : {}", workerId);
+
         Map<String, Object> data = new HashMap<>();
-        workerService.startWorker(id);
+        workerService.startWorker(workerId);
 
         data.put("msg", "success");
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("end/{workerId}")
-    public ResponseEntity<?> endWorker(@PathVariable("workerId") String id) {
+    public ResponseEntity<?> endWorker(@PathVariable("workerId") String workerId) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 workerId : {}", workerId);
+
         Map<String, Object> data = new HashMap<>();
-        workerService.endWorker(id);
+        workerService.endWorker(workerId);
 
         data.put("msg", "success");
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
@@ -135,6 +173,9 @@ public class WorkerController {
     @PostMapping("/regist")
     public ResponseEntity<?> registWorker(@RequestPart(name = "profile", required = false) MultipartFile profile,
                                           @RequestPart(name = "worker") WorkerRegistDto input) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 input : {}", input);
+
         Map<String, Object> data = new HashMap<>();
 
         if (profile != null) {
@@ -147,69 +188,94 @@ public class WorkerController {
 
         data.put("msg", "success");
 
+        log.info("출력 데이터 : {}", data);
+
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @DeleteMapping("delete/{workerId}")
-    public ResponseEntity<?> deleteWorker(@PathVariable("workerId") String id) {
+    public ResponseEntity<?> deleteWorker(@PathVariable("workerId") String workerId) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 workerId : {}", workerId);
+
         Map<String, Object> data = new HashMap<>();
-        workerService.deleteWorker(id);
+        workerService.deleteWorker(workerId);
 
         data.put("msg", "success");
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("get/start/{workerId}")
-    public ResponseEntity<?> getWorkerStart(@PathVariable("workerId") String id) {
+    public ResponseEntity<?> getWorkerStart(@PathVariable("workerId") String workerId) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 workerId : {}", workerId);
+
         Map<String, Object> data = new HashMap<>();
 
-
-        List<DateTimeDto> workerStartList = workerService.getWorkerStart(id);
+        List<DateTimeDto> workerStartList = workerService.getWorkerStart(workerId);
         data.put("msg", "success");
         data.put("data", workerStartList);
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("get/start/{workerId}/{month}")
-    public ResponseEntity<?> getWorkerMonthStart(@PathVariable("workerId") String id, @PathVariable("month") String month) {
+    public ResponseEntity<?> getWorkerMonthStart(@PathVariable("workerId") String workerId, @PathVariable("month") String month) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 input : {}", workerId);
+        log.info("입력 데이터 month : {}", month);
+
         Map<String, Object> data = new HashMap<>();
 
-
-        List<DateTimeDto> workerMonthStartList = workerService.getWorkerMonthStart(id, month);
+        List<DateTimeDto> workerMonthStartList = workerService.getWorkerMonthStart(workerId, month);
         data.put("msg", "success");
         data.put("data", workerMonthStartList);
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("get/end/{workerId}")
-    public ResponseEntity<?> getWorkerEnd(@PathVariable("workerId") String id) {
+    public ResponseEntity<?> getWorkerEnd(@PathVariable("workerId") String workerId) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 workerId : {}", workerId);
+
         Map<String, Object> data = new HashMap<>();
 
-
-        List<DateTimeDto> workerEndList = workerService.getWorkerEnd(id);
+        List<DateTimeDto> workerEndList = workerService.getWorkerEnd(workerId);
         data.put("msg", "success");
         data.put("data", workerEndList);
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("get/end/{workerId}/{month}")
-    public ResponseEntity<?> getWorkerMonthEnd(@PathVariable("workerId") String id, @PathVariable("month") String month) {
+    public ResponseEntity<?> getWorkerMonthEnd(@PathVariable("workerId") String workerId, @PathVariable("month") String month) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 workerId : {}", workerId);
+
         Map<String, Object> data = new HashMap<>();
 
-
-        List<DateTimeDto> workerMonthEndList = workerService.getWorkerMonthEnd(id, month);
+        List<DateTimeDto> workerMonthEndList = workerService.getWorkerMonthEnd(workerId, month);
         data.put("msg", "success");
         data.put("data", workerMonthEndList);
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("/logout")
     public ResponseEntity<?> logout(HttpServletResponse response){
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
         String logoutMSG = "logout";
         Map<String, Object> data = new HashMap<>();
 
@@ -219,6 +285,8 @@ public class WorkerController {
         response.addCookie(cookie);
 
         data.put("msg", "success");
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data, HttpStatus.OK );
     }
