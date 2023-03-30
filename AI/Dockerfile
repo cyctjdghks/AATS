@@ -10,6 +10,7 @@ RUN python3 -m venv venv
 WORKDIR /usr/app/venv/bin
 COPY /object /usr/app/venv
 COPY /main.py /usr/app
+RUN cat /etc/issue
 RUN sudo chmod 777 /usr/app/venv/bin/activate 
 RUN . /usr/app/venv/bin/activate \
     && git clone https://github.com/tensorflow/models.git \
