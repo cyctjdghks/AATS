@@ -200,10 +200,10 @@ public class UserServiceImpl implements UserService {
 
         TimeLimitedMembership timeLimitedMembership = getTimeLimitedMembershipByMembership(membership);
 
-        MembershipTimeDto membershipTimeDto = new MembershipTimeDto(
-                timeLimitedMembership.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")),
-                timeLimitedMembership.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-        );
+        MembershipTimeDto membershipTimeDto = new MembershipTimeDto();
+
+        membershipTimeDto.setStartTime(timeLimitedMembership.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")));
+        membershipTimeDto.setEndTime(timeLimitedMembership.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")));
 
         return membershipTimeDto;
     }
@@ -221,9 +221,9 @@ public class UserServiceImpl implements UserService {
 
         CountBasedMembership countBasedMembership = getCountBasedMembershipByMembership(membership);
 
-        MembershipCountDto membershipCountDto = new MembershipCountDto(
-                countBasedMembership.getCount()
-        );
+        MembershipCountDto membershipCountDto = new MembershipCountDto();
+
+        membershipCountDto.setCount(countBasedMembership.getCount());
 
         return membershipCountDto;
     }
