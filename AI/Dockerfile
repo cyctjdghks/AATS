@@ -12,8 +12,7 @@ COPY /object /usr/app/venv
 RUN ls
 RUN sudo chmod 777 /usr/app/venv/bin/activate 
 RUN . /usr/app/venv/bin/activate \
-    && deactivate
+    && pip3 insatall -r /usr/app/venv/Lib/site-packages/requirments.txt;
 WORKDIR /usr/app/venv/Lib/site-packages
-RUN python3 main.py
 EXPOSE 8083
 CMD ["python3", "main.py"]
