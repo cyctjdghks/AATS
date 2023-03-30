@@ -56,17 +56,22 @@
 .today{
   font-family: "Apple_Gothic_Neo_EBold";
   font-size: 29px;
-  margin-top: -130px;
+  margin-top: -20px;
 }
 
 .today2{
   font-family: "Apple_Gothic_Neo_Mid";
   margin-top: -30px;
+  margin-bottom: 50px;
 }
 
 .verticalHr {
-  height: 90%;
+  height: 80%;
   margin: 0;
+  width: 2px;
+  background-color: rgb(231, 231, 231);
+  color: rgb(231, 231, 231);
+  border: none;
 }
 .firstBox{
   width: calc(45% - 125px);
@@ -77,6 +82,32 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.startBtn{
+  background-color: white;
+  height: 100px;
+  width: 45%;
+  text-align: center;
+  color: black;
+}
+
+.endBtn{
+  background-color: #4786FF;
+  height: 100px;
+  width: 45%;
+  text-align: center;
+  margin-right: 20px;
+  color: white;
+}
+
+.startP1{
+  
+}
+
+.startP2{
+  font-family: "Apple_Gothic_Neo_Bold";
+}
+
 .commuteBox{
   display: flex;
   justify-content: space-around;
@@ -85,6 +116,46 @@
 .attendanceBox{
   text-align: left;
 }
+
+.attendanceText1{
+  display: flex;
+  justify-content: space-between;
+}
+
+.attendanceBoxP1{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  border: none;
+  background-color: rgb(18, 212, 18);
+  color: white;
+  border-radius: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.attendanceBoxP2{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  border: none;
+  background-color: rgb(18, 54, 212);
+  color: white;
+  border-radius: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.normalAttendance{
+  font-family: "Apple_Gothic_Neo_R";
+}
+
+.normalAttendance2{
+  font-family: "Apple_Gothic_Neo_Bold";
+}
+
 .leaveBox{
   text-align: left;
 }
