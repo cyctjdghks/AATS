@@ -21,11 +21,5 @@ RUN apt-get update && apt-get install -y git protobuf-compiler && \
     pip install . && \
     pip list
 
-# pip 업그레이드
-RUN /app/venv/bin/python3 -m pip install --upgrade pip
-
-# 소스 코드 복사
-COPY . .
-
 # 컨테이너 실행 시 실행될 명령어 설정
 CMD ["python3", "app.py"]
