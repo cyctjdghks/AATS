@@ -23,21 +23,23 @@ const Search = () => {
     event.preventDefault();
     setType(!type);
   };
-
-  const data = type ? userDatas : workerDatas;
-
+  
   const [searchName, setSearchName] = useState("");
+  const [data, setData] = useState([])
   let newData = [];
+
   const createData = () => {
-    if (data !== null) {
+    setData(type ? userDatas : workerDatas)
+    if (data !== []) {
       for (let value of data.values()) {
         if (value.userName.includes(searchName)) {
           newData.push(value);
         }
       }
+    }else{
     }
   };
-  createData();
+  
 
   newData.sort(function (a, b) {
     if (a.userStatus < b.userStatus) {
@@ -70,6 +72,7 @@ const Search = () => {
   };
   useEffect(() => {
     getDatas();
+    createData();
   });
 
   return (
