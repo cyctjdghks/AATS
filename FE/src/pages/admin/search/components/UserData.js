@@ -1,12 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { authActions } from "../../../../store/auth"
 
 import classes from "./UserData.module.css";
 
 const UserDatas = ({ data, type }) => {
-  const naviagte = useNavigate();
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const gender = () => {
     if (type ? data.userGender : data.workerGender) {
       return "남자";
@@ -21,10 +18,11 @@ const UserDatas = ({ data, type }) => {
       return "off";
     }
   };
-  
-  const toDetail = () =>{
-    // dispatch(authActions.)
-  }
+
+  const toDetail = (event) => {
+    event.preventDefault();
+    navigate("/admin/detail", {state :  {data : data, type: type}})
+  };
 
   const userData = {
     id: type ? data.userId : data.workerId,
@@ -34,7 +32,7 @@ const UserDatas = ({ data, type }) => {
     email: type ? data.userEmail : data.workerEmail,
   };
   return (
-    <div className={classes.userDataBox}>
+    <div className={classes.userDataBox} onClick={toDetail}>
       <div className={classes.idBox}>{userData.id}</div>
       <div className={classes.nameBox}>{userData.name}</div>
       <div className={classes.genderBox}>{userData.gender}</div>

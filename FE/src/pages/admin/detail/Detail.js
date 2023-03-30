@@ -1,13 +1,15 @@
-import Info from "../../mypage/components/info/Info";
-import Summary from "../../mypage/components/summary/Summary";
-import Calendar from "../../mypage/components/calendar/Calendar";
+import Info from "./components/info/Info";
+import Summary from "./components/summary/Summary";
+import { useLocation } from "react-router-dom";
+
+import classes from "./Detail.module.css"
 
 const Detail = () => {
+  const {state} = useLocation();
   return (
-    <div>
-      <Info />
+    <div className={classes.detail}>
+      <Info data={state.data} type={!state.type}/>
       <Summary />
-      <Calendar />
     </div>
   );
 };
