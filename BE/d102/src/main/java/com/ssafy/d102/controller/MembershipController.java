@@ -1,7 +1,9 @@
 package com.ssafy.d102.controller;
 
-import com.ssafy.d102.data.dto.MembershipCountDto;
-import com.ssafy.d102.data.dto.MembershipTimeDto;
+import com.ssafy.d102.data.dto.request.MembershipCountGetDto;
+import com.ssafy.d102.data.dto.request.MembershipTimeGetDto;
+import com.ssafy.d102.data.dto.response.MembershipCountDto;
+import com.ssafy.d102.data.dto.response.MembershipTimeDto;
 import com.ssafy.d102.data.dto.request.UserGetDto;
 import com.ssafy.d102.data.dto.response.CountMembershipDto;
 import com.ssafy.d102.data.dto.response.TimeMembershipDto;
@@ -25,7 +27,7 @@ public class MembershipController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @PostMapping("/time")
-    public ResponseEntity<?> registTimeMembership(@RequestBody MembershipTimeDto input) {
+    public ResponseEntity<?> registTimeMembership(@RequestBody MembershipTimeGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
         log.info("입력 데이터 userId : {}", input.getUserId());
         log.info("입력 데이터 input : {}", input);
@@ -41,7 +43,7 @@ public class MembershipController {
     }
 
     @PostMapping("/count")
-    public ResponseEntity<?> registCountMembership(@RequestBody MembershipCountDto input) {
+    public ResponseEntity<?> registCountMembership(@RequestBody MembershipCountGetDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
         log.info("입력 데이터 userId : {}", input.getUserId());
         log.info("입력 데이터 input : {}", input);

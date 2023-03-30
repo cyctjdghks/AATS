@@ -1,8 +1,10 @@
 package com.ssafy.d102.service.impl;
 
+import com.ssafy.d102.data.dto.request.MembershipCountGetDto;
+import com.ssafy.d102.data.dto.request.MembershipTimeGetDto;
 import com.ssafy.d102.data.dto.response.CountMembershipDto;
-import com.ssafy.d102.data.dto.MembershipCountDto;
-import com.ssafy.d102.data.dto.MembershipTimeDto;
+import com.ssafy.d102.data.dto.response.MembershipCountDto;
+import com.ssafy.d102.data.dto.response.MembershipTimeDto;
 import com.ssafy.d102.data.dto.response.TimeMembershipDto;
 import com.ssafy.d102.data.entity.CountBasedMembership;
 import com.ssafy.d102.data.entity.Membership;
@@ -32,7 +34,7 @@ public class MembershipServiceImpl implements MembershipService {
 
     @Override
     @Transactional
-    public void registTimeMembership(String userId, MembershipTimeDto input) {
+    public void registTimeMembership(String userId, MembershipTimeGetDto input) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("유저 아이디가 없습니다"));
 
@@ -97,7 +99,7 @@ public class MembershipServiceImpl implements MembershipService {
 
     @Override
     @Transactional
-    public void registCountMembership(String userId, MembershipCountDto input) {
+    public void registCountMembership(String userId, MembershipCountGetDto input) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("유저 아이디가 없습니다"));
 

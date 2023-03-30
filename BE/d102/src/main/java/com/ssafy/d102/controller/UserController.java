@@ -1,7 +1,7 @@
 package com.ssafy.d102.controller;
 
-import com.ssafy.d102.data.dto.MembershipCountDto;
-import com.ssafy.d102.data.dto.MembershipTimeDto;
+import com.ssafy.d102.data.dto.response.MembershipCountDto;
+import com.ssafy.d102.data.dto.response.MembershipTimeDto;
 import com.ssafy.d102.data.dto.request.*;
 import com.ssafy.d102.data.dto.response.*;
 import com.ssafy.d102.data.entity.Image;
