@@ -6,7 +6,7 @@ WORKDIR /app
 
 # 가상환경 생성
 RUN python3 -m venv /app/venv
-
+RUN apt-get update && apt-get install -y sudo && pip3 install wget && pip3 install pip
 # 가상환경 활성화
 ENV PATH="/app/venv/bin:$PATH"
 
