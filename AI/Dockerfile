@@ -15,6 +15,7 @@ RUN git clone https://github.com/tensorflow/models.git && \
     cp object_detection/packages/tf2/setup.py . && \
     python -m pip install --no-cache-dir . && \
     pip install flask && \
+    pip install opencv-python && \
     pwd && \
     ls
     
