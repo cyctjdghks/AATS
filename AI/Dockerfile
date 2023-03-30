@@ -1,28 +1,15 @@
-FROM python:3.9.16
-# RUN pip install --upgrade pip
-RUN apt-get update && apt-get install -y sudo && pip3 install wget && pip3 install pip
-#  RUN adduser --disabled-password --gecos "" user  \
-#    && echo 'user:user' | chpasswd \
-#    && adduser user sudo \
-#    && echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-WORKDIR /usr/app
-RUN python3 -m venv venv
-WORKDIR /usr/app/venv/bin
-COPY /object /usr/app/venv
-COPY /main.py /usr/app
-RUN cat /etc/issue
-RUN sudo chmod 777 /usr/app/venv/bin/activate 
-RUN . /usr/app/venv/bin/activate \
-    && git clone https://github.com/tensorflow/models.git \
-    && cd /usr/app/venv/bin/models/research \
-    && cp object_detection/packages/tf2/setup.py . \
-    && python3 -m pip install . \
-    && wget https://repo1.maven.org/maven2/com/google/protobuf/protoc/3.1.0/protoc-3.1.0-linux-x86_64.exe \
-    && sudo chmod 777 ./protoc-3.1.0-linux-x86_64.exe \
-    && ./protoc-3.1.0-linux-x86_64.exe object_detection/protos/*.proto --python_out=. \
-    && cd usr/app \ 
-    && python3 main.py
-WORKDIR /usr/app
-RUN ls
-EXPOSE 8083
-CMD ["python3", "main.py"]
+# 베이스 이미지로 파이썬 3.9-slim-buster 사용
+FROM python:3.9-slim-buster
+
+# 작업 디렉토리 설정
+WORKDIR /app
+
+# 의존성 설치
+COPY requirements.txt requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# 소스 코드 복사
+COPY . .
+
+# 컨테이너 실행 시 실행될 명령어 설정
+CMD ["python3", "app.py"]
