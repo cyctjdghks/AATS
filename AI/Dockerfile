@@ -11,7 +11,16 @@ RUN python3 -m venv /app/venv
 ENV PATH="/app/venv/bin:$PATH"
 
 # 의존성 설치
-RUN pip3 list
+COPY requirements.txt requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# TensorFlow Object Detection API 설치
+RUN apt-get update && apt-get install -y git protobuf-compiler && \
+    git clone https://github.com/tensorflow/models.git /app/models && \
+    cd /app/models/research && \
+    protoc object_detection/protos/*.proto --python_out=. && \
+    pip install .
+    pip list
 
 # 소스 코드 복사
 COPY . .
