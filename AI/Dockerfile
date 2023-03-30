@@ -9,8 +9,6 @@ RUN python3 -m venv /app/venv
 ENV PATH="/app/venv/bin:$PATH"
 
 # 의존성 설치
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
 
 # TensorFlow Object Detection API 설치
 RUN apt-get update && apt-get install -y git protobuf-compiler && \
@@ -21,7 +19,7 @@ RUN apt-get update && apt-get install -y git protobuf-compiler && \
     python -m pip install .
 
 # 소스 코드 복사
-COPY . .
+
 
 # 컨테이너 실행 시 실행될 명령어 설정
 CMD ["python", "app.py"]
