@@ -29,7 +29,9 @@ public class OrganizationController {
 
     @PostMapping("/login")
     public ResponseEntity<?> loginOrganization(@RequestBody OrganizationLoginDto input, HttpServletResponse response) {
-        log.info("loginOrganization Method start");
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 input : {}", input);
+
         Map<String, Object> data = new HashMap<>();
         OrganizationDto organizationDto = service.loginOrganization(input);
 
@@ -43,76 +45,101 @@ public class OrganizationController {
         cookie.setPath("/");
         response.addCookie(cookie);
 
+        log.info("출력 데이터 : {}", data);
+
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @PostMapping("/regist")
     public ResponseEntity<?> registOrganization(@RequestBody OrganizationDto input){
-        log.info("registOrganization Method start");
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 input : {}", input);
+
         Map<String, Object> data = new HashMap<>();
         service.registOrganization(input);
 
         data.put("msg", "success");
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("/getall")
     public ResponseEntity<?> getAllOrganization(){
-        log.info("getAllOrganization Method start");
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+
         Map<String, Object> data = new HashMap<>();
         List<OrganizationDto> list = service.getAllOrganization();
 
         data.put("msg", "success");
         data.put("data", list);
 
+        log.info("출력 데이터 : {}", data);
+
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @GetMapping("/getone/{organizationId}")
     public ResponseEntity<?> getOrganization (@PathVariable String organizationId){
-        log.info("getOrganization Method start");
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+
         Map<String, Object> data = new HashMap<>();
         OrganizationDto organizationDto = service.getOrganization(organizationId);
 
         data.put("msg", "success");
         data.put("data", organizationDto);
 
+        log.info("출력 데이터 : {}", data);
+
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<?> updateOrganization(@RequestBody OrganizationDto organizationDto){
-        log.info("getOrganization Method start");
+    public ResponseEntity<?> updateOrganization(@RequestBody OrganizationDto input){
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 input : {}", input);
+
         Map<String, Object> data = new HashMap<>();
 
-        OrganizationDto dto = service.updateOrganization(organizationDto);
+        OrganizationDto dto = service.updateOrganization(input);
 
         data.put("msg", "success");
         data.put("data", dto);
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data,HttpStatus.OK);
     }
 
     @GetMapping("/valid/{organizationId}")
     public ResponseEntity<?> validOrganizationId(@PathVariable String organizationId) {
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 organizationId : {}", organizationId);
+
         Map<String, Object> data = new HashMap<>();
         OrganizationValidIdDto organizationValidIdDto = new OrganizationValidIdDto(service.validOrganizationId(organizationId));
 
         data.put("msg", "success");
         data.put("data", organizationValidIdDto);
 
+        log.info("출력 데이터 : {}", data);
+
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @PutMapping("/changepw")
-    public ResponseEntity<?> changePw(@RequestBody OrganizationUpdatePwDto organizationUpdatePwDto){
-        log.info("changePw Method start");
+    public ResponseEntity<?> changePw(@RequestBody OrganizationUpdatePwDto input){
+        log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
+        log.info("입력 데이터 input : {}", input);
+
         Map<String, Object> data = new HashMap<>();
 
-        service.changePw(organizationUpdatePwDto);
+        service.changePw(input);
 
         data.put("msg", "success");
+
+        log.info("출력 데이터 : {}", data);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
