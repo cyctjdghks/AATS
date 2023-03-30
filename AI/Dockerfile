@@ -19,7 +19,7 @@ RUN cp object_detection/packages/tf2/setup.py .\
 RUN ls
 RUN sudo chmod 777 /usr/app/venv/bin/activate 
 RUN . /usr/app/venv/bin/activate \
-    && pip3 install -r /usr/app/venv/Lib/site-packages/requirements.txt; \
+    && pip3 install -r /usr/app/venv/Lib/site-packages/requirements.txt \
     && python3 /usr/app/venv/lib/site-packeges/main.py;
 WORKDIR /usr/app/venv/Lib/site-packages
 RUN ls
