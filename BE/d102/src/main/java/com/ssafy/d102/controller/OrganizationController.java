@@ -87,8 +87,6 @@ public class OrganizationController {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
         String organizationId = input.get("organizationId");
 
-        log.info("sdasdasdasdasdasdasdasdasdas" + organizationId);
-
         Map<String, Object> data = new HashMap<>();
 
         List<UserDto> list = service.getAllUserByOrganization(organizationId);
