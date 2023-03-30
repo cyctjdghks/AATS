@@ -1,78 +1,54 @@
+import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import UserDatas from "./components/UserData";
-import { useDispatch, useSelector } from "react-redux";
-import classes from "./Search.module.css";
-import { useEffect, useState } from "react";
-import { authActions } from "../../../store/auth";
+
+import SearchIcon from "@mui/icons-material/Search";
 
 import quote1 from "../../../assets/auths/quote1.png";
 import quote2 from "../../../assets/auths/quote2.png";
 
-import SearchIcon from "@mui/icons-material/Search";
-import axios from "axios";
+import classes from "./Search.module.css";
 
 const Search = () => {
-  const dispatch = useDispatch();
   const organizationName = useSelector(
     (state) => state.auth.organizationData.organizationName
   );
   const workerDatas = useSelector((state) => state.auth.workers);
   const userDatas = useSelector((state) => state.auth.users);
+
   const [type, setType] = useState(0);
 
   const typeChange = (event) => {
     event.preventDefault();
     setType(!type);
   };
-  
+
   const [searchName, setSearchName] = useState("");
-  const [data, setData] = useState([])
-  let newData = [];
+
+  const data = type ? userDatas : workerDatas;
 
   const createData = () => {
-    setData(type ? userDatas : workerDatas)
-    if (data !== []) {
-      for (let value of data.values()) {
-        if (value.userName.includes(searchName)) {
-          newData.push(value);
-        }
+    let tmpData = [];
+    for (let value of data.values()) {
+      const str = type ? value.userName || "" : value.workerName || "";
+      if (str.includes(searchName)) {
+        tmpData.push(value);
       }
-    }else{
     }
+    return tmpData;
   };
-  
+
+  const newData = createData();
 
   newData.sort(function (a, b) {
-    if (a.userStatus < b.userStatus) {
+    if (type ? a.userStatus < b.userStatus : a.workerStatus < b.workerStatus) {
       return 1;
     }
-    if (a.userStatus > b.userStatus) {
+    if (type ? a.userStatus > b.userStatus : a.workerStatus > b.workerStatus) {
       return -1;
     }
     return 0;
-  });
-  const getDatas = () => {
-    const workerUrl = "https://j8d102.p.ssafy.io/be/worker/all";
-    axios
-      .get(workerUrl)
-      .then((response) => {
-        dispatch(authActions.getWorkers(response.data.data));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    const userUrl = "https://j8d102.p.ssafy.io/be/user/all";
-    axios
-      .get(userUrl)
-      .then((response) => {
-        dispatch(authActions.getUsers(response.data.data));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  useEffect(() => {
-    getDatas();
-    createData();
   });
 
   return (
@@ -113,7 +89,7 @@ const Search = () => {
         </div>
         <hr className={classes.horizenHr} />
         {newData.map((newData, idx) => (
-          <UserDatas key={idx} userData={newData} />
+          <UserDatas key={idx} data={newData} type={type} />
         ))}
       </div>
     </div>

@@ -3,7 +3,7 @@ import InputLabel from "../../components/InputLabel";
 import { DataInput } from "../../components/Effectiveness";
 import axios from "axios";
 import { authActions } from "../../../../store/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import classes from "./Organization.module.css";
@@ -38,6 +38,7 @@ const Organization = () => {
       .then((response) => {
         if (response.status === 200) {
           dispatch(authActions.organizationLogin(response.data.data));
+          const orgid = response.data.data.organizationId
           Swal.fire({
             title:
               '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 완료되었습니다.<div>',
@@ -48,8 +49,26 @@ const Organization = () => {
             confirmButtonText:
               '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
           });
+          const workerUrl = "https://j8d102.p.ssafy.io/be/organization/getall/worker";
+          const userUrl = "https://j8d102.p.ssafy.io/be/organization/getall/user";
+          axios
+            .post(workerUrl, { organizationId : orgid})
+            .then((response) => {
+              dispatch(authActions.getWorkers(response.data.data));
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+          axios
+            .post(userUrl, { organizationId : orgid})
+            .then((response) => {
+              dispatch(authActions.getUsers(response.data.data));
+            })
+            .catch((error) => {
+              console.log(error);
+            });
           navigate("/admin");
-        } else{
+        } else {
           Swal.fire({
             title:
               '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 실패했습니다.<div>',

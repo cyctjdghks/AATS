@@ -1,44 +1,45 @@
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../../../store/auth"
+
 import classes from "./UserData.module.css";
 
-const UserDatas = (props) => {
-  
+const UserDatas = ({ data, type }) => {
+  const naviagte = useNavigate();
+  const dispatch = useDispatch();
   const gender = () => {
-    if (props.userData.userGender === "성별") {
-      return "성별";
-    } else if (props.userData.userGender) {
+    if (type ? data.userGender : data.workerGender) {
       return "남자";
     } else {
       return "여자";
     }
   };
   const status = () => {
-    if (props.userData.userStatus === "상태") {
-      return "상태";
-    } else if (props.userData.userStatus) {
+    if (type ? data.userStatus : data.workerStatus) {
       return "on";
     } else {
       return "off";
     }
   };
+  
+  const toDetail = () =>{
+    // dispatch(authActions.)
+  }
 
   const userData = {
-    userId: props.userData.userId,
-    userName: props.userData.userName,
-    userGender: gender(),
-    userStatus: status(),
-    userEmail: props.userData.userEmail,
+    id: type ? data.userId : data.workerId,
+    name: type ? data.userName : data.workerName,
+    gender: gender(),
+    status: status(),
+    email: type ? data.userEmail : data.workerEmail,
   };
   return (
     <div className={classes.userDataBox}>
-      <div className={classes.idBox}>{userData.userId}</div>
-      {/* <hr className={classes.verticalLine} /> */}
-      <div className={classes.nameBox}>{userData.userName}</div>
-      {/* <hr className={classes.verticalLine} /> */}
-      <div className={classes.genderBox}>{userData.userGender}</div>
-      {/* <hr className={classes.verticalLine} /> */}
-      <div className={classes.statusBox}>{userData.userStatus}</div>
-      {/* <hr className={classes.verticalLine} /> */}
-      <div className={classes.emailBox}>{userData.userEmail}</div>
+      <div className={classes.idBox}>{userData.id}</div>
+      <div className={classes.nameBox}>{userData.name}</div>
+      <div className={classes.genderBox}>{userData.gender}</div>
+      <div className={classes.statusBox}>{userData.status}</div>
+      <div className={classes.emailBox}>{userData.email}</div>
     </div>
   );
 };
