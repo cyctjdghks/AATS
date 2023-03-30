@@ -17,7 +17,7 @@ RUN . /usr/app/venv/bin/activate \
     && python3 -m pip install . \
     && wget https://repo1.maven.org/maven2/com/google/protobuf/protoc/3.1.0/protoc-3.1.0-linux-x86_64.exe \
     && sudo chmod 777 ./protoc-3.1.0-linux-x86_64.exe \
-    && ./protoc-3.1.0-linux-x86_64.exe object_detection/protos/*.proto --python_out=.
+    && ./protoc-3.1.0-linux-x86_64.exe object_detection/protos/*.proto --python_out=. \
     && pip3 install flask \
     && pip3 install numpy \
     && ls /usr/app/venv/Lib/site-packages \
