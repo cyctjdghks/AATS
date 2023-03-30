@@ -2,18 +2,14 @@ FROM python:3.9.16
 WORKDIR /usr/app
 COPY . .
 
-# 필요한 패키지를 설치합니다.
-RUN pip install virtualenv
 
-# 가상환경을 생성합니다.
-RUN virtualenv -p python3.9 venv
+
 
 RUN apt-get update && apt-get install -y \
     protobuf-compiler \
     && rm -rf /var/lib/apt/lists/*
 # 가상환경을 활성화합니다.
-RUN . venv/bin/activate && \
-    git clone https://github.com/tensorflow/models.git && \
+RUN git clone https://github.com/tensorflow/models.git && \
     cd models/research && \
     protoc object_detection/protos/*.proto --python_out=. && \
     cp object_detection/packages/tf2/setup.py . && \
