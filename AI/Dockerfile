@@ -9,6 +9,7 @@ WORKDIR /usr/app
 RUN python3 -m venv venv
 WORKDIR /usr/app/venv/bin
 COPY /object /usr/app/venv
+COPY /main.py /usr/app
 RUN sudo chmod 777 /usr/app/venv/bin/activate 
 RUN . /usr/app/venv/bin/activate \
     && git clone https://github.com/tensorflow/models.git \
@@ -18,9 +19,9 @@ RUN . /usr/app/venv/bin/activate \
     && wget https://repo1.maven.org/maven2/com/google/protobuf/protoc/3.1.0/protoc-3.1.0-linux-x86_64.exe \
     && sudo chmod 777 ./protoc-3.1.0-linux-x86_64.exe \
     && ./protoc-3.1.0-linux-x86_64.exe object_detection/protos/*.proto --python_out=. \
-    && ls /usr/app/venv/Lib/site-packages \
+    && cd usr/app \ 
     && python3 main.py
-WORKDIR /usr/app/venv/Lib/site-packages
+WORKDIR /usr/app
 RUN ls
 EXPOSE 8083
 CMD ["python3", "main.py"]
