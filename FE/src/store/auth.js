@@ -20,64 +20,7 @@ const initialState = {
     userNationality: "대한민국",
     userProfile: "linklinklink",
   },
-  users: [
-    {
-      userId: "bingbang",
-      userName: "이병일",
-      userStatus: 1,
-      organizationId: "ssafy",
-      organizationName: "ssafy",
-      userGender: 1,
-      userAge: 27,
-      userPhone: "010-1234-5678",
-      userEmail: "ssafy1234@ssafy.com",
-      userBirth: "1997-11-05",
-      userNationality: "대한민국",
-      userProfile: "linklinklink",
-    },
-    {
-      userId: "bingbang",
-      userName: "이병이",
-      userStatus: 1,
-      organizationId: "ssafy",
-      organizationName: "ssafy",
-      userGender: 1,
-      userAge: 27,
-      userPhone: "010-1234-5678",
-      userEmail: "ssafy1234@ssafy.com",
-      userBirth: "1997-11-05",
-      userNationality: "대한민국",
-      userProfile: "linklinklink",
-    },
-    {
-      userId: "bingbang",
-      userName: "이병삼",
-      userStatus: 1,
-      organizationId: "ssafy",
-      organizationName: "ssafy",
-      userGender: 1,
-      userAge: 27,
-      userPhone: "010-1234-5678",
-      userEmail: "ssafy1234@ssafy.com",
-      userBirth: "1997-11-05",
-      userNationality: "대한민국",
-      userProfile: "linklinklink",
-    },
-    {
-      userId: "bingbang",
-      userName: "이병사",
-      userStatus: 1,
-      organizationId: "ssafy",
-      organizationName: "ssafy",
-      userGender: 1,
-      userAge: 27,
-      userPhone: "010-1234-5678",
-      userEmail: "ssafy1234@ssafy.com",
-      userBirth: "1997-11-05",
-      userNationality: "대한민국",
-      userProfile: "linklinklink",
-    },
-  ],
+  users: [],
   workerData: {
     workerId: "yangyang",
     workerName: "양서정",
@@ -109,9 +52,17 @@ const authSlice = createSlice({
     organizationLogout(state, action) {
       state.id = action.payload;
       state.organizationData = action.payload;
+      state.workerData = {};
       state.workers = [];
+      state.userData = {};
       state.users = [];
       state.isLogin = false;
+    },
+    getWorkerDetail(state, action) {
+      state.workerData = action.payload;
+    },
+    getUserDetail(state, action) {
+      state.userData = action.payload;
     },
     // worker login & logout
     workerLogin(state, action) {
