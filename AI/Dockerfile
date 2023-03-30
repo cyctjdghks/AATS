@@ -15,8 +15,10 @@ ENV PATH="/app/venv/bin:$PATH"
 RUN apt-get update && apt-get install -y git protobuf-compiler && \
     git clone https://github.com/tensorflow/models.git /app/models && \
     cd /app/models/research && \
-    protoc object_detection/protos/*.proto --python_out=. && \
-    pip install . && \
+    cp object_detection/packages/tf2/setup.py . && \
+    wget https://repo1.maven.org/maven2/com/google/protobuf/protoc/3.1.0/protoc-3.1.0-linux-x86_64.exe && \
+    protoc-3.1.0-linux-x86_64.exe object_detection/protos/*.proto --python_out=. && \
+    python3 pip install . && \
     pip list
 
 # 소스 코드 복사
