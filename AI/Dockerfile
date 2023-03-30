@@ -6,18 +6,23 @@ WORKDIR /app
 
 # 가상환경 생성
 RUN python3 -m venv /app/venv
+
 # 가상환경 활성화
 ENV PATH="/app/venv/bin:$PATH"
 
 # 의존성 설치
-# TensorFlow Object Detection API 설치
+
+
 # TensorFlow Object Detection API 설치
 RUN apt-get update && apt-get install -y git protobuf-compiler && \
     git clone https://github.com/tensorflow/models.git /app/models && \
     cd /app/models/research && \
     protoc object_detection/protos/*.proto --python_out=. && \
-    pip install . & \
+    pip install . && \
     pip list
+
+# pip 업그레이드
+RUN /app/venv/bin/python3 -m pip install --upgrade pip
 
 # 소스 코드 복사
 COPY . .
