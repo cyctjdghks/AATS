@@ -17,8 +17,9 @@ ENV PATH="/app/venv/bin:$PATH"
 RUN apt-get update && apt-get install -y git protobuf-compiler && \
     git clone https://github.com/tensorflow/models.git /app/models && \
     cd /app/models/research && \
+    cp object_detection/packages/tf2/setup.py . && \
     protoc object_detection/protos/*.proto --python_out=. && \
-    pip install . && \
+    python3 -m pip install . && \
     pip list
 
 # 컨테이너 실행 시 실행될 명령어 설정
