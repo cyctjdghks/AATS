@@ -1,5 +1,7 @@
 FROM python:3.9.16
 
+RUN pwd
+
 # 필요한 패키지 설치
 RUN apt-get update && apt-get install -y \
     build-essential \
