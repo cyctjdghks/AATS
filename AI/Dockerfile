@@ -19,9 +19,6 @@ RUN git clone https://github.com/tensorflow/models.git /tmp/models && \
 RUN mkdir /app
 WORKDIR /app
 
-# 필요한 Python 라이브러리 설치
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
 
 # 애플리케이션 코드 복사
 COPY . /app
