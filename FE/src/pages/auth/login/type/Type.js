@@ -1,10 +1,10 @@
-import { useState, useEffect} from "react"
+import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import organization from "../../../../assets/auths/organization.png";
-import user from "../../../../assets/auths/user.png";
-import worker from "../../../../assets/auths/worker.png";
+import PersonIcon from "@mui/icons-material/Person";
+import GroupsIcon from "@mui/icons-material/Groups";
+import BusinessIcon from "@mui/icons-material/Business";
 
 import classes from "./Type.module.css";
 
@@ -54,8 +54,6 @@ const Type = () => {
     return () => clearInterval(timer);
   }, [count3]);
 
-
-
   const toOrganizationLogin = (event) => {
     event.preventDefault();
     navigate("/auth/login/organization");
@@ -75,20 +73,20 @@ const Type = () => {
       <div className={classes.topBox}>
         <h3 className={classes.pageName}>LOGIN</h3>
         <div className={classes.countSubBox}>
-          <div className={classes.count1}>
+          <div className={classes.count3}>
             <p>총&nbsp;&nbsp;</p>
-            <h3>{count1}</h3>
-            <p>&nbsp;&nbsp;기관</p>
+            <h3>{count3}</h3>
+            <p>&nbsp;&nbsp;회원</p>
           </div>
           <div className={classes.count2}>
             <p>총&nbsp;&nbsp;</p>
             <h3>{count2}</h3>
             <p>&nbsp;&nbsp;근무자</p>
           </div>
-          <div className={classes.count3}>
+          <div className={classes.count1}>
             <p>총&nbsp;&nbsp;</p>
-            <h3>{count3}</h3>
-            <p>&nbsp;&nbsp;회원</p>
+            <h3>{count1}</h3>
+            <p>&nbsp;&nbsp;기관</p>
           </div>
         </div>
       </div>
@@ -97,36 +95,23 @@ const Type = () => {
         <p className={classes.pageTitle2}>
           당신의 유형을 선택해 로그인해 주세요
         </p>
+        <div className={classes.hrLine}></div>
+
         <div className={classes.typeBox}>
-          <div className={classes.detailBox}>
-            <img
-              src={organization}
-              alt=""
-              className={classes.organization}
-              onClick={toOrganizationLogin}
-            />
-            <p className={classes.p1}>Organization</p>
-            <p className={classes.p2}>기관</p>
-          </div>
-          <div className={classes.detailBox}>
-            <img
-              src={user}
-              alt=""
-              className={classes.user}
-              onClick={toUserLogin}
-            />
+          <div className={classes.detailBox} onClick={toUserLogin}>
+            <PersonIcon className={classes.PersonIcon} fontSize="80px" />
             <p className={classes.p1}>User</p>
             <p className={classes.p2}>회원</p>
           </div>
-          <div className={classes.detailBox}>
-            <img
-              src={worker}
-              alt=""
-              className={classes.worker}
-              onClick={toWorkerLogin}
-            />
+          <div className={classes.detailBox} onClick={toWorkerLogin}>
+            <GroupsIcon className={classes.GroupsIcon} fontSize="80px" />
             <p className={classes.p1}>Worker</p>
             <p className={classes.p2}>근무자</p>
+          </div>
+          <div className={classes.detailBox} onClick={toOrganizationLogin}>
+            <BusinessIcon className={classes.BusinessIcon} fontSize="80px" />
+            <p className={classes.p1}>Organization</p>
+            <p className={classes.p2}>기관</p>
           </div>
         </div>
       </div>

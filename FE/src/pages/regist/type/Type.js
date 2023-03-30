@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import user from "../../../assets/auths/user.png";
-import worker from "../../../assets/auths/worker.png";
+import PersonIcon from "@mui/icons-material/Person";
+import GroupsIcon from '@mui/icons-material/Groups';
 
 import classes from "./Type.module.css";
 
@@ -69,23 +69,20 @@ const Type = () => {
         <p className={classes.pageTitle2}>
           회원/근무자 중 유형을 선택해 등록해주세요
         </p>
+        <div className={classes.hrLine}></div>
         <div className={classes.typeBox}>
-          <div className={classes.detailBox}>
-            <img
-              src={user}
-              alt=""
-              className={classes.user}
-              onClick={toUserRegist}
-            />
+          <div className={classes.detailBox} onClick={toUserRegist}>
+            <PersonIcon 
+            fontSize="80px"
+            className={classes.PersonIcon} />
+            
             <p className={classes.p1}>User</p>
             <p className={classes.p2}>회원</p>
           </div>
-          <div className={classes.detailBox}>
-            <img
-              src={worker}
-              alt=""
-              className={classes.worker}
-              onClick={toWorkerRegist}
+          <div className={classes.detailBox} onClick={toWorkerRegist}>
+            <GroupsIcon
+            fontSize="80px"
+            className={classes.GroupsIcon}
             />
             <p className={classes.p1}>Worker</p>
             <p className={classes.p2}>근무자</p>
