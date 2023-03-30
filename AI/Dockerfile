@@ -6,7 +6,8 @@ WORKDIR /app
 
 # 의존성 설치
 COPY requirements.txt requirements.txt
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 list \
+    && pwd
 
 # 소스 코드 복사
 COPY . .
