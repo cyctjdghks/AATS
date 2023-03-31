@@ -9,7 +9,6 @@ const MyInfo = () => {
     <div className={classes.myinfo}>
       <Info />
       <Summary />
-      <Calendar />
     </div>
   );
 };
