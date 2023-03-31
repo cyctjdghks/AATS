@@ -230,7 +230,7 @@ public class WorkerController {
 
         Map<String, Object> data = new HashMap<>();
 
-        List<DateTimeDto> workerMonthStartList = workerService.getWorkerMonthStart(input.getWorkerId(), input.getMonth());
+        List<DateTimeDto> workerMonthStartList = workerService.getWorkerMonthStart(input.getWorkerId(), input.getYear(), input.getMonth());
         data.put("msg", "success");
         data.put("data", workerMonthStartList);
 
@@ -262,7 +262,7 @@ public class WorkerController {
 
         Map<String, Object> data = new HashMap<>();
 
-        List<DateTimeDto> workerMonthEndList = workerService.getWorkerMonthEnd(input.getWorkerId(), input.getMonth());
+        List<DateTimeDto> workerMonthEndList = workerService.getWorkerMonthEnd(input.getWorkerId(), input.getYear(), input.getMonth());
         data.put("msg", "success");
         data.put("data", workerMonthEndList);
 

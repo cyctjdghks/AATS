@@ -185,12 +185,13 @@ public class WorkerServiceImpl implements WorkerService {
     }
 
     @Override
-    public List<DateTimeDto> getWorkerMonthStart(String id, String month) {
+    public List<DateTimeDto> getWorkerMonthStart(String id, String year, String month) {
         List<DateTimeDto> list = new ArrayList<>();
         List<WorkerAttendanceStart> workerMonthStartList =
                 workerAttendanceStartRepository.findAll().stream()
                         .filter(workerAttendanceStart -> workerAttendanceStart.getWorker().getWorkerId().equals(id))
-                        .filter(workerAttendanceStart -> workerAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
+                        .filter(workerAttendanceStart -> workerAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("yyyy")).equals(year))
+                        .filter(workerAttendanceStart -> workerAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("MM")).equals(month))
                         .collect(Collectors.toList());
 
 
@@ -222,12 +223,13 @@ public class WorkerServiceImpl implements WorkerService {
     }
 
     @Override
-    public List<DateTimeDto> getWorkerMonthEnd(String id, String month) {
+    public List<DateTimeDto> getWorkerMonthEnd(String id, String year, String month) {
         List<DateTimeDto> list = new ArrayList<>();
         List<WorkerAttendanceEnd> workerMonthEndList =
                 workerAttendanceEndRepository.findAll().stream()
                         .filter(workerAttendanceEnd -> workerAttendanceEnd.getWorker().getWorkerId().equals(id))
-                        .filter(workerAttendanceEnd -> workerAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
+                        .filter(workerAttendanceEnd -> workerAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("yyyy")).equals(year))
+                        .filter(workerAttendanceEnd -> workerAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("MM")).equals(month))
                         .collect(Collectors.toList());
 
 

@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class WorkerGetMonthDto {
     private String workerId;
+    private String year;
     private String month;
 }
