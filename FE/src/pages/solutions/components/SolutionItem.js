@@ -19,6 +19,7 @@ const SolutionItem = (props) => {
   const hashtag = props.hashtag;
   const content = props.content;
   const colors = props.colors;
+  const img = props.img;
 
   return (
     <div className={classes.solutionBox}>
@@ -40,6 +41,7 @@ const SolutionItem = (props) => {
             hashtag={hashtag}
             content={content}
             colors={colors}
+            img={img}
           />
         )}
       </div>

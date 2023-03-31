@@ -17,7 +17,7 @@ const Search = () => {
   const workerDatas = useSelector((state) => state.auth.workers);
   const userDatas = useSelector((state) => state.auth.users);
 
-  const [type, setType] = useState(0);
+  const [type, setType] = useState(1);
 
   const typeChange = (event) => {
     event.preventDefault();
@@ -57,7 +57,7 @@ const Search = () => {
         <img src={quote1} alt="따옴표1" className={classes.quote1} />
         <p className={classes.pageName1}>SEARCH</p>
         <p className={classes.pageName2}>
-          {organizationName}의 {type ? "유저" : "근무자"}를 검색하세요
+          {organizationName}의 {type ? "회원" : "근무자"}를 검색하세요
         </p>
         <img src={quote2} alt="따옴표1" className={classes.quote2} />
       </div>
@@ -77,7 +77,7 @@ const Search = () => {
         </div>
       </div>
       <div>
-        <button onClick={typeChange}>{type ? "유저" : "근무자"}</button>
+        <button onClick={typeChange} className={classes.typebtn}>{type ? "회원" : "근무자"}</button>
       </div>
       <div className={classes.peopleBox}>
         <div className={classes.userDataBox}>
