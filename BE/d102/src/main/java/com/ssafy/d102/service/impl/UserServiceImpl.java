@@ -1,5 +1,6 @@
 package com.ssafy.d102.service.impl;
 
+import com.ssafy.d102.data.dto.request.UserGetMonthDto;
 import com.ssafy.d102.data.dto.response.MembershipCountDto;
 import com.ssafy.d102.data.dto.response.MembershipTimeDto;
 import com.ssafy.d102.data.dto.request.UserLoginDto;
@@ -277,11 +278,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<DateTimeDto> getUserMonthStart(String userId, String month) {
+    public List<DateTimeDto> getUserMonthStart(UserGetMonthDto userGetMonthDto) {
+
+        String userId = userGetMonthDto.getUserId();
+        String month = userGetMonthDto.getMonth();
+        String year = userGetMonthDto.getYear();
+
         List<DateTimeDto> dateTimeDtos = new ArrayList<>();
         List<UserAttendanceStart> list = userAttendanceStartRepository.findAll().stream()
                 .filter(userAttendanceStart -> userAttendanceStart.getUser().getUserId().equals(userId))
-                .filter(userAttendanceStart -> userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
+                .filter(userAttendanceStart -> userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("MM")).equals(month))
+                .filter(userAttendanceStart -> userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("YYYY")).equals(year))
                 //TODO
                 .collect(Collectors.toList());
 
@@ -312,11 +319,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<DateTimeDto> getUserMonthEnd(String userId, String month) {
+    public List<DateTimeDto> getUserMonthEnd(UserGetMonthDto userGetMonthDto) {
+
+        String userId = userGetMonthDto.getUserId();
+        String month = userGetMonthDto.getMonth();
+        String year = userGetMonthDto.getYear();
+
         List<DateTimeDto> dateTimeDtos = new ArrayList<>();
         List<UserAttendanceEnd> list = userAttendanceEndRepository.findAll().stream()
                 .filter(userAttendanceEnd -> userAttendanceEnd.getUser().getUserId().equals(userId))
                 .filter(userAttendanceStart -> userAttendanceStart.getEndTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
+                .filter(userAttendanceStart -> userAttendanceStart.getEndTime().format(DateTimeFormatter.ofPattern("YYYY")).equals(year))
                 //TODO
                 .collect(Collectors.toList());
 

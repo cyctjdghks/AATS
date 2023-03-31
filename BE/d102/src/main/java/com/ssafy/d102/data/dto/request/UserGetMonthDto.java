@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class UserGetMonthDto {
     private String userId;
     private String month;
+    private String year;
 }
