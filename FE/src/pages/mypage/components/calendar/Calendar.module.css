@@ -4,10 +4,8 @@
 }
 
 .box {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 10%;
-  width: 80%;
+  margin: 5%;
+  width: 90%;
   display: flex;
   font-family: "Apple_Gothic_Neo_Light";
 }
