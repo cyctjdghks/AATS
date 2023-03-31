@@ -31,7 +31,6 @@ const User = () => {
       userId: id,
       userPwd: password,
     };
-    console.log(axiosData);
     axios
       .post(url, axiosData)
       .then((response) => {

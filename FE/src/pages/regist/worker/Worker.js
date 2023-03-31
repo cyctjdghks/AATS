@@ -58,7 +58,7 @@ const Worker = () => {
       workerId: id,
       workerPwd: password,
       workerName: name,
-      workerOrganizationId: organizationId,
+      organizationId: organizationId,
       workerGender: male ? 1 : 0,
       workerAge: stringToInt(age),
       workerPhone: phoneNumber,

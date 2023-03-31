@@ -57,7 +57,7 @@ const User = () => {
       userName: name,
       organizationId,
       userGender: male ? 1 : 0,
-      useAge: stringToInt(age),
+      userAge: stringToInt(age),
       userPhone: phoneNumber,
       userEmail: email,
       userBirth: birth,

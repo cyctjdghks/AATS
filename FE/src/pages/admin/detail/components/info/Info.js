@@ -14,8 +14,9 @@ const Info = ({data, type}) => {
     birth : type ? data.workerBirth : data.userBirth,
     profile : type ? data.workerProfilePath : data.userProfilePath,
   }
-
+  
   const profileLink = "https://j8d102.p.ssafy.io/be/"+ profileData.profile
+  
   return (
     <div className={classes.info}>
       <img src={profileLink} alt="progile" />

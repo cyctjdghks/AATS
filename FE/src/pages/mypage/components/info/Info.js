@@ -15,7 +15,6 @@ const Info = () => {
       setType(false)
     }
   }
-  console.log(userData);
   const data = {
     id : type ? workerData.workerId : userData.userId,
     name : type ? workerData.workerName : userData.userName,
@@ -28,7 +27,6 @@ const Info = () => {
     birth : type ? workerData.workerBirth : userData.userBirth,
     profile : type ? workerData.workerProfilePath : userData.userProfilePath,
   }
-  console.log(data);
 
   useEffect(() =>{
     tmp();
