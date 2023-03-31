@@ -191,7 +191,7 @@ public class WorkerServiceImpl implements WorkerService {
                 workerAttendanceStartRepository.findAll().stream()
                         .filter(workerAttendanceStart -> workerAttendanceStart.getWorker().getWorkerId().equals(id))
                         .filter(workerAttendanceStart -> workerAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("yyyy")).equals(year))
-                        .filter(workerAttendanceStart -> workerAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("MM")).equals(month))
+                        .filter(workerAttendanceStart -> workerAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
                         .collect(Collectors.toList());
 
 
@@ -229,7 +229,7 @@ public class WorkerServiceImpl implements WorkerService {
                 workerAttendanceEndRepository.findAll().stream()
                         .filter(workerAttendanceEnd -> workerAttendanceEnd.getWorker().getWorkerId().equals(id))
                         .filter(workerAttendanceEnd -> workerAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("yyyy")).equals(year))
-                        .filter(workerAttendanceEnd -> workerAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("MM")).equals(month))
+                        .filter(workerAttendanceEnd -> workerAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
                         .collect(Collectors.toList());
 
 
