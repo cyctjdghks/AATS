@@ -1,5 +1,6 @@
 package com.ssafy.d102.service;
 
+import com.ssafy.d102.data.dto.request.UserGetMonthDto;
 import com.ssafy.d102.data.dto.response.MembershipCountDto;
 import com.ssafy.d102.data.dto.response.MembershipTimeDto;
 import com.ssafy.d102.data.dto.request.UserLoginDto;
@@ -44,9 +45,9 @@ public interface UserService {
 
     List<DateTimeDto> getUserStart(String userId);
 
-    List<DateTimeDto> getUserMonthStart(String userId, String month);
+    List<DateTimeDto> getUserMonthStart(UserGetMonthDto userGetMonthDto);
 
     List<DateTimeDto> getUserEnd(String userId);
 
-    List<DateTimeDto> getUserMonthEnd(String userId, String month);
+    List<DateTimeDto> getUserMonthEnd(UserGetMonthDto userGetMonthDto);
 }

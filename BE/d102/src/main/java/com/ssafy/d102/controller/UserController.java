@@ -323,7 +323,7 @@ public class UserController {
         log.info("입력 데이터 input : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        List<DateTimeDto> list =  userService.getUserMonthStart(input.getUserId(), input.getMonth());
+        List<DateTimeDto> list =  userService.getUserMonthStart(input);
 
         data.put("msg", "success");
         data.put("data", list);
@@ -355,7 +355,7 @@ public class UserController {
         log.info("입력 데이터 input : {}", input);
 
         Map<String, Object> data = new HashMap<>();
-        List<DateTimeDto> list =  userService.getUserMonthEnd(input.getUserId(), input.getMonth());
+        List<DateTimeDto> list =  userService.getUserMonthEnd(input);
 
         data.put("msg", "success");
         data.put("data", list);
