@@ -9,6 +9,7 @@ const Modal = ({
   solutionSubName,
   hashtag,
   colors,
+  img,
 }) => {
   // 모달 끄기
   const closeModal = () => {
@@ -54,7 +55,7 @@ const Modal = ({
           className={classes.containerRight}
           style={{ backgroundColor: color3 }}
         >
-          <img src="" alt="이미지" />
+          <img src={img} alt="이미지" className={classes.solutionImg} />
           <button
             className={classes.close}
             onClick={closeModal}

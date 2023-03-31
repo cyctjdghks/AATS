@@ -29,17 +29,17 @@
 }
 
 .summaryTitle{
-  width: 80%;
+  width: 78%;
   margin: auto;
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 27px;
   text-align: left;
-  padding-top: 20px;
+  padding-top: 40px;
   padding-bottom: 20px;
 }
 
 .summary{
-  width: 80%;
+  width: 78%;
   margin-left: auto;
   margin-right: auto;
   /* border: 1px solid #acacac; */
@@ -47,7 +47,7 @@
   border-radius: 20px;
   margin-bottom: 20px;
   display: flex;
-  height: 300px;
+  height: 260px;
   align-items: center;
   justify-content: center;
   box-shadow: 2px 5px 5px grey;
@@ -56,13 +56,14 @@
 .today{
   font-family: "Apple_Gothic_Neo_EBold";
   font-size: 29px;
-  margin-top: -20px;
+  margin-top: 0px;
 }
 
 .today2{
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 20px;
   margin-top: -30px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .verticalHr {
@@ -73,9 +74,14 @@
   color: rgb(231, 231, 231);
   border: none;
 }
+
 .firstBox{
   width: calc(45% - 125px);
   text-align: left;
+  margin-left: 30px;
+  
+  /* margin: auto; */
+  /* margin-top: -20px; */
 }
 .timeBox{
   display: flex;
@@ -85,7 +91,7 @@
 
 .startBtn{
   background-color: white;
-  height: 100px;
+  height: 90px;
   width: 45%;
   text-align: center;
   color: black;
@@ -93,7 +99,8 @@
 
 .endBtn{
   background-color: #4786FF;
-  height: 100px;
+  /* background-color: rgb(30, 177, 30); */
+  height: 90px;
   width: 45%;
   text-align: center;
   margin-right: 20px;
@@ -107,6 +114,8 @@
 .startP2{
   font-family: "Apple_Gothic_Neo_Bold";
 }
+
+/* 두번째 박스 */
 
 .commuteBox{
   display: flex;
@@ -128,7 +137,7 @@
   border: none;
   background-color: rgb(18, 212, 18);
   color: white;
-  border-radius: 20px;
+  border-radius: 3px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -139,9 +148,22 @@
   font-family: "Apple_Gothic_Neo_R";
   font-size: 18px;
   border: none;
-  background-color: rgb(18, 54, 212);
+  background-color: grey;
   color: white;
-  border-radius: 20px;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.attendanceBoxP3{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  border: none;
+  background-color: rgb(250, 0, 0);
+  color: white;
+  border-radius: 3px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -160,8 +182,13 @@
   text-align: left;
 }
 .secondBox{
-  width: 250px;
+  width: 300px;
+  /* margin: auto; */
+  margin-left: 20px;
+  
 }
 .thirdBox{
-  width: calc(45% - 125px)
+  width: calc(45% - 125px);
+  margin: auto;
+  
 }

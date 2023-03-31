@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Sector, Cell } from "recharts";
 import { CommuteData } from "./Data";
+import classes from "./CommutePie.module.css";
 
 const renderActiveShape = (props) => {
   const {
@@ -17,9 +18,8 @@ const renderActiveShape = (props) => {
 
   return (
     <g>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#000000">
-        {payload.name}
-        {`(${(percent * 100).toFixed(2)}%)`}
+      <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#000000" style={{ whiteSpace: 'nowrap' }} className={classes.texts}>
+        {`${payload.name}   (${(percent * 100).toFixed(2)}%)`}
       </text>
       <Sector
         cx={cx}

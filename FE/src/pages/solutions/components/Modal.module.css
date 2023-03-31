@@ -28,9 +28,12 @@
   src: url("../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-.modalBackGround{
+.modalBackGround {
   position: fixed;
-  top:0; left: 0; bottom: 0; right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 /* 모달창을 화면 중앙. 최상단에 노출 */
@@ -55,92 +58,91 @@
   border: none;
 }
 
-
-
-.container{
+.container {
   display: flex;
 }
 
-.containerLeft{
+.containerLeft {
   display: flex;
   width: 45%;
   height: 100%;
-  
 }
 
-.vLine{
+.vLine {
   height: 100%;
   width: 5%;
   max-width: 20px;
 }
 
-.TitleBox{
+.TitleBox {
   width: 85%;
   margin-top: 0px;
   margin-left: 60px;
 }
 
-.contentBox{
+.contentBox {
   margin-left: 60px;
   margin-top: 50px;
   width: 80%;
 }
 
 @media screen and (max-width: 1024px) {
-  .TitleBox{
+  .TitleBox {
     margin-left: 20px;
   }
 
-  .contentBox{
+  .contentBox {
     margin-left: 20px;
   }
 }
 
-.number{
+.number {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 45px;
   color: inherit;
-
 }
 
-.solutionName{
+.solutionName {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 30px;
   color: inherit;
   margin-top: -40px;
 }
 
-.solutionSubName{
+.solutionSubName {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 30px;
   color: inherit;
   margin-top: -30px;
 }
 
-.hashtag{
+.hashtag {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 30px;
   color: inherit;
   margin-top: -30px;
 }
 
-.content{
+.content {
   font-family: "Apple_Gothic_Neo_R";
   color: black;
   font-size: 17px;
 }
 
-.containerRight{
+.containerRight {
   width: 55%;
   height: 100%;
 }
+
+
+
 
 /* 모달창 내부 X버튼 */
 .close {
   position: absolute;
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 20px;
-  background-color: #00A6DC;
+  background-color: #00a6dc;
   border: none;
   padding-left: 15px;
   padding-right: 15px;
@@ -152,4 +154,3 @@
   top: 20px;
   cursor: pointer;
 }
-

@@ -104,16 +104,16 @@
 }
 
 .introTextBox h1 {
-  font-family: "Apple_Gothic_Neo_ULight";
-  font-size: 60px;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 70px;
   margin-top: -10px;
   color: #1d36a3;
 }
 
 .introTextBox h2 {
-  font-family: "Apple_Gothic_Neo_Bold";
-  margin-top: -50px;
-  font-size: 55px;
+  font-family: "Apple_Gothic_Neo_Light";
+  margin-top: -60px;
+  font-size: 30px;
   color: #1d36a3;
 }
 
@@ -267,7 +267,7 @@
 .vLine2 {
   width: 15px;
   height: 250px;
-  background-color: #3A83D3;
+  background-color: #6F5552;
   border: none;
   margin-right: 50px;
 }
@@ -276,7 +276,7 @@
   width: 100%;
   padding-top: 30px;
   display: flex;
-  color: #3A83D3;
+  color: #6F5552;
   margin-bottom: 30px;
 
   
@@ -303,7 +303,7 @@
 .vLine4 {
   width: 15px;
   height: 250px;
-  background-color: #8156F4;
+  background-color: #105853;
   border: none;
   margin-right: 50px;
 }
@@ -312,7 +312,7 @@
   width: 100%;
   padding-top: 30px;
   display: flex;
-  color: #8156F4;
+  color: #105853;
   margin-bottom: 30px;
 
   

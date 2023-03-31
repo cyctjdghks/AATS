@@ -101,10 +101,10 @@
   border: solid 2px lightgray;
   padding-top: 15px;
   padding-left: 10px;
-  padding-bottom: 80px;
+  padding-bottom: 120px;
   border-radius: 5px;
   margin-bottom: 10px;
-  /* cursor: ; */
+  
 }
 
 .contentboxtwo input:hover {
@@ -199,9 +199,9 @@
   margin: auto;
   display: block;
   border-radius: 10px;
-  width: 80%;
+  width: 70%;
   max-width: 600px;
-  margin-top: -20px;
+  margin-top: -5px;
 }
 
 
@@ -215,5 +215,8 @@
   }
   .contentbox {
     width: 100%;
+  }
+  .contactbtn{
+    margin-right: 150px;
   }
 }
