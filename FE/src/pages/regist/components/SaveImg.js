@@ -6,7 +6,7 @@ const SaveImg = ({onSubmit, filename, ...rest}) => {
         <form onSubmit={onSubmit}>
           <label htmlFor="file">파일찾기</label>
           <input type="file" id="file" name="files" multiple />
-          <input className={classes.uploadName} placeholder="선택된 파일 없음" defaultValue={filename} disabled={true}/>
+          <input className={classes.uploadName} placeholder="파일 업로드 후 저장을 눌러주세요" defaultValue={filename} disabled={true}/>
           <button type="submit"> 저장</button>
         </form>
       </div>

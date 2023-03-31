@@ -14,23 +14,19 @@ const Info = () => {
     } else if (userType === 2) {
       setType(false);
     }
-  };
-  console.log(userData);
+  }
   const data = {
-    id: type ? workerData.workerId : userData.userId,
-    name: type ? workerData.workerName : userData.userName,
-    organizationName: type
-      ? workerData.organizationName
-      : userData.organizationName,
-    gender: type ? workerData.workerGender : userData.userGender,
-    age: type ? workerData.workerAge : userData.userAge,
-    email: type ? workerData.workerEmail : userData.userEmail,
-    phone: type ? workerData.workerPhone : userData.userPhone,
-    nationality: type ? workerData.workerNationality : userData.userNationality,
-    birth: type ? workerData.workerBirth : userData.userBirth,
-    profile: type ? workerData.workerProfilePath : userData.userProfilePath,
-  };
-  console.log(data);
+    id : type ? workerData.workerId : userData.userId,
+    name : type ? workerData.workerName : userData.userName,
+    organizationName : type ? workerData.organizationName : userData.organizationName,
+    gender : type ? workerData.workerGender : userData.userGender,
+    age : type ? workerData.workerAge : userData.userAge,
+    email : type ? workerData.workerEmail : userData.userEmail,
+    phone : type ? workerData.workerPhone : userData.userPhone,
+    nationality : type ? workerData.workerNationality : userData.userNationality,
+    birth : type ? workerData.workerBirth : userData.userBirth,
+    profile : type ? workerData.workerProfilePath : userData.userProfilePath,
+  }
 
   useEffect(() => {
     tmp();
