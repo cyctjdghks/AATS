@@ -26,29 +26,29 @@ const Welcome = () => {
   return (
     <div className={classes.welcome}>
       <div className={classes.textBox}>
-        <p className={classes.text1}>Welcom,</p>
+        <p className={classes.text1}>Welcome,</p>
         <p className={classes.text2}>{id} Manager</p>
         <p className={classes.text3}>수행할 작업을 선택해주세요</p>
         <div className={classes.vLine}></div>
       </div>
       <div className={classes.bottomBox}>
-        <div className={classes.chooseBox1}>
+        <div className={classes.chooseBox1} onClick={toSearch}>
           <div className={classes.chooseText1}>
-            <PersonSearchIcon sx={{ fontSize: 80 }} onClick={toSearch} />
+            <PersonSearchIcon sx={{ fontSize: 80 }} />
             <p className={classes.chooseTextP1}>SEARCH</p>
             <p className={classes.chooseTextP2}>회원/근무자 선택</p>
           </div>
         </div>
-        <div className={classes.chooseBox2}>
+        <div className={classes.chooseBox2} onClick={toRegist}>
           <div className={classes.chooseText1}>
-            <PersonSearchIcon sx={{ fontSize: 80 }} onClick={toRegist} />
+            <HowToRegIcon sx={{ fontSize: 80 }} />
             <p className={classes.chooseTextP1}>REGIST</p>
             <p className={classes.chooseTextP2}>회원/근무자 등록</p>
           </div>
         </div>
-        <div className={classes.chooseBox3}>
+        <div className={classes.chooseBox3} onClick={toCCTV}>
           <div className={classes.chooseText1}>
-            <PersonSearchIcon sx={{ fontSize: 80 }} onClick={toCCTV} />
+            <CameraOutdoorIcon sx={{ fontSize: 80 }} />
             <p className={classes.chooseTextP1}>CCTV</p>
             <p className={classes.chooseTextP2}>회원/근무자 CCTV</p>
           </div>

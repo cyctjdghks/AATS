@@ -116,6 +116,7 @@ const ContactMain = () => {
                 onChange={(event) => setMessage(event.target.value)}
                 name="message"
                 autoComplete="off"
+                white-space= "pre-wrap"
               />
               <button
                 type="submit"

@@ -69,18 +69,53 @@ const Summary = () => {
             <div className={classes.attendanceBox}>
               <button className={classes.attendanceBoxP1}>출근</button>
               <div className={classes.attendanceText1}>
-                <p className={classes.normalAttendance}>정상 출근</p>
-                <p className={classes.normalAttendance2}>{commuteData.normalAttendance}</p>
+                <p className={classes.normalAttendance}>
+                  정상 출근&nbsp;&nbsp;&nbsp;
+                </p>
+                <p className={classes.normalAttendance2}>
+                  {commuteData.normalAttendance}
+                </p>
               </div>
-              <p>지각 : {commuteData.late}</p>
+              <div className={classes.attendanceText1}>
+                <p className={classes.normalAttendance}>
+                  지각&nbsp;&nbsp;&nbsp;
+                </p>
+                <p className={classes.normalAttendance2}>{commuteData.late}</p>
+              </div>
             </div>
             <div className={classes.leaveBox}>
               <button className={classes.attendanceBoxP2}>퇴근</button>
-              <p>정상 퇴근 : {commuteData.normalLeave}</p>
-              <p>조퇴 : {commuteData.earlyLeave}</p>
+              <div className={classes.attendanceText1}>
+                <p className={classes.normalAttendance}>
+                  정상 퇴근&nbsp;&nbsp;&nbsp;
+                </p>
+                <p className={classes.normalAttendance2}>
+                  {commuteData.normalLeave}
+                </p>
+              </div>
+              <div className={classes.attendanceText1}>
+                <p className={classes.normalAttendance}>
+                  조퇴&nbsp;&nbsp;&nbsp;
+                </p>
+                <p className={classes.normalAttendance2}>
+                  {commuteData.earlyLeave}
+                </p>
+              </div>
+            </div>
+            <div className={classes.leaveBox}>
+              <button className={classes.attendanceBoxP3}>결근</button>
+              <div className={classes.attendanceText1}>
+                <p className={classes.normalAttendance}>
+                  결근 일수 &nbsp;&nbsp;&nbsp;
+                </p>
+                <p className={classes.normalAttendance2}>{commuteData.absen}</p>
+              </div>
+              <div className={classes.attendanceText1}>
+                <p className={classes.normalAttendance}>&nbsp;&nbsp;&nbsp;</p>
+                <p className={classes.normalAttendance2}></p>
+              </div>
             </div>
           </div>
-          <div>결근 : {commuteData.absen}</div>
         </div>
         <hr className={classes.verticalHr} />
         <div className={classes.secondBox}>

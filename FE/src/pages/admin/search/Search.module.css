@@ -80,7 +80,7 @@
   height: 100px;
   /* align-items: center; */
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   margin-top: 30px;
 }
 
@@ -112,6 +112,28 @@
   height: 3px;
   background-color: rgb(205, 202, 202);
   border: none;
+}
+
+.typebtn{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 17px;
+  background-color: #2b41a1;
+  color: white;
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  box-shadow: 2px 4px 5px grey;
+}
+
+.typebtn:hover{
+  background-color: #273677;
+  
 }
 
 .peopleBox {
