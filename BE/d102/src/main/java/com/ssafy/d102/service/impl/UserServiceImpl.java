@@ -288,7 +288,7 @@ public class UserServiceImpl implements UserService {
         List<UserAttendanceStart> list = userAttendanceStartRepository.findAll().stream()
                 .filter(userAttendanceStart -> userAttendanceStart.getUser().getUserId().equals(userId))
                 .filter(userAttendanceStart -> userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("MM")).equals(month))
-                .filter(userAttendanceStart -> userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("YYYY")).equals(year))
+                .filter(userAttendanceStart -> userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("yyyy")).equals(year))
                 //TODO
                 .collect(Collectors.toList());
 
@@ -329,7 +329,7 @@ public class UserServiceImpl implements UserService {
         List<UserAttendanceEnd> list = userAttendanceEndRepository.findAll().stream()
                 .filter(userAttendanceEnd -> userAttendanceEnd.getUser().getUserId().equals(userId))
                 .filter(userAttendanceStart -> userAttendanceStart.getEndTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
-                .filter(userAttendanceStart -> userAttendanceStart.getEndTime().format(DateTimeFormatter.ofPattern("YYYY")).equals(year))
+                .filter(userAttendanceStart -> userAttendanceStart.getEndTime().format(DateTimeFormatter.ofPattern("yyyy")).equals(year))
                 //TODO
                 .collect(Collectors.toList());
 
