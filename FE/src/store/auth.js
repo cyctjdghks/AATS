@@ -36,6 +36,7 @@ const initialState = {
     workerProfile: "linklinklink2",
   },
   workers: [],
+  aiveData: [],
 };
 
 const authSlice = createSlice({
@@ -63,6 +64,9 @@ const authSlice = createSlice({
     },
     getUserDetail(state, action) {
       state.userData = action.payload;
+    },
+    getAiveData(state, action){
+      state.aiveData = action.payload
     },
     // worker login & logout
     workerLogin(state, action) {

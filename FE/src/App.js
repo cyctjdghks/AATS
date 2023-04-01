@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
 // import navbar, footer 
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
@@ -15,8 +17,23 @@ import Admin from "./pages/admin/Admin";
 // import css style 
 import classes from "./App.module.css";
 import Main from "./Test";
+import { useDispatch } from "react-redux";
+import { authActions } from "./store/auth";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    const url ="https://j8d102.p.ssafy.io/be/getallpeople";
+    axios
+      .get(url)
+      .then((response)=>{
+        dispatch(authActions.getAiveData(response.data.data))
+      }).catch((error)=>{
+        console.log(error);
+      })
+  },[])
+
+
   return (
     <div className={classes.App}>
       <NavBar />

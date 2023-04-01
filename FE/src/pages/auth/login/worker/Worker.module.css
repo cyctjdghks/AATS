@@ -58,58 +58,6 @@
     text-align: center;
   }
 
-  .hline{
-    margin: auto;
-    width: 77%;
-    height: 5px;
-    background-color: #e6e7ee;
-    margin-top: -10px;
-  }
-  
-  .loginContentBox {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .loginBtn {
-    font-family: "Apple_Gothic_Neo_R";
-    font-size: 16.5px;
-    width: 100%;
-    border: none;
-    padding-top: 13px;
-    padding-bottom: 10px;
-    border-radius: 4px;
-    margin-top: 10px;
-    background-color: #2b41a1;;
-    color: white;
-    box-shadow: 2px 4px 5px grey;
-  }
-  
-  .toGoBox {
-    font-family: "Apple_Gothic_Neo_R";
-    font-size: 18px;
-    padding-top: 20px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-  
-  }
-  
-  .toGoBox p{
-    cursor: pointer;
-  }
-  
-  .toGoBox p:hover{
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .signupImg{
-    margin-top: 17px;
-    margin-left: 7px;
-  }
-  
   .imgBox {
     padding-top: 15px;
     width: 40%;

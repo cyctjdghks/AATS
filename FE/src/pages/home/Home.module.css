@@ -1,6 +1,202 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../fonts/AppleSDGothicNeoR.ttf");
+}
+
 .home {
-  width: 75%;
-  max-width: 1440px;
-  height: 1200px;
+  /* width: 75%; */
+  /* max-width: 1440px; */
+  width: 100%;
+  /* height: 1200px; */
   margin: 0 auto;
+}
+
+.topPage {
+  width: 100%;
+}
+
+/* 솔루션 */
+.solutionPage{
+  max-width: 1440px;
+  margin: auto;
+}
+
+.solutionBox{
+  display: flex;
+  justify-content: space-between;
+}
+
+.solutionLeft{
+  width: 50%;
+}
+
+.solution1{
+  width: 95%;
+  margin-top: 3%;
+}
+
+.solutionTitle1{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 23px;
+  text-align: left;
+}
+
+.solutionSubTitle1{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  text-align: left;
+}
+
+.solutionRight{
+  width: 50%;
+
+}
+
+.solution2{
+  width: 95%;
+  margin-top: 3%;
+}
+
+.solutionTitle2{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  float: left;
+}
+
+.solutionSubTitle2{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 15px;
+  float: left;
+}
+
+/* 뉴스  */
+.newsPage {
+  max-width: 1440px;
+  margin: auto;
+}
+
+.NewsTitle {
+  font-family: "Apple_Gothic_Neo_ULight";
+  font-size: 35px;
+  text-align: left;
+}
+
+.hrLine {
+  margin-top: -20px;
+  height: 2px;
+  border: none;
+  background-color: rgb(222, 222, 222);
+}
+
+.ArrowBackIosNewIcon {
+  margin-top: 8%;
+  cursor: pointer;
+}
+
+.ArrowForwardIosIcon {
+  margin-top: 8%;
+  cursor: pointer;
+}
+
+.newsPage {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+}
+.carousel {
+  width: 100%;
+  display: flex;
+}
+.carouselItem {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* 비디오 페이지 */
+.videoPage {
+  margin-top: 5%;
+  width: 100%;
+  height: 40%;
+  background-color: rgb(250, 250, 250);
+}
+
+.vidoeBox {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.video {
+  width: 40%;
+  margin: auto;
+}
+
+.videoRight {
+  text-align: left;
+  width: 40%;
+}
+
+.videoText{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+}
+
+.videoText1{
+  font-family: "Apple_Gothic_Neo_EBold";
+  font-size: 40px;
+  margin-top: -1%;
+}
+
+.videoText2{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 25px;
+  margin-top: -3%;
+}
+
+@media screen and (max-width: 1024px) {
+  .videoText{
+    font-size: 15px;
+  }
+  .videoText1{
+    font-size: 20px;
+  }
+  .videoText2{
+    font-size: 20px;
+  }
 }
