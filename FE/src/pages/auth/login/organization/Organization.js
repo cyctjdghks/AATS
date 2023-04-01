@@ -32,7 +32,6 @@ const Organization = () => {
       organizationId: id,
       organizationPwd: password,
     };
-    console.log(axiosData);
     axios
       .post(url, axiosData)
       .then((response) => {

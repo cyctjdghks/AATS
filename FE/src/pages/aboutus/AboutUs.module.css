@@ -23,7 +23,9 @@
   src: url("../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-
+.aboutUs {
+  width: 100%;
+}
 
 .developerBox {
   width: 100%;
@@ -69,7 +71,6 @@
   }
 }
 
-
 @media (min-width: 1024px) {
   .pageName {
     font-family: "Apple_Gothic_Neo_Light";
@@ -83,26 +84,30 @@
   }
 }
 
-.introduceBox p{
+.introduceBox p {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 20px;
   margin-top: -7px;
-
 }
 
-
-.developerIntroduceBox{
+.developerIntroduceBox {
   display: flex;
   justify-content: center;
 }
 
-
-.vLine{
+.vLine {
   border: 1px solid rgb(228, 228, 228);
   background-color: rgb(228, 228, 228);
   border-radius: 10px;
   width: 0.1px;
-  height: 1700px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.leftBox {
+  width: 35%;
+}
+
+.rightBox {
+  width: 35%;
 }

@@ -47,13 +47,6 @@
 
 @media screen and (max-width: 1024px) {
   .sideBox {
-    width: 50%;
-    margin-right: 10px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .sideBox {
     display: none;
   }
 }
@@ -118,11 +111,24 @@
 }
 
 .ceo {
-  width: 430px;
+  width: 460px;
+  margin-top : -45px;
 }
 
 .mainBox {
-  margin: auto;
+  margin-left: 5%;
+  width: 50%;
+  margin-right: 5%;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .mainBox {
+    margin-left: 5%;
+    width: 90%;
+    margin-right: 5%;
+    margin-top: 30px;
+  }
 }
 
 .mainName {
@@ -166,10 +172,13 @@
 
 .inputBoxOne {
   display: flex;
+  width: 100%;
 }
 
 .selectbox {
   margin-top: 12px;
+  width: calc(100% / 3);
+  margin-right: 30px;
 }
 
 select {
@@ -189,7 +198,7 @@ select {
 
 .selectIdBox {
   font-family: "Apple_Gothic_Neo_Light";
-  width: 100%;
+  width: 107.5%;
   font-size: 17px;
   padding-top: 8px;
   padding-bottom: 9.5px;
@@ -201,6 +210,7 @@ select {
 
 .inputBoxTwo {
   display: flex;
+  width: 100%;
 }
 
 .inputBoxThree {
@@ -250,7 +260,6 @@ select {
   width: 100%;
   cursor: pointer;
 }
-
 
 .Gender {
   font-family: "Apple_Gothic_Neo_Mid";

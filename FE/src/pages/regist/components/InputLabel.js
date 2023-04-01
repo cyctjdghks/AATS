@@ -5,7 +5,7 @@ const InputLabel = ({ label, errorMessage, ...rest }) => {
     <div className={classes.InputLabel}>
       <label>
         <p>{label}</p>
-        <input {...rest} />
+        <input {...rest}/>
       </label>
       <p
         className={

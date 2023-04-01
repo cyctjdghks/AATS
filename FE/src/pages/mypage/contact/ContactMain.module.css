@@ -23,8 +23,6 @@
   src: url("../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-
-
 .pagebox {
   text-align: left;
   width: calc(100% - 250px);
@@ -104,7 +102,6 @@
   padding-bottom: 120px;
   border-radius: 5px;
   margin-bottom: 10px;
-  
 }
 
 .contentboxtwo input:hover {
@@ -153,14 +150,12 @@
   margin: auto;
 }
 
-
-.quote2{
+.quote2 {
   float: right;
   margin-top: -30px;
-  
 }
 
-.d102{
+.d102 {
   font-family: "Apple_Gothic_Neo_R";
   margin-top: 50px;
   font-size: 20px;
@@ -168,29 +163,28 @@
   margin-top: 0px;
 }
 
-.hLine{
+.hLine {
   border: 1px solid #b02626;
   width: 75%;
   margin: auto;
 }
 
-.phoneBox{
+.phoneBox {
   display: flex;
   padding-left: 20px;
   padding-top: 10px;
 }
 
-.phone{
-  
+.phone {
 }
 
-.phoneOne{
+.phoneOne {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 18px;
   padding-top: 15px;
 }
 
-.phoneTwo{
+.phoneTwo {
   font-family: "Apple_Gothic_Neo_Bold";
   margin-top: -10px;
 }
@@ -204,7 +198,6 @@
   margin-top: -5px;
 }
 
-
 @media screen and (max-width: 1024px) {
   .pagebox {
     width: 100%;
@@ -216,7 +209,7 @@
   .contentbox {
     width: 100%;
   }
-  .contactbtn{
+  .contactbtn {
     margin-right: 150px;
   }
 }

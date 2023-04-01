@@ -31,12 +31,12 @@ const Info = () => {
   useEffect(() => {
     tmp();
   });
-  const profileLink = "https://j8d102.p.ssafy.io/be/" + data.profile;
+  const profileLink = "https://j8d102.p.ssafy.io/be/" + data?.profile
   return (
     <div>
       <p className={classes.Title}>나의 프로필</p>
       <div className={classes.info}>
-        <img src={profileLink} alt="progile" />
+        <img src={profileLink} alt="profile" />
         <hr className={classes.verticalHr} />
         <div className={classes.infoBox}>
           <div className={classes.topBox}>

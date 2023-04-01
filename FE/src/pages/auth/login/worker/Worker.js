@@ -31,7 +31,6 @@ const Worker = () => {
       workerId: id,
       workerPwd: password,
     };
-    console.log(axiosData);
     axios
       .post(url, axiosData)
       .then((response) => {
@@ -78,11 +77,6 @@ const Worker = () => {
           <button type="submit" className={classes.loginBtn}>
             로그인
           </button>
-          <div className={classes.toGoBox}>
-            <p onClick={toSignup}>회원가입 하러 가기</p>
-            <ExitToAppIcon 
-            className={classes.signupImg}/>
-          </div>
         </form>
       </div>
     </div>
