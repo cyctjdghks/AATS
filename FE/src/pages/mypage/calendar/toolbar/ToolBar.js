@@ -18,6 +18,7 @@ const ToolBar = (props) => {
     let tmp = data.toString();
     return tmp;
   };
+  // console.log(date);
 
   const getDatas = () => {
     const startUrl = "https://j8d102.p.ssafy.io/be/worker/get/start/month";
@@ -53,10 +54,9 @@ const ToolBar = (props) => {
           <button type="button" onClick={navigate.bind(null, "PREV")}>
             이전
           </button>
-          <p
-            className={classes.rbcToolbarLabel}
-            id="month"
-          >{`${date.getFullYear()}년 ${date.getMonth() + 1}월`}</p>
+          <p className={classes.rbcToolbarLabel}>{`${date.getFullYear()}년 ${
+            date.getMonth() + 1
+          }월`}</p>
           <button type="button" onClick={navigate.bind(null, "NEXT")}>
             다음
           </button>
@@ -66,6 +66,9 @@ const ToolBar = (props) => {
         <span className={classes.rbcBtnGroup}>
           <button type="button" onClick={navigate.bind(null, "TODAY")}>
             오늘
+          </button>
+          <button type="button" onClick={getDatas}>
+            갱신
           </button>
         </span>
       </div>

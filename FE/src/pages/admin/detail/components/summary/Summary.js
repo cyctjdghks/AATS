@@ -22,9 +22,9 @@ const Summary = () => {
   };
 
   for (let i = 0; i < startData.length; i++) {
-    if (moment(new Date(startData[i])).format("YYYY.MM.DD.ddd") === today) {
-      const tmp = stringToInt(moment(new Date(startData[i])).format("HH"));
-      todayStartTime = moment(new Date(startData[i])).format("HH:mm");
+    if (moment(new Date(startData[i].time)).format("YYYY.MM.DD.ddd") === today) {
+      const tmp = stringToInt(moment(new Date(startData[i].time)).format("HH"));
+      todayStartTime = moment(new Date(startData[i].time)).format("HH:mm");
       if (tmp >= 9) {
         todayStart = "지각";
       } else {
@@ -34,9 +34,9 @@ const Summary = () => {
   }
 
   for (let i = 0; i < endData.length; i++) {
-    if (moment(new Date(endData[i])).format("YYYY.MM.DD.ddd") === today) {
-      const tmp = stringToInt(moment(new Date(endData[i])).format("HH"));
-      todayEndTime = moment(new Date(endData[i])).format("HH:mm");
+    if (moment(new Date(endData[i].time)).format("YYYY.MM.DD.ddd") === today) {
+      const tmp = stringToInt(moment(new Date(endData[i].time)).format("HH"));
+      todayEndTime = moment(new Date(endData[i].time)).format("HH:mm");
       if (tmp <= 18) {
         todayStart = "조퇴";
       } else {

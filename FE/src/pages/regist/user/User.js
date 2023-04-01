@@ -2,6 +2,7 @@ import InputLabel from "../components/InputLabel";
 import InputBigLabel from "../components/InputBigLabel";
 import SaveImg from "../components/SaveImg";
 import classes from "./User.module.css";
+import Swal from "sweetalert2";
 
 import ceo from "../../../assets/MainContact/ceo.png";
 import quote1 from "../../../assets/MainContact/quote1.png";
@@ -13,6 +14,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataInput, CheckPassword } from "../components/Effectiveness";
 import { GenderCheckbox } from "../components/GenderCheckBox";
+import InputShortLabel from "../components/InputShortLabel";
 
 const User = () => {
   const navigate = useNavigate();
@@ -77,14 +79,30 @@ const User = () => {
           "Content-Type": "multipart/form-data",
         },
       })
-      .then((response) => {
-        if (response.status === 200) {
-          navigate("/regist");
-        } else {
-        }
+      .then(() => {
+        Swal.fire({
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">등록 성공!<div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">등록 타입 페이지로 이동합니다</div>',
+          icon: "success",
+          width: 350,
+          confirmButtonColor: "#9A9A9A",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        });
+        navigate("/regist");
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        Swal.fire({
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">등록 실패!<div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">입력 항목들을 다시 확인해주세요</div>',
+          width: 330,
+          icon: "error",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          confirmButtonColor: "#9A9A9A",
+        });
       });
   };
 
@@ -120,7 +138,7 @@ const User = () => {
           <h3>AATS, 이것은 혁신입니다.</h3>
           <img src={quote2} alt="" className={classes.quote2} />
         </div>
-        <p className={classes.ceoMent}>D102 대표, 강모현</p>
+        <p className={classes.ceoMent}>AIVE 대표, 강모현</p>
         <div className={classes.hLine}></div>
         <div className={classes.phoneBox}>
           <img src={phone} alt="" />
@@ -153,14 +171,14 @@ const User = () => {
         <div className={classes.hline}></div>
 
         <div className={classes.inputBoxOne}>
-          <InputLabel
+          <InputShortLabel
             label="이름"
             type="text"
             placeholder="이름을 입력해주세요"
             onChange={setName}
             errorMessage={nameError ? "" : "한글, 영어로만 입력해주세요"}
           />
-          <InputLabel
+          <InputShortLabel
             label="나이"
             type="text"
             placeholder="나이를 입력해주세요"
@@ -171,36 +189,34 @@ const User = () => {
             <label htmlFor="ex_select" className={classes.selectTitle}>
               국적
             </label>
-            <div>
-              <select
-                id="ex_select"
-                className={classes.selectIdBox}
-                onChange={(event) => setNationality(event.target.value)}
-              >
-                <option defaultValue>국적 선택(필수)</option>
-                {nationList.map((nation, idx) => (
-                  <option key={idx}>{nation}</option>
-                ))}
-              </select>
-            </div>
+            <select
+              id="ex_select"
+              className={classes.selectIdBox}
+              onChange={(event) => setNationality(event.target.value)}
+            >
+              <option defaultValue>국적 선택(필수)</option>
+              {nationList.map((nation, idx) => (
+                <option key={idx}>{nation}</option>
+              ))}
+            </select>
           </div>
         </div>
         <div className={classes.inputBoxTwo}>
-          <InputLabel
+          <InputShortLabel
             label="아이디"
             type="text"
             placeholder="아이디를 입력해주세요"
             onChange={setId}
             errorMessage={idError ? "" : "영어와 숫자로만 입력해주세요."}
           />
-          <InputLabel
+          <InputShortLabel
             label="휴대폰 번호"
             type="text"
             placeholder="휴대폰 번호를 입력해주세요"
             onChange={setPhoneNumber}
             errorMessage={phoneNumberError ? "" : "전화번호 양식을 맞춰주세요"}
           />
-          <InputLabel
+          <InputShortLabel
             label="생년월일"
             type="date"
             placeholder="생년월일을 입력해주세요"

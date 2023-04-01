@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 import UserDatas from "./components/UserData";
+import { authActions } from "../../../store/auth"
 
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -11,17 +12,36 @@ import quote2 from "../../../assets/auths/quote2.png";
 import classes from "./Search.module.css";
 
 const Search = () => {
+  const dispatch = useDispatch();
   const organizationName = useSelector(
     (state) => state.auth.organizationData.organizationName
   );
+  const organizationId = useSelector((state) => state.auth.id)
   const workerDatas = useSelector((state) => state.auth.workers);
   const userDatas = useSelector((state) => state.auth.users);
-
   const [type, setType] = useState(1);
 
   const typeChange = (event) => {
     event.preventDefault();
     setType(!type);
+    const workerUrl = "https://j8d102.p.ssafy.io/be/organization/getall/worker";
+    const userUrl = "https://j8d102.p.ssafy.io/be/organization/getall/user";
+    axios
+      .post(workerUrl, { organizationId: organizationId })
+      .then((response) => {
+        dispatch(authActions.getWorkers(response.data.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    axios
+      .post(userUrl, { organizationId: organizationId })
+      .then((response) => {
+        dispatch(authActions.getUsers(response.data.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const [searchName, setSearchName] = useState("");
@@ -77,7 +97,9 @@ const Search = () => {
         </div>
       </div>
       <div>
-        <button onClick={typeChange} className={classes.typebtn}>{type ? "회원" : "근무자"}</button>
+        <button onClick={typeChange} className={classes.typebtn}>
+          {type ? "회원" : "근무자"}
+        </button>
       </div>
       <div className={classes.peopleBox}>
         <div className={classes.userDataBox}>

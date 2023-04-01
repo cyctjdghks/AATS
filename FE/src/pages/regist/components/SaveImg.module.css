@@ -2,6 +2,9 @@
   font-family: "Apple_Gothic_Neo_Mid";
   src: url("../../../fonts/AppleSDGothicNeoM.ttf")
 }
+.filebox{
+  margin-right: 10px
+}
 
 .filebox form{
   display: flex;

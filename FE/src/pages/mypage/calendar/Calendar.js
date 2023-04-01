@@ -80,18 +80,18 @@ const Test = () => {
     const tmp = [];
     for (let i = 0; i < startData.length; i++) {
       tmp.push({
-        start: new Date(startData[i]),
-        end: new Date(startData[i]),
-        type: stringToInt(startData[i].slice(11, 13)) > 9 ? "지각" : "정상출근",
-        title: "출근 " + moment(new Date(startData[i])).format("HH:mm"),
+        start: new Date(startData[i].time),
+        end: new Date(startData[i].time),
+        type: stringToInt(startData[i].time.slice(11, 13)) > 9 ? "지각" : "정상출근",
+        title: "출근 " + moment(new Date(startData[i].time)).format("HH:mm"),
       });
     }
     for (let i = 0; i < endData.length; i++) {
       tmp.push({
-        start: new Date(endData[i]),
-        end: new Date(endData[i]),
-        type: stringToInt(endData[i].slice(11, 13)) < 18 ? "조퇴" : "퇴근",
-        title: "퇴근 " + moment(new Date(endData[i])).format("HH:mm"),
+        start: new Date(endData[i].time),
+        end: new Date(endData[i].time),
+        type: stringToInt(endData[i].time.slice(11, 13)) < 18 ? "조퇴" : "퇴근",
+        title: "퇴근 " + moment(new Date(endData[i].time)).format("HH:mm"),
       });
     }
     return tmp;
@@ -103,6 +103,11 @@ const Test = () => {
 
   return (
     <div className={classes.box}>
+      <div>
+        <p>
+         현재 시각 : {moment([]).format("YYYY-MM-DD HH:mm")}
+        </p>
+        </div>
       <div className={classes.test}>
         <Calendar
           events={state.events}

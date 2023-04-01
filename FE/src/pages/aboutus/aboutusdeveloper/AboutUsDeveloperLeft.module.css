@@ -23,37 +23,53 @@
   src: url("../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-
-
-.developerBox{
+.developerBox {
   display: flex;
-  margin-bottom: 300px;
+  flex-direction: row-reverse;
+  margin-bottom: 40%;
+  width: 100%;
 }
 
 .developer {
-  text-align: left;
+  text-align: right;
   margin-right: 30px;
-  width: 150px;
+  width: 50%;
 }
-
-.developerName{
+.imgWrapper {
+  width: 50%;
+}
+.imgWrapper img {
+  border-radius: 10px;
+  width: 100%;
+}
+.developerName {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 20px;
 }
 
-.developerRole{
+.developerRole {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 20px;
   margin-top: -10px;
 }
 
-.developertext{
+.developertext {
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 18px;
   margin-top: -10px;
 }
 
-.developerBox img{
-  border-radius: 10px;
+@media screen and (max-width: 1024px) {
+  .developerBox {
+    flex-direction: column;
+    margin: 0;
+  }
+  .imgWrapper {
+    width: 100%;
+  }
+  .developer {
+    text-align: left;
+    margin: 0;
+    width: 100%;
+  }
 }
-

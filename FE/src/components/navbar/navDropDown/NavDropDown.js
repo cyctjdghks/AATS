@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../../store/auth";
+import { startActions } from "../../../store/start";
+import { endActions } from "../../../store/end";
 // import mui components
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
@@ -18,13 +23,14 @@ import TocIcon from "@mui/icons-material/Toc";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
-import CameraOutdoorIcon from '@mui/icons-material/CameraOutdoor';
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
+import CameraOutdoorIcon from "@mui/icons-material/CameraOutdoor";
 //import css style
 import classes from "./NavDropDown.module.css";
 
 const NavDropDown = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLogin = useSelector((state) => state.auth.isLogin);
   const userType = useSelector((state) => state.auth.userType);
@@ -50,15 +56,84 @@ const NavDropDown = () => {
   const toMypage = () => {
     navigate("/mypage");
   };
+  const toCalendar = () => {
+    navigate("/mypage/calendar");
+  };
   const toMypageContact = () => {
     navigate("/mypage/contact");
   };
-  const toDashBoard = () =>{
-    navigate("/admin")
-  }
+  const toSearch = () => {
+    navigate("/admin/search");
+  };
+  const toRegist = () => {
+    navigate("/regist");
+  };
   const toCctv = () => {
-    navigate("/admin/cctv")
-  }
+    window.open("https://j8d102.p.ssafy.io/ai")
+  };
+  const logout = () => {
+    if (userType === 0) {
+      dispatch(authActions.organizationLogout(""));
+      dispatch(startActions.resetData([]));
+      dispatch(endActions.resetData([]));
+      organizationLogout();
+    } else if (userType === 1) {
+      dispatch(authActions.workerLogout(""));
+      workerLogout();
+    } else if (userType === 2) {
+      dispatch(authActions.userLogout(""));
+      userLogout();
+    }
+  };
+
+  const organizationLogout = () => {
+    const url = "https://j8d102.p.ssafy.io/be/organization/logout";
+    axios.get(url).then(() => {
+      Swal.fire({
+        title:
+          '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">정상적으로 로그아웃 되었습니다<div>',
+        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">이용해주셔서 감사합니다</div>',
+        icon: "success",
+        width: 350,
+        confirmButtonColor: "#9A9A9A",
+        confirmButtonText:
+          '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+      });
+      navigate("/");
+    });
+  };
+  const workerLogout = () => {
+    const url = "https://j8d102.p.ssafy.io/be/worker/logout";
+    axios.get(url).then(() => {
+      Swal.fire({
+        title:
+          '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">정상적으로 로그아웃 되었습니다<div>',
+        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">이용해주셔서 감사합니다</div>',
+        icon: "success",
+        width: 350,
+        confirmButtonColor: "#9A9A9A",
+        confirmButtonText:
+          '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+      });
+      navigate("/");
+    });
+  };
+  const userLogout = () => {
+    const url = "https://j8d102.p.ssafy.io/be/user/logout";
+    axios.get(url).then(() => {
+      Swal.fire({
+        title:
+          '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">정상적으로 로그아웃 되었습니다<div>',
+        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">이용해주셔서 감사합니다</div>',
+        icon: "success",
+        width: 350,
+        confirmButtonColor: "#9A9A9A",
+        confirmButtonText:
+          '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+      });
+      navigate("/");
+    });
+  };
 
   const firstLogoutdata = [
     { name: "Home", icon: <HomeIcon color="primary" />, link: toHome },
@@ -74,11 +149,11 @@ const NavDropDown = () => {
 
   const firstOrganizationLoginData = [
     {
-      name: "DashBoard",
-      icon: <DashboardIcon/>,
-      link: toDashBoard,
+      name: "Search",
+      icon: <DashboardIcon />,
+      link: toSearch,
     },
-    { name: "D", icon: <PermContactCalendarIcon />, link: toDashBoard },
+    { name: "Regist", icon: <PermContactCalendarIcon />, link: toRegist },
     { name: "CCTV", icon: <CameraOutdoorIcon />, link: toCctv },
   ];
   const firstWorkerLoginData = [
@@ -87,7 +162,7 @@ const NavDropDown = () => {
       icon: <AccountCircleIcon color="primary" />,
       link: toMypage,
     },
-    { name: "Calendar", icon: <EventAvailableIcon />, link: toMypage },
+    { name: "Calendar", icon: <EventAvailableIcon />, link: toCalendar },
     { name: "Contact", icon: <HeadsetMicIcon />, link: toMypageContact },
   ];
   const firstUserLoginData = [
@@ -96,11 +171,11 @@ const NavDropDown = () => {
       icon: <AccountCircleIcon color="primary" />,
       link: toMypage,
     },
-    { name: "Calendar", icon: <EventAvailableIcon />, link: toMypage },
+    { name: "Calendar", icon: <EventAvailableIcon />, link: toCalendar },
     { name: "Contact", icon: <HeadsetMicIcon />, link: toMypageContact },
   ];
   const secondLoginData = [
-    { name: "Logout", icon: <LoginIcon />, link: toLogin },
+    { name: "Logout", icon: <LoginIcon />, link: logout },
   ];
 
   const [open, setOpen] = useState(false);

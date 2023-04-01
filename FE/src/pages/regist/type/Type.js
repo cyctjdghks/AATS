@@ -5,13 +5,14 @@ import PersonIcon from "@mui/icons-material/Person";
 import GroupsIcon from '@mui/icons-material/Groups';
 
 import classes from "./Type.module.css";
+import { useSelector } from "react-redux";
 
 const Type = () => {
   const navigate = useNavigate();
   const [count1, setCount1] = useState(0);
   const [count2, setCount2] = useState(0);
-  const count1End = 20;
-  const count2End = 60;
+  const count1End = useSelector((state) => state.auth.users).length;
+  const count2End = useSelector((state) => state.auth.workers).length;
 
   useEffect(() => {
     let timer = null;
@@ -20,10 +21,10 @@ const Type = () => {
         setCount1((prevState) => {
           return prevState + 1;
         });
-      }, 150);
+      }, 100);
     }
     return () => clearInterval(timer);
-  }, [count1]);
+  }, [count1, count1End]);
 
   useEffect(() => {
     let timer = null;
@@ -32,10 +33,10 @@ const Type = () => {
         setCount2((prevState) => {
           return prevState + 1;
         });
-      }, 50);
+      }, 100);
     }
     return () => clearInterval(timer);
-  }, [count2]);
+  }, [count2, count2End]);
 
   const toUserRegist = (event) => {
     event.preventDefault();

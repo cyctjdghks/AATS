@@ -25,7 +25,7 @@
   
   .pageBox {
     text-align: left;
-    /* padding-top: 20px; */
+    width: 90%;
     height: 100%;
     background-color: rgb(235, 235, 235);
     display: flex;
@@ -33,20 +33,18 @@
   }
   
   .loginBox {
-    margin-top: 140px;
+    margin-top: 170px;
     margin-bottom: 50px;
     width: 550px;
-    height: 500px;
+    height: 450px;
     background-color: white;
     box-shadow: 2px 5px 5px grey;
     border-radius: 3px;
-    margin-left: 170px;
   }
   
   @media screen and (max-width: 1024px) {
     .loginBox {
-      width: 400px;
-      margin-left: 0px;
+      width: 550px;
     }
   
     .imgBox{
@@ -115,7 +113,7 @@
   .imgBox {
     padding-top: 15px;
     width: 40%;
-    margin-top: 60px;
+    margin-top: 35px;
   }
   
   .quoteText1 {
@@ -224,7 +222,7 @@
     text-align: center;
   }
   
-  .ceo{
-    margin-top: 30px;
-    width: 350px;
+  .ceo {
+    margin-top: -58px;
+    width: 480px;
   }
