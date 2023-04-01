@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 
+import axios from "axios";
+
 import PersonIcon from "@mui/icons-material/Person";
 import GroupsIcon from "@mui/icons-material/Groups";
 import BusinessIcon from "@mui/icons-material/Business";
 
 import classes from "./Type.module.css";
+import { useSelector } from "react-redux";
 
 const Type = () => {
   const navigate = useNavigate();
@@ -14,9 +17,27 @@ const Type = () => {
   const [count1, setCount1] = useState(0);
   const [count2, setCount2] = useState(0);
   const [count3, setCount3] = useState(0);
-  const count1End = 4;
-  const count2End = 60;
-  const count3End = 100;
+  const count1End = useSelector((state) => state.auth.aiveData.organization)
+  const count2End = useSelector((state) => state.auth.aiveData.user)
+  const count3End = useSelector((state) => state.auth.aiveData.worker)
+
+  const lcm = (num1, num2) => {
+    return (num1 * num2) / gcd(num1, num2);
+  }
+  
+  const gcd = (num1, num2) => {
+    if (num2 === 0) {
+      return num1;
+    } else {
+      return gcd(num2, num1 % num2);
+    }
+  }
+  
+  const lcm3 = (num1, num2, num3) => {
+    return lcm(lcm(num1, num2), num3);
+  }
+
+  const intervalTime = lcm3(count1End, count2End, count3End)
 
   useEffect(() => {
     let timer = null;
@@ -25,7 +46,7 @@ const Type = () => {
         setCount1((prevState) => {
           return prevState + 1;
         });
-      }, 150);
+      }, (intervalTime/count1End) *10);
     }
     return () => clearInterval(timer);
   }, [count1]);
@@ -37,7 +58,7 @@ const Type = () => {
         setCount2((prevState) => {
           return prevState + 1;
         });
-      }, 10);
+      }, (intervalTime/count2End)* 10);
     }
     return () => clearInterval(timer);
   }, [count2]);
@@ -49,7 +70,7 @@ const Type = () => {
         setCount3((prevState) => {
           return prevState + 1;
         });
-      }, 6);
+      },( intervalTime/count3End)*10);
     }
     return () => clearInterval(timer);
   }, [count3]);
