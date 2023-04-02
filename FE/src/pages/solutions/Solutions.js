@@ -3,7 +3,12 @@ import SolutionItem from "./components/SolutionItem";
 import classes from "./Solutions.module.css";
 
 import AI from "../../assets/A.png";
+
 import solution1 from "../../assets/Solution/solution1.png";
+import solution2 from "../../assets/Solution/solution2.png";
+import solution3 from "../../assets/Solution/solution3.png";
+import solution4 from "../../assets/Solution/solution4.png";
+
 import { useEffect, useState } from "react";
 
 const Solutions = () => {
@@ -52,22 +57,22 @@ const Solutions = () => {
 
   const firstColors = {
     color1: "#005FB3",
-    color2: "#3D99F5F5",
+    color2: "#000000",
     color3: "#d3d3d3",
   };
   const secondColors = {
     color1: "#6F5552",
-    color2: "#816867F5",
+    color2: "#000000",
     color3: "#d3d3d3",
   };
   const thirdColors = {
     color1: "#4234C6",
-    color2: "#9A8CF9F5",
+    color2: "#000000",
     color3: "#d3d3d3",
   };
   const fourthColors = {
     color1: "#105853",
-    color2: "#286F6AF5",
+    color2: "#000000",
     color3: "#d3d3d3",
   };
 
@@ -133,14 +138,13 @@ const Solutions = () => {
               solutionName="얼굴 인식 자동 출입 시스템"
               solutionSubName="솔루션 서브네임"
               hashtag="#솔루션"
-              content="Fast R-CNN과  SSD 을 서로 적용하여 차이점 분석한 후, 
-              선정한 모델을 tensorFlow  커스텀 모델링, 
-              하이퍼파라미터 수정을 통한 학습 후 OpenCV환경에서 다중객체 탐지를 함으로써 
-              임직원 및 고객의 출입을 통제할 수 있습니다.
-              넓은 공간에서 길을 잃은 고객을 찾기 위해
-              tensorflow Keras Pooling 2D 레이어 생성, 
-              Dense(신경망구조)는 SoftMax 모델을 사용하여 
-              업로드와 동시에 학습을 진행해  opencv를 접목시킨 CCTV로 단일객체 추적하는 시스템입니다. "
+              content="Fast R-CNN과 SSD를 적용한 차이점 분석 후, 
+              TensorFlow 커스텀 모델링과 하이퍼파라미터 수정으로 학습하여 
+              OpenCV에서 다중객체 탐지로 임직원 및 고객 출입을 통제합니다. 
+              이를 위해 넓은 공간에서 길을 잃은 고객을 찾기 위해 
+              TensorFlow Keras의 2D Pooling 레이어를 생성하고, 
+              Dense 레이어에서는 SoftMax 모델을 사용하여 
+              opencv를 접목한 CCTV로 단일 객체를 추적하는 시스템입니다."
               img={solution1}
               colors={firstColors}
             />
@@ -154,7 +158,7 @@ const Solutions = () => {
               hashtag="#솔루션"
               content="CCTV 영상을 한 번에 관제 가능하도록
               통합하여 관리 및 관제 할 수 있는 시스템입니다."
-              img={solution1}
+              img={solution2}
               colors={thirdColors}
             />
           </div>
@@ -167,7 +171,7 @@ const Solutions = () => {
               hashtag="#솔루션"
               content="출입과 출퇴근 시간이 연동되어 저장됩니다.
               한 번에 간편하게 처리 가능합니다."
-              img={solution1}
+              img={solution3}
               colors={fourthColors}
             />
           </div>
@@ -183,7 +187,7 @@ const Solutions = () => {
               Dense(신경망구조)는 SoftMax 모델을 사용하여 
               업로드와 동시에 학습을 진행해 
               opencv를 접목시킨 CCTV로 단일객체 추적하는 시스템입니다."
-              img={solution1}
+              img={solution4}
               colors={secondColors}
             />
           </div>

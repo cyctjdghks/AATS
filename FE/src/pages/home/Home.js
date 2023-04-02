@@ -8,6 +8,7 @@ import tmpNew1 from "../../assets/News/tmpNew1.png";
 import tmpVideo from "../../assets/News/tmpVideo.png";
 import solution1 from "../../assets/Home/solution1.png";
 import solution2 from "../../assets/Home/solution2.png";
+import solution3 from "../../assets/Home/solution3.png";
 
 // import A from "../../assets/A.png";
 
@@ -52,13 +53,17 @@ const Home = () => {
         <div className={classes.solutionBox}>
           <div className={classes.solutionLeft}>
             <img src={solution1} alt="솔루션1" className={classes.solution1} />
-            <p className={classes.solutionTitle1}>얼굴 인식 자동 출입 시스템</p>
-            <p className={classes.solutionSubTitle1}>
-              Fast R-CNN과 SSD를 서로 적용하여 차이점을 분석한 후 선정한 모델을
-              tensorFlow 커스텀 모델링, 하이퍼파라미터 수정을 통한 학습 후
-              OpenCV 환경에서 다중 객체 탐지를 함으로써 임직원 및 고객의 출입
-              통제가능
-            </p>
+            <div className={classes.titleBox1}>
+              <p className={classes.solutionTitle1}>
+                얼굴 인식 자동 출입 시스템
+              </p>
+              <p className={classes.solutionSubTitle1}>
+                Fast R-CNN과 SSD를 서로 적용하여 차이점을 분석한 후 선정한
+                모델을 tensorFlow 커스텀 모델링, 하이퍼파라미터 수정을 통한 학습
+                후 OpenCV 환경에서 다중 객체 탐지를 함으로써 임직원 및 고객의
+                출입 통제가능
+              </p>
+            </div>
           </div>
           <div className={classes.solutionRight}>
             <div className={classes.solutionBox2}>
@@ -67,13 +72,24 @@ const Home = () => {
                 alt="솔루션2"
                 className={classes.solution2}
               />
-              <p className={classes.solutionTitle2}>
-                얼굴 인식 자동 출입 시스템
+              <p className={classes.solutionTitle2}>CCTV 통합관제</p>
+              <p className={classes.solutionSubTitle2}>
+                CCTV 영상을 한 번에 관제 가능하도록 통합하여 관리 및 관제 할 수
+                있는 시스템
               </p>
-              {/* <p className={classes.solutionSubTitle2}>설명</p> */}
             </div>
-            <div className={classes.solutionBox3}>
-
+            <div className={classes.solutionBox2}>
+              <img
+                src={solution3}
+                alt="솔루션3"
+                className={classes.solution3}
+              />
+              <p className={classes.solutionTitle2}>
+                출입과 동시에 근태관리 연동
+              </p>
+              <p className={classes.solutionSubTitle2}>
+                출입과 출퇴근 시간이 연동되어 저장 가능
+              </p>
             </div>
           </div>
         </div>

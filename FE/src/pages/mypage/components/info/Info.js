@@ -1,37 +1,49 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import classes from "./Info.module.css";
 
 const Info = () => {
+  const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
   const workerData = useSelector((state) => state.auth.workerData);
   const userType = useSelector((state) => state.auth.userType);
   const [type, setType] = useState("");
+
+  // 비밀번호 변경 페이지로 이동
+  const toPasswordChange = (event) => {
+    event.preventDefault();
+    navigate("/passwordchange")
+  }
+
+
   const tmp = () => {
     if (userType === 1) {
       setType(true);
     } else if (userType === 2) {
       setType(false);
     }
-  }
+  };
   const data = {
-    id : type ? workerData.workerId : userData.userId,
-    name : type ? workerData.workerName : userData.userName,
-    organizationName : type ? workerData.organizationName : userData.organizationName,
-    gender : type ? workerData.workerGender : userData.userGender,
-    age : type ? workerData.workerAge : userData.userAge,
-    email : type ? workerData.workerEmail : userData.userEmail,
-    phone : type ? workerData.workerPhone : userData.userPhone,
-    nationality : type ? workerData.workerNationality : userData.userNationality,
-    birth : type ? workerData.workerBirth : userData.userBirth,
-    profile : type ? workerData.workerProfilePath : userData.userProfilePath,
-  }
+    id: type ? workerData.workerId : userData.userId,
+    name: type ? workerData.workerName : userData.userName,
+    organizationName: type
+      ? workerData.organizationName
+      : userData.organizationName,
+    gender: type ? workerData.workerGender : userData.userGender,
+    age: type ? workerData.workerAge : userData.userAge,
+    email: type ? workerData.workerEmail : userData.userEmail,
+    phone: type ? workerData.workerPhone : userData.userPhone,
+    nationality: type ? workerData.workerNationality : userData.userNationality,
+    birth: type ? workerData.workerBirth : userData.userBirth,
+    profile: type ? workerData.workerProfilePath : userData.userProfilePath,
+  };
 
   useEffect(() => {
     tmp();
   });
-  const profileLink = "https://j8d102.p.ssafy.io/be/" + data?.profile
+  const profileLink = "https://j8d102.p.ssafy.io/be/" + data?.profile;
   return (
     <div>
       <p className={classes.Title}>나의 프로필</p>
@@ -80,6 +92,7 @@ const Info = () => {
                 {data.phone}
               </p>
             </div>
+            <button onClick={toPasswordChange}>비밀번호 변경</button>
           </div>
         </div>
       </div>

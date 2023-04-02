@@ -14,6 +14,7 @@ import Home from "./pages/home/Home";
 import AboutUs from "./pages/aboutus/AboutUs";
 import MyPage from "./pages/mypage/MyPage"
 import Admin from "./pages/admin/Admin";
+import PasswordChange from "./pages/mypage/passwordchange/PasswordChange";
 // import css style 
 import classes from "./App.module.css";
 import Main from "./Test";
@@ -47,6 +48,7 @@ function App() {
         <Route path="/mypage/*" element={<MyPage />} />
         <Route path="/test" element={<Main />} />
         <Route path="/admin/*" element={<Admin />} />
+        <Route path="/passwordchange" element={<PasswordChange/>}/>
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
