@@ -11,16 +11,13 @@ const Modal = ({
   colors,
   img,
 }) => {
-
   // 모달 스크롤바 막기
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, []);
-
-
 
   // 모달 끄기
   const closeModal = () => {
@@ -51,19 +48,20 @@ const Modal = ({
             className={classes.vLine}
             style={{ backgroundColor: color1 }}
           ></div>
-          <div>
-            <div className={classes.TitleBox}>
-              <h3 className={classes.number}>{number}</h3>
-              <p className={classes.solutionName}>{solutionName}</p>
-              <p className={classes.solutionSubName}>{solutionSubName}</p>
-              <p className={classes.hashtag}>{hashtag}</p>
-            </div>
-            <div className={classes.contentBox}>
-              <p className={classes.content}>{content}</p>
-            </div>
+          <div className={classes.TitleBox}>
+            <h3 className={classes.number}>{number}</h3>
+            <p className={classes.solutionName}>{solutionName}</p>
+            <p className={classes.solutionSubName}>{solutionSubName}</p>
+            <p className={classes.hashtag}>{hashtag}</p>
+          </div>
+          <div className={classes.contentBox}>
+            <p className={classes.content}>{content}</p>
           </div>
         </div>
+        <div className={classes.imgWrapper}>
         <img src={img} alt="이미지" className={classes.solutionImg} />
+
+        </div>
         <button
           className={classes.close}
           onClick={closeModal}

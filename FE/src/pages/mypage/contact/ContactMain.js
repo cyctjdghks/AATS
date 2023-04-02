@@ -132,7 +132,7 @@ const ContactMain = () => {
               <h3>AATS, 이것은 혁신입니다.</h3>
               <img src={quote2} alt="따옴표2" className={classes.quote2} />
 
-              <p className={classes.d102}>D102 팀장, 강모현</p>
+              <p className={classes.d102}>AIVE ceo, 강모현</p>
               <div className={classes.hLine}></div>
               <div className={classes.phoneBox}>
                 <div>
