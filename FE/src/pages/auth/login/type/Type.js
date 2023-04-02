@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
-
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-import axios from "axios";
 
 import PersonIcon from "@mui/icons-material/Person";
 import GroupsIcon from "@mui/icons-material/Groups";
 import BusinessIcon from "@mui/icons-material/Business";
 
 import classes from "./Type.module.css";
-import { useSelector } from "react-redux";
 
 const Type = () => {
   const navigate = useNavigate();
@@ -49,7 +46,7 @@ const Type = () => {
       }, (intervalTime/count1End) *10);
     }
     return () => clearInterval(timer);
-  }, [count1]);
+  }, [count1, count1End, intervalTime]);
 
   useEffect(() => {
     let timer = null;
@@ -61,7 +58,7 @@ const Type = () => {
       }, (intervalTime/count2End)* 10);
     }
     return () => clearInterval(timer);
-  }, [count2]);
+  }, [count2, count2End, intervalTime]);
 
   useEffect(() => {
     let timer = null;
@@ -73,7 +70,7 @@ const Type = () => {
       },( intervalTime/count3End)*10);
     }
     return () => clearInterval(timer);
-  }, [count3]);
+  }, [count3, count3End, intervalTime]);
 
   const toOrganizationLogin = (event) => {
     event.preventDefault();

@@ -4,7 +4,7 @@ import moment from "moment/moment";
 import CommutePie from "./components/CommutePie";
 import { CommuteData } from "./components/Data";
 
-const Summary = () => {
+const UserSummary = () => {
   const startData = useSelector((state) => state.start.timeList);
   const endData = useSelector((state) => state.end.timeList);
   const today = moment([]).format("YYYY.MM.DD.ddd");
@@ -22,9 +22,11 @@ const Summary = () => {
   };
 
   for (let i = 0; i < startData.length; i++) {
-    if (moment(new Date(startData[i]?.time)).format("YYYY.MM.DD.ddd") === today) {
-      const tmp = stringToInt(moment(new Date(startData[i]?.time)).format("HH"));
-      todayStartTime = moment(new Date(startData[i]?.time)).format("HH:mm");
+    if (
+      moment(new Date(startData[i].time)).format("YYYY.MM.DD.ddd") === today
+    ) {
+      const tmp = stringToInt(moment(new Date(startData[i].time)).format("HH"));
+      todayStartTime = moment(new Date(startData[i].time)).format("HH:mm");
       if (tmp >= 9) {
         todayStart = "지각";
       } else {
@@ -34,9 +36,9 @@ const Summary = () => {
   }
 
   for (let i = 0; i < endData.length; i++) {
-    if (moment(new Date(endData[i]?.time)).format("YYYY.MM.DD.ddd") === today) {
-      const tmp = stringToInt(moment(new Date(endData[i]?.time)).format("HH"));
-      todayEndTime = moment(new Date(endData[i]?.time)).format("HH:mm");
+    if (moment(new Date(endData[i].time)).format("YYYY.MM.DD.ddd") === today) {
+      const tmp = stringToInt(moment(new Date(endData[i].time)).format("HH"));
+      todayEndTime = moment(new Date(endData[i].time)).format("HH:mm");
       if (tmp <= 18) {
         todayStart = "조퇴";
       } else {
@@ -56,10 +58,6 @@ const Summary = () => {
             <div className={classes.startBtn}>
               <p className={classes.startP1}>{todayStartTime}</p>
               <p className={classes.startP2}>{todayStart}</p>
-            </div>
-            <div className={classes.endBtn}>
-              <p className={classes.startP1}>{todayEndTime}</p>
-              <p className={classes.startP2}>{todayEnd}</p>
             </div>
           </div>
         </div>
@@ -126,4 +124,4 @@ const Summary = () => {
   );
 };
 
-export default Summary;
+export default UserSummary;
