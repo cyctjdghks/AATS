@@ -11,6 +11,17 @@ const Modal = ({
   colors,
   img,
 }) => {
+
+  // 모달 스크롤바 막기
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
+
+
   // 모달 끄기
   const closeModal = () => {
     setModalOpen(false);
@@ -27,7 +38,8 @@ const Modal = ({
     <div
       className={classes.modalBackGround}
       onClick={closeModal}
-      style={{ backgroundColor: color2 }}
+      //   style={{ backgroundColor: color2 }
+      // }
     >
       <div
         className={classes.container}
@@ -51,19 +63,14 @@ const Modal = ({
             </div>
           </div>
         </div>
-        <div
-          className={classes.containerRight}
-          style={{ backgroundColor: color3 }}
+        <img src={img} alt="이미지" className={classes.solutionImg} />
+        <button
+          className={classes.close}
+          onClick={closeModal}
+          style={{ backgroundColor: color1 }}
         >
-          <img src={img} alt="이미지" className={classes.solutionImg} />
-          <button
-            className={classes.close}
-            onClick={closeModal}
-            style={{ backgroundColor: color1 }}
-          >
-            X
-          </button>
-        </div>
+          X
+        </button>
       </div>
     </div>
   );
