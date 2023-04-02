@@ -24,11 +24,17 @@
 }
 
 
-
-
-.input{
-  font-family: "Apple_Gothic_Neo_Light";
+/* label{
+  display: flex;
+  justify-content: center;
   width: 100%;
+  margin: 0;
+} */
+
+
+.input {
+  font-family: "Apple_Gothic_Neo_Light";
+  width: 90%;
   font-size: 17px;
   padding-top: 11px;
   padding-bottom: 6px;

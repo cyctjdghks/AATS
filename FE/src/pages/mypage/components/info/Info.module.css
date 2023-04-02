@@ -17,7 +17,9 @@
   font-family: "Apple_Gothic_Neo_R";
   src: url("../../../../fonts/AppleSDGothicNeoR.ttf");
 }
-
+.information{
+  width: 100%;
+}
 .Title {
   width: 78%;
   margin: auto;
@@ -55,7 +57,7 @@
 }
 .horizonHr {
   width: 100%;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 15px;
   height: 2px;
   background-color: rgb(235, 235, 235);
@@ -66,7 +68,6 @@
   display: flex;
   flex-direction: column;
   width: 70%;
-
   margin: 0 20px 0 20px;
   justify-content: flex-start;
   align-items: left;
@@ -77,17 +78,15 @@
   display: inline-block;
 }
 
-.bottoBox {
-  display: flex;
-  justify-content: flex-start;
+.bottomBox {
+  width: 100%;
 }
 
 .contentBox {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 5px;
-  margin-right: 100px;
+  margin-top: 2px;
 }
 
 .name {
@@ -116,7 +115,7 @@
   .info img {
     width: 180px;
   }
-  .bottoBox {
+  .bottomBox {
     flex-direction: column;
   }
 }

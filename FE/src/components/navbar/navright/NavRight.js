@@ -72,8 +72,12 @@ const NavRight = () => {
   const logout = () => {
     if (userType === 0) {
       dispatch(authActions.organizationLogout(""));
-      dispatch(startActions.resetData([]));
-      dispatch(endActions.resetData([]));
+      dispatch(startActions.resetData([
+        {time :""},
+      ]));
+      dispatch(endActions.resetData([
+        {time :""},
+      ]));
       organizationLogout();
     } else if (userType === 1) {
       dispatch(authActions.workerLogout(""));

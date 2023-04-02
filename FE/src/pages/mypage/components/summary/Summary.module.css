@@ -28,6 +28,10 @@
   src: url("../../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
+.summaryBox{
+  width: 100%;
+}
+
 .summaryTitle{
   width: 78%;
   margin: auto;

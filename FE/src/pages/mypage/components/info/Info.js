@@ -45,7 +45,7 @@ const Info = () => {
   });
   const profileLink = "https://j8d102.p.ssafy.io/be/" + data?.profile;
   return (
-    <div>
+    <div className={classes.information}>
       <p className={classes.Title}>나의 프로필</p>
       <div className={classes.info}>
         <img src={profileLink} alt="profile" />
@@ -59,7 +59,7 @@ const Info = () => {
             </div>
             <div className={classes.contentBox}>
               <p className={classes.content}>
-                <span className={classes.tag}> 기관 &nbsp; </span>
+                <span className={classes.tag}> 기관 &nbsp;</span>
                 {data.organizationName}
               </p>
             </div>
@@ -71,15 +71,11 @@ const Info = () => {
             </div>
           </div>
           <hr className={classes.horizonHr} />
-          <div className={classes.bottoBox}>
+          <div className={classes.bottomBox}>
             <div className={classes.contentBox}>
               <p className={classes.content}>
-                <span className={classes.tag}> 국적&nbsp; </span>
-                {data.nationality}
-              </p>
-              <p className={classes.content}>
-                <span className={classes.tag}> 생년월일 &nbsp; </span>
-                {data.birth}
+                <span className={classes.tag}> 국적 | 생년월일&nbsp; </span>
+                {data.nationality} | {data.birth}
               </p>
             </div>
             <div className={classes.contentBox}>
@@ -87,10 +83,12 @@ const Info = () => {
                 <span className={classes.tag}> 이메일 &nbsp; </span>
                 {data.email}
               </p>
+              <div className={classes.contentBox}>
               <p className={classes.content}>
                 <span className={classes.tag}> 연락처 &nbsp; </span>
                 {data.phone}
               </p>
+              </div>
             </div>
             <button onClick={toPasswordChange}>비밀번호 변경</button>
           </div>

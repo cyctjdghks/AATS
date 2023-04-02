@@ -70,18 +70,13 @@ const ContactMain = () => {
 
   return (
     <div className={classes.pagebox}>
-      <br />
-      <br />
       <div className={classes.topBox}>
-        <br />
         <h3 className={classes.pageName}>CONTACT</h3>
-        <form onSubmit={sendEmail}>
           <div className={classes.inputBox}>
             <div className={classes.imgBox}>
               <img src={phone} alt="" className={classes.phone} />
               <p className={classes.phoneDap}>Phone.02-123-456</p>
             </div>
-            <div></div>
             <div className={classes.inputLabelBox}>
               <InputLabel
                 type="text"
@@ -108,7 +103,7 @@ const ContactMain = () => {
                 autoComplete="off"
               />
             </div>
-            <div>
+            <div className={classes.bigText}>
               <InputBigLabel
                 type="text"
                 placeholder="Message"
@@ -122,17 +117,14 @@ const ContactMain = () => {
                 type="submit"
                 className={classes.btn}
                 disabled={!nullError}
+                onClick={sendEmail}
               >
                 submit
               </button>
             </div>
           </div>
-        </form>
       </div>
       <div className={classes.bottomBox}>
-        <br />
-        <br />
-        <br />
         <div className={classes.subBottomBox}>
           <div className={classes.quoteBox}>
             <p className={classes.aatsName}>AATS | 자동 출결 및 추적 시스템</p>
