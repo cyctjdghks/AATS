@@ -36,7 +36,7 @@ function App() {
 
 
   return (
-    <div className={classes.App}>
+    <div className={classes.App} id="App">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />

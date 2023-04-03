@@ -1,20 +1,31 @@
 import Info from "../components/info/Info";
 import Summary from "../components/summary/Summary";
 import moment from "moment/moment";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { startActions } from "../../../store/start";
 import { endActions } from "../../../store/end";
 import { useEffect } from "react";
 // inport css style
 import classes from "./MyInfo.module.css"
+import { useState } from "react";
+import UserSummary from "../components/summary/UserSummary";
 
 const MyInfo = () => {
   const dispatch = useDispatch();
+  const userType = useSelector((state) => state.auth.userType)
   const id = useSelector((state) => state.auth.id);
   const year = moment([]).format("YYYY");
   const month = moment([]).format("M");
+  const [type, setType] = useState(true)
+
+  const userWorker = () => {
+    if(userType === 1) {
+      setType(true)
+    }else{
+      setType(false)
+    }
+  }
 
   const getDatas = () => {
     const startUrl = "https://j8d102.p.ssafy.io/be/worker/get/start/month";
@@ -44,12 +55,13 @@ const MyInfo = () => {
 
   useEffect(() => {
     getDatas();
-  });
+    userWorker();
+  }, []);
 
   return (
     <div className={classes.myinfo}>
       <Info />
-      <Summary />
+      {type ? <Summary /> : <UserSummary/>}
     </div>
   );
 };

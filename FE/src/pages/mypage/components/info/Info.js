@@ -14,9 +14,8 @@ const Info = () => {
   // 비밀번호 변경 페이지로 이동
   const toPasswordChange = (event) => {
     event.preventDefault();
-    navigate("/passwordchange")
-  }
-
+    navigate("/passwordchange");
+  };
 
   const tmp = () => {
     if (userType === 1) {
@@ -49,7 +48,6 @@ const Info = () => {
       <p className={classes.Title}>나의 프로필</p>
       <div className={classes.info}>
         <img src={profileLink} alt="profile" />
-        <hr className={classes.verticalHr} />
         <div className={classes.infoBox}>
           <div className={classes.topBox}>
             <div className={classes.contentBox}>
@@ -83,14 +81,14 @@ const Info = () => {
                 <span className={classes.tag}> 이메일 &nbsp; </span>
                 {data.email}
               </p>
-              <div className={classes.contentBox}>
+            </div>
+            <div className={classes.contentNameBox}>
               <p className={classes.content}>
                 <span className={classes.tag}> 연락처 &nbsp; </span>
                 {data.phone}
               </p>
-              </div>
+              <button onClick={toPasswordChange}>비밀번호 변경</button>
             </div>
-            <button onClick={toPasswordChange}>비밀번호 변경</button>
           </div>
         </div>
       </div>
