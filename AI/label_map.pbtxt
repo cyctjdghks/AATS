@@ -1,14 +1,14 @@
 item {
     id: 1
-    name: 'JaeHyeon_worker'
+    name: 'ByeongSoo'
 }
 
 item {
     id: 2
-    name: 'JongHyeon_user'
+    name: 'SeoJeong'
 }
 
 item {
     id: 3
-    name: 'SeongHwan_user'
+    name: 'SeongHwan'
 }
