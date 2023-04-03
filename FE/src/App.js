@@ -15,6 +15,7 @@ import AboutUs from "./pages/aboutus/AboutUs";
 import MyPage from "./pages/mypage/MyPage"
 import Admin from "./pages/admin/Admin";
 import PasswordChange from "./pages/mypage/passwordchange/PasswordChange";
+import NewsPage from "./pages/home/components/news/NewsPage";
 // import css style 
 import classes from "./App.module.css";
 import Main from "./Test";
@@ -49,6 +50,7 @@ function App() {
         <Route path="/test" element={<Main />} />
         <Route path="/admin/*" element={<Admin />} />
         <Route path="/passwordchange" element={<PasswordChange/>}/>
+        <Route path="/newspage" element={<NewsPage/>}/>
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />

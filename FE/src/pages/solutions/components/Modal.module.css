@@ -81,7 +81,6 @@
 }
 
 .contentBox {
-  margin-left: 60px;
   margin-top: 50px;
   width: 80%;
 }
@@ -130,10 +129,12 @@
 }
 .imgWrapper {
   width: 55%;
+  overflow: hidden;
 }
 
 .solutionImg {
   width: 100%;
+  object-fit: fill;
 }
 
 /* 모달창 내부 X버튼 */

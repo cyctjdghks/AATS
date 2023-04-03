@@ -28,6 +28,10 @@
   src: url("../../fonts/AppleSDGothicNeoR.ttf");
 }
 
+.main{
+  width: 100%;
+}
+
 .home {
   /* width: 75%; */
   max-width: 1440px;
