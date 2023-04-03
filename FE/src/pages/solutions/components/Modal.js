@@ -48,6 +48,7 @@ const Modal = ({
             className={classes.vLine}
             style={{ backgroundColor: color1 }}
           ></div>
+          
           <div className={classes.TitleBox}>
             <h3 className={classes.number}>{number}</h3>
             <p className={classes.solutionName}>{solutionName}</p>

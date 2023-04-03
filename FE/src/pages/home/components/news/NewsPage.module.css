@@ -28,68 +28,65 @@
   src: url("../../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-.item {
-  width: 100%;
-}
-
-.center{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.imgWrapper{
-  position: relative;
-  padding-top: 56.25%;
-  overflow: hidden;
-  width: 90%;
-  
-}
-
-.imgWrapper:hover{
-  transform: scale(1.1);
-}
-
-.img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 2px;
-  cursor: pointer;
-  
-}
-
-
-.textBox{
-  display: flex;
-  flex-direction: column;
-  margin-left: 5%;
+.page {
+  width: 60%;
+  margin: auto;
+  height: 100vh;
 }
 
 .title {
-  font-family: "Apple_Gothic_Neo_Mid";
-  font-size: 25px;
+  font-family: "Apple_Gothic_Neo_EBold";
   text-align: left;
-  margin-left: 0;
+  font-size: 30px;
+  margin-top: 5%;
+  margin-bottom: 1%;
 }
 
-.date {
+.date{
+  text-align: left;
   font-family: "Apple_Gothic_Neo_R";
-  font-size: 20px;
-  text-align: left;
-  margin-top: -15px;
+  margin-top: 0;
 }
 
-@media screen and (max-width: 1024px) {
-  .title{
-    font-size: 20px;
-  }
-  .date {
-    font-size: 18px;
-  }
+.hrLine{
+
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.img {
+  width: 70%;
+  float: left;
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+.contentBox{
+  width: 70%;
+  text-align: left;
+}
+
+.content{
+  text-align: left;
+  font-family: "Apple_Gothic_Neo_R";
+}
+
+.gptBox{
+  display: flex;
+
+}
+
+.gpt{
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+}
+
+.gptText{
+  margin-left: 1%;
+  font-family: "Apple_Gothic_Neo_Mid";
 }

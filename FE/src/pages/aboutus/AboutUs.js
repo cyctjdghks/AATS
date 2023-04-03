@@ -39,42 +39,43 @@ const AboutUs = () => {
         <div className={classes.leftBox}>
           <AboutUsDeveloperLeft
             img={kang}
-            name="강모현"
-            role="AI 담당"
-            text="내용내용내용내용내용내용"
+            name="강모현/대표"
+            role="AI 개발"
+            text="회사의 대표로서 영업 및 운영을 담당하며 AI 시스템 개발을 겸임"
           />
           <AboutUsDeveloperLeft
             img={hwan}
-            name="박성환"
-            role="BE 담당"
-            text="내용내용내용내용내용내용"
+            name="박성환/인재 발굴팀 및 백엔드 팀장"
+            role="백엔드 개발"
+            text="인재 발굴 팀장으로서 백엔드 신입 사원을 교육하며, 인재양성 업무를 수행 중이며 백엔드 팀장도 겸임"
           />
           <AboutUsDeveloperLeft
             img={byeong}
-            name="이병수"
-            role="FE 담당"
-            text="내용내용내용내용내용내용"
+            name="이병수/인재 발굴팀 및 프론트 엔드 팀장"
+            role="프론트 엔드 개발"
+            text="인재 발굴 팀장으로서 프론트 엔드 신입 사원을 교육하며 인재 양성 및 프론트엔드 개발 팀장 겸임"
           />
         </div>
         <div className={classes.vLine}></div>
         <div className={classes.rightBox}>
           <AboutUsDeveloperRight
             img={park}
-            name="박재현"
-            role="BE 담당"
-            text="내용내용내용내용내용내용"
+            name="박재현/홍보 마케팅 팀장"
+            role="백엔드 개발"
+            text="홍보 마케팅 팀장으로서 UCC 기획 및 촬영과 편집, 
+            PPT제작, 사업 발표 등의 업무를 수행하고 있으며 백엔드 개발 또한 겸임"
           />
           <AboutUsDeveloperRight
             img={jong}
-            name="최종현"
-            role="BE 담당"
-            text="내용내용내용내용내용내용"
+            name="최종현/백엔드 개발팀(비정규직)"
+            role="백엔드 개발"
+            text="백엔드 API 개발을 주로 담당하며 가장 최근에 입사한 막내 사원"
           />
           <AboutUsDeveloperRight
             img={yang}
-            name="양서정"
-            role="FE 담당"
-            text="내용내용내용내용내용내용"
+            name="양서정/UI.UX팀 팀장"
+            role="프론트 엔드 개발"
+            text="UI/UX를 사용자 입장으로 사용자의 경험을 바탕으로 작성하며 프론트 엔드 개발 또한 담당 중"
           />
         </div>
       </div>

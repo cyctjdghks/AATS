@@ -132,12 +132,11 @@ const Organization = () => {
           <div>
             <img src={quote1} alt="따옴표1" className={classes.quote1} />
             <p className={classes.quoteText1}>
-              AIVE의 미션은 사용자와 ~ 깊게 이해하여 혁신적인 AI 기술을 바탕으로
-              한 어쩌구 저쩌구 입니다. 어쩌구 저쩌구 입니다. 어쩌구 저쩌구
-              입니다. 어쩌구 저쩌
+              AIVE는 혁신적인 AI 기술을 활용하여, 사용자들에게 더욱 편리하고
+              직관적인 서비스를 제공하고자 하는 미션을 갖고 있습니다.
             </p>
             <img src={quote2} alt="따옴표2" className={classes.quote2} />
-            <p className={classes.d102}>삼성 청년 SW 아카데미, D102 일동</p>
+            <p className={classes.d102}>D102 대표, 강모현</p>
             <div className={classes.hLine}></div>
             <div className={classes.iconBox}>
               <div className={classes.icon1}>
