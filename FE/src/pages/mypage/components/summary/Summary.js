@@ -22,8 +22,12 @@ const Summary = () => {
   };
 
   for (let i = 0; i < startData.length; i++) {
-    if (moment(new Date(startData[i]?.time)).format("YYYY.MM.DD.ddd") === today) {
-      const tmp = stringToInt(moment(new Date(startData[i]?.time)).format("HH"));
+    if (
+      moment(new Date(startData[i]?.time)).format("YYYY.MM.DD.ddd") === today
+    ) {
+      const tmp = stringToInt(
+        moment(new Date(startData[i]?.time)).format("HH")
+      );
       todayStartTime = moment(new Date(startData[i]?.time)).format("HH:mm");
       if (tmp >= 9) {
         todayStart = "지각";
@@ -49,9 +53,13 @@ const Summary = () => {
     <div className={classes.summaryBox}>
       <p className={classes.summaryTitle}>출결 현황</p>
       <div className={classes.summary}>
+        <div className={classes.zeroBox}>
+          <div className={classes.todayBox}>
+            <p className={classes.today}>TODAY</p>
+            <p className={classes.today2}>{today}</p>
+          </div>
+        </div>
         <div className={classes.firstBox}>
-          <p className={classes.today}>TODAY</p>
-          <p className={classes.today2}>{today}</p>
           <div className={classes.timeBox}>
             <div className={classes.startBtn}>
               <p className={classes.startP1}>{todayStartTime}</p>

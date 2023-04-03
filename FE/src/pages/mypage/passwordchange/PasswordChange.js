@@ -118,7 +118,7 @@ const PasswordChange = () => {
 
   useEffect(() => {
     tmp();
-  });
+  }, []);
 
   return (
     <div className={classes.pageBox}>

@@ -18,7 +18,6 @@ const ToolBar = (props) => {
     let tmp = data.toString();
     return tmp;
   };
-  // console.log(date);
 
   const getDatas = () => {
     const startUrl = "https://j8d102.p.ssafy.io/be/worker/get/start/month";
@@ -28,7 +27,6 @@ const ToolBar = (props) => {
       year: numToStr(date.getFullYear()),
       month: numToStr(date.getMonth() + 1),
     };
-    console.log(axiosData);
     axios
       .post(startUrl, axiosData)
       .then((response) => {

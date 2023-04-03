@@ -28,11 +28,11 @@
   src: url("../../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-.summaryBox{
+.summaryBox {
   width: 100%;
 }
 
-.summaryTitle{
+.summaryTitle {
   width: 78%;
   margin: auto;
   font-family: "Apple_Gothic_Neo_Bold";
@@ -42,32 +42,37 @@
   padding-bottom: 20px;
 }
 
-.summary{
+.summary {
   width: 78%;
   margin-left: auto;
   margin-right: auto;
-  /* border: 1px solid #acacac; */
+  flex-direction: column;
+  height: auto;
   background-color: rgb(247, 247, 247);
   border-radius: 20px;
   margin-bottom: 20px;
   display: flex;
-  height: 260px;
   align-items: center;
   justify-content: center;
   box-shadow: 2px 5px 5px grey;
 }
 
-.today{
+.todayBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.today {
   font-family: "Apple_Gothic_Neo_EBold";
   font-size: 29px;
-  margin-top: 0px;
+  margin: 0;
 }
 
-.today2{
+.today2 {
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 20px;
-  margin-top: -30px;
-  margin-bottom: 30px;
+  margin: 0;
 }
 
 .verticalHr {
@@ -78,64 +83,75 @@
   color: rgb(231, 231, 231);
   border: none;
 }
-
-.firstBox{
-  width: calc(45% - 125px);
+.zeroBox{
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
   text-align: left;
-  margin-left: 30px;
-  
-  /* margin: auto; */
-  /* margin-top: -20px; */
+  margin-top: 20px;
 }
-.timeBox{
+.firstBox {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  text-align: left;
+  margin-top: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(202, 202, 202);  
+}
+.timeBox {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 75%;
 }
 
-.startBtn{
+.startBtn {
   background-color: white;
   height: 90px;
   width: 45%;
   text-align: center;
   color: black;
+  border-radius: 10px;
+  font-family: "Apple_Gothic_Neo_Light";
+  box-shadow: 2px 4px 5px grey;
 }
 
-.endBtn{
-  background-color: #4786FF;
-  /* background-color: rgb(30, 177, 30); */
+.endBtn {
+  background-color: #4786ff;
   height: 90px;
   width: 45%;
   text-align: center;
-  margin-right: 20px;
   color: white;
+  border-radius: 10px;
+  font-family: "Apple_Gothic_Neo_Light";
+  box-shadow: 2px 4px 5px grey;
 }
 
-.startP1{
-  
+.startP1 {
 }
 
-.startP2{
+.startP2 {
   font-family: "Apple_Gothic_Neo_Bold";
 }
 
 /* 두번째 박스 */
 
-.commuteBox{
+.commuteBox {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.attendanceBox{
+.attendanceBox {
   text-align: left;
 }
 
-.attendanceText1{
+.attendanceText1 {
   display: flex;
   justify-content: space-between;
 }
 
-.attendanceBoxP1{
+.attendanceBoxP1 {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 18px;
   border: none;
@@ -146,9 +162,10 @@
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
+  box-shadow: 2px 4px 5px grey;
 }
 
-.attendanceBoxP2{
+.attendanceBoxP2 {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 18px;
   border: none;
@@ -159,9 +176,10 @@
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
+  box-shadow: 2px 4px 5px grey;
 }
 
-.attendanceBoxP3{
+.attendanceBoxP3 {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 18px;
   border: none;
@@ -172,27 +190,72 @@
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
+  box-shadow: 2px 4px 5px grey;
 }
 
-.normalAttendance{
+.normalAttendance {
   font-family: "Apple_Gothic_Neo_R";
 }
 
-.normalAttendance2{
+.normalAttendance2 {
   font-family: "Apple_Gothic_Neo_Bold";
 }
 
-.leaveBox{
+.secondBox {
+  width: 90%;
   text-align: left;
+  margin-top: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(202, 202, 202);  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.secondBox{
-  width: 300px;
-  /* margin: auto; */
-  margin-left: 20px;
-  
+.thirdBox {
+  display: flex;
+  align-items: flex-start;
+  width: 90%;
+  text-align: left;
+  margin-top: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(202, 202, 202);  
 }
-.thirdBox{
-  width: calc(45% - 125px);
-  margin: auto;
-  
+.membershipType {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 19px;
+  margin: 0 0 5px 3px;
+}
+
+.membershipBox{
+  font-family: "Apple_Gothic_Neo_Light";
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  width: 90%;
+  text-align: left;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+.membershipButton{
+  font-size: 20px;
+  border: none;
+  background-color: rgb(18, 212, 18);
+  color: white;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 2px 4px 5px grey;
+}
+.membershipText{
+  font-size: 20px;
+  display: flex;
+}
+.membership1{
+  font-weight: 600;
+  margin-right: 8px;
+}
+.membership2{
+  font-weight: 500;
 }
