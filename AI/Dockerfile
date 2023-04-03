@@ -25,7 +25,7 @@ RUN git clone https://github.com/tensorflow/models.git && \
     ls
     
 
-
+EXPOSE 8083
 
 # 컨테이너 실행시 실행될 명령어 설정
 CMD [ "python", "main.py" ]
