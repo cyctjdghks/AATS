@@ -109,7 +109,7 @@ public class WorkerServiceImpl implements WorkerService {
         worker.setWorkerStatus(1);
 
         WorkerAttendanceStart workerAttendanceStart = WorkerAttendanceStart.builder()
-                .startTime(LocalDateTime.now())
+                .startTime(LocalDateTime.now().plusHours(9))
                 .worker(worker)
                 .build();
 
@@ -124,7 +124,7 @@ public class WorkerServiceImpl implements WorkerService {
         worker.setWorkerStatus(0);
 
         WorkerAttendanceEnd workerAttendanceEnd = WorkerAttendanceEnd.builder()
-                .endTime(LocalDateTime.now())
+                .endTime(LocalDateTime.now().plusHours(9))
                 .worker(worker)
                 .build();
 

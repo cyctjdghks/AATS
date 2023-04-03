@@ -154,7 +154,7 @@ public class UserServiceImpl implements UserService {
         user.setUserStatus(1); // 출근함
 
         UserAttendanceStart userAttendanceStart = UserAttendanceStart.builder()
-                .startTime(LocalDateTime.now())
+                .startTime(LocalDateTime.now().plusHours(9))
                 .user(user)
                 .build();
 
@@ -170,7 +170,7 @@ public class UserServiceImpl implements UserService {
         user.setUserStatus(0); // 퇴근함
 
         UserAttendanceEnd userAttendanceEnd = UserAttendanceEnd.builder()
-                .endTime(LocalDateTime.now())
+                .endTime(LocalDateTime.now().plusHours(9))
                 .user(user)
                 .build();
 
