@@ -45,3 +45,33 @@ export const CheckPassword = (password) => {
 
   return [inputData, handler, dataError];
 };
+
+
+export const ValidCheck = (type) => {
+  const [validError, setError] = useState(true);
+
+  const handler = useCallback(
+    (event) => {
+      event.preventDefault();
+      if (event.target.value !== "") {
+        const url =
+          `https://j8d102.p.ssafy.io/be/${type}/valid/` +
+          event.target.value;
+        axios
+          .get(url)
+          .then((response) => {
+            if (response.data.data.valid === false) {
+              setError(true);
+            } else {
+              setError(false);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    },
+    [type]
+  );
+  return [validError, handler];
+};

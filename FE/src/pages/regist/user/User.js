@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { DataInput, CheckPassword } from "../components/Effectiveness";
+import { DataInput, CheckPassword, ValidCheck } from "../components/Effectiveness";
 import { GenderCheckbox } from "../components/GenderCheckBox";
 import InputShortLabel from "../components/InputShortLabel";
 
@@ -21,6 +21,7 @@ const User = () => {
   const organizationId = useSelector((state) => state.auth.id);
   const [name, setName, nameError] = DataInput(/^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/);
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
+  const [idValidError, setIdValidError] = ValidCheck('user');
   const [password, setPassword, passwordError] = DataInput(
     /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/
   );
@@ -206,7 +207,12 @@ const User = () => {
             type="text"
             placeholder="아이디를 입력해주세요"
             onChange={setId}
-            errorMessage={idError ? "" : "영어와 숫자로만 입력해주세요."}
+            onBlur={setIdValidError}
+            errorMessage={idError
+              ? idValidError
+                ? ""
+                : "이미 있는 아이디입니다."
+              : "영어와 숫자로만 입력해주세요."}
           />
           <InputShortLabel
             label="휴대폰 번호"

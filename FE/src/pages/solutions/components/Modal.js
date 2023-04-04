@@ -24,8 +24,6 @@ const Modal = ({
     setModalOpen(false);
   };
   const color1 = colors.color1;
-  const color2 = colors.color2;
-  const color3 = colors.color3;
 
   // 모달 외부 클릭시 끄기 처리
   // Modal 창을 useRef로 취득

@@ -8,7 +8,6 @@ export const CommuteData = () => {
   const today = moment();
   let startDate = moment().startOf("month");
   let count = -1;
-  console.log(startData);
 
   while (true) {
     let tmpDate = startDate;
@@ -41,11 +40,11 @@ export const CommuteData = () => {
   };
 
   for (let i = 0; i < startData.length; i++) {
-    const tmp = stringToInt(moment(new Date(startData[i].time)).format("HH"));
+    const tmp = stringToInt(moment(new Date(startData[i]?.time)).format("HH"));
     if (tmp >= startTime) {
       late += 1;
     } else {
-      const tmp1 = moment(new Date(endData[i].time)).format("DD");
+      const tmp1 = moment(new Date(endData[i]?.time)).format("DD");
       if (tmp1 === todayDay) {
         normalAttendance += 1;
       } else {
@@ -54,12 +53,12 @@ export const CommuteData = () => {
     }
   }
   for (let i = 0; i < endData.length; i++) {
-    const tmp = stringToInt(moment(new Date(endData[i].time)).format("HH"));
+    const tmp = stringToInt(moment(new Date(endData[i]?.time)).format("HH"));
     if (tmp < endTime) {
       earlyLeave += 1;
       for (let j = 0; j < startData.length; j++) {
-        const tmp1 = moment(new Date(endData[i].time)).format("DD");
-        const tmp2 = moment(new Date(startData[j].time)).format("DD");
+        const tmp1 = moment(new Date(endData[i]?.time)).format("DD");
+        const tmp2 = moment(new Date(startData[j]?.time)).format("DD");
         if (tmp1 === tmp2) {
           const faultyDate = stringToInt(
             moment(new Date(startData[j])).format("HH")

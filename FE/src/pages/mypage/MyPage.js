@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-
-import SideBar from "../../components/sidebar/SideBar";
-import MyInfo from "./myinfo/MyInfo";
-import Contact from "./contact/ContactMain";
-import Calendar from "./calendar/Calendar";
-
+// outer third-party
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
-
+// inner component
+import MyInfo from "./myinfo/MyInfo";
+import Contact from "./contact/ContactMain";
+import Calendar from "./calendar/Calendar";
+import SideBar from "../../components/sidebar/SideBar";
+// css style
 import classes from "./MyPage.module.css";
 
 const MyPage = () => {

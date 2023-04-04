@@ -18,6 +18,7 @@
   height: auto;
   background-color: #F5F5F5;
   text-align: left;
+  cursor: default;
 }
 
 .sidebar h1 {

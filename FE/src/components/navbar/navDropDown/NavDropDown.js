@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import axios from "axios";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
 import { startActions } from "../../../store/start";
 import { endActions } from "../../../store/end";
-// import mui components
+import axios from "axios";
+import Swal from "sweetalert2";
+// import third-party
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-// import mui icon
 import HomeIcon from "@mui/icons-material/Home";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import InfoIcon from "@mui/icons-material/Info";
