@@ -5,14 +5,18 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 import main1 from "../../assets/Home/main1.png";
-import main2 from "../../assets/Home/main2.png";
-import main3 from "../../assets/Home/main3.png";
+// import main2 from "../../assets/Home/main2.png";
+// import main3 from "../../assets/Home/main3.png";
 import main4 from "../../assets/Home/main4.png";
 
-import tmpVideo from "../../assets/News/tmpVideo.png";
 import solution1 from "../../assets/Home/solution1.png";
 import solution2 from "../../assets/Home/solution2.png";
 import solution3 from "../../assets/Home/solution3.png";
+
+import tmpVideo from "../../assets/News/tmpVideo.png";
+import videoSub from "../../assets/Home/videoSub.png";
+import videoSub2 from "../../assets/Home/videoSub2.jpg";
+
 import news1 from "../../assets/Home/news1.png";
 import news2 from "../../assets/Home/news2.jpg";
 import news3 from "../../assets/Home/news3.jpg";
@@ -24,7 +28,7 @@ import news8 from "../../assets/Home/news8.png";
 import news9 from "../../assets/Home/news9.png";
 import { useNavigate } from "react-router-dom";
 
-import phone from "../../assets/Home/phone.png";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 
 // import A from "../../assets/A.png";
 
@@ -37,36 +41,45 @@ const Home = () => {
       img: main1,
       title1: "AIVE",
       title2: "GUMI NO.1 AI Enterprise ",
-      content1:
-        "얼굴 인식 자동 시스템, CCTV 통합관제, 출입과 동시에 근태관리 연동",
+      content1: "얼굴 인식 자동 시스템, CCTV 통합관제",
+      content2: "출입과 동시에 근태관리 연동",
+      icon1: <LocalPhoneIcon />,
+      iconText1: "phone",
+      iconText2: "02-123-456",
     },
-    {
-      img: main2,
-      title1: "AIVE는 파트너와의",
-      title2: "동행을 추구합니다. ",
-      content1: "사람이 우선이고 사람과 행복해지는 세상",
-      content2: "AIVE는 파트너들과 함께 만들어 나가고자 합니다.",
-    },
-    {
-      img: main3,
-      title1: "고객은 하늘처럼",
-      title2: "직원은 가족처럼",
-      content1: "세상에 꼭 필요한 AI 솔루션을 만들어 가는",
-      content2: "AIVE가 되겠습니다.",
-    },
+    // {
+    //   img: main2,
+    //   title1: "AIVE는 파트너와의",
+    //   title2: "동행을 추구합니다. ",
+    //   content1: "사람이 우선이고 사람과 행복해지는 세상",
+    //   content2: "AIVE는 파트너들과 함께 만들어 나가고자 합니다.",
+    //   icon1: <LocalPhoneIcon />,
+    //   iconText1: "phone",
+    //   iconText2: "02-123-456",
+    // },
+    // {
+    //   img: main3,
+    //   title1: "고객은 하늘처럼",
+    //   title2: "직원은 가족처럼",
+    //   content1: "세상에 꼭 필요한 AI 솔루션을 만들어 가는",
+    //   content2: "AIVE가 되겠습니다.",
+    //   icon1: <LocalPhoneIcon />,
+    //   iconText1: "phone",
+    //   iconText2: "02-123-456",
+    // },
     {
       img: main4,
       title1: "AI 솔루션",
       title2: "AIVE에 문의하세요",
       content1: "언제 어디서나 어떤 질문이든",
       content2: "성심껏 답변하겠습니다.",
-      icon1: phone,
+      icon1: <LocalPhoneIcon />,
       iconText1: "phone",
       iconText2: "02-123-456",
     },
   ];
 
-  const mainTotalSlide = 3;
+  const mainTotalSlide = 1;
   const mainRef = useRef(null);
   const [mainSlide, setMainSlide] = useState(0);
 
@@ -143,9 +156,11 @@ const Home = () => {
                     <p className={classes.content1}>{item.content1}</p>
                     <p className={classes.content2}>{item.content2}</p>
                     <div className={classes.iconBox}>
-                      <img src={item.icon1} alt="" className={classes.icon1} />
-                      <p>{item.iconText1}</p>
-                      <p>02-123-456</p>
+                      <p className={classes.icon1}>{item.icon1}</p>
+                      <div className={classes.iconTextBox}>
+                        <p className={classes.iconText1}>{item.iconText1}</p>
+                        <p className={classes.iconText2}>{item.iconText2}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -217,9 +232,13 @@ const Home = () => {
             <div className={classes.videoRight}>
               <p className={classes.videoText}>VIDEO</p>
               <p className={classes.videoText1}>AATS 기술 소개 영상</p>
-              <p className={classes.videoText2}>GUMI NO.1 기업 AIVE의 기술</p>
+              <p className={classes.videoText2}>GUMI NO.1 기업 AIVE의 기술,</p>
               <p className={classes.videoText2}>편리한 출퇴근을 위한</p>
               <p className={classes.videoText2}>AATS를 소개합니다.</p>
+              <div>
+                <img src={videoSub} alt="" className={classes.videoSub} />
+                <img src={videoSub2} alt="" className={classes.videoSub} />
+              </div>
             </div>
           </div>
         </div>
