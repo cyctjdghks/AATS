@@ -15,8 +15,6 @@ import phone from "../../../../assets/auths/phone.png";
 import tmp1 from "../../../../assets/auths/tmp1.png";
 import tmp2 from "../../../../assets/auths/tmp2.png";
 
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-
 const User = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

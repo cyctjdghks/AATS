@@ -1,14 +1,16 @@
-import classes from "./AboutUs.module.css";
-import tmpDeveloper from "../../assets/AboutUs/tmp_developer.png";
+// inner component
 import AboutUsDeveloperLeft from "./aboutusdeveloper/AboutUsDeveloperLeft";
 import AboutUsDeveloperRight from "./aboutusdeveloper/AboutUsDeveloperRight";
+// inner img
+import tmpDeveloper from "../../assets/AboutUs/tmp_developer.png";
 import kang from "../../assets/AboutUs/강모현.png";
 import hwan from "../../assets/AboutUs/박성환.png";
 import park from "../../assets/AboutUs/박재현.png";
 import yang from "../../assets/AboutUs/양서정.png";
 import byeong from "../../assets/AboutUs/이병수.png";
 import jong from "../../assets/AboutUs/최종현.png";
-
+// css style
+import classes from "./AboutUs.module.css";
 const AboutUs = () => {
   return (
     <div className={classes.aboutUs}>

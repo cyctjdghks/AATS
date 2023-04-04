@@ -34,6 +34,7 @@
 .titlebox h1 {
   font-family: "Apple_Gothic_Neo_Bold";
   margin-top: 35px;
+  cursor: default;
 }
 
 .titlebox h3 {
@@ -41,6 +42,7 @@
   font-size: auto;
   width: 90%;
   margin-top: -10px;
+  cursor: default;
 }
 
 .hr {
@@ -70,7 +72,6 @@
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 16px;
   width: 100%;
-  max-width: 600px;
   border: none;
   outline: none;
   border-bottom: 2px solid lightgray;
@@ -94,7 +95,6 @@
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 16px;
   width: 100%;
-  max-width: 600px;
   outline: none;
   border: solid 2px lightgray;
   padding-top: 15px;
@@ -132,9 +132,11 @@
 /* 두 번째 칸 이미지 부분 */
 
 .imgbox {
-  width: 70%;
-  margin-left: 70px;
+  width: 50%;
+  margin-left: 50px;
   margin-top: -20px;
+  min-width: 400px;
+  cursor: default;
 }
 
 .imgbox h3 {
@@ -146,7 +148,7 @@
 }
 
 .imgTextBox {
-  width: 60%;
+  width: 100%;
   margin: auto;
 }
 
@@ -175,9 +177,6 @@
   padding-top: 10px;
 }
 
-.phone {
-}
-
 .phoneOne {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 18px;
@@ -193,11 +192,13 @@
   margin: auto;
   display: block;
   border-radius: 10px;
-  width: 70%;
-  max-width: 600px;
+  width: 400px;
   margin-top: -5px;
 }
-
+.topImgBox{
+  width: 100%;
+  min-width: 400px;
+}
 @media screen and (max-width: 1024px) {
   .pagebox {
     width: 100%;
@@ -211,5 +212,8 @@
   }
   .contactbtn {
     margin-right: 150px;
+  }
+  .contentboxone{
+    width: 100%;
   }
 }

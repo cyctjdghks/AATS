@@ -4,7 +4,7 @@ import UserSummary from "./components/summary/UserSummary";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment/moment";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { startActions } from "../../../store/start";
 import { endActions } from "../../../store/end";
@@ -48,7 +48,7 @@ const Detail = () => {
     if (!state.type) {
       getDatas();
     }
-  }, []);
+  });
 
   return (
     <div className={classes.detail}>

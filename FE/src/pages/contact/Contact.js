@@ -34,7 +34,6 @@ const ContactMain = () => {
       )
       .then(
         (response) => {
-          console.log(response);
           setName("");
           setPhoneNumber("");
           setEmail("");

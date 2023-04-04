@@ -10,7 +10,7 @@ export const DataInput = (regExp) => {
     (event) => {
       const data = event.target.value;
       setInputData(data);
-      if (data === ""){
+      if (data === "") {
         setError(true);
       } else if (!regExp.test(data)) {
         setError(false);
@@ -44,4 +44,33 @@ export const CheckPassword = (password) => {
   );
 
   return [inputData, handler, dataError];
+};
+
+export const ValidCheck = (value) => {
+  const [validError, setError] = useState(true);
+
+  const handler = useCallback(
+    (event) => {
+      event.preventDefault();
+      if (event.target.value !== "") {
+        const url =
+          "https://j8d102.p.ssafy.io/be/organization/valid/" +
+          event.target.value;
+        axios
+          .get(url)
+          .then((response) => {
+            if (response.data.data.valid === false) {
+              setError(true);
+            } else {
+              setError(false);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    },
+    []
+  );
+  return [validError, handler];
 };

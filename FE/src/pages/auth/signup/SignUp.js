@@ -1,32 +1,31 @@
-import Swal from "sweetalert2";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
+// outer third-party
+// react-kakao-maps-sdk
 import { Map, MapMarker } from "react-kakao-maps-sdk";
-// component 호출
-import InputShortLabel from "../components/InputShortLabel";
-import {
-  DataInput,
-  UserValidCheck,
-  CheckPassword,
-} from "../components/Effectiveness";
-
+// mui
 import LoginIcon from "@mui/icons-material/Login";
-
+// inner img
 import quote1 from "../../../assets/auths/quote1.png";
 import quote2 from "../../../assets/auths/quote2.png";
 import ceo from "../../../assets/auths/ceo.png";
 import phone from "../../../assets/auths/phone.png";
 import tmp1 from "../../../assets/auths/tmp1.png";
 import tmp2 from "../../../assets/auths/tmp2.png";
-
-// classes 호출
+// inner custom hook
+import { DataInput, CheckPassword, ValidCheck } from "../components/Effectiveness";
+// innner comonent
+import InputShortLabel from "../components/InputShortLabel";
+// css style
 import classes from "./SignUp.module.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [name, setName, nameError] = DataInput(/^[가-힣]{2,10}$/);
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
+  const [idValidError, setIdValidError] = ValidCheck();
   const [password, setPassword, passwordError] = DataInput(
     /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/
   );
@@ -113,7 +112,12 @@ const SignUp = () => {
                 value={id}
                 placeholder="아이디를 입력해주세요"
                 onChange={setId}
-                errorMessage={idError ? "" : "영어와 숫자로만 입력해주세요."}
+                onBlur={setIdValidError}
+                errorMessage={idError
+                  ? idValidError
+                    ? ""
+                    : "이미 있는 아이디입니다."
+                  : "영어와 숫자로만 입력해주세요."}
               />
             </div>
             <div className={classes.InputLabelBox2}>

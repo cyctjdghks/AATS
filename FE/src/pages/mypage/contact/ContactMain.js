@@ -7,8 +7,6 @@ import classes from "./ContactMain.module.css";
 import ceo from "../../../assets/contact/ceo.png";
 import quote1 from "../../../assets/contact/quote1.png";
 import quote2 from "../../../assets/contact/quote2.png";
-import phone from "../../../assets/contact/phone.png";
-
 import InputLabel from "./components/InputLabel";
 
 // 이메일 보내기
@@ -110,7 +108,6 @@ const ContactMain = () => {
                 name="email"
                 autoComplete="off"
               />
-              {/* <InputLabel label="제목" type="text" placeholder="Subject" /> */}
             </div>
             <div className={classes.contentboxtwo}>
               <InputLabel
@@ -123,26 +120,22 @@ const ContactMain = () => {
                 autoComplete="off"
               />
             </div>
-            <button className={classes.contactbtn} type="submit" disabled={!nullError}>제출하기</button>
+            <button
+              className={classes.contactbtn}
+              type="submit"
+              disabled={!nullError}
+            >
+              제출하기
+            </button>
           </div>
           <div className={classes.imgbox}>
             <div className={classes.imgTextBox}>
-              <img src={quote1} alt="따옴표1" className={classes.quote1} />
-              <h3>AATS, 이것은 혁신입니다.</h3>
-              <img src={quote2} alt="따옴표2" className={classes.quote2} />
-
-              <p className={classes.d102}>AIVE ceo, 강모현</p>
-              <div className={classes.hLine}></div>
-              <div className={classes.phoneBox}>
-                <div>
-                  <img src={phone} alt="" className={classes.phone} />
-                </div>
-                <div>
-                  <p className={classes.phoneOne}>
-                    당신의 궁금증을 해결해 드립니다.
-                  </p>
-                  <p className={classes.phoneTwo}>Phone.02-123-456</p>
-                </div>
+              <div className={classes.topImgBox}>
+                <img src={quote1} alt="따옴표1" className={classes.quote1} />
+                <h3>AATS, 이것은 혁신입니다.</h3>
+                <img src={quote2} alt="따옴표2" className={classes.quote2} />
+                <p className={classes.d102}>AIVE ceo, 강모현</p>
+                <div className={classes.hLine}></div>
               </div>
               <img src={ceo} alt="ceo" className={classes.contactimg} />
             </div>

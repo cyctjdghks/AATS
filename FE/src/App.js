@@ -1,7 +1,10 @@
-import { Routes, Route } from "react-router-dom";
-import axios from "axios";
 import { useEffect } from "react";
-// import navbar, footer 
+import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authActions } from "./store/auth";
+import axios from "axios";
+// outer third-party
+// innner component
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";
 // import pages
@@ -18,8 +21,6 @@ import PasswordChange from "./pages/mypage/passwordchange/PasswordChange";
 import NewsPage from "./pages/home/components/news/NewsPage";
 // import css style 
 import classes from "./App.module.css";
-import { useDispatch } from "react-redux";
-import { authActions } from "./store/auth";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ function App() {
       }).catch((error)=>{
         console.log(error);
       })
-  },[])
+  },[dispatch])
 
 
   return (
