@@ -4,27 +4,94 @@ import { useState, useRef, useEffect } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
-// import mainpage from "../../assets/Home/main.jpg";
-import mainpage from "../../assets/Home/main2.jpg";
-// import mainpage from "../../assets/Home/main3.png";
+import main1 from "../../assets/Home/main1.png";
+import main2 from "../../assets/Home/main2.png";
+import main3 from "../../assets/Home/main3.png";
+import main4 from "../../assets/Home/main4.png";
 
-import tmpNew1 from "../../assets/News/tmpNew1.png";
 import tmpVideo from "../../assets/News/tmpVideo.png";
 import solution1 from "../../assets/Home/solution1.png";
 import solution2 from "../../assets/Home/solution2.png";
 import solution3 from "../../assets/Home/solution3.png";
 import news1 from "../../assets/Home/news1.png";
-// import news2 from "../../assets/Home/news2.png";
 import news2 from "../../assets/Home/news2.jpg";
 import news3 from "../../assets/Home/news3.jpg";
 import news4 from "../../assets/Home/news4.png";
 import news5 from "../../assets/Home/news5.png";
 import news6 from "../../assets/Home/news6.png";
+import news7 from "../../assets/Home/news7.png";
 import news8 from "../../assets/Home/news8.png";
+import news9 from "../../assets/Home/news9.png";
+import { useNavigate } from "react-router-dom";
+
+import phone from "../../assets/Home/phone.png";
 
 // import A from "../../assets/A.png";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  // 메인 슬라이드
+  const slides = [
+    {
+      img: main1,
+      title1: "AIVE",
+      title2: "GUMI NO.1 AI Enterprise ",
+      content1:
+        "얼굴 인식 자동 시스템, CCTV 통합관제, 출입과 동시에 근태관리 연동",
+    },
+    {
+      img: main2,
+      title1: "AIVE는 파트너와의",
+      title2: "동행을 추구합니다. ",
+      content1: "사람이 우선이고 사람과 행복해지는 세상",
+      content2: "AIVE는 파트너들과 함께 만들어 나가고자 합니다.",
+    },
+    {
+      img: main3,
+      title1: "고객은 하늘처럼",
+      title2: "직원은 가족처럼",
+      content1: "세상에 꼭 필요한 AI 솔루션을 만들어 가는",
+      content2: "AIVE가 되겠습니다.",
+    },
+    {
+      img: main4,
+      title1: "AI 솔루션",
+      title2: "AIVE에 문의하세요",
+      content1: "언제 어디서나 어떤 질문이든",
+      content2: "성심껏 답변하겠습니다.",
+      icon1: phone,
+      iconText1: "phone",
+      iconText2: "02-123-456",
+    },
+  ];
+
+  const mainTotalSlide = 3;
+  const mainRef = useRef(null);
+  const [mainSlide, setMainSlide] = useState(0);
+
+  // 3초마다 자동으로 넘기기
+  useEffect(() => {
+    let timer = null;
+    if (mainSlide >= mainTotalSlide) {
+      timer = setInterval(() => {
+        setMainSlide(0);
+      }, 3000);
+    } else {
+      timer = setInterval(() => {
+        setMainSlide(mainSlide + 1);
+      }, 3000);
+    }
+    return () => clearInterval(timer);
+  }, [mainSlide]);
+
+  useEffect(() => {
+    mainRef.current.style.transition = "all 0.5s ease-in-out";
+    mainRef.current.style.transform = `translateX(-${mainSlide}00%)`;
+    // 백틱을 사용하여 슬라이드로 이동하는 애니메이션 구현.
+  }, [mainSlide]);
+
+  // 뉴스 슬라이더
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
   const totalSlide = 2;
@@ -46,7 +113,6 @@ const Home = () => {
       setCurrentSlide(currentSlide - 1);
     }
   };
-  console.log(currentSlide);
 
   useEffect(() => {
     slideRef.current.style.transition = "all 0.5s ease-in-out";
@@ -54,9 +120,42 @@ const Home = () => {
     // 백틱을 사용하여 슬라이드로 이동하는 애니메이션 구현.
   }, [currentSlide]);
 
+  const toSolution = (event) => {
+    event.preventDefault();
+    navigate("/solutions");
+  };
+
   return (
-    <div>
-      <img src={mainpage} alt="" className={classes.main}/>
+    <div className={classes.mainPage}>
+      <div className={classes.sliderArea}>
+        <div className={classes.slider}>
+          <div className={classes.sliderTrack} ref={mainRef}>
+            {slides.map((item, index) => (
+              <div key={index} className={classes.sliderItem}>
+                {/* <div style={{ background: item.color }}>{index}</div> */}
+                <div className={classes.userWrap}>
+                  <div className={classes.userImg}>
+                    <img src={item.img} alt="" className={classes.mainImg} />
+                  </div>
+                  <div className={classes.TextBox}>
+                    <h3 className={classes.title1}>{item.title1}</h3>
+                    <h3 className={classes.title2}>{item.title2}</h3>
+                    <p className={classes.content1}>{item.content1}</p>
+                    <p className={classes.content2}>{item.content2}</p>
+                    <div className={classes.iconBox}>
+                      <img src={item.icon1} alt="" className={classes.icon1} />
+                      <p>{item.iconText1}</p>
+                      <p>02-123-456</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* <img src={mainpage} alt="" className={classes.main} /> */}
       <div className={classes.home}>
         <div className={classes.solutionPage}>
           <h3 className={classes.NewsTitle}>SOLUTION</h3>
@@ -67,6 +166,7 @@ const Home = () => {
                 src={solution1}
                 alt="솔루션1"
                 className={classes.solution1}
+                onClick={toSolution}
               />
               <div className={classes.titleBox1}>
                 <p className={classes.solutionTitle1}>
@@ -86,6 +186,7 @@ const Home = () => {
                   src={solution2}
                   alt="솔루션2"
                   className={classes.solution2}
+                  onClick={toSolution}
                 />
                 <p className={classes.solutionTitle2}>CCTV 통합관제</p>
                 <p className={classes.solutionSubTitle2}>
@@ -98,6 +199,7 @@ const Home = () => {
                   src={solution3}
                   alt="솔루션3"
                   className={classes.solution3}
+                  onClick={toSolution}
                 />
                 <p className={classes.solutionTitle2}>
                   출입과 동시에 근태관리 연동
@@ -115,18 +217,9 @@ const Home = () => {
             <div className={classes.videoRight}>
               <p className={classes.videoText}>VIDEO</p>
               <p className={classes.videoText1}>AATS 기술 소개 영상</p>
-              <p className={classes.videoText2}>
-                GUMI NO.1 기업 AIVE의 기술 소개 영상
-              </p>
-              <p className={classes.videoText2}>
-                어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌
-              </p>
-              <p className={classes.videoText2}>
-                어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌
-              </p>
-              <p className={classes.videoText2}>
-                어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌
-              </p>
+              <p className={classes.videoText2}>GUMI NO.1 기업 AIVE의 기술</p>
+              <p className={classes.videoText2}>편리한 출퇴근을 위한</p>
+              <p className={classes.videoText2}>AATS를 소개합니다.</p>
             </div>
           </div>
         </div>
@@ -228,7 +321,7 @@ const Home = () => {
                   className={classes.ArrowBackIosNewIcon}
                 />
                 <NewsItem
-                  img={tmpNew1}
+                  img={news7}
                   title="[뉴스] AIVE, 2023년을 빛낼 중소기업으로 선정되고 싶어..."
                   date="2023.03.27"
                   content="AI 비즈니스 전문 스타트업 A-IVE가 2023년을 빛낼 중소기업으로 선정되기 위한 다양한 노력을 기울이고 있다."
@@ -248,7 +341,7 @@ const Home = () => {
                   content5="A-IVE의 매출 실적은 인공지능 산업의 발전을 이끄는 중요한 역할을 수행하고 있으며, 앞으로도 꾸준한 성장을 이어나가기 위해 최선을 다할 것으로 보인다."
                 />
                 <NewsItem
-                  img={tmpNew1}
+                  img={news9}
                   title="[뉴스] AIVE, 삼성 청년 SW 아카데미 특화 프로젝트 1등 희망"
                   date="2023.03.27"
                   content="AI 비즈니스 전문 스타트업 A-IVE가 삼성 청년 SW 아카데미의 특화 프로젝트에서 1등을 향해 달려가고 있다."

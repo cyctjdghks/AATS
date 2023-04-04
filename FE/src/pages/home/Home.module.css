@@ -28,8 +28,113 @@
   src: url("../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-.main{
+.mainPage {
   width: 100%;
+}
+
+.sliderArea {
+  width: 100%;
+  display: flex;
+}
+
+.slider {
+  width: 100%;
+  /* overflow: scroll; */
+  overflow: hidden;
+  display: flex;
+}
+
+.sliderTrack {
+  width: 100%;
+  display: flex;
+}
+
+.sliderItem {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.main {
+  width: 100%;
+}
+
+.userWrap {
+  width: 100%;
+  margin: 10px auto;
+  position: relative;
+}
+
+.userWrap img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.mainImg{
+  width: 100%;
+}
+
+.TextBox {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+.title1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-bottom: 0;
+}
+
+.title2 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.content1 {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 30px;
+}
+
+.content2 {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: 0;
+  font-size: 30px;
+}
+
+.iconBox{
+  display: flex;
+}
+
+.icon1{
+  width: 100%;
+  max-width: 70px;
+  text-align: left;
+  margin-top: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .TextBox {
+  }
+  .title1 {
+    font-size: 30px;
+  }
+
+  .title2 {
+    font-size: 30px;
+  }
+  .content1{
+    font-size: 20px;
+  }
+  .content2{
+    font-size: 20px;
+  }
 }
 
 .home {
@@ -45,71 +150,80 @@
 }
 
 /* 솔루션 */
-.solutionPage{
+.solutionPage {
   max-width: 1440px;
   margin: auto;
 }
 
-.solutionBox{
+.solutionBox {
   display: flex;
   justify-content: space-between;
 }
 
-.solutionLeft{
+.solutionLeft {
   width: 50%;
 }
 
-.solution1{
+.solution1 {
   width: 95%;
   margin-top: 3%;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 5px #dadce0;
+  transition: 0.5s;
 }
 
-.titleBox1{
+.solution1:hover {
+  transform: scale(1.02);
+}
+
+.titleBox1 {
   width: 93%;
   margin: auto;
-  
 }
 
-.solutionTitle1{
+.solutionTitle1 {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 23px;
   text-align: left;
 }
 
-.solutionSubTitle1{
+.solutionSubTitle1 {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 18px;
   text-align: left;
- 
 }
 
-.solutionRight{
+.solutionRight {
   width: 50%;
-
 }
 
-.solutionBox2{
+.solutionBox2 {
   display: flex;
   flex-direction: column;
   text-align: left;
- 
 }
 
-.solution2{
+.solution2 {
   width: 95%;
   margin-top: 3%;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 5px #dadce0;
+  transition: 0.5s;
 }
 
-.solutionTitle2{
+.solution2:hover {
+  transform: scale(1.02);
+}
+
+.solutionTitle2 {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 20px;
   float: left;
   margin-left: 10px;
   margin-bottom: 0;
-  
 }
 
-.solutionSubTitle2{
+.solutionSubTitle2 {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 15px;
   float: left;
@@ -117,8 +231,15 @@
   margin-left: 10px;
 }
 
-.solution3{
+.solution3 {
   width: 95%;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 5px #dadce0;
+  transition: 0.5s;
+}
+
+.solution3:hover {
+  transform: scale(1.02);
 }
 
 /* 뉴스  */
@@ -199,31 +320,31 @@
   width: 40%;
 }
 
-.videoText{
+.videoText {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 20px;
 }
 
-.videoText1{
+.videoText1 {
   font-family: "Apple_Gothic_Neo_EBold";
-  font-size: 40px;
+  font-size: 30px;
   margin-top: -1%;
 }
 
-.videoText2{
+.videoText2 {
   font-family: "Apple_Gothic_Neo_R";
-  font-size: 25px;
+  font-size: 20px;
   margin-top: -3%;
 }
 
 @media screen and (max-width: 1024px) {
-  .videoText{
+  .videoText {
     font-size: 15px;
   }
-  .videoText1{
+  .videoText1 {
     font-size: 20px;
   }
-  .videoText2{
-    font-size: 20px;
+  .videoText2 {
+    font-size: 17px;
   }
 }
