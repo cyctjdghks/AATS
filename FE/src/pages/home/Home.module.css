@@ -97,7 +97,7 @@
 
 .content1 {
   font-family: "Apple_Gothic_Neo_R";
-  margin-top: 0;
+  margin-top: 1%;
   margin-bottom: 0;
   font-size: 30px;
 }
@@ -112,11 +112,28 @@
   display: flex;
 }
 
+
 .icon1{
-  width: 100%;
-  max-width: 70px;
   text-align: left;
+  margin-right: 1%;
+}
+
+.iconTextBox{
+  width: 100%;
+}
+
+.iconText1{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 25px;
   margin-top: 0;
+  margin-bottom: 0;
+}
+
+.iconText2{
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 1024px) {
@@ -134,6 +151,12 @@
   }
   .content2{
     font-size: 20px;
+  }
+  .iconText1{
+    font-size: 18px;
+  }
+  .iconText2{
+    font-size: 18px;
   }
 }
 
@@ -242,6 +265,14 @@
   transform: scale(1.02);
 }
 
+
+
+.videoSub{
+  width: 45%;
+  margin-right: 1%;
+}
+
+
 /* 뉴스  */
 .newsPage {
   max-width: 1440px;
@@ -322,11 +353,12 @@
 
 .videoText {
   font-family: "Apple_Gothic_Neo_R";
-  font-size: 20px;
+  font-size: 18px;
+  margin-bottom: 1%;
 }
 
 .videoText1 {
-  font-family: "Apple_Gothic_Neo_EBold";
+  font-family: "Apple_Gothic_Neo_Bold";
   font-size: 30px;
   margin-top: -1%;
 }
