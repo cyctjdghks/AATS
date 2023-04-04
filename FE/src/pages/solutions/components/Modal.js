@@ -32,36 +32,27 @@ const Modal = ({
   const modalRef = useRef(null);
 
   return (
-    <div
-      className={classes.modalBackGround}
-      onClick={closeModal}
-      //   style={{ backgroundColor: color2 }
-      // }
-    >
+    <div className={classes.modalBackGround} onClick={closeModal}>
       <div
         className={classes.container}
         ref={modalRef}
-        style={{ color: color1 }}
+        style={{ color: color1, borderLeft: `${color1} 15px solid`} }
       >
         <div className={classes.containerLeft}>
-          <div
-            className={classes.vLine}
-            style={{ backgroundColor: color1 }}
-          ></div>
-          
           <div className={classes.TitleBox}>
             <h3 className={classes.number}>{number}</h3>
             <p className={classes.solutionName}>{solutionName}</p>
             <p className={classes.solutionSubName}>{solutionSubName}</p>
             <p className={classes.hashtag}>{hashtag}</p>
-          </div>
-          <div className={classes.contentBox}>
-            <p className={classes.content}>{content}</p>
+            <div className={classes.contentBox}>
+              <p className={classes.content}>{content}</p>
+            </div>
           </div>
         </div>
-        <div className={classes.imgWrapper}>
-        <img src={img} alt="이미지" className={classes.solutionImg} />
-
+        <div className={classes.center}>
+          <div className={classes.imgWrapper}>
+            <img src={img} alt="이미지" className={classes.solutionImg} />
+          </div>
         </div>
         <button
           className={classes.close}

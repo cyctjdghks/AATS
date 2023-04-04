@@ -65,7 +65,6 @@ const User = () => {
       userBirth: birth,
       userNationality: nationality,
     };
-    console.log(user);
     for (let i = 0; i < profile.length; i++) {
       formData.append("profile", profile[i]);
     }

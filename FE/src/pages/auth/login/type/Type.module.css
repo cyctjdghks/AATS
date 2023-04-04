@@ -44,6 +44,7 @@
   margin: auto;
   margin-top: 32px;
   box-shadow: 1px 1px 3px 5px #dadce0;
+  cursor: default;
 }
 
 .pageName {
@@ -114,18 +115,21 @@
   width: 70%;
   margin: auto;
   padding-bottom: 10px;
+
 }
 
 .pageTitle {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 27px;
   margin-top: 50px;
+  cursor: default;
 }
 
 .pageTitle2 {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 20px;
   margin-top: -20px;
+  cursor: default;
 }
 
 .hrLine{

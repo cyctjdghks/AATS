@@ -42,6 +42,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  cursor: default;
 }
 
 @keyframes box-ai {
@@ -141,7 +142,7 @@
   background-color: rgb(253, 250, 245);
   border-radius: 10px;
   margin: auto;
-
+  cursor: default;
 }
 
 .countSubBox{
@@ -213,6 +214,7 @@
   margin: auto;
   text-align: left;
   padding-top: 100px;
+  cursor: default;
 }
 
 .titleBox{
@@ -248,7 +250,7 @@
 
 .vLine1 {
   width: 15px;
-  height: 250px;
+  height: auto;
   background-color: #005FB3;
   border: none;
   margin-right: 50px;
@@ -266,7 +268,7 @@
 
 .vLine2 {
   width: 15px;
-  height: 250px;
+  height: auto;
   background-color: #6F5552;
   border: none;
   margin-right: 50px;
@@ -284,7 +286,7 @@
 
 .vLine3 {
   width: 15px;
-  height: 250px;
+  height: auto;
   background-color: #4234C6;
   border: none;
   margin-right: 50px;
@@ -302,7 +304,7 @@
 
 .vLine4 {
   width: 15px;
-  height: 250px;
+  height: auto;
   background-color: #105853;
   border: none;
   margin-right: 50px;

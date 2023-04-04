@@ -9,6 +9,10 @@
   height: 50px;
   align-items: center;
   font-family: "Apple_Gothic_Neo_Light";
+  cursor: pointer;
+}
+.userDataBox:hover{
+  font-weight: 600;
 }
 .idBox {
   width: 20%;

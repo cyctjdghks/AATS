@@ -108,12 +108,12 @@ const Solutions = () => {
           <div className={classes.count1}>
             <p>단&nbsp;&nbsp;</p>
             <h3>{count1}</h3>
-            <p>&nbsp;&nbsp;사진으로</p>
+            <p>&nbsp;장의 사진으로</p>
           </div>
           <div className={classes.count2}>
             <p>약&nbsp;&nbsp;</p>
             <h3>{count2}</h3>
-            <p>&nbsp;&nbsp;학습을 통해</p>
+            <p>&nbsp;번의 학습을 통해</p>
           </div>
           <div className={classes.count3}>
             <p>단&nbsp;&nbsp;</p>

@@ -23,13 +23,6 @@
   src: url("../../../fonts/AppleSDGothicNeoR.ttf");
 }
 
-/* label {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 0;
-} */
-
 .input {
   font-family: "Apple_Gothic_Neo_Light";
   width: 100%;

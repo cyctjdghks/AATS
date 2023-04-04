@@ -18,7 +18,6 @@ import PasswordChange from "./pages/mypage/passwordchange/PasswordChange";
 import NewsPage from "./pages/home/components/news/NewsPage";
 // import css style 
 import classes from "./App.module.css";
-import Main from "./Test";
 import { useDispatch } from "react-redux";
 import { authActions } from "./store/auth";
 
@@ -47,7 +46,6 @@ function App() {
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/mypage/*" element={<MyPage />} />
-        <Route path="/test" element={<Main />} />
         <Route path="/admin/*" element={<Admin />} />
         <Route path="/passwordchange" element={<PasswordChange/>}/>
         <Route path="/newspage" element={<NewsPage/>}/>

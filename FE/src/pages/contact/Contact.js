@@ -1,18 +1,17 @@
-import Swal from "sweetalert2";
-
 import { useState } from "react";
-import classes from "./Contact.module.css";
-
+// 외부 라이브러리
+import Swal from "sweetalert2";
+import emailjs from "emailjs-com";
+// customhook
+import InputLabel from "./components/InputLabel";
+import InputBigLabel from "./components/InputBigLabel";
+// img
 import quote1 from "../../assets/MainContact/quote1.png";
 import quote2 from "../../assets/MainContact/quote2.png";
 import ceo from "../../assets/MainContact/ceo.png";
 import phone from "../../assets/MainContact/phone.png";
-
-import InputLabel from "./components/InputLabel";
-import InputBigLabel from "./components/InputBigLabel";
-
-// 이메일 보내기
-import emailjs from "emailjs-com";
+// css classes
+import classes from "./Contact.module.css";
 
 const ContactMain = () => {
   const [name, setName] = useState("");
@@ -49,7 +48,7 @@ const ContactMain = () => {
             confirmButtonColor: "#9A9A9A",
             confirmButtonText:
               '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-          })
+          });
         },
 
         (error) => {
@@ -71,58 +70,60 @@ const ContactMain = () => {
   return (
     <div className={classes.pagebox}>
       <div className={classes.topBox}>
-        <h3 className={classes.pageName}>CONTACT</h3>
-          <div className={classes.inputBox}>
-            <div className={classes.imgBox}>
-              <img src={phone} alt="" className={classes.phone} />
-              <p className={classes.phoneDap}>Phone.02-123-456</p>
-            </div>
-            <div className={classes.inputLabelBox}>
-              <InputLabel
-                type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-                name="name"
-                autoComplete="off"
-              />
-              <InputLabel
-                type="text"
-                placeholder="Number"
-                value={phoneNumber}
-                onChange={(event) => setPhoneNumber(event.target.value)}
-                name="phone"
-                autoComplete="off"
-              />
-              <InputLabel
-                type="text"
-                placeholder="Email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                name="email"
-                autoComplete="off"
-              />
-            </div>
-            <div className={classes.bigText}>
-              <InputBigLabel
-                type="text"
-                placeholder="Message"
-                value={message}
-                onChange={(event) => setMessage(event.target.value)}
-                name="message"
-                autoComplete="off"
-                white-space= "pre-wrap"
-              />
-              <button
-                type="submit"
-                className={classes.btn}
-                disabled={!nullError}
-                onClick={sendEmail}
-              >
-                submit
-              </button>
-            </div>
+        <div className={classes.pageName}>
+          <p className={classes.contextText}>CONTACT</p>
+        </div>
+        <div className={classes.inputBox}>
+          <div className={classes.imgBox}>
+            <img src={phone} alt="" className={classes.phone} />
+            <p className={classes.phoneDap}>Phone.02-123-456</p>
           </div>
+          <div className={classes.inputLabelBox}>
+            <InputLabel
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              name="name"
+              autoComplete="off"
+            />
+            <InputLabel
+              type="text"
+              placeholder="Number"
+              value={phoneNumber}
+              onChange={(event) => setPhoneNumber(event.target.value)}
+              name="phone"
+              autoComplete="off"
+            />
+            <InputLabel
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              name="email"
+              autoComplete="off"
+            />
+          </div>
+          <div className={classes.bigText}>
+            <InputBigLabel
+              type="text"
+              placeholder="Message"
+              value={message}
+              onChange={(event) => setMessage(event.target.value)}
+              name="message"
+              autoComplete="off"
+              white-space="pre-wrap"
+            />
+            <button
+              type="submit"
+              className={classes.btn}
+              disabled={!nullError}
+              onClick={sendEmail}
+            >
+              submit
+            </button>
+          </div>
+        </div>
       </div>
       <div className={classes.bottomBox}>
         <div className={classes.subBottomBox}>

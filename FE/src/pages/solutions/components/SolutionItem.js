@@ -29,8 +29,16 @@ const SolutionItem = (props) => {
         <p className={classes.solutionSubName}>{solutionSubName}</p>
         <p className={classes.hashtag}>{hashtag}</p>
       </div>
-      <img src={props.img} alt="" className={classes.img} onClick={showModal} />
-
+      <div className={classes.center}>
+        <div className={classes.imgWrapper}>
+          <img
+            src={props.img}
+            alt=""
+            className={classes.img}
+            onClick={showModal}
+          />
+        </div>
+      </div>
       <div style={modalOpen ? { display: "block" } : { display: "none" }}>
         {modalOpen && (
           <Modal
