@@ -59,6 +59,7 @@
   font-family: "Apple_Gothic_Neo_R";
   padding-top: 5px;
   text-align: center;
+  cursor: default;
 }
 
 .hline {
@@ -90,6 +91,7 @@
   margin-left: 12px;
   margin-top: 7px;
   font-size: 17px;
+  cursor: default;
 }
 
 .mapDiv {
@@ -114,6 +116,10 @@
 
 .loginBtn:hover {
   background-color: #1f2e74;
+}
+.loginBtn:disabled{
+  cursor: not-allowed;
+
 }
 
 .toGoBox {
@@ -141,6 +147,7 @@
 .imgBox {
   width: 40%;
   margin-top: 60px;
+  cursor: default;
 }
 
 .quoteText1 {

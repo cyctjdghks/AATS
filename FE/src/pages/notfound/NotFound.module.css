@@ -5,7 +5,8 @@
   justify-content: center;
   padding-left: 200px;
   width: calc(100% - 200px);
-  height: calc(100vh - 100px)
+  height: calc(100vh - 100px);
+  cursor: default;
 }
 
 .notFound h1 {

@@ -26,7 +26,7 @@
 .developerBox {
   display: flex;
   flex-direction: row-reverse;
-  margin-bottom: 40%;
+  margin-bottom: 20%;
   width: 100%;
 }
 

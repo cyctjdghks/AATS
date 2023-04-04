@@ -30,47 +30,63 @@
 
 .pagebox {
   text-align: left;
-  min-height: calc(100vh - 180px);
-  padding-top: 20px;
+  min-height: calc(100vh - 170px);
+  padding-top: 10px;
   height: 100%;
   background-color: rgb(235, 235, 235);
+  cursor: default;
 }
 
 .bigText {
+  display: flex;
+  flex-direction: column;
   width: 30%;
+  align-items: flex-end;
+  cursor: default;
 }
 .inputLabelBox {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
 }
 
 .topBox {
+  display: flex;
+  flex-direction: column;
   width: 70%;
   border-radius: 8px;
   background-color: white;
-  margin: auto;
+  margin: 20px;
+  margin-left: 15%;
+  margin-right: 15%;
   box-shadow: 1px 1px 3px 5px #dadce0;
 }
-.imgBox{
+.imgBox {
   width: 15%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
+
 .pageName {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 30px;
   color: #b02626;
   text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
   font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  cursor: default;
+}
+.contextText{
+  margin: 0;
+  font-weight: 600;
 }
 
 .phoneDap {
   font-family: "Apple_Gothic_Neo_Mid";
   margin-top: 0px;
-
 }
 
 .inputBox {
@@ -87,7 +103,6 @@
   border-radius: 2px;
   width: 60px;
   padding-top: 4px;
-  float: right;
   cursor: pointer;
   margin-bottom: 10px;
 }
@@ -103,7 +118,9 @@
 }
 
 .subBottomBox {
-  margin: 50px;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;

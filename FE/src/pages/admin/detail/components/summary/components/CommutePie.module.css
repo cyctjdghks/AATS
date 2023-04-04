@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.texts{
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 17px;
+}

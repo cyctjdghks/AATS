@@ -1,48 +1,69 @@
 @font-face {
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
   src: url("../../../../../fonts/AppleSDGothicNeoB.ttf");
 }
 
 @font-face {
-  font-family: "Apple_Gothic_Neo_Light";
-  src: url("../../../../../fonts/AppleSDGothicNeoL.ttf");
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../../../fonts/AppleSDGothicNeoEB.ttf");
 }
 
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../../../fonts/AppleSDGothicNeoR.ttf");
+}
+.information {
+  width: 100%;
+}
+.Title {
+  width: 78%;
+  margin: auto;
+  font-family: "Apple_Gothic_Neo_EBold";
+  font-size: 27px;
+  text-align: left;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
 
 .info {
   font-family: "Apple_Gothic_Neo_Light";
-  width: 80%;
+  width: 78%;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid #acacac;
+  /* border: 1px solid #acacac; */
+  box-shadow: 2px 5px 5px grey;
   border-radius: 20px;
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 300px;
-  background-color: white;
 }
 
 .info img {
-  width: 180px;
+  width: 160px;
   margin: 0px 20px 0px 20px;
   border-radius: 10px;
 }
 
-.verticalHr {
-  height: auto;
-  margin: 0;
-}
 .horizonHr {
   width: 100%;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  height: 1px;
+  background-color: grey;
+  border: none;
 }
 
 .infoBox {
   display: flex;
   flex-direction: column;
   width: 70%;
-
   margin: 0 20px 0 20px;
   justify-content: flex-start;
   align-items: left;
@@ -53,26 +74,42 @@
   display: inline-block;
 }
 
-.bottoBox {
-  display: flex;
-  justify-content: flex-start;
+.bottomBox {
+  width: 100%;
 }
 
 .contentBox {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 5px;
-  margin-right: 20px;
+  margin-top: 2px;
+}
+.contentNameBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 2px;
+}
+.contentNameBox button {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 16px;
+  width: 120px;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  background-color: #2b41a1;
+  color: white;
+  box-shadow: 2px 4px 5px grey;
 }
 
 .name {
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 600;
   margin: 0 0 5px 3px;
 }
 .content {
-  font-size: 18px;
+  font-size: 19px;
   margin: 0 0 5px 3px;
 }
 .tag {
@@ -87,11 +124,12 @@
   }
   .infoBox {
     width: 90%;
+    margin-bottom: 20px;
   }
   .info img {
     width: 180px;
   }
-  .bottoBox {
+  .bottomBox {
     flex-direction: column;
   }
 }

@@ -29,6 +29,7 @@
 }
 
 .modalBackGround {
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
@@ -41,7 +42,6 @@
 .container {
   /* 모달창 크기 */
   width: 70%;
-  height: 70%;
 
   /* 최상단 위치 */
   /* z-index: 999; */
@@ -71,7 +71,7 @@
 
 .vLine {
   height: 100%;
-  width: 20px;
+  width: 15px;
 }
 
 .TitleBox {
@@ -127,14 +127,36 @@
   color: black;
   font-size: 17px;
 }
-.imgWrapper {
-  width: 55%;
+
+
+.center{
+  width: 57%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
-.solutionImg {
+.imgWrapper{
+  position: relative;
+  padding-top: 100%;
+  overflow: hidden;
   width: 100%;
-  object-fit: fill;
+  
+}
+.solutionImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  border-radius: 2px;
+  cursor: pointer;
+  
 }
 
 /* 모달창 내부 X버튼 */
@@ -153,4 +175,5 @@
   right: 20px;
   top: 20px;
   cursor: pointer;
+  z-index: 10;
 }

@@ -58,7 +58,7 @@
   font-family: "Apple_Gothic_Neo_R";
   padding-top: 20px;
   text-align: center;
-
+  cursor: default;
 }
 
 .hline{
@@ -87,6 +87,7 @@
   background-color: #2b41a1;;
   color: white;
   box-shadow: 2px 4px 5px grey;
+  cursor: pointer;
 }
 
 .toGoBox {
@@ -117,6 +118,7 @@
   padding-top: 15px;
   width: 40%;
   margin-top: 60px;
+  cursor: default;
 }
 
 .quoteText1 {

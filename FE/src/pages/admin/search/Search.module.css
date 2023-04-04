@@ -37,6 +37,7 @@
 
 .textBox {
   width: 40%;
+  cursor: default;
 }
 
 .quote1 {

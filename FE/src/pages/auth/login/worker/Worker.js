@@ -1,6 +1,7 @@
 import InputLabel from "../../components/InputLabel";
 import { DataInput } from "../../components/Effectiveness";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { authActions } from "../../../../store/auth";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +15,6 @@ import phone from "../../../../assets/auths/phone.png";
 import tmp1 from "../../../../assets/auths/tmp1.png";
 import tmp2 from "../../../../assets/auths/tmp2.png";
 
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 const Worker = () => {
   const dispatch = useDispatch();
@@ -38,13 +38,17 @@ const Worker = () => {
         navigate("/mypage");
       })
       .catch((error) => {
-        console.log(error);
+        Swal.fire({
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 실패했습니다.<div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>',
+          width: 350,
+          icon: "error",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          confirmButtonColor: "#9A9A9A",
+        });
       });
-  };
-
-  const toSignup = (event) => {
-    event.preventDefault();
-    navigate("/auth/signup");
   };
 
   return (

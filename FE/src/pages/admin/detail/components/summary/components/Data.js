@@ -8,6 +8,7 @@ export const CommuteData = () => {
   const today = moment();
   let startDate = moment().startOf("month");
   let count = -1;
+  console.log(startData);
 
   while (true) {
     let tmpDate = startDate;
@@ -46,6 +47,7 @@ export const CommuteData = () => {
     } else {
       const tmp1 = moment(new Date(endData[i].time)).format("DD");
       if (tmp1 === todayDay) {
+        normalAttendance += 1;
       } else {
         normalAttendance += 1;
       }
