@@ -1,13 +1,9 @@
 import classes from "./Home.module.css";
 import NewsItem from "./components/news/NewsItem.js";
 import { useState, useRef, useEffect } from "react";
+import Slider from "./components/Slider/Slider";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-
-import main1 from "../../assets/Home/main1.png";
-// import main2 from "../../assets/Home/main2.png";
-// import main3 from "../../assets/Home/main3.png";
-import main4 from "../../assets/Home/main4.png";
 
 import solution1 from "../../assets/Home/solution1.png";
 import solution2 from "../../assets/Home/solution2.png";
@@ -28,81 +24,8 @@ import news8 from "../../assets/Home/news8.png";
 import news9 from "../../assets/Home/news9.png";
 import { useNavigate } from "react-router-dom";
 
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-
-// import A from "../../assets/A.png";
-
 const Home = () => {
   const navigate = useNavigate();
-
-  // 메인 슬라이드
-  const slides = [
-    {
-      img: main1,
-      title1: "AIVE",
-      title2: "GUMI NO.1 AI Enterprise ",
-      content1: "얼굴 인식 자동 시스템, CCTV 통합관제",
-      content2: "출입과 동시에 근태관리 연동",
-      icon1: <LocalPhoneIcon />,
-      iconText1: "phone",
-      iconText2: "02-123-456",
-    },
-    // {
-    //   img: main2,
-    //   title1: "AIVE는 파트너와의",
-    //   title2: "동행을 추구합니다. ",
-    //   content1: "사람이 우선이고 사람과 행복해지는 세상",
-    //   content2: "AIVE는 파트너들과 함께 만들어 나가고자 합니다.",
-    //   icon1: <LocalPhoneIcon />,
-    //   iconText1: "phone",
-    //   iconText2: "02-123-456",
-    // },
-    // {
-    //   img: main3,
-    //   title1: "고객은 하늘처럼",
-    //   title2: "직원은 가족처럼",
-    //   content1: "세상에 꼭 필요한 AI 솔루션을 만들어 가는",
-    //   content2: "AIVE가 되겠습니다.",
-    //   icon1: <LocalPhoneIcon />,
-    //   iconText1: "phone",
-    //   iconText2: "02-123-456",
-    // },
-    {
-      img: main4,
-      title1: "AI 솔루션",
-      title2: "AIVE에 문의하세요",
-      content1: "언제 어디서나 어떤 질문이든",
-      content2: "성심껏 답변하겠습니다.",
-      icon1: <LocalPhoneIcon />,
-      iconText1: "phone",
-      iconText2: "02-123-456",
-    },
-  ];
-
-  const mainTotalSlide = 1;
-  const mainRef = useRef(null);
-  const [mainSlide, setMainSlide] = useState(0);
-
-  // 3초마다 자동으로 넘기기
-  useEffect(() => {
-    let timer = null;
-    if (mainSlide >= mainTotalSlide) {
-      timer = setInterval(() => {
-        setMainSlide(0);
-      }, 3000);
-    } else {
-      timer = setInterval(() => {
-        setMainSlide(mainSlide + 1);
-      }, 3000);
-    }
-    return () => clearInterval(timer);
-  }, [mainSlide]);
-
-  useEffect(() => {
-    mainRef.current.style.transition = "all 0.5s ease-in-out";
-    mainRef.current.style.transform = `translateX(-${mainSlide}00%)`;
-    // 백틱을 사용하여 슬라이드로 이동하는 애니메이션 구현.
-  }, [mainSlide]);
 
   // 뉴스 슬라이더
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -140,37 +63,7 @@ const Home = () => {
 
   return (
     <div className={classes.mainPage}>
-      <div className={classes.sliderArea}>
-        <div className={classes.slider}>
-          <div className={classes.sliderTrack} ref={mainRef}>
-            {slides.map((item, index) => (
-              <div key={index} className={classes.sliderItem}>
-                {/* <div style={{ background: item.color }}>{index}</div> */}
-                <div className={classes.userWrap}>
-                  <div className={classes.userImg}>
-                    <img src={item.img} alt="" className={classes.mainImg} />
-                  </div>
-                  <div className={classes.TextBox}>
-                    <h3 className={classes.title1}>{item.title1}</h3>
-                    <h3 className={classes.title2}>{item.title2}</h3>
-                    <p className={classes.content1}>{item.content1}</p>
-                    <p className={classes.content2}>{item.content2}</p>
-                    <div className={classes.iconBox}>
-                      <p className={classes.icon1}>{item.icon1}</p>
-                      <div className={classes.iconTextBox}>
-                        <p className={classes.iconText1}>{item.iconText1}</p>
-                        <p className={classes.iconText2}>{item.iconText2}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* <img src={mainpage} alt="" className={classes.main} /> */}
+      <Slider />
       <div className={classes.home}>
         <div className={classes.solutionPage}>
           <h3 className={classes.NewsTitle}>SOLUTION</h3>

@@ -69,7 +69,7 @@
   vertical-align: middle;
 }
 
-.mainImg{
+.mainImg {
   width: 100%;
 }
 
@@ -108,28 +108,27 @@
   font-size: 30px;
 }
 
-.iconBox{
+.iconBox {
   display: flex;
 }
 
-
-.icon1{
+.icon1 {
   text-align: left;
   margin-right: 1%;
 }
 
-.iconTextBox{
+.iconTextBox {
   width: 100%;
 }
 
-.iconText1{
+.iconText1 {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 25px;
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.iconText2{
+.iconText2 {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 23px;
   margin-top: 0;
@@ -146,25 +145,23 @@
   .title2 {
     font-size: 30px;
   }
-  .content1{
+  .content1 {
     font-size: 20px;
   }
-  .content2{
+  .content2 {
     font-size: 20px;
   }
-  .iconText1{
+  .iconText1 {
     font-size: 18px;
   }
-  .iconText2{
+  .iconText2 {
     font-size: 18px;
   }
 }
 
 .home {
-  /* width: 75%; */
   max-width: 1440px;
-  width: 100%;
-  /* height: 1200px; */
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -172,7 +169,6 @@
   width: 100%;
 }
 
-/* 솔루션 */
 .solutionPage {
   max-width: 1440px;
   margin: auto;
@@ -265,13 +261,10 @@
   transform: scale(1.02);
 }
 
-
-
-.videoSub{
+.videoSub {
   width: 45%;
   margin-right: 1%;
 }
-
 
 /* 뉴스  */
 .newsPage {
@@ -283,6 +276,12 @@
   font-family: "Apple_Gothic_Neo_ULight";
   font-size: 35px;
   text-align: left;
+}
+@media screen and (max-width: 1024px) {
+  .NewsTitle{
+    font-size: 26px;
+  }
+  
 }
 
 .hrLine {
