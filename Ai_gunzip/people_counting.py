@@ -26,7 +26,7 @@ nms_threshold = 0.4
 # 비동기적으로 이미지 프레임 처리
 @socketio.event
 def detect_objects(camera_id):
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture("rtsp://rkdahgus12:qmffpdlem!2@117.20.248.81:554/stream1")
     while True:
         ret, frame = cap.read()
         if not ret:
