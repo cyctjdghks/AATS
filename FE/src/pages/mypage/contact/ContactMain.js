@@ -113,20 +113,20 @@ const ContactMain = () => {
               <InputLabel
                 label="내용"
                 type="content"
-                placeholder="Your Message"
+                placeholder="   Your Message"
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
                 name="message"
                 autoComplete="off"
               />
+              <button
+                className={classes.contactbtn}
+                type="submit"
+                disabled={!nullError}
+              >
+                제출하기
+              </button>
             </div>
-            <button
-              className={classes.contactbtn}
-              type="submit"
-              disabled={!nullError}
-            >
-              제출하기
-            </button>
           </div>
           <div className={classes.imgbox}>
             <div className={classes.imgTextBox}>

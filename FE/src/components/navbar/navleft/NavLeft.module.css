@@ -2,6 +2,10 @@
   font-family: "Apple_Gothic_Neo_Light";
   src: url("../../../fonts/AppleSDGothicNeoL.ttf");
 }
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf")
+}
 
 .navLeft {
   display: flex;
@@ -9,14 +13,22 @@
   justify-content: flex-start;
   height: 70px;
   width: 80%;
-  margin-left: 10px;
+  margin-left: 30px;
   font-family: "Apple_Gothic_Neo_Light";
 }
 
-.navLeft p {
-  margin: 0 0 0 15px;
+.itemBox p {
   font-size: 24px;
   cursor: pointer;
+}
+.itemBox{
+  margin: 15px 5px 0 15px;
+  width: 100px;
+  font-size: 24px;
+}
+
+.itemBox p:hover {
+  font-family: "Apple_Gothic_Neo_Bold";
 }
 
 .navLeftHidden {

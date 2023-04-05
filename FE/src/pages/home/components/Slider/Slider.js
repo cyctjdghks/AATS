@@ -87,7 +87,7 @@ function Slider() {
     () => {
       handleSlide(currentIndex + 1);
     },
-    !isSwiping && !prevSlideX ? 2000 : null
+    !isSwiping && !prevSlideX ? 4000 : null
   );
 
   function replaceSlide(index) {

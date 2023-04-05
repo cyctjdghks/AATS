@@ -5,6 +5,7 @@ import App from "./App";
 import "./index.css";
 // import router
 import { BrowserRouter } from "react-router-dom";
+import ScrollToTop from "./components/scrolltotop/ScrollToTop";
 // import redux
 import { Provider } from "react-redux";
 // import redux-persiste
@@ -21,6 +22,7 @@ root.render(
   <BrowserRouter>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+        <ScrollToTop />
         <App />
       </PersistGate>
     </Provider>
