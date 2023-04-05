@@ -21,7 +21,7 @@ conf_threshold = 0.5
 nms_threshold = 0.4
 
 
-@app.route('/')
+@app.route('/gunzip/peoplecounting')
 def index():
     return render_template('peopleCounting.html')
 
