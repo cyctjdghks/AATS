@@ -91,7 +91,7 @@ def counting():
 
 @socketio.on('connect')
 def on_connect():
-    socketio.start_background_task(detect_objects, 1)
+    socketio.start_background_task(detect_objects, 2)
 
 
 
