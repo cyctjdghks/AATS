@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    <title>Object Detection PAGE</title>
+</head>
+<body>
+    <h1>Object Detection</h1>
+    <div>
+        <img id="image3" src="" >
+    </div>
+    <div>
+        <img id="image2" src="" >
+    </div>
+    <div>
+        <img id="image5" src="">
+    </div>
+    <div>
+        <img id="image4" src="">
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+    <script>
+        var socket = io();
+        socket.on('connect', function() {
+            console.log('Connected');
+        });
+
+        socket.on('image3', function(image) {
+            document.getElementById('image3').src = 'data:image/jpeg;base64,' + image;
+        });
+
+        socket.on('image2', function(image) {
+            document.getElementById('image2').src = 'data:image/jpeg;base64,' + image;
+        });
+
+        socket.on('image5', function(image) {
+            document.getElementById('image5').src = 'data:image/jpeg;base64,' + image;
+        });
+
+        socket.on('image4', function(image) {
+            document.getElementById('image4').src = 'data:image/jpeg;base64,' + image;
+        });
+    </script>
+</body>
+</html>
