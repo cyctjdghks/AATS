@@ -15,7 +15,6 @@ RUN pip install flask && \
     pip install flask-cors && \
     pip install flask-socketio==5.1.1 && \
 	pip install numpy && \
-	pip install base64 && \
     apt-get update && \
     apt-get install -y libgl1 && \
     pwd && \
