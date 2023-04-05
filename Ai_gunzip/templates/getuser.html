@@ -10,13 +10,14 @@
 
 <div class="box1">
     <h1>Real Time Object Detection</h1>
-     <video id="video" autoplay> </video>
+
     <img id="image1"src="">
     <h3 id="people-count">People count: 0</h3>
 </div>
 <div class="box2">
     <canvas id="chart"></canvas>
 </div>
+<video id="video" autoplay> </video>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
 <script>
@@ -25,7 +26,7 @@ const video = document.getElementById('video');
             .then(devices => {
                 const videoDevices = devices.filter(device => device.kind === 'videoinput');
                 console.log('Available video devices: ', videoDevices);
-                const constraints = { video: { deviceId: { exact: videoDevices[0].deviceId } } };
+                const constraints = { video: { deviceId: { exact: videoDevices[1].deviceId } } };
                 return navigator.mediaDevices.getUserMedia(constraints);
             })
             .then(stream => {
