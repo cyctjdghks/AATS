@@ -198,7 +198,7 @@
 }
 
 .iconP1 {
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-family: "Apple_Gothic_Neo_Bold";
 }
 
 .iconP2 {
@@ -218,7 +218,7 @@
 }
 
 .iconP3 {
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-family: "Apple_Gothic_Neo_Bold";
 }
 
 .iconP4 {
@@ -238,7 +238,7 @@
 }
 
 .iconP5 {
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-family: "Apple_Gothic_Neo_Bold";
 }
 
 .iconP6 {
@@ -260,6 +260,6 @@
 }
 
 .ceo {
-  margin-top: -40px;
+  /* margin-top: -40px; */
   width: 450px;
 }

@@ -280,7 +280,7 @@ const Home = () => {
                 />
                 <NewsItem
                   img={news3}
-                  title="[뉴스] SSAFY-AIVE, AATS 계약 체결 희망"
+                  title="[뉴스] SSAFY-AIVE, AATS 계약 체결 희망..."
                   date="2023.03.27"
                   content="SSAFY(삼성 청년 SW 아카데미)와 인공지능 비즈니스 솔루션 회사인 AIVE가 출퇴근 관리와 업무 추적을 자동화하는 솔루션인 Automatic Attendance and Tracking System(AATS)의 계약 체결을 희망하고 있다."
                   content2="AIVE는 국내에서 인공지능 기술을 활용하여 기업 내 업무 프로세스를 자동화하고 최적화하는 솔루션을 개발하는 회사로, AATS는 그 중 하나로 인사 관리 업무를 간편하고 정확하게 수행할 수 있도록 돕는 솔루션이다."
@@ -361,7 +361,7 @@ const Home = () => {
                 />
                 <NewsItem
                   img={news9}
-                  title="[뉴스] AIVE, 삼성 청년 SW 아카데미 특화 프로젝트 1등 희망"
+                  title="[뉴스] AIVE, 삼성 청년 SW 아카데미 특화 프로젝트 1등 희망..."
                   date="2023.03.27"
                   content="AI 비즈니스 전문 스타트업 A-IVE가 삼성 청년 SW 아카데미의 특화 프로젝트에서 1등을 향해 달려가고 있다."
                   content2="A-IVE는 이번 삼성 청년 SW 아카데미에서는 인공지능 기술을 활용한 프로젝트를 진행하고 있으며, 다른 팀들과의 경쟁에서 1등을 차지하기 위해 최선을 다하고 있다."

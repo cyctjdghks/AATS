@@ -65,13 +65,13 @@
 }
 .today {
   font-family: "Apple_Gothic_Neo_EBold";
-  font-size: 29px;
+  font-size: 27px;
   margin: 0;
 }
 
 .today2 {
   font-family: "Apple_Gothic_Neo_Light";
-  font-size: 20px;
+  font-size: 18px;
   margin: 0;
 }
 
@@ -97,7 +97,7 @@
   text-align: left;
   margin-top: 20px;
   padding-bottom: 30px;
-  border-bottom: 1px solid rgb(202, 202, 202);  
+  border-bottom: 2px solid rgb(221, 221, 221);  
 }
 .timeBox {
   display: flex;
@@ -129,10 +129,11 @@
 }
 
 .startP1 {
+  font-family: "Apple_Gothic_Neo_R";
 }
 
 .startP2 {
-  font-family: "Apple_Gothic_Neo_Bold";
+  font-family: "Apple_Gothic_Neo_R";
 }
 
 /* 두번째 박스 */
@@ -238,12 +239,13 @@
   padding-bottom: 20px;
 }
 .membershipButton{
+  font-family: "Apple_Gothic_Neo_Light";
   font-size: 20px;
   border: none;
   background-color: rgb(18, 212, 18);
   color: white;
   border-radius: 3px;
-  padding-top: 5px;
+  padding-top: 7px;
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
@@ -254,9 +256,11 @@
   display: flex;
 }
 .membership1{
+  font-size: 20px;
   font-weight: 600;
-  margin-right: 8px;
+  margin-right: 10px;
 }
 .membership2{
+
   font-weight: 500;
 }

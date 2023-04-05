@@ -87,7 +87,7 @@ const Info = () => {
                 <span className={classes.tag}> 연락처 &nbsp; </span>
                 {data.phone}
               </p>
-              <button onClick={toPasswordChange}>비밀번호 변경</button>
+              <button onClick={toPasswordChange} className={classes.passwordChangeBtn}>비밀번호 변경</button>
             </div>
           </div>
         </div>

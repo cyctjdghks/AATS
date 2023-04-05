@@ -142,7 +142,7 @@
 .imgbox h3 {
   font-family: "Apple_Gothic_Neo_R";
   text-align: center;
-  font-size: 24px;
+  font-size: 23px;
   color: black;
   margin-top: -5px;
 }
@@ -161,13 +161,13 @@
   font-family: "Apple_Gothic_Neo_R";
   margin-top: 50px;
   font-size: 20px;
-  margin-left: 110px;
+  margin-left: 100px;
   margin-top: 0px;
 }
 
 .hLine {
   border: 1px solid #b02626;
-  width: 75%;
+  width: 70%;
   margin: auto;
 }
 

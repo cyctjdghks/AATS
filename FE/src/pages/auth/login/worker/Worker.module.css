@@ -33,7 +33,7 @@
 }
 
 .loginBox {
-  margin-top: 170px;
+  margin-top: 140px;
   margin-bottom: 50px;
   width: 550px;
   height: 450px;
@@ -45,6 +45,7 @@
 @media screen and (max-width: 1024px) {
   .loginBox {
     width: 550px;
+    margin-left: 0px;
   }
 
   .imgBox {
@@ -112,14 +113,14 @@
 }
 
 .imgBox {
-  padding-top: 15px;
+  padding-top: 35px;
   width: 40%;
-  margin-top: 35px;
+  margin-top: 40px;
   cursor: default;
 }
 
 .quoteText1 {
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-family: "Apple_Gothic_Neo_R";
   text-align: center;
   font-size: 20px;
   width: 90%;
@@ -166,7 +167,7 @@
 }
 
 .iconP1 {
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-family: "Apple_Gothic_Neo_Bold";
 }
 
 .iconP2 {
@@ -186,7 +187,7 @@
 }
 
 .iconP3 {
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-family: "Apple_Gothic_Neo_Bold";
 }
 
 .iconP4 {
@@ -206,7 +207,7 @@
 }
 
 .iconP5 {
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-family: "Apple_Gothic_Neo_Bold";
 }
 
 .iconP6 {
@@ -219,6 +220,6 @@
 }
 
 .ceo {
-  margin-top: -58px;
+  margin-top: -38px;
   width: 480px;
 }

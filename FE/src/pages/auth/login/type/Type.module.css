@@ -39,7 +39,7 @@
 .topBox {
   width: 70%;
   height: 180px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   background-color: white;
   margin: auto;
   margin-top: 32px;
