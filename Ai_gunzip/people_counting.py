@@ -84,7 +84,7 @@ def detect_objects(camera_id):
     cap.release()
 
 
-@app.route('/ai/peoplecounting')
+@app.route('/ai-gunzip/peoplecounting')
 def counting():
     return render_template('peopleCounting.html')
 
