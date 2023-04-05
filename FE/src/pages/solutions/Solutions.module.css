@@ -38,28 +38,27 @@
 .introBox {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 90%;
+  margin-left: 5%;
   cursor: default;
 }
-
-/* @keyframes box-ai {
-  from {
-    transform: translate(-30px, 0);
-  }
-  to {
-    transform: translate(0px, 0);
-  }
-} */
+.aiImgWrapper{
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  align-items: center;
+}
 
 .AI {
   width: 100%;
   max-width: 500px;
-  margin-top: -60px;
-  margin-right: 70px;
   animation: box-ai 1.5s linear forwards;
 }
 
 @media screen and (max-width: 1024px) {
+  .aiImgWrapper{
+    display: none;
+  }
   .AI {
     display: none;
   }
@@ -75,6 +74,7 @@
   .vLine4 {
     display: none;
   }
+
 }
 
 @keyframes box-intro {
@@ -87,9 +87,17 @@
 }
 
 .introTextBox {
-  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
   text-align: left;
   animation: box-intro 1.5s linear forwards;
+}
+@media screen and (max-width: 1024px){
+  .introTextBox{
+    width: 80%;
+  }
 }
 
 .introTitle1 {
@@ -196,6 +204,32 @@
   font-size: 45px;
   margin-top: 5px;
   color: #1d36a3;
+}
+
+@media screen and (max-width: 1024px){
+  .count1 p {
+    font-size: 18px;
+  }
+  
+  .count1 h3 {
+    font-size: 30px;
+  }
+  
+  .count2 p {
+    font-size: 18px;
+  }
+  
+  .count2 h3 {
+    font-size: 30px;
+  }
+  
+  .count3 p {
+    font-size: 18px;
+  }
+  
+  .count3 h3 {
+    font-size: 30px;
+  }
 }
 
 .mainBox {

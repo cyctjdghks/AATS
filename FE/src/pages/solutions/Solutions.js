@@ -79,7 +79,9 @@ const Solutions = () => {
   return (
     <div className={classes.pageBox}>
       <div className={classes.introBox}>
-        <img src={AI} alt="aiImg" className={classes.AI} />
+        <div className={classes.aiImgWrapper}>
+          <img src={AI} alt="aiImg" className={classes.AI} />
+        </div>
         <div className={classes.introTextBox}>
           <p className={classes.introTitle1}>GUMI Top AI Enterprise</p>
           <h1>AIVE</h1>
@@ -191,7 +193,6 @@ const Solutions = () => {
               colors={secondColors}
             />
           </div>
-          
         </div>
       </div>
     </div>
