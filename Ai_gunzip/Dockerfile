@@ -9,8 +9,7 @@ RUN apt-get update && apt-get install -y \
     protobuf-compiler \
     && rm -rf /var/lib/apt/lists/*
 # 가상환경을 활성화합니다.
-RUN python -m pip install --no-cache-dir . && \
-    pip install flask && \
+RUN pip install flask && \
     pip uninstall -y opencv-python && \
     pip install opencv-python && \
     pip install flask-cors && \
