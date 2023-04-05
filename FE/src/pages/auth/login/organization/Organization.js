@@ -37,7 +37,7 @@ const Organization = () => {
       .then((response) => {
         if (response.status === 200) {
           dispatch(authActions.organizationLogin(response.data.data));
-          const orgid = response.data.data.organizationId
+          const orgid = response.data.data.organizationId;
           Swal.fire({
             title:
               '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 완료되었습니다.<div>',
@@ -48,10 +48,12 @@ const Organization = () => {
             confirmButtonText:
               '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
           });
-          const workerUrl = "https://j8d102.p.ssafy.io/be/organization/getall/worker";
-          const userUrl = "https://j8d102.p.ssafy.io/be/organization/getall/user";
+          const workerUrl =
+            "https://j8d102.p.ssafy.io/be/organization/getall/worker";
+          const userUrl =
+            "https://j8d102.p.ssafy.io/be/organization/getall/user";
           axios
-            .post(workerUrl, { organizationId : orgid})
+            .post(workerUrl, { organizationId: orgid })
             .then((response) => {
               dispatch(authActions.getWorkers(response.data.data));
             })
@@ -59,7 +61,7 @@ const Organization = () => {
               console.log(error);
             });
           axios
-            .post(userUrl, { organizationId : orgid})
+            .post(userUrl, { organizationId: orgid })
             .then((response) => {
               dispatch(authActions.getUsers(response.data.data));
             })
@@ -67,21 +69,20 @@ const Organization = () => {
               console.log(error);
             });
           navigate("/admin");
-        } else {
-          Swal.fire({
-            title:
-              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 실패했습니다.<div>',
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>',
-            width: 350,
-            icon: "error",
-            confirmButtonText:
-              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-            confirmButtonColor: "#9A9A9A",
-          });
-        }
+        } 
       })
       .catch((error) => {
         console.log(error);
+        Swal.fire({
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 실패했습니다.<div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>',
+          width: 350,
+          icon: "error",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          confirmButtonColor: "#9A9A9A",
+        });
       });
   };
 
@@ -132,11 +133,11 @@ const Organization = () => {
           <div>
             <img src={quote1} alt="따옴표1" className={classes.quote1} />
             <p className={classes.quoteText1}>
-              AIVE는 혁신적인 AI 기술을 활용하여, 사용자들에게 더욱 편리하고
+              AIVE는 혁신적인 AI 기술을 활용하여, 사용자들에게 더욱더 편리하고
               직관적인 서비스를 제공하고자 하는 미션을 갖고 있습니다.
             </p>
             <img src={quote2} alt="따옴표2" className={classes.quote2} />
-            <p className={classes.d102}>D102 대표, 강모현</p>
+            <p className={classes.d102}>삼성 청년 SW 아카데미, D102 일동</p>
             <div className={classes.hLine}></div>
             <div className={classes.iconBox}>
               <div className={classes.icon1}>
@@ -153,8 +154,8 @@ const Organization = () => {
                   <img src={tmp1} alt="" className={classes.tmp1} />
                 </div>
                 <div className={classes.iconPBox2}>
-                  <p className={classes.iconP3}>Gumi</p>
-                  <p className={classes.iconP4}>No.1</p>
+                  <p className={classes.iconP3}>Location</p>
+                  <p className={classes.iconP4}>ssafy gumi</p>
                 </div>
               </div>
               <div className={classes.icon3}>

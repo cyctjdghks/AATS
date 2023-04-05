@@ -16,7 +16,7 @@ const Solutions = () => {
   const [count2, setCount2] = useState(0);
   const [count3, setCount3] = useState(0);
   const count1End = 200;
-  const count2End = 200000;
+  const count2End = 20;
   const count3End = 1;
 
   useEffect(() => {
@@ -36,9 +36,9 @@ const Solutions = () => {
     if (count2 < count2End) {
       timer = setInterval(() => {
         setCount2((prevState) => {
-          return prevState + 250;
+          return prevState + 1;
         });
-      }, 0.1);
+      }, 75);
     }
     return () => clearInterval(timer);
   }, [count2]);
@@ -113,7 +113,7 @@ const Solutions = () => {
           <div className={classes.count2}>
             <p>약&nbsp;&nbsp;</p>
             <h3>{count2}</h3>
-            <p>&nbsp;번의 학습을 통해</p>
+            <p>&nbsp;만 번의 학습을 통해</p>
           </div>
           <div className={classes.count3}>
             <p>단&nbsp;&nbsp;</p>
@@ -136,8 +136,8 @@ const Solutions = () => {
             <SolutionItem
               number="SOLUTION1"
               solutionName="얼굴 인식 자동 출입 시스템"
-              solutionSubName="솔루션 서브네임"
-              hashtag="#솔루션"
+              solutionSubName="#R-CNN #SSD"
+              hashtag="#OpenCV #다중객체탐지"
               content="Fast R-CNN과 SSD를 적용한 차이점 분석 후, 
               TensorFlow 커스텀 모델링과 하이퍼파라미터 수정으로 학습하여 
               OpenCV에서 다중객체 탐지로 임직원 및 고객 출입을 통제합니다. 
@@ -154,8 +154,8 @@ const Solutions = () => {
             <SolutionItem
               number="SOLUTION2"
               solutionName="CCTV 통합관제"
-              solutionSubName="솔루션 서브네임"
-              hashtag="#솔루션"
+              // solutionSubName="솔루션 서브네임"
+              hashtag="#CCTV #관리 #관제"
               content="CCTV 영상을 한 번에 관제 가능하도록
               통합하여 관리 및 관제 할 수 있는 시스템입니다."
               img={solution2}
@@ -167,8 +167,8 @@ const Solutions = () => {
             <SolutionItem
               number="SOLUTION3"
               solutionName="출입과 동시에 근태관리 연동"
-              solutionSubName="솔루션 서브네임"
-              hashtag="#솔루션"
+              // solutionSubName="솔루션 서브네임"
+              hashtag="#출퇴근 #시간연동"
               content="출입과 출퇴근 시간이 연동되어 저장됩니다.
               한 번에 간편하게 처리 가능합니다."
               img={solution3}
@@ -180,8 +180,8 @@ const Solutions = () => {
             <SolutionItem
               number="SOLUTION4"
               solutionName="미아찾기 (개발 예정)"
-              solutionSubName="솔루션 서브네임"
-              hashtag="#솔루션"
+              solutionSubName="#Keras Poolling 2D 레이어"
+              hashtag="#SoftMax #Opencv"
               content="넓은 공간에서 길을 잃은 고객을 찾기 위해
               tensorflow Keras Pooling 2D 레이어 생성, 
               Dense(신경망구조)는 SoftMax 모델을 사용하여 

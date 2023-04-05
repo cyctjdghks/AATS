@@ -104,8 +104,11 @@ const Test = () => {
   return (
     <div className={classes.box}>
       <div>
-        <p>
-         현재 시각 : {moment([]).format("YYYY-MM-DD HH:mm")}
+        <p className={classes.nowTime}>
+         현재 시각 
+        </p>
+        <p className={classes.nowTime2}>
+        {moment([]).format("YYYY-MM-DD HH:mm")}
         </p>
         </div>
       <div className={classes.test}>

@@ -35,6 +35,16 @@ const User = () => {
       .then((response) => {
         dispatch(authActions.userLogin(response.data.data));
         navigate("/mypage");
+        Swal.fire({
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 완료되었습니다.<div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">AATS 서비스를 이용해보세요</div>',
+          icon: "success",
+          width: 350,
+          confirmButtonColor: "#9A9A9A",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        });
       })
       .catch((error) => {
         Swal.fire({
@@ -88,12 +98,12 @@ const User = () => {
           <div>
             <img src={quote1} alt="따옴표1" className={classes.quote1} />
             <p className={classes.quoteText1}>
-              AIVE는 혁신적인 AI 기술을 활용하여, 사용자들에게 더욱 편리하고
+              AIVE는 혁신적인 AI 기술을 활용하여, 사용자들에게 더욱더 편리하고
               직관적인 서비스를 제공하고자 하는 미션을 갖고 있습니다.
             </p>
 
             <img src={quote2} alt="따옴표2" className={classes.quote2} />
-            <p className={classes.d102}>D102 대표, 강모현</p>
+            <p className={classes.d102}>삼성 청년 SW 아카데미, D102 일동</p>
             <div className={classes.hLine}></div>
             <div className={classes.iconBox}>
               <div className={classes.icon1}>
@@ -110,8 +120,8 @@ const User = () => {
                   <img src={tmp1} alt="" className={classes.tmp1} />
                 </div>
                 <div className={classes.iconPBox2}>
-                  <p className={classes.iconP3}>Gumi</p>
-                  <p className={classes.iconP4}>No.1</p>
+                  <p className={classes.iconP3}>Location</p>
+                  <p className={classes.iconP4}>ssafy gumi</p>
                 </div>
               </div>
               <div className={classes.icon3}>

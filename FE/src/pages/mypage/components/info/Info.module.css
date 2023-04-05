@@ -55,8 +55,8 @@
   width: 100%;
   margin-top: 10px;
   margin-bottom: 15px;
-  height: 1px;
-  background-color: grey;
+  height: 2px;
+  background-color: rgb(221, 221, 221);
   border: none;
 }
 
@@ -76,6 +76,10 @@
 
 .bottomBox {
   width: 100%;
+}
+
+.passwordChangeBtn{
+  cursor: pointer;
 }
 
 .contentBox {

@@ -130,13 +130,13 @@ const ContactMain = () => {
             <p className={classes.aatsName}>AATS | 자동 출결 및 추적 시스템</p>
             <img src={quote1} alt="" />
             <p>
-              AATS는 Automatic Attendance and Tracking System으로, 어쩌구 저쩌구
-              어쩌구 어쩌구 저쩌구 어쩌구 저쩌구 세계 최고 어쩌구 저쩌구 어쩌구
-              저쩌구 입니다라라랄라라라라라
+              AATS는 Automatic Attendance and Tracking System으로, 
+              구미 최고의 자동 출결 및 추적 시스템입니다. '얼굴 인식 자동 출입 시스템, CCTV 통합 관제, 출입과 동시에 근태관리 연동'
+              즉, 이 모든 것을 하나로 통합한 기술이 AATS입니다.
             </p>
             <p>
-              AIVE에게 궁금한 모든 것을 물어 보세요. 어쩌구 저쩌구 어쩌구
-              저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구
+              AIVE에게 궁금한 모든 것을 물어 보세요. 
+              언제 어디서나 어떤 질문이든, 성심성의껏 답변해 드리겠습니다.
             </p>
             <img src={quote2} alt="" className={classes.quote2} />
             <br />
