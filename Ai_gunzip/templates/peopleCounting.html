@@ -25,7 +25,7 @@ const video = document.getElementById('video');
             .then(devices => {
                 const videoDevices = devices.filter(device => device.kind === 'videoinput');
                 console.log('Available video devices: ', videoDevices);
-                const constraints = { video: { deviceId: { exact: videoDevices[1].deviceId } } };
+                const constraints = { video: { deviceId: { exact: videoDevices[0].deviceId } } };
                 return navigator.mediaDevices.getUserMedia(constraints);
             })
             .then(stream => {
