@@ -15,41 +15,46 @@ import Solutions from "./pages/solutions/Solutions";
 import NotFound from "./pages/notfound/NotFound";
 import Home from "./pages/home/Home";
 import AboutUs from "./pages/aboutus/AboutUs";
-import MyPage from "./pages/mypage/MyPage"
+import MyPage from "./pages/mypage/MyPage";
 import Admin from "./pages/admin/Admin";
 import PasswordChange from "./pages/mypage/passwordchange/PasswordChange";
 import NewsPage from "./pages/home/components/news/NewsPage";
-// import css style 
+// Route 설정
+import PrivateRoute from "./router/PrivateRoute";
+import CommonRoute from "./router/CommonRoute";
+// import css style
 import classes from "./App.module.css";
 
 function App() {
   const dispatch = useDispatch();
-  useEffect(()=>{
-    const url ="https://j8d102.p.ssafy.io/be/getallpeople";
+  useEffect(() => {
+    const url = "https://j8d102.p.ssafy.io/be/getallpeople";
     axios
       .get(url)
-      .then((response)=>{
-        dispatch(authActions.getAiveData(response.data.data))
-      }).catch((error)=>{
-        console.log(error);
+      .then((response) => {
+        dispatch(authActions.getAiveData(response.data.data));
       })
-  },[dispatch])
-
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [dispatch]);
 
   return (
     <div className={classes.App} id="App">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/mypage/*" element={<MyPage />} />
+          <Route path="/regist/*" element={<Regist />} />
+          <Route path="/admin/*" element={<Admin />} />
+          <Route path="/passwordchange" element={<PasswordChange />} />
+        </Route>
         <Route path="/auth/*" element={<Auth />} />
-        <Route path="/regist/*" element={<Regist/>}/>
         <Route path="/contact" element={<Contact />} />
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/mypage/*" element={<MyPage />} />
-        <Route path="/admin/*" element={<Admin />} />
-        <Route path="/passwordchange" element={<PasswordChange/>}/>
-        <Route path="/newspage" element={<NewsPage/>}/>
+        <Route path="/newspage" element={<NewsPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />

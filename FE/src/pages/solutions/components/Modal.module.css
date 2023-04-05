@@ -85,16 +85,6 @@
   width: 80%;
 }
 
-@media screen and (max-width: 1024px) {
-  .TitleBox {
-    margin-left: 20px;
-  }
-
-  .contentBox {
-    margin-left: 20px;
-  }
-}
-
 .number {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 45px;
@@ -128,8 +118,7 @@
   font-size: 17px;
 }
 
-
-.center{
+.center {
   width: 57%;
   height: auto;
   display: flex;
@@ -138,12 +127,11 @@
   overflow: hidden;
 }
 
-.imgWrapper{
+.imgWrapper {
   position: relative;
   padding-top: 100%;
   overflow: hidden;
   width: 100%;
-  
 }
 .solutionImg {
   position: absolute;
@@ -156,7 +144,6 @@
   z-index: 3;
   border-radius: 2px;
   cursor: pointer;
-  
 }
 
 /* 모달창 내부 X버튼 */
@@ -176,4 +163,47 @@
   top: 20px;
   cursor: pointer;
   z-index: 10;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-left: none;
+  }
+  .TitleBox {
+    width: 100%;
+    margin-left: 20px;
+  }
+  .containerLeft {
+    width: 100%;
+  }
+
+  .contentBox {
+    margin-left: 20px;
+  }
+  .center {
+    width: 100%;
+  }
+
+  .number {
+    font-size: 35px;
+  }
+
+  .solutionName {
+    font-size: 20px;
+  }
+
+  .solutionSubName {
+    font-size: 20px;
+  }
+
+  .hashtag {
+    font-size: 20px;
+  }
+
+  .content {
+    font-size: 15px;
+  }
 }

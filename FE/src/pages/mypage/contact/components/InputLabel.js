@@ -1,5 +1,3 @@
-import classes from "./InputLabel.module.css"
-
 const InputLabel = ({label, errorMessage, ...rest}) => {
   return(
       <label>

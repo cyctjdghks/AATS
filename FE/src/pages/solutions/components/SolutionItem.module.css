@@ -71,10 +71,9 @@
   position: relative;
   padding-top: 100%;
   overflow: hidden;
-  width: 100%;
-  
-  
+  width: 100%;  
 }
+
 .img {
   position: absolute;
   top: 0;
@@ -87,12 +86,35 @@
   border-radius: 2px;
   cursor: pointer;
   transition: 0.5s;
-  
-
-  
 }
 
 .img:hover{
   transform: scale(1.05);
   
+}
+
+@media screen and (max-width: 1024px){
+  .solutionBox {
+    flex-direction: column;
+  }
+  .center{
+    width: 100%;
+  }
+
+
+  .number{
+    font-size: 35px;
+  }
+  .solutionName {
+    font-size: 25px;
+  }
+  
+  .solutionSubName {
+    font-size: 25px;
+  }
+
+  .hashtag{
+    font-size: 25px;
+  }
+
 }

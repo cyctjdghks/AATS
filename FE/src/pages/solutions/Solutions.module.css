@@ -30,7 +30,7 @@
 
 .pageBox {
   padding-top: 10px;
-  padding-bottom: 100px;
+  padding-bottom: 10px;
   height: 100%;
   background-color: rgb(235, 235, 235);
 }
@@ -42,7 +42,7 @@
   margin-left: 5%;
   cursor: default;
 }
-.aiImgWrapper{
+.aiImgWrapper {
   display: flex;
   justify-content: center;
   width: 40%;
@@ -56,7 +56,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .aiImgWrapper{
+  .aiImgWrapper {
     display: none;
   }
   .AI {
@@ -74,7 +74,6 @@
   .vLine4 {
     display: none;
   }
-
 }
 
 @keyframes box-intro {
@@ -92,11 +91,13 @@
   justify-content: center;
   width: 60%;
   text-align: left;
+  padding-left: 100px;
   animation: box-intro 1.5s linear forwards;
 }
-@media screen and (max-width: 1024px){
-  .introTextBox{
+@media screen and (max-width: 1024px) {
+  .introTextBox {
     width: 80%;
+    padding: 0;
   }
 }
 
@@ -138,11 +139,13 @@
 /* 숫자 카운트 */
 .countBox {
   width: 80%;
-  max-width: 1200px;
+  max-width: 1536px;
   height: 150px;
   background-color: rgb(253, 250, 245);
   border-radius: 10px;
-  margin: auto;
+  margin-top: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
   cursor: default;
 }
 
@@ -206,27 +209,27 @@
   color: #1d36a3;
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
   .count1 p {
     font-size: 18px;
   }
-  
+
   .count1 h3 {
     font-size: 30px;
   }
-  
+
   .count2 p {
     font-size: 18px;
   }
-  
+
   .count2 h3 {
     font-size: 30px;
   }
-  
+
   .count3 p {
     font-size: 18px;
   }
-  
+
   .count3 h3 {
     font-size: 30px;
   }
@@ -234,9 +237,11 @@
 
 .mainBox {
   width: 60%;
-  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
   text-align: left;
-  padding-top: 100px;
   cursor: default;
 }
 
