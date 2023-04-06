@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from "react";
+// third-party
 import { PieChart, Pie, Sector, Cell } from "recharts";
+// custom hook
 import { CommuteData } from "./Data";
+// css style
 import classes from "./CommutePie.module.css";
 
 const renderActiveShape = (props) => {
@@ -18,7 +21,15 @@ const renderActiveShape = (props) => {
 
   return (
     <g>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill="#000000" style={{ whiteSpace: 'nowrap' }} className={classes.texts}>
+      <text
+        x={cx}
+        y={cy}
+        dy={8}
+        textAnchor="middle"
+        fill="#000000"
+        style={{ whiteSpace: "nowrap" }}
+        className={classes.texts}
+      >
         {`${payload.name}   (${(percent * 100).toFixed(2)}%)`}
       </text>
       <Sector

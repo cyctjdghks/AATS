@@ -1,14 +1,17 @@
 import { useState } from "react";
+// redux
 import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../../store/auth";
+// libary
 import axios from "axios";
-import UserDatas from "./components/UserData";
-import { authActions } from "../../../store/auth"
-
+// third-party
 import SearchIcon from "@mui/icons-material/Search";
-
+// img
 import quote1 from "../../../assets/auths/quote1.png";
 import quote2 from "../../../assets/auths/quote2.png";
-
+// component
+import UserDatas from "./components/UserData";
+// css style
 import classes from "./Search.module.css";
 
 const Search = () => {
@@ -16,7 +19,7 @@ const Search = () => {
   const organizationName = useSelector(
     (state) => state.auth.organizationData.organizationName
   );
-  const organizationId = useSelector((state) => state.auth.id)
+  const organizationId = useSelector((state) => state.auth.id);
   const workerDatas = useSelector((state) => state.auth.workers);
   const userDatas = useSelector((state) => state.auth.users);
   const [type, setType] = useState(1);

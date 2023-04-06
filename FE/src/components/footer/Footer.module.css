@@ -4,26 +4,6 @@
 }
 
 @font-face {
-  font-family: "Apple_Gothic_Neo_Light";
-  src: url("../../fonts/AppleSDGothicNeoL.ttf");
-}
-
-@font-face {
-  font-family: "Apple_Gothic_Neo_ULight";
-  src: url("../../fonts/AppleSDGothicNeoUL.ttf");
-}
-
-@font-face {
-  font-family: "Apple_Gothic_Neo_Bold";
-  src: url("../../fonts/AppleSDGothicNeoB.ttf");
-}
-
-@font-face {
-  font-family: "Apple_Gothic_Neo_EBold";
-  src: url("../../fonts/AppleSDGothicNeoEB.ttf");
-}
-
-@font-face {
   font-family: "Apple_Gothic_Neo_H";
   src: url("../../fonts/AppleSDGothicNeoH.ttf");
 }
@@ -40,7 +20,6 @@
   height: 60px;
   position: absolute;
   cursor: default;
-  /* border-top: 1px solid black; */
 }
 
 .left {

@@ -1,3 +1,4 @@
+// css style
 import classes from "./AboutUsDeveloperLeft.module.css";
 
 const AboutUsDeveloperLeft = (props) => {

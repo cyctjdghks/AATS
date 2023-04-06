@@ -17,9 +17,11 @@
   font-family: "Apple_Gothic_Neo_R";
   src: url("../../../../../fonts/AppleSDGothicNeoR.ttf");
 }
+
 .information {
   width: 100%;
 }
+
 .Title {
   width: 78%;
   margin: auto;
@@ -85,12 +87,14 @@
   align-items: flex-start;
   margin-top: 2px;
 }
+
 .contentNameBox {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 2px;
 }
+
 .contentNameBox button {
   font-family: "Apple_Gothic_Neo_R";
   font-size: 16px;
@@ -109,10 +113,12 @@
   font-weight: 600;
   margin: 0 0 5px 3px;
 }
+
 .content {
   font-size: 19px;
   margin: 0 0 5px 3px;
 }
+
 .tag {
   font-weight: 600;
 }
@@ -123,13 +129,16 @@
     flex-direction: column;
     height: auto;
   }
+
   .infoBox {
     width: 90%;
     margin-bottom: 20px;
   }
+
   .info img {
     width: 180px;
   }
+  
   .bottomBox {
     flex-direction: column;
   }

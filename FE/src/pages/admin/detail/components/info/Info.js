@@ -1,3 +1,4 @@
+// css style
 import classes from "./Info.module.css";
 
 const Info = ({ data, type }) => {

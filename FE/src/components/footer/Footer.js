@@ -1,4 +1,4 @@
-// import css style
+// css style
 import classes from "./Footer.module.css";
 
 const Footer = () => {

@@ -34,14 +34,17 @@
   margin-left: 30px;
   width: 50%;
 }
+
 .imgWrapper {
   width: 50%;
   height: auto;
 }
+
 .imgWrapper img {
   border-radius: 10px;
   width: 100%;
 }
+
 .developerName {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 20px;
@@ -64,9 +67,11 @@
     flex-direction: column;
     margin: 0;
   }
+
   .imgWrapper {
     width: 100%;
   }
+  
   .developer {
     text-align: left;
     margin: 0;

@@ -11,24 +11,30 @@
   font-family: "Apple_Gothic_Neo_Light";
   cursor: pointer;
 }
-.userDataBox:hover{
+.userDataBox:hover {
   font-weight: 600;
 }
+
 .idBox {
   width: 20%;
 }
+
 .nameBox {
   width: 20%;
 }
+
 .genderBox {
   width: 10%;
 }
-.statusBox{
+
+.statusBox {
   width: 10%;
 }
+
 .emailBox {
   width: 40%;
 }
+
 .verticalLine {
   height: 50%;
   margin-top: 25%;

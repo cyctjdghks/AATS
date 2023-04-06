@@ -1,7 +1,5 @@
 .admin {
   width: 100%;
-  /* display: flex; */
   position: relative;
   min-height: calc(100vh - 160px);
 }
-

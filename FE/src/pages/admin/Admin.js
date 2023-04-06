@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import Welcome from "./welcome/Welcome"
+// component
+import Welcome from "./welcome/Welcome";
 import Search from "./search/Search";
 import Detail from "./detail/Detail";
 // import css style

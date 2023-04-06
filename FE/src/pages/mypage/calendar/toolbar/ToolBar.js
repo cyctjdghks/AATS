@@ -2,31 +2,46 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { startActions } from "../../../../store/start";
 import { endActions } from "../../../../store/end";
+import { useState } from "react";
 
 import classes from "./ToolBar.module.css";
+import React from "react";
 
 const ToolBar = (props) => {
   const dispatch = useDispatch();
   const id = useSelector((state) => state.auth.id);
   const { date } = props;
-
+  const userType = useSelector((state) => state.auth.userType);
+  const [type, setType] = useState(true);
+  const [name, setName] = useState("worker");
+  
   const navigate = (action) => {
     props.onNavigate(action);
   };
-
+  
   const numToStr = (data) => {
     let tmp = data.toString();
     return tmp;
   };
+  
+  const userWorker = () => {
+    if (userType === 1) {
+      setType(true);
+      setName("worker");
+    } else {
+      setType(false);
+      setName("user");
+    }
+  };
 
   const getDatas = () => {
-    const startUrl = "https://j8d102.p.ssafy.io/be/worker/get/start/month";
-    const endUrl = "https://j8d102.p.ssafy.io/be/worker/get/end/month";
-    const axiosData = {
-      workerId: id,
-      year: numToStr(date.getFullYear()),
-      month: numToStr(date.getMonth() + 1),
-    };
+    userWorker();
+    const startUrl = `https://j8d102.p.ssafy.io/be/${name}/get/start/month`;
+    const endUrl = `https://j8d102.p.ssafy.io/be/${name}/get/end/month`;
+
+    const axiosData = type
+      ? { workerId: id, year : numToStr(date.getFullYear()), month :numToStr(date.getMonth() + 1), }
+      : { userId: id, year : numToStr(date.getFullYear()), month :numToStr(date.getMonth() + 1), };
     axios
       .post(startUrl, axiosData)
       .then((response) => {
@@ -44,6 +59,7 @@ const ToolBar = (props) => {
         console.log(error);
       });
   };
+
 
   return (
     <div className={classes.toolbar}>

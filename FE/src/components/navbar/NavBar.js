@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-// import components
+// img
+import aive from "../../assets/aive2.png";
+// components
 import NavLeft from "./navleft/NavLeft";
 import NavRight from "./navright/NavRight";
 import NavDropDown from "./navDropDown/NavDropDown";
-// import img
-import aive from "../../assets/aive2.png"
-// import css style
+// css style
 import classes from "./NavBar.module.css";
 
 const NavBar = () => {

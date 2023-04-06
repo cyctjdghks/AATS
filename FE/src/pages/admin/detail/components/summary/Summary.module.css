@@ -48,7 +48,6 @@
   margin-right: auto;
   flex-direction: column;
   height: auto;
-  /* background-color: rgb(247, 247, 247); */
   background-color: rgb(247, 247, 247);
   border-radius: 20px;
   margin-bottom: 20px;
@@ -58,7 +57,7 @@
   box-shadow: 2px 5px 5px grey;
 }
 
-.todayBox{
+.todayBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,13 +83,15 @@
   color: rgb(231, 231, 231);
   border: none;
 }
-.zeroBox{
+
+.zeroBox {
   display: flex;
   justify-content: space-around;
   width: 90%;
   text-align: left;
   margin-top: 20px;
 }
+
 .firstBox {
   display: flex;
   justify-content: space-around;
@@ -98,8 +99,9 @@
   text-align: left;
   margin-top: 20px;
   padding-bottom: 30px;
-  border-bottom: 1px solid rgb(202, 202, 202);  
+  border-bottom: 1px solid rgb(202, 202, 202);
 }
+
 .timeBox {
   display: flex;
   justify-content: space-around;
@@ -137,14 +139,13 @@
   font-family: "Apple_Gothic_Neo_R";
 }
 
-/* 두번째 박스 */
-
 .commuteBox {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
 }
+
 .attendanceBox {
   text-align: left;
 }
@@ -209,11 +210,12 @@
   text-align: left;
   margin-top: 40px;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgb(202, 202, 202);  
+  border-bottom: 1px solid rgb(202, 202, 202);
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .thirdBox {
   display: flex;
   align-items: flex-start;
@@ -221,15 +223,16 @@
   text-align: left;
   margin-top: 40px;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgb(202, 202, 202);  
+  border-bottom: 1px solid rgb(202, 202, 202);
 }
+
 .membershipType {
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 19px;
   margin: 0 0 5px 3px;
 }
 
-.membershipBox{
+.membershipBox {
   font-family: "Apple_Gothic_Neo_Light";
   display: flex;
   align-items: baseline;
@@ -239,7 +242,8 @@
   margin-top: 20px;
   padding-bottom: 20px;
 }
-.membershipButton{
+
+.membershipButton {
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 20px;
   border: none;
@@ -252,14 +256,17 @@
   padding-right: 10px;
   box-shadow: 2px 4px 5px grey;
 }
-.membershipText{
+
+.membershipText {
   font-size: 20px;
   display: flex;
 }
-.membership1{
+
+.membership1 {
   font-weight: 600;
   margin-right: 8px;
 }
-.membership2{
+
+.membership2 {
   font-weight: 500;
 }

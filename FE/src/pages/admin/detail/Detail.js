@@ -1,34 +1,49 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+// redux
+import { useDispatch } from "react-redux";
+import { startActions } from "../../../store/start";
+import { endActions } from "../../../store/end";
+// library
+import axios from "axios";
+import moment from "moment/moment";
+// component
 import Info from "./components/info/Info";
 import Summary from "./components/summary/Summary";
 import UserSummary from "./components/summary/UserSummary";
-import { useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import moment from "moment/moment";
-import { useEffect } from "react";
-import axios from "axios";
-import { startActions } from "../../../store/start";
-import { endActions } from "../../../store/end";
-
+// css style
 import classes from "./Detail.module.css";
 
 const Detail = () => {
   const { state } = useLocation();
   const dispatch = useDispatch();
-  const id = useSelector((state) => state.auth.id);
+  const userType = !state.type
   const year = moment([]).format("YYYY");
   const month = moment([]).format("M");
+  const [type, setType] = useState(true);
+  const [name, setName] = useState("worker");
+
+  const userWorker = () => {
+    if (userType === true) {
+      setType(true);
+      setName("worker");
+    } else {
+      setType(false);
+      setName("user");
+    }
+  };
 
   const getDatas = () => {
-    const startUrl = "https://j8d102.p.ssafy.io/be/worker/get/start/month";
-    const endUrl = "https://j8d102.p.ssafy.io/be/worker/get/end/month";
-    const axiosData = {
-      workerId: id,
-      year,
-      month,
-    };
+    userWorker();
+    const startUrl = `https://j8d102.p.ssafy.io/be/${name}/get/start/month`;
+    const endUrl = `https://j8d102.p.ssafy.io/be/${name}/get/end/month`;
+    const axiosData = type
+      ? { workerId: state.data.workerId, year, month }
+      : { userId: state.data.userId, year, month };
     axios
       .post(startUrl, axiosData)
       .then((response) => {
+        console.log(response.data);
         dispatch(startActions.getData(response.data.data));
       })
       .catch((error) => {
@@ -45,9 +60,7 @@ const Detail = () => {
   };
 
   useEffect(() => {
-    if (!state.type) {
-      getDatas();
-    }
+    getDatas();
   });
 
   return (

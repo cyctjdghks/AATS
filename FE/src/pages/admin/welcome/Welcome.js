@@ -1,12 +1,12 @@
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+// redux
+import { useSelector } from "react-redux";
+// third-party
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import CameraOutdoorIcon from "@mui/icons-material/CameraOutdoor";
-
+// css style
 import classes from "./Welcome.module.css";
-
 
 const Welcome = () => {
   const navigate = useNavigate();

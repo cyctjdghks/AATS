@@ -1,8 +1,12 @@
+// redux
 import { useSelector } from "react-redux";
-import classes from "./Summary.module.css";
+// library
 import moment from "moment/moment";
+// third-party
 import CommutePie from "./components/CommutePie";
 import { CommuteData } from "./components/Data";
+// css style
+import classes from "./Summary.module.css";
 
 const Summary = () => {
   const startData = useSelector((state) => state.start.timeList);
@@ -10,7 +14,7 @@ const Summary = () => {
   const today = moment([]).format("YYYY.MM.DD.ddd");
 
   const commuteData = CommuteData();
-  
+
   let todayStart = "미출근";
   let todayStartTime = "";
   let todayEnd = "미퇴근";

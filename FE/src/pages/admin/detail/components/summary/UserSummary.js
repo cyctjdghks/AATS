@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
+// redux
 import { useSelector } from "react-redux";
-import moment from "moment/moment";
-import classes from "./Summary.module.css";
+// library
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import moment from "moment/moment";
+// css style
+import classes from "./Summary.module.css";
 
 const UserSummary = () => {
   const userId = useSelector((state) => state.auth.id);

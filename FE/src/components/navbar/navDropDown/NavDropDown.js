@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// redux
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
 import { startActions } from "../../../store/start";
 import { endActions } from "../../../store/end";
+// library
 import axios from "axios";
 import Swal from "sweetalert2";
 // import third-party
@@ -24,8 +26,7 @@ import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
-import CameraOutdoorIcon from "@mui/icons-material/CameraOutdoor";
-//import css style
+// css style
 import classes from "./NavDropDown.module.css";
 
 const NavDropDown = () => {
@@ -67,9 +68,7 @@ const NavDropDown = () => {
   const toRegist = () => {
     navigate("/regist");
   };
-  const toCctv = () => {
-    window.open("https://j8d102.p.ssafy.io/ai")
-  };
+
   const logout = () => {
     if (userType === 0) {
       dispatch(authActions.organizationLogout(""));
@@ -147,13 +146,8 @@ const NavDropDown = () => {
   ];
 
   const firstOrganizationLoginData = [
-    {
-      name: "Search",
-      icon: <DashboardIcon />,
-      link: toSearch,
-    },
+    { name: "Search", icon: <DashboardIcon />, link: toSearch },
     { name: "Regist", icon: <PermContactCalendarIcon />, link: toRegist },
-    { name: "CCTV", icon: <CameraOutdoorIcon />, link: toCctv },
   ];
   const firstWorkerLoginData = [
     {

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+// css style
 import classes from "./UserData.module.css";
 
 const UserDatas = ({ data, type }) => {
@@ -21,7 +21,7 @@ const UserDatas = ({ data, type }) => {
 
   const toDetail = (event) => {
     event.preventDefault();
-    navigate("/admin/detail", {state :  {data : data, type: type}})
+    navigate("/admin/detail", { state: { data: data, type: type } });
   };
 
   const userData = {

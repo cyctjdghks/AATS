@@ -43,7 +43,7 @@ const Type = () => {
         setCount1((prevState) => {
           return prevState + 1;
         });
-      }, (intervalTime/count1End) *10);
+      }, (intervalTime/count1End) *1);
     }
     return () => clearInterval(timer);
   }, [count1, count1End, intervalTime]);
@@ -55,7 +55,7 @@ const Type = () => {
         setCount2((prevState) => {
           return prevState + 1;
         });
-      }, (intervalTime/count2End)* 10);
+      }, (intervalTime/count2End)* 1);
     }
     return () => clearInterval(timer);
   }, [count2, count2End, intervalTime]);
@@ -67,7 +67,7 @@ const Type = () => {
         setCount3((prevState) => {
           return prevState + 1;
         });
-      },( intervalTime/count3End)*10);
+      },( intervalTime/count3End)*1);
     }
     return () => clearInterval(timer);
   }, [count3, count3End, intervalTime]);
@@ -94,12 +94,12 @@ const Type = () => {
           <div className={classes.count3}>
             <p>총&nbsp;&nbsp;</p>
             <h3>{count3}</h3>
-            <p>&nbsp;&nbsp;회원</p>
+            <p>&nbsp;&nbsp;근무자</p>
           </div>
           <div className={classes.count2}>
             <p>총&nbsp;&nbsp;</p>
             <h3>{count2}</h3>
-            <p>&nbsp;&nbsp;근무자</p>
+            <p>&nbsp;&nbsp;회원</p>
           </div>
           <div className={classes.count1}>
             <p>총&nbsp;&nbsp;</p>
@@ -116,15 +116,15 @@ const Type = () => {
         <div className={classes.hrLine}></div>
 
         <div className={classes.typeBox}>
-          <div className={classes.detailBox} onClick={toUserLogin}>
-            <PersonIcon className={classes.PersonIcon} fontSize="80px" />
-            <p className={classes.p1}>User</p>
-            <p className={classes.p2}>회원</p>
-          </div>
           <div className={classes.detailBox} onClick={toWorkerLogin}>
             <GroupsIcon className={classes.GroupsIcon} fontSize="80px" />
             <p className={classes.p1}>Worker</p>
             <p className={classes.p2}>근무자</p>
+          </div>
+          <div className={classes.detailBox} onClick={toUserLogin}>
+            <PersonIcon className={classes.PersonIcon} fontSize="80px" />
+            <p className={classes.p1}>User</p>
+            <p className={classes.p2}>회원</p>
           </div>
           <div className={classes.detailBox} onClick={toOrganizationLogin}>
             <BusinessIcon className={classes.BusinessIcon} fontSize="80px" />

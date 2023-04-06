@@ -1,12 +1,14 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-// import css style
-import classes from "./NavLeft.module.css";
 import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+// redux
+import { useSelector } from "react-redux";
+// css style
+import classes from "./NavLeft.module.css";
 
 const NavLeft = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
   const isLogin = useSelector((state) => state.auth.isLogin);
   const type = useSelector((state) => state.auth.userType);
 
@@ -28,7 +30,7 @@ const NavLeft = () => {
   const toRegist = () => {
     navigate("/regist");
   };
-  
+
   const organizationLogin = isLogin && !type;
 
   useEffect(() => {

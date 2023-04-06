@@ -19,7 +19,6 @@ import InputLabel from "../../auth/components/InputLabel";
 // css style
 import classes from "./PasswordChange.module.css";
 
-
 const PasswordChange = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -52,71 +51,73 @@ const PasswordChange = () => {
       : "https://j8d102.p.ssafy.io/be/user/update/pw";
     const axiosData = type
       ? {
-        workerId: id,
-        workerPwd: password,
-        workerNewPwd: newPassword,
+          workerId: id,
+          workerPwd: password,
+          workerNewPwd: newPassword,
         }
       : {
-        userId: id,
-        userPwd: password,
-        userNewPwd: newPassword,
+          userId: id,
+          userPwd: password,
+          userNewPwd: newPassword,
         };
-        axios
-        .put(url, axiosData)
-        .then((response) => {
-            if (response.status === 200) {
-                Swal.fire({
-                  title:
-                    '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 성공<div>',
-                  html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">새로운 비밀번호로 로그인해주세요</div>',
-                  width: 330,
-                  icon: "success",
-                  confirmButtonColor: "#9A9A9A",
-                  confirmButtonText:
-                    '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-                }).then(() => {
-                  navigate("/auth/login");
-                  dispatch(type ? authActions.workerLogout("") : authActions.userLogout(""))
-                });
-              } 
-        })
-        .catch((error) => {
-            if (error.response.status === 401) {
-                Swal.fire({
-                  title:
-                    '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>',
-                  html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>',
-                  width: 330,
-                  icon: "error",
-                  confirmButtonText:
-                    '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-                  confirmButtonColor: "#9A9A9A",
-                }).then(() => {
-                  navigate("/");
-                  dispatch(authActions.logout(""));
-                });
-              } else {
-                Swal.fire({
-                  title:
-                    '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패<div>',
-                  html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>',
-                  width: 330,
-                  icon: "error",
-                  confirmButtonColor: "#9A9A9A",
-                  confirmButtonText:
-                    '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-                });
-              }
-        })
+    axios
+      .put(url, axiosData)
+      .then((response) => {
+        console.log(response);
+        if (response.status === 200) {
+          Swal.fire({
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 성공<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">새로운 비밀번호로 로그인해주세요</div>',
+            width: 330,
+            icon: "success",
+            confirmButtonColor: "#9A9A9A",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          }).then(() => {
+            navigate("/auth/login");
+            dispatch(
+              type ? authActions.workerLogout("") : authActions.userLogout("")
+            );
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status === 401) {
+          Swal.fire({
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>',
+            width: 330,
+            icon: "error",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: "#9A9A9A",
+          }).then(() => {
+            navigate("/");
+            dispatch(authActions.logout(""));
+          });
+        } else {
+          Swal.fire({
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>',
+            width: 330,
+            icon: "error",
+            confirmButtonColor: "#9A9A9A",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          });
+        }
+      });
   };
 
-  
   // sumbit 활성화 & 비활성화
   const nullError = !!password && !!newPassword && !!confirmNewPassword;
   const effectivnessError =
     passwordError && newPasswordError && confirmNewPasswordError;
   const submitError = nullError && effectivnessError;
-
 
   useEffect(() => {
     tmp();
@@ -129,7 +130,7 @@ const PasswordChange = () => {
         <div className={classes.hline}></div>
         <div className={classes.loginContentBox}>
           <form onSubmit={PasswordChangeSubmit}>
-          <InputLabel
+            <InputLabel
               label="기존 비밀번호"
               type="password"
               value={password}
@@ -178,7 +179,7 @@ const PasswordChange = () => {
           <div>
             <img src={quote1} alt="따옴표1" className={classes.quote1} />
             <p className={classes.quoteText1}>
-            AIVE는 혁신적인 AI 기술을 활용하여, 사용자들에게 더욱더 편리하고
+              AIVE는 혁신적인 AI 기술을 활용하여, 사용자들에게 더욱더 편리하고
               직관적인 서비스를 제공하고자 하는 미션을 갖고 있습니다.
             </p>
             <img src={quote2} alt="따옴표2" className={classes.quote2} />
