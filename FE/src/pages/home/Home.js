@@ -129,7 +129,7 @@ const Home = () => {
               <YouTube
                 //videoId : https://www.youtube.com/watch?v={videoId} 유튜브
                 // 링크의 끝부분에 있는 고유한 아이디
-                videoId="NyFY9B5sgGI"
+                videoId="O_6_KF1eWWU"
                 //opts(옵션들): 플레이어의 크기나 다양한 플레이어 매개 변수를 사용할
                 // 수 있음. //밑에서 더 설명하겠습니다.
                 opts={{
