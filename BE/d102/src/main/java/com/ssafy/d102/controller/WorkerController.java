@@ -123,7 +123,7 @@ public class WorkerController {
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
-    @PostMapping("/update/pw")
+    @PutMapping("/update/pw")
     public ResponseEntity<?> updateWorkerPw(@RequestBody WorkerUpdatePwDto input) {
         log.info("{} 메소드 호출", Thread.currentThread().getStackTrace()[1].getMethodName());
         log.info("입력 데이터 input : {}", input);
