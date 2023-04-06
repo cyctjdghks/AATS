@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -268,10 +269,20 @@ public class UserServiceImpl implements UserService {
                 //TODO : 여기에 map으로 밑에 로직 해결해보기
                 .collect(Collectors.toList());
 
-        for (UserAttendanceStart userAttendanceStart : list) {
-            dateTimeDtos.add(new DateTimeDto(
-                    userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            ));
+        if(list.size() == 0) return dateTimeDtos;
+
+        dateTimeDtos.add(new DateTimeDto(list.get(0).getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))));
+
+        for(int i=0;i<list.size()-1; i++){
+            UserAttendanceStart temp = list.get(i);
+            UserAttendanceStart temp2 = list.get(i+1);
+
+            if(ChronoUnit.DAYS.between(temp.getStartTime(),temp2.getStartTime()) != 0 ){
+                dateTimeDtos.add(new DateTimeDto(
+                        temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+                ));
+            }
+
         }
 
         return dateTimeDtos;
@@ -292,10 +303,20 @@ public class UserServiceImpl implements UserService {
                 //TODO
                 .collect(Collectors.toList());
 
-        for (UserAttendanceStart userAttendanceStart : list) {
-            dateTimeDtos.add(new DateTimeDto(
-                    userAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            ));
+        if(list.size() == 0) return dateTimeDtos;
+
+        dateTimeDtos.add(new DateTimeDto(list.get(0).getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))));
+
+        for(int i=0;i<list.size()-1; i++){
+            UserAttendanceStart temp = list.get(i);
+            UserAttendanceStart temp2 = list.get(i+1);
+
+            if(ChronoUnit.DAYS.between(temp.getStartTime(),temp2.getStartTime()) != 0 ){
+                dateTimeDtos.add(new DateTimeDto(
+                        temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+                ));
+            }
+
         }
 
         return dateTimeDtos;
@@ -309,10 +330,20 @@ public class UserServiceImpl implements UserService {
                 //TODO
                 .collect(Collectors.toList());
 
-        for (UserAttendanceEnd userAttendanceEnd : list) {
-            dateTimeDtos.add(new DateTimeDto(
-                    userAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            ));
+        if(list.size() == 0) return dateTimeDtos;
+
+        dateTimeDtos.add(new DateTimeDto(list.get(list.size()-1).getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))));
+
+        for(int i=list.size()-1;i>0; i--){
+            UserAttendanceEnd temp = list.get(i);
+            UserAttendanceEnd temp2 = list.get(i-1);
+
+            if(ChronoUnit.DAYS.between(temp.getEndTime(),temp2.getEndTime()) != 0 ){
+                dateTimeDtos.add(new DateTimeDto(
+                        temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+                ));
+            }
+
         }
 
         return dateTimeDtos;
@@ -333,10 +364,20 @@ public class UserServiceImpl implements UserService {
                 //TODO
                 .collect(Collectors.toList());
 
-        for (UserAttendanceEnd userAttendanceEnd : list) {
-            dateTimeDtos.add(new DateTimeDto(
-                    userAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            ));
+        if(list.size() == 0) return dateTimeDtos;
+
+        dateTimeDtos.add(new DateTimeDto(list.get(list.size()-1).getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))));
+
+        for(int i=list.size()-1;i>0; i--){
+            UserAttendanceEnd temp = list.get(i);
+            UserAttendanceEnd temp2 = list.get(i-1);
+
+            if(ChronoUnit.DAYS.between(temp.getEndTime(),temp2.getEndTime()) != 0 ){
+                dateTimeDtos.add(new DateTimeDto(
+                        temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+                ));
+            }
+
         }
 
         return dateTimeDtos;

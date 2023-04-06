@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -174,12 +175,22 @@ public class WorkerServiceImpl implements WorkerService {
                         .filter(workerAttendanceStart -> workerAttendanceStart.getWorker().getWorkerId().equals(id))
                         .collect(Collectors.toList());
 
+        if(workerStartList.size() == 0) return list;
 
-        for (WorkerAttendanceStart startList : workerStartList) {
-            list.add(new DateTimeDto(
-                    startList.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            ));
+        list.add(new DateTimeDto(workerStartList.get(0).getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))));
+
+        for(int i=0;i<workerStartList.size()-1; i++){
+            WorkerAttendanceStart temp = workerStartList.get(i);
+            WorkerAttendanceStart temp2 = workerStartList.get(i+1);
+
+            if(ChronoUnit.DAYS.between(temp.getStartTime(),temp2.getStartTime()) != 0 ){
+                list.add(new DateTimeDto(
+                        temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+                ));
+            }
+
         }
+
 
         return list;
     }
@@ -194,11 +205,20 @@ public class WorkerServiceImpl implements WorkerService {
                         .filter(workerAttendanceStart -> workerAttendanceStart.getStartTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
                         .collect(Collectors.toList());
 
+        if(workerMonthStartList.size() == 0) return list;
 
-        for (WorkerAttendanceStart monthStartList : workerMonthStartList) {
-            list.add(new DateTimeDto(
-                    monthStartList.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            ));
+        list.add(new DateTimeDto(workerMonthStartList.get(0).getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))));
+
+        for(int i=0;i<workerMonthStartList.size()-1; i++){
+            WorkerAttendanceStart temp = workerMonthStartList.get(i);
+            WorkerAttendanceStart temp2 = workerMonthStartList.get(i+1);
+
+            if(ChronoUnit.DAYS.between(temp.getStartTime(),temp2.getStartTime()) != 0 ){
+                list.add(new DateTimeDto(
+                        temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+                ));
+            }
+
         }
 
         return list;
@@ -213,10 +233,20 @@ public class WorkerServiceImpl implements WorkerService {
                         .collect(Collectors.toList());
 
 
-        for (WorkerAttendanceEnd endList : workerEndList) {
-            list.add(new DateTimeDto(
-                    endList.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            ));
+        if(workerEndList.size() == 0) return list;
+
+        list.add(new DateTimeDto(workerEndList.get(workerEndList.size()-1).getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))));
+
+        for(int i=workerEndList.size()-1;i>0; i--){
+            WorkerAttendanceEnd temp = workerEndList.get(i);
+            WorkerAttendanceEnd temp2 = workerEndList.get(i-1);
+
+            if(ChronoUnit.DAYS.between(temp.getEndTime(),temp2.getEndTime()) != 0 ){
+                list.add(new DateTimeDto(
+                        temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+                ));
+            }
+
         }
 
         return list;
@@ -232,11 +262,20 @@ public class WorkerServiceImpl implements WorkerService {
                         .filter(workerAttendanceEnd -> workerAttendanceEnd.getEndTime().format(DateTimeFormatter.ofPattern("M")).equals(month))
                         .collect(Collectors.toList());
 
+        if(workerMonthEndList.size() == 0) return list;
 
-        for (WorkerAttendanceEnd monthEndList : workerMonthEndList) {
-            list.add(new DateTimeDto(
-                    monthEndList.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
-            ));
+        list.add(new DateTimeDto(workerMonthEndList.get(workerMonthEndList.size()-1).getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))));
+
+        for(int i=workerMonthEndList.size()-1;i>0; i--){
+            WorkerAttendanceEnd temp = workerMonthEndList.get(i);
+            WorkerAttendanceEnd temp2 = workerMonthEndList.get(i-1);
+
+            if(ChronoUnit.DAYS.between(temp.getEndTime(),temp2.getEndTime()) != 0 ){
+                list.add(new DateTimeDto(
+                        temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+                ));
+            }
+
         }
 
         return list;
