@@ -279,7 +279,7 @@ public class UserServiceImpl implements UserService {
             UserAttendanceStart temp2 = list.get(i+1);
             Period period = Period.between(temp.getStartTime().toLocalDate(), temp2.getStartTime().toLocalDate());
 
-            if(period.getMonths() != 0 ){
+            if(period.getDays() != 0 ){
                 dateTimeDtos.add(new DateTimeDto(
                         temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -314,7 +314,7 @@ public class UserServiceImpl implements UserService {
             UserAttendanceStart temp2 = list.get(i+1);
             Period period = Period.between(temp.getStartTime().toLocalDate(), temp2.getStartTime().toLocalDate());
 
-            if(period.getMonths() != 0 ){
+            if(period.getDays() != 0 ){
                 dateTimeDtos.add(new DateTimeDto(
                         temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -342,7 +342,7 @@ public class UserServiceImpl implements UserService {
             UserAttendanceEnd temp2 = list.get(i-1);
             Period period = Period.between(temp.getEndTime().toLocalDate(), temp2.getEndTime().toLocalDate());
 
-            if(period.getMonths() != 0 ){
+            if(period.getDays() != 0 ){
                 dateTimeDtos.add(new DateTimeDto(
                         temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -377,7 +377,7 @@ public class UserServiceImpl implements UserService {
             UserAttendanceEnd temp2 = list.get(i-1);
             Period period = Period.between(temp.getEndTime().toLocalDate(), temp2.getEndTime().toLocalDate());
 
-            if(period.getMonths() != 0 ){
+            if(period.getDays() != 0 ){
                 dateTimeDtos.add(new DateTimeDto(
                         temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));

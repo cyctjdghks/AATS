@@ -185,7 +185,7 @@ public class WorkerServiceImpl implements WorkerService {
             WorkerAttendanceStart temp2 = workerStartList.get(i+1);
             Period period = Period.between(temp.getStartTime().toLocalDate(), temp2.getStartTime().toLocalDate());
 
-            if(period.getMonths() != 0 ){
+            if(period.getDays() != 0 ){
                 list.add(new DateTimeDto(
                         temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -216,7 +216,7 @@ public class WorkerServiceImpl implements WorkerService {
             WorkerAttendanceStart temp2 = workerMonthStartList.get(i+1);
             Period period = Period.between(temp.getStartTime().toLocalDate(), temp2.getStartTime().toLocalDate());
 
-            if(period.getMonths() != 0 ){
+            if(period.getDays() != 0 ){
                 list.add(new DateTimeDto(
                         temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -245,7 +245,7 @@ public class WorkerServiceImpl implements WorkerService {
             WorkerAttendanceEnd temp2 = workerEndList.get(i-1);
             Period period = Period.between(temp.getEndTime().toLocalDate(), temp2.getEndTime().toLocalDate());
 
-            if(period.getMonths() != 0 ){
+            if(period.getDays() != 0 ){
                 list.add(new DateTimeDto(
                         temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -275,7 +275,7 @@ public class WorkerServiceImpl implements WorkerService {
             WorkerAttendanceEnd temp2 = workerMonthEndList.get(i-1);
             Period period = Period.between(temp.getEndTime().toLocalDate(), temp2.getEndTime().toLocalDate());
 
-            if(period.getMonths() != 0 ){
+            if(period.getDays() != 0 ){
                 System.out.println(ChronoUnit.DAYS.between(temp2.getEndTime(),temp.getEndTime()));
                 list.add(new DateTimeDto(
                         temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
