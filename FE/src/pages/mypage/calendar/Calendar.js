@@ -1,40 +1,17 @@
+import { useSelector } from "react-redux";
+
 import { Calendar, momentLocalizer } from "react-big-calendar";
-import axios from "axios";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
-import { useDispatch, useSelector } from "react-redux";
-import { startActions } from "../../../store/start";
 
 import ToolBar from "./toolbar/ToolBar";
 
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import classes from "./Calendar.module.css";
 
 const Test = () => {
-  const dispatch = useDispatch();
   const startData = useSelector((state) => state.start.timeList);
   const endData = useSelector((state) => state.end.timeList);
   const localizer = momentLocalizer(moment);
-  const id = useSelector((state) => state.auth.id);
-
-  const todayYear = moment([]).format("YYYY");
-  const todayMonth = moment([]).format("MM");
-
-  const getDatas = () => {
-    const startUrl = "https://j8d102.p.ssafy.io/be/worker/get/start/month";
-    const startAxiosData = {
-      workerId: id,
-      year: todayYear,
-      month: todayMonth,
-    };
-    axios
-      .post(startUrl, startAxiosData)
-      .then((response) => {
-        dispatch(startActions.getData(response.data.data));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   const eventPropGetter = (event) => {
     let backgroundColor = "";

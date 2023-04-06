@@ -43,18 +43,20 @@ function App() {
     <div className={classes.App} id="App">
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route element={<CommonRoute />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/auth/*" element={<Auth />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/solutions" element={<Solutions />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/newspage" element={<NewsPage />} />
+        </Route>
         <Route element={<PrivateRoute />}>
           <Route path="/mypage/*" element={<MyPage />} />
           <Route path="/regist/*" element={<Regist />} />
           <Route path="/admin/*" element={<Admin />} />
           <Route path="/passwordchange" element={<PasswordChange />} />
         </Route>
-        <Route path="/auth/*" element={<Auth />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/solutions" element={<Solutions />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/newspage" element={<NewsPage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />

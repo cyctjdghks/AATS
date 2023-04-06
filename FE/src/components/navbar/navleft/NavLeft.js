@@ -6,7 +6,6 @@ import { useEffect } from "react";
 
 const NavLeft = () => {
   const location = useLocation();
-  console.log(location.pathname);
   const navigate = useNavigate();
   const isLogin = useSelector((state) => state.auth.isLogin);
   const type = useSelector((state) => state.auth.userType);
@@ -29,9 +28,7 @@ const NavLeft = () => {
   const toRegist = () => {
     navigate("/regist");
   };
-  const toCctv = () => {
-    window.open("https://j8d102.p.ssafy.io/ai");
-  };
+  
   const organizationLogin = isLogin && !type;
 
   useEffect(() => {
@@ -113,7 +110,7 @@ const NavLeft = () => {
       document.getElementsByClassName(
         `${classes.itemBox}`
       )[3].style.fontFamily = "Apple_Gothic_Neo_Light";
-    } else{
+    } else {
       document.getElementsByClassName(
         `${classes.itemBox}`
       )[0].style.fontFamily = "Apple_Gothic_Neo_Light";
@@ -146,11 +143,7 @@ const NavLeft = () => {
         )}
       </div>
       <div className={classes.itemBox}>
-        {organizationLogin ? (
-          <p onClick={toCctv}>CCTV</p>
-        ) : (
-          <p onClick={toContact}>Contact</p>
-        )}
+        {organizationLogin ? <p></p> : <p onClick={toContact}>Contact</p>}
       </div>
       <div className={classes.itemBox}>
         {organizationLogin ? <p></p> : <p onClick={toAboutUs}>About Us</p>}

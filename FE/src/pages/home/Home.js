@@ -1,7 +1,8 @@
-import classes from "./Home.module.css";
-import NewsItem from "./components/news/NewsItem.js";
 import { useState, useRef, useEffect } from "react";
-import Slider from "./components/Slider/Slider";
+import { useNavigate } from "react-router-dom";
+
+import YouTube from "react-youtube";
+
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
@@ -9,7 +10,6 @@ import solution1 from "../../assets/Home/solution1.png";
 import solution2 from "../../assets/Home/solution2.png";
 import solution3 from "../../assets/Home/solution3.png";
 
-import tmpVideo from "../../assets/News/tmpVideo.png";
 import videoSub from "../../assets/Home/videoSub.png";
 import videoSub2 from "../../assets/Home/videoSub2.jpg";
 
@@ -22,7 +22,11 @@ import news6 from "../../assets/Home/news6.png";
 import news7 from "../../assets/Home/news7.png";
 import news8 from "../../assets/Home/news8.png";
 import news9 from "../../assets/Home/news9.png";
-import { useNavigate } from "react-router-dom";
+
+import Slider from "./components/Slider/Slider";
+import NewsItem from "./components/news/NewsItem.js";
+
+import classes from "./Home.module.css";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -121,7 +125,27 @@ const Home = () => {
         </div>
         <div className={classes.videoPage}>
           <div className={classes.vidoeBox}>
-            <img src={tmpVideo} alt="비디오" className={classes.video} />
+            <div className={classes.videoLeft}>
+              <YouTube
+                //videoId : https://www.youtube.com/watch?v={videoId} 유튜브
+                // 링크의 끝부분에 있는 고유한 아이디
+                videoId="NyFY9B5sgGI"
+                //opts(옵션들): 플레이어의 크기나 다양한 플레이어 매개 변수를 사용할
+                // 수 있음. //밑에서 더 설명하겠습니다.
+                opts={{
+                  width: "100%",
+                  playerVars: {
+                    autoplay: 1, //자동재생 O
+                    rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
+                    modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
+                  },
+                }}
+                //이벤트 리스너 o
+                onEnd={(e) => {
+                  e.target.stopVideo(0);
+                }}
+              />
+            </div>
             <div className={classes.videoRight}>
               <p className={classes.videoText}>VIDEO</p>
               <p className={classes.videoText1}>AATS 기술 소개 영상</p>

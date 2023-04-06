@@ -1,15 +1,10 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../../store/auth";
+
 import axios from "axios";
 import Swal from "sweetalert2";
-import { authActions } from "../../../store/auth";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-// custom hook
-import { DataInput, CheckPassword } from "../../auth/components/Effectiveness";
-// component
-import InputLabel from "../../auth/components/InputLabel";
-// css style
-import classes from "./PasswordChange.module.css";
 
 import quote1 from "../../../assets/auths/quote1.png";
 import quote2 from "../../../assets/auths/quote2.png";
@@ -17,6 +12,13 @@ import ceo from "../../../assets/auths/ceo.png";
 import phone from "../../../assets/auths/phone.png";
 import tmp1 from "../../../assets/auths/tmp1.png";
 import tmp2 from "../../../assets/auths/tmp2.png";
+// custom hook
+import { DataInput, CheckPassword } from "../../auth/components/Effectiveness";
+// component
+import InputLabel from "../../auth/components/InputLabel";
+// css style
+import classes from "./PasswordChange.module.css";
+
 
 const PasswordChange = () => {
   const navigate = useNavigate();
@@ -118,7 +120,7 @@ const PasswordChange = () => {
 
   useEffect(() => {
     tmp();
-  }, []);
+  });
 
   return (
     <div className={classes.pageBox}>

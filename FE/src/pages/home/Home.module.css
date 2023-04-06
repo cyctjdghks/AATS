@@ -278,6 +278,7 @@
   font-size: 35px;
   text-align: left;
 }
+
 @media screen and (max-width: 1024px) {
   .NewsTitle{
     font-size: 26px;
@@ -336,18 +337,19 @@
   width: 90%;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   padding-top: 2%;
   padding-bottom: 2%;
 }
 
-.video {
-  width: 40%;
-  margin: auto;
+.videoLeft {
+  text-align: left;
+  border-radius: 10px;
+  width: 50%;
 }
-
 .videoRight {
   text-align: left;
+  border-radius: 10px;
   width: 40%;
 }
 

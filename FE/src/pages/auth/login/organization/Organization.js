@@ -3,7 +3,7 @@ import InputLabel from "../../components/InputLabel";
 import { DataInput } from "../../components/Effectiveness";
 import axios from "axios";
 import { authActions } from "../../../../store/auth";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import classes from "./Organization.module.css";
