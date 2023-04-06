@@ -20,7 +20,7 @@ public class UserAttendanceEnd {
     @Column(name = "end_no")
     private Long endNo;
 
-    @Column(name = "end_time", unique = true, nullable = false, columnDefinition = "datetime default now()")
+    @Column(name = "end_time", nullable = false, columnDefinition = "datetime default now()")
     private LocalDateTime endTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
