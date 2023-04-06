@@ -7,7 +7,7 @@ export const CommuteData = () => {
 
   const today = moment();
   let startDate = moment().startOf("month");
-  let count = -1;
+  let count = 0;
 
   while (true) {
     let tmpDate = startDate;

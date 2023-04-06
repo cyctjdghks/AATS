@@ -1,15 +1,14 @@
-import SolutionItem from "./components/SolutionItem";
-
-import classes from "./Solutions.module.css";
-
+import { useEffect, useState } from "react";
+// img
 import AI from "../../assets/A.png";
-
 import solution1 from "../../assets/Solution/solution1.png";
 import solution2 from "../../assets/Solution/solution2.png";
 import solution3 from "../../assets/Solution/solution3.png";
 import solution4 from "../../assets/Solution/solution4.png";
-
-import { useEffect, useState } from "react";
+// component
+import SolutionItem from "./components/SolutionItem";
+// css style
+import classes from "./Solutions.module.css";
 
 const Solutions = () => {
   const [count1, setCount1] = useState(0);

@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { authActions } from "./store/auth";
 import axios from "axios";
-// outer third-party
 // innner component
 import NavBar from "./components/navbar/NavBar";
 import Footer from "./components/footer/Footer";

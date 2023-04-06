@@ -1,5 +1,6 @@
-import { useSelector } from "react-redux";
 import { Outlet, Navigate } from "react-router-dom";
+// redux
+import { useSelector } from "react-redux";
 
 const PublicRoute = () => {
   const isLogined = useSelector((state) => state.auth.isLogin);

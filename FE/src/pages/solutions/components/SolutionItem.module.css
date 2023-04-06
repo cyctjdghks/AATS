@@ -58,7 +58,7 @@
   margin-top: -30px;
 }
 
-.center{
+.center {
   width: 300px;
   height: 100%;
   display: flex;
@@ -67,11 +67,11 @@
   overflow: hidden;
 }
 
-.imgWrapper{
+.imgWrapper {
   position: relative;
   padding-top: 100%;
   overflow: hidden;
-  width: 100%;  
+  width: 100%;
 }
 
 .img {
@@ -88,33 +88,30 @@
   transition: 0.5s;
 }
 
-.img:hover{
+.img:hover {
   transform: scale(1.05);
-  
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
   .solutionBox {
     flex-direction: column;
   }
-  .center{
+  .center {
     width: 100%;
   }
 
-
-  .number{
+  .number {
     font-size: 35px;
   }
   .solutionName {
     font-size: 25px;
   }
-  
+
   .solutionSubName {
     font-size: 25px;
   }
 
-  .hashtag{
+  .hashtag {
     font-size: 25px;
   }
-
 }

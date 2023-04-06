@@ -59,7 +59,7 @@ const Test = () => {
       tmp.push({
         start: new Date(startData[i].time),
         end: new Date(startData[i].time),
-        type: stringToInt(startData[i].time.slice(11, 13)) > 9 ? "지각" : "정상출근",
+        type: stringToInt(startData[i].time.slice(11, 13)) >= 9 ? "지각" : "정상출근",
         title: "출근 " + moment(new Date(startData[i].time)).format("HH:mm"),
       });
     }

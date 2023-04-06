@@ -1,7 +1,7 @@
 import { useState } from "react";
-
+// component
 import Modal from "./Modal";
-
+// css style
 import classes from "./SolutionItem.module.css";
 
 const SolutionItem = (props) => {

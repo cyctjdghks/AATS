@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+// css style
 import classes from "./Modal.module.css";
 
 const Modal = ({
@@ -34,7 +35,7 @@ const Modal = ({
       <div
         className={classes.container}
         ref={modalRef}
-        style={{ color: color1, borderLeft: `${color1} 15px solid`} }
+        style={{ color: color1, borderLeft: `${color1} 15px solid` }}
       >
         <div className={classes.containerLeft}>
           <div className={classes.TitleBox}>

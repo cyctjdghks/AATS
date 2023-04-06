@@ -66,7 +66,7 @@ const CommutePie = () => {
   const faulty = tmpData.late + tmpData.earlyLeave - tmpData.faulty;
 
   const data = [
-    { name: "정상출근", value: tmpData.normalAttendance, color: "#0088FE" },
+    { name: "정상출근", value: tmpData.date, color: "#0088FE" },
     { name: "지각/ 조퇴", value: faulty, color: "#00C49F" },
     { name: "결근", value: tmpData.absen, color: "#FFBB28" },
   ];

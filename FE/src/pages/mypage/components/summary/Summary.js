@@ -42,9 +42,9 @@ const Summary = () => {
       const tmp = stringToInt(moment(new Date(endData[i]?.time)).format("HH"));
       todayEndTime = moment(new Date(endData[i]?.time)).format("HH:mm");
       if (tmp <= 18) {
-        todayStart = "조퇴";
+        todayEnd = "조퇴";
       } else {
-        todayStart = "정상 퇴근";
+        todayEnd = "정상 퇴근";
       }
     }
   }
