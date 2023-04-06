@@ -36,12 +36,14 @@
 }
 
 .introBox {
+  padding-top: 40px;
   display: flex;
   justify-content: center;
-  width: 90%;
-  margin-left: 5%;
+  width: 80%;
+  margin-left: 10%;
   cursor: default;
 }
+
 .aiImgWrapper {
   display: flex;
   justify-content: center;
@@ -89,11 +91,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 60%;
+  width: 50%;
   text-align: left;
-  padding-left: 100px;
-  animation: box-intro 1.5s linear forwards;
 }
+
 @media screen and (max-width: 1024px) {
   .introTextBox {
     width: 80%;
