@@ -66,7 +66,7 @@ public class UserController {
         String Key = jwtProvider.createToken(userDto);
 
         Cookie cookie = new Cookie("Authorization", Key);
-        cookie.setMaxAge(60*60);
+        cookie.setMaxAge(60*60*24);
         cookie.setPath("/");
         response.addCookie(cookie);
 

@@ -42,7 +42,7 @@ public class WorkerController {
         String Key = jwtProvider.createToken(workerDto);
 
         Cookie cookie = new Cookie("Authorization", Key);
-        cookie.setMaxAge(60*60);
+        cookie.setMaxAge(60*60*24);
         cookie.setPath("/");
         response.addCookie(cookie);
 
