@@ -1,16 +1,13 @@
 import Swal from "sweetalert2";
 
 import { useState } from "react";
-
+import axios from "axios";
 import classes from "./ContactMain.module.css";
 
 import ceo from "../../../assets/contact/ceo.png";
 import quote1 from "../../../assets/contact/quote1.png";
 import quote2 from "../../../assets/contact/quote2.png";
 import InputLabel from "./components/InputLabel";
-
-// 이메일 보내기
-import emailjs from "emailjs-com";
 
 const ContactMain = () => {
   const [name, setName] = useState("");
@@ -20,49 +17,46 @@ const ContactMain = () => {
   // submit 활성화 & 비활성화
   const nullError = !!name && !!phoneNumber && !!email && !!message;
 
-  // 이메일 보내기
-  const sendEmail = (event) => {
-    event.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_egr0y1i",
-        "template_er2lnhi",
-        event.target,
-        "RkpCvGZ6qxCWkell1"
-      )
-      .then(
-        (response) => {
+  const saveContact = (e) => {
+    e.preventDefault();
+    const url = "https://j8d102.p.ssafy.io/be/contact/save";
+    const axiosData = {
+      name,
+      email,
+      number: phoneNumber,
+      msg: message,
+    };
+    axios
+      .post(url, axiosData)
+      .then((res) => {
+        Swal.fire({
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">성공적으로 전달 되었습니다.<div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">빠른 시일내에 답변드리겠습니다.</div>',
+          icon: "success",
+          width: 350,
+          confirmButtonColor: "#9A9A9A",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        }).then(() => {
           setName("");
           setPhoneNumber("");
           setEmail("");
           setMessage("");
-          Swal.fire({
-            title:
-              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">성공적으로 전달 되었습니다.<div>',
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">문의 사항은 빠른 시일내에 알려드리겠습니다.</div>',
-            icon: "success",
-            width: 350,
-            confirmButtonColor: "#9A9A9A",
-            confirmButtonText:
-              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-          });
-        },
-
-        (error) => {
-          Swal.fire({
-            title:
-              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">전달에 실패했습니다.</div>',
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">현재 서버가 불안정하니 전화 혹은 문자로 문의 바랍니다.</div>',
-            icon: "error",
-            width: 350,
-            confirmButtonColor: "#9A9A9A",
-            confirmButtonText:
-              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-          });
-          console.log(error);
-        }
-      );
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">전달에 실패했습니다.</div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">현재 서버가 불안정하니 전화 혹은 문자로 문의 바랍니다.</div>',
+          icon: "error",
+          width: 350,
+          confirmButtonColor: "#9A9A9A",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        });
+      });
   };
 
   return (
@@ -77,7 +71,7 @@ const ContactMain = () => {
       <hr className={classes.hr} />
       <br />
       <br />
-      <form onSubmit={sendEmail}>
+      <form onSubmit={saveContact}>
         <div className={classes.mainbox}>
           <div className={classes.contentbox}>
             <div className={classes.contentboxone}>

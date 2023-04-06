@@ -69,7 +69,7 @@ const AboutUs = () => {
           />
           <AboutUsDeveloperRight
             img={jong}
-            name="최종현/백엔드 개발팀(계약직)"
+            name="최종현/백엔드 개발팀"
             role="백엔드 개발"
             text="백엔드 API 개발을 주로 담당하며 가장 최근에 입사한 막내 사원입니다."
           />

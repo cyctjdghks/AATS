@@ -8,12 +8,12 @@ export const GenderCheckbox = () => {
       setMale(true);
       setFemale(false);
     }
-  });
+  },[]);
   const femaleHandler = useCallback((event) => {
     if (event) {
       setFemale(true);
       setMale(false);
     }
-  });
+  }, []);
   return [male, female, maleHandler, femaleHandler];
 };

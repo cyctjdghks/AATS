@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 
 import gpt from "../../../../assets/Home/gpt.png";
-import advertisement from "../../../../assets/Home/advertisement.png";
 
 import classes from "./NewsPage.module.css";
 

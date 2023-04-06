@@ -65,7 +65,7 @@ const UserSummary = () => {
   }
   useEffect(() => {
     getMyMemberShip();
-  }, []);
+  });
 
   return (
     <div className={classes.summaryBox}>

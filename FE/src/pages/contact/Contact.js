@@ -1,7 +1,7 @@
 import { useState } from "react";
 // 외부 라이브러리
+import axios from "axios";
 import Swal from "sweetalert2";
-import emailjs from "emailjs-com";
 // customhook
 import InputLabel from "./components/InputLabel";
 import InputBigLabel from "./components/InputBigLabel";
@@ -22,48 +22,46 @@ const ContactMain = () => {
   const nullError = !!name && !!phoneNumber && !!email && !!message;
 
   // 이메일 보내기
-  const sendEmail = (event) => {
-    event.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_egr0y1i",
-        "template_er2lnhi",
-        event.target,
-        "RkpCvGZ6qxCWkell1"
-      )
-      .then(
-        (response) => {
+  const saveContact = (e) => {
+    e.preventDefault();
+    const url = "https://j8d102.p.ssafy.io/be/contact/save";
+    const axiosData = {
+      name,
+      email,
+      number: phoneNumber,
+      msg: message,
+    };
+    axios
+      .post(url, axiosData)
+      .then((res) => {
+        Swal.fire({
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">성공적으로 전달 되었습니다.<div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">빠른 시일내에 답변드리겠습니다.</div>',
+          icon: "success",
+          width: 350,
+          confirmButtonColor: "#9A9A9A",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        }).then(() => {
           setName("");
           setPhoneNumber("");
           setEmail("");
           setMessage("");
-          Swal.fire({
-            title:
-              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">성공적으로 전달 되었습니다.<div>',
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">문의 사항은 빠른 시일내에 알려드리겠습니다.</div>',
-            icon: "success",
-            width: 350,
-            confirmButtonColor: "#9A9A9A",
-            confirmButtonText:
-              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-          });
-        },
-
-        (error) => {
-          Swal.fire({
-            title:
-              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">전달에 실패했습니다.</div>',
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">현재 서버가 불안정하니 전화 혹은 문자로 문의 바랍니다.</div>',
-            icon: "error",
-            width: 350,
-            confirmButtonColor: "#9A9A9A",
-            confirmButtonText:
-              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-          });
-          console.log(error);
-        }
-      );
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">전달에 실패했습니다.</div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">현재 서버가 불안정하니 전화 혹은 문자로 문의 바랍니다.</div>',
+          icon: "error",
+          width: 350,
+          confirmButtonColor: "#9A9A9A",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        });
+      });
   };
 
   return (
@@ -117,7 +115,7 @@ const ContactMain = () => {
               type="submit"
               className={classes.btn}
               disabled={!nullError}
-              onClick={sendEmail}
+              onClick={saveContact}
             >
               submit
             </button>
@@ -130,13 +128,14 @@ const ContactMain = () => {
             <p className={classes.aatsName}>AATS | 자동 출결 및 추적 시스템</p>
             <img src={quote1} alt="" />
             <p>
-              AATS는 Automatic Attendance and Tracking System으로, 
-              구미 최고의 자동 출결 및 추적 시스템입니다. '얼굴 인식 자동 출입 시스템, CCTV 통합 관제, 출입과 동시에 근태관리 연동'
-              즉, 이 모든 것을 하나로 통합한 기술이 AATS입니다.
+              AATS는 Automatic Attendance and Tracking System으로, 구미 최고의
+              자동 출결 및 추적 시스템입니다. '얼굴 인식 자동 출입 시스템, CCTV
+              통합 관제, 출입과 동시에 근태관리 연동' 즉, 이 모든 것을 하나로
+              통합한 기술이 AATS입니다.
             </p>
             <p>
-              AIVE에게 궁금한 모든 것을 물어 보세요. 
-              언제 어디서나 어떤 질문이든, 성심성의껏 답변해 드리겠습니다.
+              AIVE에게 궁금한 모든 것을 물어 보세요. 언제 어디서나 어떤
+              질문이든, 성심성의껏 답변해 드리겠습니다.
             </p>
             <img src={quote2} alt="" className={classes.quote2} />
             <br />
