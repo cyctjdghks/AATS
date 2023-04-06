@@ -43,7 +43,7 @@ public class OrganizationController {
         data.put("data", organizationDto);
 
         Cookie cookie = new Cookie("Authorization", Key);
-        cookie.setMaxAge(60*60);
+        cookie.setMaxAge(60*60*24);
         cookie.setPath("/");
         response.addCookie(cookie);
 
