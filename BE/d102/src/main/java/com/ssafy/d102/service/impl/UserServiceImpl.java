@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -276,8 +277,9 @@ public class UserServiceImpl implements UserService {
         for(int i=0;i<list.size()-1; i++){
             UserAttendanceStart temp = list.get(i);
             UserAttendanceStart temp2 = list.get(i+1);
+            Period period = Period.between(temp.getStartTime().toLocalDate(), temp2.getStartTime().toLocalDate());
 
-            if(ChronoUnit.DAYS.between(temp.getStartTime(),temp2.getStartTime()) != 0 ){
+            if(period.getMonths() != 0 ){
                 dateTimeDtos.add(new DateTimeDto(
                         temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -310,8 +312,9 @@ public class UserServiceImpl implements UserService {
         for(int i=0;i<list.size()-1; i++){
             UserAttendanceStart temp = list.get(i);
             UserAttendanceStart temp2 = list.get(i+1);
+            Period period = Period.between(temp.getStartTime().toLocalDate(), temp2.getStartTime().toLocalDate());
 
-            if(ChronoUnit.DAYS.between(temp.getStartTime(),temp2.getStartTime()) != 0 ){
+            if(period.getMonths() != 0 ){
                 dateTimeDtos.add(new DateTimeDto(
                         temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -337,8 +340,9 @@ public class UserServiceImpl implements UserService {
         for(int i=list.size()-1;i>0; i--){
             UserAttendanceEnd temp = list.get(i);
             UserAttendanceEnd temp2 = list.get(i-1);
+            Period period = Period.between(temp.getEndTime().toLocalDate(), temp2.getEndTime().toLocalDate());
 
-            if(ChronoUnit.DAYS.between(temp.getEndTime(),temp2.getEndTime()) != 0 ){
+            if(period.getMonths() != 0 ){
                 dateTimeDtos.add(new DateTimeDto(
                         temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -371,8 +375,9 @@ public class UserServiceImpl implements UserService {
         for(int i=list.size()-1;i>0; i--){
             UserAttendanceEnd temp = list.get(i);
             UserAttendanceEnd temp2 = list.get(i-1);
+            Period period = Period.between(temp.getEndTime().toLocalDate(), temp2.getEndTime().toLocalDate());
 
-            if(ChronoUnit.DAYS.between(temp.getEndTime(),temp2.getEndTime()) != 0 ){
+            if(period.getMonths() != 0 ){
                 dateTimeDtos.add(new DateTimeDto(
                         temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));

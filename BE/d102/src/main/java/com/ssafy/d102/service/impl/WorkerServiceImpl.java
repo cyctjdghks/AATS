@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -182,8 +183,9 @@ public class WorkerServiceImpl implements WorkerService {
         for(int i=0;i<workerStartList.size()-1; i++){
             WorkerAttendanceStart temp = workerStartList.get(i);
             WorkerAttendanceStart temp2 = workerStartList.get(i+1);
+            Period period = Period.between(temp.getStartTime().toLocalDate(), temp2.getStartTime().toLocalDate());
 
-            if(ChronoUnit.DAYS.between(temp.getStartTime(),temp2.getStartTime()) != 0 ){
+            if(period.getMonths() != 0 ){
                 list.add(new DateTimeDto(
                         temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -212,8 +214,9 @@ public class WorkerServiceImpl implements WorkerService {
         for(int i=0;i<workerMonthStartList.size()-1; i++){
             WorkerAttendanceStart temp = workerMonthStartList.get(i);
             WorkerAttendanceStart temp2 = workerMonthStartList.get(i+1);
+            Period period = Period.between(temp.getStartTime().toLocalDate(), temp2.getStartTime().toLocalDate());
 
-            if(ChronoUnit.DAYS.between(temp.getStartTime(),temp2.getStartTime()) != 0 ){
+            if(period.getMonths() != 0 ){
                 list.add(new DateTimeDto(
                         temp2.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -240,8 +243,9 @@ public class WorkerServiceImpl implements WorkerService {
         for(int i=workerEndList.size()-1;i>0; i--){
             WorkerAttendanceEnd temp = workerEndList.get(i);
             WorkerAttendanceEnd temp2 = workerEndList.get(i-1);
+            Period period = Period.between(temp.getEndTime().toLocalDate(), temp2.getEndTime().toLocalDate());
 
-            if(ChronoUnit.DAYS.between(temp.getEndTime(),temp2.getEndTime()) != 0 ){
+            if(period.getMonths() != 0 ){
                 list.add(new DateTimeDto(
                         temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
@@ -269,8 +273,10 @@ public class WorkerServiceImpl implements WorkerService {
         for(int i=workerMonthEndList.size()-1;i>0; i--){
             WorkerAttendanceEnd temp = workerMonthEndList.get(i);
             WorkerAttendanceEnd temp2 = workerMonthEndList.get(i-1);
+            Period period = Period.between(temp.getEndTime().toLocalDate(), temp2.getEndTime().toLocalDate());
 
-            if(ChronoUnit.DAYS.between(temp.getEndTime(),temp2.getEndTime()) != 0 ){
+            if(period.getMonths() != 0 ){
+                System.out.println(ChronoUnit.DAYS.between(temp2.getEndTime(),temp.getEndTime()));
                 list.add(new DateTimeDto(
                         temp2.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                 ));
