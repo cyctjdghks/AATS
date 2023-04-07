@@ -128,7 +128,7 @@ const Home = () => {
             <div className={classes.videoLeft}>
               <YouTube
                 //videoId : https://www.youtube.com/watch?v={videoId} 
-                videoId="O_6_KF1eWWU"
+                videoId="NyFY9B5sgGI"
                 //opts
                 opts={{
                   width: "100%",
