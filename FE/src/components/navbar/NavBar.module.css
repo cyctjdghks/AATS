@@ -1,0 +1,53 @@
+.navBar {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navBar img {
+  display: inline-block;
+  height: 40px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 70px;
+  cursor: pointer;
+}
+
+.navBarItems {
+  display: flex;
+  justify-content: right;
+  width: 90%;
+  margin-right: 70px;
+  align-items: center;
+}
+
+.navDropDown {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .navBar {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navBar img {
+    margin-left: 0;
+  }
+
+  .navBarItems {
+    display: none;
+  }
+
+  .navDropDown {
+    display: inline-block;
+    width: 91px;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    top: 0px;
+    left: 0px;
+  }
+}

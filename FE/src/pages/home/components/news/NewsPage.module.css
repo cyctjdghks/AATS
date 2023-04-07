@@ -1,0 +1,131 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.background{
+  background-color: #F6F6F6;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.newImgWrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page {
+  margin-bottom: 20px;
+  width: 60%;
+  margin: auto;
+  height: 90%;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 10px;
+  margin-top: 20px;
+  
+}
+
+.title {
+  font-family: "Apple_Gothic_Neo_EBold";
+  text-align: left;
+  font-size: 30px;
+  margin-top: 5%;
+  margin-bottom: 1%;
+}
+
+.date{
+  text-align: left;
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: 0;
+}
+
+.hrLine{
+  width: 100%;
+}
+
+
+
+.newsContentBox{
+  width: 100%;
+  display: flex;
+  /* float: left; */
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.img {
+  width: 95%;
+  max-width: 660px;
+  float: center;
+  margin-bottom: 1%;
+  margin-top: 1%;
+
+}
+
+.contentBox{
+  width: 95%;
+  text-align: left;
+  margin-left: 2.5%
+}
+.content{
+  text-align: left;
+  font-family: "Apple_Gothic_Neo_R";
+}
+
+.gptBox{
+  display: flex;
+
+}
+
+.gpt{
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+}
+
+.gptText{
+  margin-left: 1%;
+  font-family: "Apple_Gothic_Neo_Mid";
+}
+
+/* .vLine{
+  width: 90%;
+  height: 100%;
+  width: 2px;
+  background-color: rgb(180, 180, 180);
+  margin-right: 5%;
+  margin-top: 0.5%;
+} */

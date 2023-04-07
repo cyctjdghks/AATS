@@ -1,0 +1,209 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.modalBackGround {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 모달창을 화면 중앙. 최상단에 노출 */
+.container {
+  /* 모달창 크기 */
+  width: 70%;
+
+  /* 최상단 위치 */
+  /* z-index: 999; */
+
+  /* 중앙 배치 */
+  /* top, bottom, left, right 는 브라우저 기준으로 작동한다. */
+  /* translate는 본인의 크기 기준으로 작동한다. */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* 모달창 디자인 */
+  background-color: rgb(255, 255, 255);
+  border: none;
+}
+
+.container {
+  display: flex;
+}
+
+.containerLeft {
+  display: flex;
+  width: 45%;
+  height: 100%;
+}
+
+.vLine {
+  height: 100%;
+  width: 15px;
+}
+
+.TitleBox {
+  width: 85%;
+  margin-top: 0px;
+  margin-left: 60px;
+}
+
+.contentBox {
+  margin-top: 50px;
+  width: 80%;
+}
+
+.number {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  color: inherit;
+}
+
+.solutionName {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 30px;
+  color: inherit;
+  margin-top: -40px;
+}
+
+.solutionSubName {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 30px;
+  color: inherit;
+  margin-top: -30px;
+}
+
+.hashtag {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 30px;
+  color: inherit;
+  margin-top: -30px;
+}
+
+.content {
+  font-family: "Apple_Gothic_Neo_R";
+  color: black;
+  font-size: 17px;
+}
+
+.center {
+  width: 57%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.imgWrapper {
+  position: relative;
+  padding-top: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+.solutionImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* 모달창 내부 X버튼 */
+.close {
+  position: absolute;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  background-color: #00a6dc;
+  border: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 8px;
+  padding-bottom: 7px;
+  color: white;
+  border-radius: 100px;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-left: none;
+  }
+  .TitleBox {
+    width: 100%;
+    margin-left: 20px;
+  }
+  .containerLeft {
+    width: 100%;
+  }
+
+  .contentBox {
+    margin-left: 20px;
+  }
+  .center {
+    width: 100%;
+  }
+
+  .number {
+    font-size: 35px;
+  }
+
+  .solutionName {
+    font-size: 20px;
+  }
+
+  .solutionSubName {
+    font-size: 20px;
+  }
+
+  .hashtag {
+    font-size: 20px;
+  }
+
+  .content {
+    font-size: 15px;
+  }
+}

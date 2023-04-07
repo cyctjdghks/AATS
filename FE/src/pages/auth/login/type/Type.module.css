@@ -1,0 +1,188 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.pageBox {
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  background-color: rgb(235, 235, 235);
+  
+}
+
+.topBox {
+  width: 70%;
+  height: 180px;
+  /* border-radius: 8px; */
+  background-color: white;
+  margin: auto;
+  margin-top: 32px;
+  box-shadow: 1px 1px 3px 5px #dadce0;
+  cursor: default;
+}
+
+.pageName {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 30px;
+  color: #1d36a3;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.countSubBox {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: -5px;
+}
+
+.count1 {
+  display: flex;
+}
+
+.count1 p {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count1 h3 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+.count2 {
+  display: flex;
+}
+
+.count2 p {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count2 h3 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+.count3 {
+  display: flex;
+}
+
+.count3 p {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count3 h3 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+.pageSubBox {
+  width: 70%;
+  margin: auto;
+  padding-bottom: 10px;
+
+}
+
+.pageTitle {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 27px;
+  margin-top: 50px;
+  cursor: default;
+}
+
+.pageTitle2 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+  margin-top: -20px;
+  cursor: default;
+}
+
+.hrLine{
+  width: 300px;
+  height: 5px;
+  background-color: #111c4b;
+  margin: auto;
+  margin-top: -10px;
+}
+
+.typeBox {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.detailBox {
+  width: 40%;
+  max-width: 300px;
+  height: 250px;
+  border: 2px solid rgb(235, 235, 235);;
+  margin: 2px;
+  cursor: pointer;
+}
+
+
+.detailBox:hover{
+  border: 2px solid black;
+}
+
+.PersonIcon {
+  font-size: 100px;
+  color: #0f183e;
+  margin-top: 30px;
+}
+.GroupsIcon {
+  font-size: 100px;
+  color: #0f183e;
+  margin-top: 30px;
+}
+
+.BusinessIcon{
+  font-size: 100px;
+  color: #0f183e;
+  margin-top: 30px;
+}
+
+.p1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 25px;
+}
+
+.p2 {
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 20px;
+  margin-top: -20px;
+}

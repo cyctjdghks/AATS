@@ -1,0 +1,265 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.pageBox {
+  text-align: left;
+  height: 100%;
+  background-color: rgb(235, 235, 235);
+  display: flex;
+  justify-content: space-around;
+}
+
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+  width: 550px;
+  height: 80%;
+  min-height: 700px;
+  margin-left: 170px;
+  background-color: white;
+  box-shadow: 2px 5px 5px grey;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 1024px) {
+  .imgBox {
+    display: none;
+  }
+
+  .loginBox {
+    margin-left: 0px;
+  }
+}
+
+.loginBox h1 {
+  font-family: "Apple_Gothic_Neo_R";
+  padding-top: 5px;
+  text-align: center;
+  cursor: default;
+}
+
+.hline {
+  margin: auto;
+  width: 89%;
+  height: 5px;
+  background-color: #e6e7ee;
+  margin-top: -10px;
+}
+
+.loginContentBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.InputLabelBox1 {
+  display: flex;
+  margin-top: 5px;
+}
+
+.InputLabelBox2 {
+  display: flex;
+  margin-top: -20px;
+}
+
+.mapLableP {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-left: 12px;
+  margin-top: 7px;
+  font-size: 17px;
+  cursor: default;
+}
+
+.mapDiv {
+  margin-left: 10px;
+}
+
+.loginBtn {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 16.5px;
+  width: 96%;
+  margin-left: 10px;
+  border: none;
+  padding-top: 13px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  margin-top: 25px;
+  background-color: #2b41a1;
+  color: white;
+  cursor: pointer;
+  box-shadow: 2px 4px 5px grey;
+}
+
+.loginBtn:hover {
+  background-color: #1f2e74;
+}
+.loginBtn:disabled{
+  cursor: not-allowed;
+
+}
+
+.toGoBox {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  padding-top: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.toGoBox p {
+  cursor: pointer;
+}
+
+.toGoBox p:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.LoginIcon {
+  cursor: pointer;
+}
+
+.imgBox {
+  width: 40%;
+  margin-top: 60px;
+  cursor: default;
+}
+
+.quoteText1 {
+  font-family: "Apple_Gothic_Neo_Mid";
+  text-align: center;
+  font-size: 20px;
+  width: 80%;
+  margin: auto;
+}
+
+.quote2 {
+  float: right;
+}
+
+.d102 {
+  font-family: "Apple_Gothic_Neo_R";
+  padding-top: 10px;
+  margin-left: 80px;
+  font-size: 19px;
+}
+
+.hLine {
+  margin: auto;
+  width: 80%;
+  height: 2px;
+  background-color: #2b41a1;
+}
+
+.iconBox {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 40px;
+}
+
+.icon1 {
+  text-align: center;
+  display: flex;
+}
+
+.phone {
+  margin-top: -10px;
+}
+
+.iconPBox1 {
+  text-align: left;
+  margin-left: 10px;
+  margin-top: -5px;
+}
+
+.iconP1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+}
+
+.iconP2 {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: -10px;
+}
+
+.icon2 {
+  text-align: center;
+  display: flex;
+}
+
+.iconPBox2 {
+  margin-left: 15px;
+  text-align: left;
+  margin-top: -5px;
+}
+
+.iconP3 {
+  font-family: "Apple_Gothic_Neo_Bold";
+}
+
+.iconP4 {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: -10px;
+}
+
+.icon3 {
+  text-align: center;
+  display: flex;
+}
+
+.iconPBox3 {
+  margin-left: 15px;
+  text-align: left;
+  margin-top: -5px;
+}
+
+.iconP5 {
+  font-family: "Apple_Gothic_Neo_Bold";
+}
+
+.iconP6 {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: -10px;
+}
+
+.ceoBox {
+  text-align: center;
+}
+
+.toGoBox {
+  margin-top: -10px;
+}
+
+.LoginIcon {
+  margin-top: 16.5px;
+  margin-left: 5px;
+}
+
+.ceo {
+  /* margin-top: -40px; */
+  width: 450px;
+}

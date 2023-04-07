@@ -1,0 +1,272 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.summaryBox {
+  width: 100%;
+}
+
+.summaryTitle {
+  width: 78%;
+  margin: auto;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 27px;
+  text-align: left;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.summary {
+  width: 78%;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  height: auto;
+  background-color: rgb(247, 247, 247);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 5px 5px grey;
+}
+
+.todayBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.today {
+  font-family: "Apple_Gothic_Neo_EBold";
+  font-size: 27px;
+  margin: 0;
+}
+
+.today2 {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
+  margin: 0;
+}
+
+.verticalHr {
+  height: 80%;
+  margin: 0;
+  width: 2px;
+  background-color: rgb(231, 231, 231);
+  color: rgb(231, 231, 231);
+  border: none;
+}
+
+.zeroBox {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.firstBox {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  text-align: left;
+  margin-top: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.timeBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 75%;
+}
+
+.startBtn {
+  background-color: white;
+  height: 90px;
+  width: 45%;
+  text-align: center;
+  color: black;
+  border-radius: 10px;
+  font-family: "Apple_Gothic_Neo_Light";
+  box-shadow: 2px 4px 5px grey;
+}
+
+.endBtn {
+  background-color: #4786ff;
+  height: 90px;
+  width: 45%;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  font-family: "Apple_Gothic_Neo_Light";
+  box-shadow: 2px 4px 5px grey;
+}
+
+.startP1 {
+  font-family: "Apple_Gothic_Neo_R";
+}
+
+.startP2 {
+  font-family: "Apple_Gothic_Neo_R";
+}
+
+.commuteBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.attendanceBox {
+  text-align: left;
+}
+
+.attendanceText1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.attendanceBoxP1 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  border: none;
+  background-color: rgb(18, 212, 18);
+  color: white;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 2px 4px 5px grey;
+}
+
+.attendanceBoxP2 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  border: none;
+  background-color: grey;
+  color: white;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 2px 4px 5px grey;
+}
+
+.attendanceBoxP3 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  border: none;
+  background-color: rgb(250, 0, 0);
+  color: white;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 2px 4px 5px grey;
+}
+
+.normalAttendance {
+  font-family: "Apple_Gothic_Neo_R";
+}
+
+.normalAttendance2 {
+  font-family: "Apple_Gothic_Neo_Bold";
+}
+
+.secondBox {
+  width: 90%;
+  text-align: left;
+  margin-top: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thirdBox {
+  display: flex;
+  align-items: flex-start;
+  width: 90%;
+  text-align: left;
+  margin-top: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.membershipType {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 19px;
+  margin: 0 0 5px 3px;
+}
+
+.membershipBox {
+  font-family: "Apple_Gothic_Neo_Light";
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  width: 90%;
+  text-align: left;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.membershipButton {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 20px;
+  border: none;
+  background-color: rgb(18, 212, 18);
+  color: white;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 2px 4px 5px grey;
+}
+
+.membershipText {
+  font-size: 20px;
+  display: flex;
+}
+
+.membership1 {
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.membership2 {
+  font-weight: 500;
+}

@@ -1,0 +1,10 @@
+.myinfo{
+  width: calc(100% - 250px);
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .myinfo{
+    width: 100%;
+  }
+}

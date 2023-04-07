@@ -1,0 +1,220 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.pagebox {
+  text-align: left;
+  width: calc(100% - 250px);
+  height: 100%;
+  margin-left: 60px;
+  margin-top: 10px;
+}
+
+.titlebox h1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  margin-top: 35px;
+  cursor: default;
+}
+
+.titlebox h3 {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: auto;
+  width: 90%;
+  margin-top: -10px;
+  cursor: default;
+}
+
+.hr {
+  float: left;
+  width: 90%;
+  height: 3px;
+  background-color: #c0c0c0;
+  border: none;
+  margin-top: -5px;
+}
+
+.mainbox {
+  display: flex;
+  width: 90%;
+}
+.contentbox {
+  width: 50%;
+  margin-top: -30px;
+}
+
+.contentboxone label p {
+  font-family: "Apple_Gothic_Neo_EBold";
+  font-size: 21px;
+}
+
+.contentboxone label input {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid lightgray;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  margin-top: -5px;
+  /* cursor: pointer; */
+}
+
+.contentboxone label input:hover {
+  font-weight: bold;
+}
+
+.contentboxtwo{
+  width: 100%;
+}
+
+.contentboxtwo p {
+  font-family: "Apple_Gothic_Neo_EBold";
+  font-size: 20px;
+}
+
+.contentboxtwo input {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  border: solid 2px lightgray;
+  padding-top: 15px;
+  /* padding-left: 10px; */
+  padding-bottom: 120px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.contentboxtwo input:hover {
+  font-weight: bold;
+}
+
+.contactbtn {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
+  background-color: #b02626;
+  color: white;
+  float: right;
+  border: none;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  padding-left: 18px;
+  padding-right: 18px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.contactbtn:hover {
+  background-color: #b02626;
+}
+
+/* 두 번째 칸 이미지 부분 */
+
+.imgbox {
+  width: 50%;
+  margin-left: 50px;
+  margin-top: -20px;
+  min-width: 400px;
+  cursor: default;
+}
+
+.imgbox h3 {
+  font-family: "Apple_Gothic_Neo_R";
+  text-align: center;
+  font-size: 23px;
+  color: black;
+  margin-top: -5px;
+}
+
+.imgTextBox {
+  width: 100%;
+  margin: auto;
+}
+
+.quote2 {
+  float: right;
+  margin-top: -30px;
+}
+
+.d102 {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: 50px;
+  font-size: 20px;
+  margin-left: 100px;
+  margin-top: 0px;
+}
+
+.hLine {
+  border: 1px solid #b02626;
+  width: 70%;
+  margin: auto;
+}
+
+.phoneBox {
+  display: flex;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.phoneOne {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  padding-top: 15px;
+}
+
+.phoneTwo {
+  font-family: "Apple_Gothic_Neo_Bold";
+  margin-top: -10px;
+}
+
+.contactimg {
+  margin: auto;
+  display: block;
+  border-radius: 10px;
+  width: 400px;
+  margin-top: -5px;
+}
+.topImgBox{
+  width: 100%;
+  min-width: 400px;
+}
+@media screen and (max-width: 1024px) {
+  .pagebox {
+    width: 100%;
+    margin-left: 10%;
+  }
+  .imgbox {
+    display: none;
+  }
+  .contentbox {
+    width: 100%;
+  }
+  .contentboxone{
+    width: 100%;
+  }
+}

@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.developerBox {
+  display: flex;
+  margin-top: 20%;
+  width: 100%;
+}
+
+.developer {
+  text-align: left;
+  margin-left: 30px;
+  width: 50%;
+}
+
+.imgWrapper {
+  width: 50%;
+  height: auto;
+}
+
+.imgWrapper img {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.developerName {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+}
+
+.developerRole {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+  margin-top: -10px;
+}
+
+.developertext {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
+  margin-top: -10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .developerBox {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .imgWrapper {
+    width: 100%;
+  }
+  
+  .developer {
+    text-align: left;
+    margin: 0;
+    width: 100%;
+  }
+}

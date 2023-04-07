@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.InputLabel label p {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 17px;
+}
+
+.input {
+  font-family: "Apple_Gothic_Neo_Light";
+  width: 400px;
+  font-size: 17px;
+  padding-top: 11px;
+  padding-bottom: 6px;
+  padding-left: 15px;
+  border: solid 1px lightgrey;
+  margin-bottom: 6px;
+}
+
+@media screen and (max-width: 1024px) {
+  .input {
+    width: 300px;
+  }
+}
+
+.ErrorMessage {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 13px;
+  color: red;
+  margin-top: -2px;
+  margin-bottom: 8px;
+  margin-left: 2px;
+}
+
+.ErrorMessagehidden {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 13px;
+  color: red;
+  margin-top: -2px;
+  margin-bottom: 8px;
+  margin-left: 2px;
+  visibility: hidden;
+}

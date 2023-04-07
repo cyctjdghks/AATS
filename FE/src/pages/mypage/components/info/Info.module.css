@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../../fonts/AppleSDGothicNeoR.ttf");
+}
+.information {
+  width: 100%;
+}
+.Title {
+  width: 78%;
+  margin: auto;
+  font-family: "Apple_Gothic_Neo_EBold";
+  font-size: 27px;
+  text-align: left;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.info {
+  font-family: "Apple_Gothic_Neo_Light";
+  width: 78%;
+  margin-left: auto;
+  margin-right: auto;
+  /* border: 1px solid #acacac; */
+  box-shadow: 2px 5px 5px grey;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.info img {
+  width: 160px;
+  margin: 0px 20px 0px 20px;
+  border-radius: 10px;
+}
+
+.horizonHr {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  height: 2px;
+  background-color: rgb(221, 221, 221);
+  border: none;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 20px 0 20px;
+  justify-content: flex-start;
+  align-items: left;
+}
+
+.topBox {
+  width: 100%;
+  display: inline-block;
+}
+
+.bottomBox {
+  width: 100%;
+}
+
+.passwordChangeBtn{
+  cursor: pointer;
+}
+
+.contentBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2px;
+}
+.contentNameBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 2px;
+}
+.contentNameBox button {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 16px;
+  width: 120px;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  background-color: #2b41a1;
+  color: white;
+  box-shadow: 2px 4px 5px grey;
+}
+
+.name {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0 0 5px 3px;
+}
+.content {
+  font-size: 19px;
+  margin: 0 0 5px 3px;
+}
+.tag {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 1024px) {
+  .info {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .infoBox {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  .info img {
+    width: 180px;
+  }
+  .bottomBox {
+    flex-direction: column;
+  }
+}

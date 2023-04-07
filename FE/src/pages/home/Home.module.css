@@ -1,0 +1,383 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.mainPage {
+  width: 100%;
+}
+
+.sliderArea {
+  width: 100%;
+  display: flex;
+}
+
+.slider {
+  width: 100%;
+  /* overflow: scroll; */
+  overflow: hidden;
+  display: flex;
+}
+
+.sliderTrack {
+  width: 100%;
+  display: flex;
+}
+
+.sliderItem {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.main {
+  width: 100%;
+}
+
+.userWrap {
+  width: 100%;
+  margin: 10px auto;
+  position: relative;
+}
+
+.userWrap img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.mainImg {
+  width: 100%;
+}
+
+.TextBox {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+.title1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-bottom: 0;
+}
+
+.title2 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.content1 {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: 1%;
+  margin-bottom: 0;
+  font-size: 30px;
+}
+
+.content2 {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: 0;
+  font-size: 30px;
+}
+
+.iconBox {
+  display: flex;
+}
+
+.icon1 {
+  text-align: left;
+  margin-right: 1%;
+}
+
+.iconTextBox {
+  width: 100%;
+}
+
+.iconText1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.iconText2 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .TextBox {
+  }
+  .title1 {
+    font-size: 30px;
+  }
+
+  .title2 {
+    font-size: 30px;
+  }
+  .content1 {
+    font-size: 20px;
+  }
+  .content2 {
+    font-size: 20px;
+  }
+  .iconText1 {
+    font-size: 18px;
+  }
+  .iconText2 {
+    font-size: 18px;
+  }
+}
+
+.home {
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.topPage {
+  width: 100%;
+}
+
+.solutionPage {
+  max-width: 1440px;
+  margin: auto;
+}
+
+.solutionBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.solutionLeft {
+  width: 50%;
+}
+
+.solution1 {
+  width: 95%;
+  margin-top: 3%;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 5px #dadce0;
+  transition: 0.5s;
+}
+
+.solution1:hover {
+  transform: scale(1.02);
+}
+
+.titleBox1 {
+  width: 93%;
+  margin: auto;
+}
+
+.solutionTitle1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 23px;
+  text-align: left;
+}
+
+.solutionSubTitle1 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  text-align: left;
+}
+
+.solutionRight {
+  width: 50%;
+}
+
+.solutionBox2 {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.solution2 {
+  width: 95%;
+  margin-top: 3%;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 5px #dadce0;
+  transition: 0.5s;
+}
+
+.solution2:hover {
+  transform: scale(1.02);
+}
+
+.solutionTitle2 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+
+.solutionSubTitle2 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 15px;
+  float: left;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.solution3 {
+  width: 95%;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px 5px #dadce0;
+  transition: 0.5s;
+}
+
+.solution3:hover {
+  transform: scale(1.02);
+}
+
+.videoSub {
+  width: 45%;
+  margin-right: 1%;
+  border-radius: 2px;
+}
+
+/* 뉴스  */
+.newsPage {
+  max-width: 1440px;
+  margin: auto;
+}
+
+.NewsTitle {
+  font-family: "Apple_Gothic_Neo_ULight";
+  font-size: 35px;
+  text-align: left;
+}
+
+@media screen and (max-width: 1024px) {
+  .NewsTitle{
+    font-size: 26px;
+  }
+  
+}
+
+.hrLine {
+  margin-top: -20px;
+  height: 2px;
+  border: none;
+  background-color: rgb(222, 222, 222);
+}
+
+.ArrowBackIosNewIcon {
+  margin-top: 8%;
+  cursor: pointer;
+}
+
+.ArrowForwardIosIcon {
+  margin-top: 8%;
+  cursor: pointer;
+}
+
+.newsPage {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+}
+.carousel {
+  width: 100%;
+  display: flex;
+}
+.carouselItem {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* 비디오 페이지 */
+.videoPage {
+  margin-top: 5%;
+  width: 100%;
+  height: 40%;
+  background-color: rgb(250, 250, 250);
+}
+
+.vidoeBox {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.videoLeft {
+  text-align: left;
+  width: 50%;
+}
+.videoRight {
+  text-align: left;
+  border-radius: 10px;
+  width: 40%;
+}
+
+.videoText {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+  margin-bottom: 1%;
+}
+
+.videoText1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 30px;
+  margin-top: -1%;
+}
+
+.videoText2 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+  margin-top: -3%;
+}
+
+@media screen and (max-width: 1024px) {
+  .videoText {
+    font-size: 15px;
+  }
+  .videoText1 {
+    font-size: 20px;
+  }
+  .videoText2 {
+    font-size: 17px;
+  }
+}

@@ -1,0 +1,342 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.pageBox {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 100%;
+  background-color: rgb(235, 235, 235);
+}
+
+.introBox {
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin-left: 10%;
+  cursor: default;
+}
+
+.aiImgWrapper {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  align-items: center;
+}
+
+.AI {
+  width: 100%;
+  max-width: 500px;
+  animation: box-ai 1.5s linear forwards;
+}
+
+@media screen and (max-width: 1024px) {
+  .aiImgWrapper {
+    display: none;
+  }
+  .AI {
+    display: none;
+  }
+  .vLine1 {
+    display: none;
+  }
+  .vLine2 {
+    display: none;
+  }
+  .vLine3 {
+    display: none;
+  }
+  .vLine4 {
+    display: none;
+  }
+}
+
+@keyframes box-intro {
+  from {
+    transform: translate(40px, 0);
+  }
+  to {
+    transform: translate(0px, 0);
+  }
+}
+
+.introTextBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  text-align: left;
+}
+
+@media screen and (max-width: 1024px) {
+  .introTextBox {
+    width: 80%;
+    padding: 0;
+  }
+}
+
+.introTitle1 {
+  font-family: "Apple_Gothic_Neo_EBold";
+  font-weight: bold;
+}
+
+.introTextBox h1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 70px;
+  margin-top: -10px;
+  color: #1d36a3;
+}
+
+.introTextBox h2 {
+  font-family: "Apple_Gothic_Neo_Light";
+  margin-top: -60px;
+  font-size: 30px;
+  color: #1d36a3;
+}
+
+.introContent1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+}
+
+.introContent2 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 18px;
+}
+
+.introContent3 {
+  font-family: "Apple_Gothic_Neo_R";
+  margin-top: -15px;
+  font-size: 18px;
+}
+
+/* 숫자 카운트 */
+.countBox {
+  width: 80%;
+  max-width: 1536px;
+  height: 150px;
+  background-color: rgb(253, 250, 245);
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
+  cursor: default;
+}
+
+.countSubBox {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: -5px;
+}
+
+.countBoxTitle {
+  font-family: "Apple_Gothic_Neo_Bold";
+  color: #1d36a3;
+  padding-top: 20px;
+}
+
+.count1 {
+  display: flex;
+}
+
+.count1 p {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count1 h3 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+.count2 {
+  display: flex;
+}
+
+.count2 p {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count2 h3 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+.count3 {
+  display: flex;
+}
+
+.count3 p {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 23px;
+}
+
+.count3 h3 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 45px;
+  margin-top: 5px;
+  color: #1d36a3;
+}
+
+@media screen and (max-width: 1024px) {
+  .count1 p {
+    font-size: 18px;
+  }
+
+  .count1 h3 {
+    font-size: 30px;
+  }
+
+  .count2 p {
+    font-size: 18px;
+  }
+
+  .count2 h3 {
+    font-size: 30px;
+  }
+
+  .count3 p {
+    font-size: 18px;
+  }
+
+  .count3 h3 {
+    font-size: 30px;
+  }
+}
+
+.mainBox {
+  width: 60%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: left;
+  cursor: default;
+}
+
+.titleBox {
+  margin-bottom: 50px;
+}
+
+.titleBox h1 {
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 60px;
+}
+
+.titleBox h2 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 25px;
+  margin-top: -30px;
+}
+
+.titleBox h3 {
+  font-family: "Apple_Gothic_Neo_ULight";
+  font-size: 23px;
+  margin-top: -15px;
+}
+
+.hrTop {
+  height: 7px;
+  border: none;
+  background-color: #48589c;
+}
+
+.solutionItem {
+  display: flex;
+}
+
+.vLine1 {
+  width: 15px;
+  height: auto;
+  background-color: #005fb3;
+  border: none;
+  margin-right: 50px;
+}
+
+.solutionBox1 {
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  color: #005fb3;
+  margin-bottom: 30px;
+}
+
+.vLine2 {
+  width: 15px;
+  height: auto;
+  background-color: #6f5552;
+  border: none;
+  margin-right: 50px;
+}
+
+.solutionBox2 {
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  color: #6f5552;
+  margin-bottom: 30px;
+}
+
+.vLine3 {
+  width: 15px;
+  height: auto;
+  background-color: #4234c6;
+  border: none;
+  margin-right: 50px;
+}
+
+.solutionBox3 {
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  color: #4234c6;
+  margin-bottom: 30px;
+}
+
+.vLine4 {
+  width: 15px;
+  height: auto;
+  background-color: #105853;
+  border: none;
+  margin-right: 50px;
+}
+
+.solutionBox4 {
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  color: #105853;
+  margin-bottom: 30px;
+}

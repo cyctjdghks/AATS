@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 30px;
+  width: 20%;
+  font-family: "Apple_Gothic_Neo_Light";
+}
+
+.navRight p {
+  margin: 0 0 0 20px;
+  font-size: 15px;
+  cursor: pointer;
+}

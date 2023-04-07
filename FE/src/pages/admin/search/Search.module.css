@@ -1,0 +1,178 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_R";
+  src: url("../../../fonts/AppleSDGothicNeoR.ttf");
+}
+
+.dashboard {
+  background-color: rgb(235, 235, 235);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  min-height: calc(100vh - 160px);
+  position: relative;
+  padding-top: 30px;
+}
+
+.textBox {
+  width: 40%;
+  cursor: default;
+}
+
+.quote1 {
+  float: left;
+  margin-top: 15px;
+}
+
+.quote2 {
+  float: right;
+  margin-top: -40px;
+}
+
+.pageName1 {
+  font-family: "Apple_Gothic_Neo_EBold";
+  color: #2b41a1;
+  font-size: 30px;
+  margin-right: 50px;
+}
+
+.pageName2 {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 20px;
+  margin-top: -30px;
+}
+
+.searchIcon {
+  margin-top: 12px;
+}
+
+.hrLine {
+  background-color: #2b41a1;
+  height: 3px;
+  width: 40%;
+  max-width: 280px;
+  margin-top: 0px;
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+.serchInput {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 17px;
+  height: 30px;
+  width: 35%;
+  box-shadow: 2px 4px 5px grey;
+  border: none;
+  outline: none;
+  padding-top: 17px;
+  padding-bottom: 13px;
+  padding-left: 20px;
+}
+
+.searchIconBox {
+  width: 70px;
+  height: 61px;
+  background-color: #2b41a1;
+  box-shadow: 2px 4px 5px grey;
+  cursor: pointer;
+}
+
+.horizenHr {
+  width: 90%;
+  margin: 0, 5%, 0, 5%;
+  height: 3px;
+  background-color: rgb(205, 202, 202);
+  border: none;
+}
+
+.typebtn {
+  font-family: "Apple_Gothic_Neo_R";
+  font-size: 17px;
+  background-color: #2b41a1;
+  color: white;
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  box-shadow: 2px 4px 5px grey;
+}
+
+.typebtn:hover {
+  background-color: #273677;
+}
+
+.peopleBox {
+  background-color: white;
+  box-shadow: 2px 4px 5px grey;
+  width: 80%;
+  padding: 20px;
+  min-height: 120px;
+  margin-bottom: 30px;
+}
+
+.userDataBox {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  font-family: "Apple_Gothic_Neo_Bold";
+}
+
+.idBox {
+  width: 20%;
+}
+
+.nameBox {
+  width: 20%;
+}
+
+.genderBox {
+  width: 10%;
+}
+
+.statusBox {
+  width: 10%;
+}
+
+.emailBox {
+  width: 40%;
+}
+
+.verticalLine {
+  height: 50%;
+  margin-top: 25%;
+  margin-bottom: 25%;
+}
