@@ -109,6 +109,6 @@
 <br>
 
 ## DB ERD
-<img src = "./docs/sql/DBERD.png">
+<img src = "./docs/dberd/DBERD.png">
 
 
