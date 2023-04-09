@@ -32,15 +32,15 @@
 <br>
 
 ## 기획 배경 및 목표
-블라블라
-
-## 기대 효과
-블라블라
+### 카드를 이용한 출입 시스템의 불편함
+> 카드가 없으면 출입이 불가능한 시스템 구조상 카드를 항상 소지하여야하고, 카드를 꺼내어 태깅을 해야함
+또한 건물 출입 후 별도로 출근 프로세스를 진행하는 부분에 있어 불필요한 중복업무가 발생
+* 이를 AI 영상분석을 통한 실시간 객체검출을 통해 출입과 동시에 출근, 퇴근시각으로 기록하여 편리한 입출입 서비스 제공
 
 <br>
 
 ## 기술 스택 & 아키텍쳐
-<img src = "./docs/img/기술스택.jpg">
+<img src = "./docs/img/기술스택.png">
 <br>
 <br>
 
@@ -89,18 +89,95 @@
 <br>
 
 ## 서비스 소개
-블라블라
 
-<br>
-
-## 주요 기능
-- 
+* AI 영상 분석을 통한 실시간 객체 검출을 통해 실시간 출퇴근 기록 서비스 제공
+* SSD MobileNet를 이용하여 약 200,000번 학습된 데이터를 openCV로 IP Camera와 연동하여 학습된 모델 적용 및 객체 검출
+* 인식된 Class Name으로 DB에 접근하여 출입과 동시에 DB에 출석 요청을 발송
+* DB에 기록된 출결 현황 및 시간을 웹페이지에서 실시간으로 조회
 
 <br>
 
 ## 시나리오
-대략적 시나리오 그림 + 약간의 설명
-##### 시연 시나리오 ➡ [노션 링크](https://www.notion.so/AATS-Automatic-Attendance-and-Tracking-System-661bda09195e4f3f9bbf02a71ba8959d)
+
+0. 회원가입/ 로그인 선택
+
+### 회원가입
+<div>
+	<img src="./docs/img/demonstration/signup.png" />
+<div/>
+
+### 로그인 선택
+<div>
+	<img src="./docs/img/demonstration/logintype.png" />
+<div/>
+
+
+1. Organization
+
+### 로그인
+<div>
+	<img src="./docs/img/demonstration/organizationlogin.png" />
+	<img src="./docs/img/demonstration/organizationtype.png" />
+<div/>
+
+### 회원/근무자 조회
+<div>
+	<img src="./docs/img/demonstration/organizationsearch1.png" />
+	<img src="./docs/img/demonstration/organizationsearch2.png" />
+<div/>
+
+### 회원/근무자 등록
+<div>
+	<img src="./docs/img/demonstration/organizationregist1.png" />
+	<img src="./docs/img/demonstration/organizationregist2.png" />
+<div/>
+
+### 회원/근무자 출퇴근
+<div>
+	<img src="./docs/img/demonstration/attendance.png" />
+<div/>
+
+### 군집도 확인
+<div>
+	<img src="./docs/img/demonstration/cluster.png" />
+<div/>
+
+2. User
+
+### 로그인
+<div>
+	<img src="./docs/img/demonstration/userlogin.png" />
+<div/>
+
+### 정보조회
+<div>
+	<img src="./docs/img/demonstration/userprofile.png" />
+<div/>
+
+### 달력확인
+<div>
+	<img src="./docs/img/demonstration/usercalendar.png" />
+<div/>
+
+3. User
+
+### 로그인
+<div>
+	<img src="./docs/img/demonstration/workerlogin.png" />
+<div/>
+
+### 정보조회
+<div>
+	<img src="./docs/img/demonstration/workerprofile.png" />
+<div/>
+
+### 달력확인
+<div>
+	<img src="./docs/img/demonstration/workercalendar.png" />
+<div/>
+
+
+##### 상세 시연 시나리오 ➡ [노션 링크](https://www.notion.so/AATS-Automatic-Attendance-and-Tracking-System-661bda09195e4f3f9bbf02a71ba8959d)
 
 <br>
 
