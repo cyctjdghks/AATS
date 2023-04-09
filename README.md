@@ -40,7 +40,7 @@
 <br>
 
 ## 기술 스택 & 아키텍쳐
-<img src = "./docs/img/기술스택.png">
+<img src = "./docs/img/tech.png">
 <br>
 <br>
 
@@ -99,7 +99,7 @@
 
 ## 시나리오
 
-### 회원가입/ 로그인 선택
+### 0. 회원가입/ 로그인 선택
 
 #### 회원가입
 <div>
@@ -112,7 +112,7 @@
 <div/>
 
 
-### Organization
+### 1. Organization
 
 #### 로그인
 <div>
@@ -142,7 +142,7 @@
 	<img src="./docs/img/demonstration/cluster.png" />
 <div/>
 
-### User
+### 2. User
 
 #### 로그인
 <div>
@@ -159,7 +159,7 @@
 	<img src="./docs/img/demonstration/usercalendar.png" />
 <div/>
 
-### User
+### 3. Worker
 
 #### 로그인
 <div>
