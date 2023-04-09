@@ -1,5 +1,6 @@
+<img src = "./docs/img/READVE_TITLE.png">
+
 # AATS
-<img src = "./FE/src/assets/AboutUs/tmp_developer.png">
 
 > __정신없조(D102)__  
 강모현, 박성환, 박재현, 양서정, 이병수, 최종현
@@ -9,7 +10,7 @@
 <br>
 
 ### UCC ➡ [유튜브 링크](https://www.youtube.com/watch?v=NyFY9B5sgGI&t=129s)
-### 발표자료 ➡ [최종 발표자료 링크](...)
+### 발표자료 ➡ [최종 발표자료 링크](docs/ppt/D102_정신없조.pptx)
 ### Notion ➡ [노션 링크](https://www.notion.so/TEAM-D102-78c7a75d883a470989ff1ed556976ead)
 
 <br>
