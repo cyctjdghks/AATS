@@ -9,9 +9,21 @@
 
 <br>
 
-### UCC ➡ [유튜브 링크](https://www.youtube.com/watch?v=NyFY9B5sgGI&t=129s)
-### 발표자료 ➡ [최종 발표자료 링크](docs/ppt/D102_정신없조.pptx)
-### Notion ➡ [노션 링크](https://www.notion.so/TEAM-D102-78c7a75d883a470989ff1ed556976ead)
+## 팀원 역할
+| 이름   | 역할 | 내용                        |
+| ------ | ---- | --------------------------- |
+| 강모현 | AI | 프론트엔드 개발 |
+| 박성환 | BE | 백앤드 개발,  CI/CD |
+| 박재현 | BE | 백앤드 개발, JWT 관리, 이미지 업로드 |
+| 최종현 | BE | 백앤드 개발, REST API |
+| 양서정 | FE | 프론트엔드 개발, UI/UX 디자인 |
+| 이병수 | FE | 프론트엔드 개발, 비동기 통신 |
+
+<br>
+
+### UCC ➡ [유튜브](https://www.youtube.com/watch?v=NyFY9B5sgGI&t=129s)
+### 발표자료 ➡ [중간 발표자료](docs/pdf/중간발표.pdf) / [최종 발표자료](docs/pdf/최종발표.pdf)
+### Notion ➡ [노션](https://www.notion.so/TEAM-D102-78c7a75d883a470989ff1ed556976ead)
 
 <br>
 
@@ -28,7 +40,7 @@
 <br>
 
 ## 기술 스택 & 아키텍쳐
-<img src = "...">
+<img src = "./docs/img/기술스택.jpg">
 <br>
 <br>
 
@@ -49,6 +61,16 @@
 	<img src="https://img.shields.io/badge/jsonwebtokens-000000?style=flat&logo=jsonwebtokens&logoColor=white" />
     <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=Swagger&logoColor=white" />
 	<img src="https://img.shields.io/badge/mariadb-003545?style=flat&logo=mariadb&logoColor=white" />
+	<img src="https://img.shields.io/badge/postman-FF6C37?style=flat&logo=postman&logoColor=white" />
+</div>
+
+### AI
+<div>
+	<img src="https://img.shields.io/badge/flask-000000?style=flat&logo=flask&logoColor=white"/>
+	<img src="https://img.shields.io/badge/tensorflow-FF6F00?style=flat&logo=tensorflow&logoColor=white"/>
+	<img src="https://img.shields.io/badge/opencv-5C3EE8?style=flat&logo=opencv&logoColor=white"/>
+	<img src="https://img.shields.io/badge/keras-D00000?style=flat&logo=keras&logoColor=white"/>
+
 </div>
 
 ### TEAM Cooperation
@@ -57,6 +79,7 @@
 	<img src="https://img.shields.io/badge/jirasoftware-0052CC?style=flat&logo=jirasoftware&logoColor=white" />
     <img src="https://img.shields.io/badge/notion-000000?style=flat&logo=notion&logoColor=white" />
 	<img src="https://img.shields.io/badge/mattermost-0058CC?style=flat&logo=mattermost&logoColor=white" />
+	<img src="https://img.shields.io/badge/figma-F24E1E?style=flat&logo=figma&logoColor=white" />
 </div>
 
 <br>
@@ -88,12 +111,4 @@
 ## DB ERD
 <img src = "./docs/sql/DBERD.png">
 
-## 팀원 역할
-| 이름   | 역할 | 내용                        |
-| ------ | ---- | --------------------------- |
-| 강모현 | AI | 프론트엔드 개발 |
-| 박성환 | BE | 백앤드 개발,  CI/CD |
-| 박재현 | BE | 백앤드 개발, JWT 관리, 이미지 업로드 |
-| 최종현 | BE | 백앤드 개발, REST API |
-| 양서정 | FE | 프론트엔드 개발, UI/UX 디자인 |
-| 이병수 | FE | 프론트엔드 개발, 비동기 통신 |
+
