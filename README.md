@@ -1,4 +1,4 @@
-<img src = "./docs/img/READVE_TITLE.png">
+<img src = "./docs/img/README_TITLE.png">
 
 # AATS
 
