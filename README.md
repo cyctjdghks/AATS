@@ -99,79 +99,79 @@
 
 ## 시나리오
 
-0. 회원가입/ 로그인 선택
+### 회원가입/ 로그인 선택
 
-### 회원가입
+#### 회원가입
 <div>
 	<img src="./docs/img/demonstration/signup.png" />
 <div/>
 
-### 로그인 선택
+#### 로그인 선택
 <div>
 	<img src="./docs/img/demonstration/logintype.png" />
 <div/>
 
 
-1. Organization
+### Organization
 
-### 로그인
+#### 로그인
 <div>
 	<img src="./docs/img/demonstration/organizationlogin.png" />
 	<img src="./docs/img/demonstration/organizationtype.png" />
 <div/>
 
-### 회원/근무자 조회
+#### 회원/근무자 조회
 <div>
 	<img src="./docs/img/demonstration/organizationsearch1.png" />
 	<img src="./docs/img/demonstration/organizationsearch2.png" />
 <div/>
 
-### 회원/근무자 등록
+#### 회원/근무자 등록
 <div>
 	<img src="./docs/img/demonstration/organizationregist1.png" />
 	<img src="./docs/img/demonstration/organizationregist2.png" />
 <div/>
 
-### 회원/근무자 출퇴근
+#### 회원/근무자 출퇴근
 <div>
 	<img src="./docs/img/demonstration/attendance.png" />
 <div/>
 
-### 군집도 확인
+#### 군집도 확인
 <div>
 	<img src="./docs/img/demonstration/cluster.png" />
 <div/>
 
-2. User
+### User
 
-### 로그인
+#### 로그인
 <div>
 	<img src="./docs/img/demonstration/userlogin.png" />
 <div/>
 
-### 정보조회
+#### 정보조회
 <div>
 	<img src="./docs/img/demonstration/userprofile.png" />
 <div/>
 
-### 달력확인
+#### 달력확인
 <div>
 	<img src="./docs/img/demonstration/usercalendar.png" />
 <div/>
 
-3. User
+### User
 
-### 로그인
+#### 로그인
 <div>
 	<img src="./docs/img/demonstration/workerlogin.png" />
 <div/>
 
-### 정보조회
+#### 정보조회
 <div>
 	<img src="./docs/img/demonstration/workerprofile.png" />
 <div/>
 
-### 달력확인
+#### 달력확인
 <div>
 	<img src="./docs/img/demonstration/workercalendar.png" />
 <div/>
