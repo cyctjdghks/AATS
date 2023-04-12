@@ -123,7 +123,7 @@
 #### 회원/근무자 조회
 <div>
 	<img src="./docs/img/demonstration/organizationsearch1.png" />
-	<img src="./docs/img/demonstration/organizationsearch2.png" />
+	<img src="./docs/img/demonstration/organizationsearch2_edit.png" />
 <div/>
 
 #### 회원/근무자 등록
@@ -151,7 +151,7 @@
 
 #### 정보조회
 <div>
-	<img src="./docs/img/demonstration/userprofile.png" />
+	<img src="./docs/img/demonstration/userprofile_edit.png" />
 <div/>
 
 #### 달력확인
