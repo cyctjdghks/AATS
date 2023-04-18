@@ -24,7 +24,7 @@
 
 ### UCC ➡ [유튜브](https://www.youtube.com/watch?v=NyFY9B5sgGI&t=129s)
 ### 발표자료 ➡ [중간 발표자료](docs/pdf/중간발표.pdf) / [최종 발표자료](docs/pdf/최종발표.pdf)
-### Notion ➡ [노션](https://www.notion.so/TEAM-D102-78c7a75d883a470989ff1ed556976ead)
+### Notion ➡ [노션](https://plume-ostrich-055.notion.site/TEAM-D102-36549e6e23f644688e38d4fb3e0d7e15)
 
 <br>
 
